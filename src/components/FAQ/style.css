@@ -1,0 +1,29 @@
+.Box{
+    background-color:red;
+    background: #FAFAFA;
+border-radius: 4px;
+margin: 1% 0 1.5% 0;
+
+
+}
+
+.question{
+    font-family: 'Dahlia';
+font-style: normal;
+font-weight: 700;
+font-size: 24px!important;
+line-height: 24px;
+font-weight: 700;
+font-weight: bold;;
+border: 0px solid black;
+
+
+color: red;
+
+}
+
+.answer{
+    text-align: left;
+    padding-right: 3%;
+    border: 0px solid black;
+}

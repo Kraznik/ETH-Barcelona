@@ -161,8 +161,6 @@ width:165px;
 `
 
 const OrganizerLogo = styled.div`
-width: 270px;
-height: 200px;
 padding: 2% 2% 2% 0 ;
 margin-right:5%;
 `
