@@ -9,7 +9,6 @@ background: #354B37;
 `;
 
 const ImgContainer = styled.div`
-
 @media (max-width: 700px) {
 
   }
