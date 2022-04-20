@@ -6,6 +6,8 @@ import Star from "../../assets/star.png";
 
 const Container = styled.div`
 background: #354B37;
+
+
 `;
 
 const ImgContainer = styled.div`
