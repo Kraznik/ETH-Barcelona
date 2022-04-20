@@ -1,6 +1,6 @@
 import React from 'react'; 
 import styled from "styled-components";
-import Intros from "../../assets/Intro.png";
+import NFT from "../../assets/NFT.png";
 
 const Container = styled.div`
 background: #F5C34B;
@@ -12,14 +12,21 @@ font-style: normal;
 font-weight: 400;
 font-size: 150px;
 line-height: 160px;
-
+  position: relative;
+  text-align: center;
+  color: white;
 /* or 107% */
 text-align: center;
 letter-spacing: -0.01em;
 color: #354B37;
 `
+
 const Image = styled.div`
-background-image: url(${Intro});
+background-image: url(${NFT});
+height: 374.5px;
+display:inline-block;
+width: 301px;
+position: absolute;
 
 `
 const TextContainer = styled.div``
