@@ -16,10 +16,6 @@ text-transform: uppercase;
 
 
 color: #D1ABAD;
-
-@media (max-width: 600px) {
-    font-size:44px;
-  }
 `
 
 const SubHeading = styled.div`
@@ -36,10 +32,6 @@ line-height: 56px;
 /* Dirty Pink */
 
 color: #D1ABAD;
-
-@media (max-width: 600px) {
-    font-size:28px;
-  }
 `
 
 const SocialsContainer = styled.div`
@@ -51,19 +43,21 @@ padding:0% 10% 0% 10%;
 const LegalContainer = styled.div`
 display:inline-block;
 float:left;
-padding:1% 10% 5% 10%;
+background: #424242;
+width:100%;
+padding: 2% 0 2% 10%;
+
+
 `
 
 const Text = styled.div`
 display:inline-block;
-justify-content:left;
-font-weight: 400;
-font-size: 16px;
-line-height: 28px;
+float:left;
 color: #808080;
-flex: none;
-order: 1;
-flex-grow: 0;
+margin-right:2%;
+
+
+
 `
 
 const Social = styled.div`
@@ -83,13 +77,13 @@ const Footer = () => {
         <Heading>Soon you will  be able to Live the SolarPunk Experience at</Heading>
         <SubHeading>Centre Convencions Internacional Barcelona (CCIB)</SubHeading>
         <SocialsContainer>
+            <Social>Telegram</Social>
             <Social>Twitter</Social>
-            <Social>Twitter</Social>
-            <Social>Twitter</Social>
+            <Social>Instagram</Social>
         </SocialsContainer>
         <LegalContainer>
             <Text> Privacy Policy</Text>
-            <Text> Privacy Policy</Text>
+            <Text> Terms of Conditions</Text>
             <Text> Privacy Policy</Text>
 
         </LegalContainer>

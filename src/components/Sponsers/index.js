@@ -10,6 +10,7 @@ import Organizer from "../../assets/O1.png"
 
 const Container = styled.div`
 background:#E5E5E5;
+padding-top:10%;
 `
 
 const TitleBox = styled.div`
@@ -63,6 +64,7 @@ color: #828282;
 
 const DiamondSponserLogoContainer = styled.div`
 display:flex;
+padding: 0 0 5% 0;
 
 @media (max-width: 600px) {
     border-radius: 4px;
@@ -72,7 +74,6 @@ display:flex;
 `
 const DiamondSponserLogo= styled.div`
 display:inline-block;
-padding:1% 1% 1% 0;
 position:relative;
 margin:1% 13.5% 1% 0 ;
 `
@@ -104,6 +105,7 @@ color: #828282;
 
 const GoldSponserLogoContainer = styled.div`
 display:flex;
+padding: 0 0 5% 0;
 
 @media (max-width: 600px) {
     border-radius: 4px;
@@ -131,6 +133,7 @@ height: 180px;
 const SilverSponserContainer = styled.div`
 border-bottom: 1px solid #BDBDBD;
 margin: 0 10% 0 10%;
+padding-bottom:2.5%;
 position:relative;
 `
 

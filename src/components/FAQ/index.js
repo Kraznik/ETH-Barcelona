@@ -6,7 +6,7 @@ import "./style.css"
 
 const Container = styled.div`
 background: #424242;
-padding: 5% 10% ;
+padding: 5% 10% 1% 10% ;
 
 `
 const Title = styled.div`
@@ -32,30 +32,49 @@ const FAQ = () => {
     <Accordion>
 
   <Accordion.Item eventKey="0" className='Box' >
-    <Accordion.Header className='question' >Accordion Item #1</Accordion.Header>
+    <Accordion.Header className='question' > What is ETHBarcelona</Accordion.Header>
     <Accordion.Body className='answer'>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.
+
     </Accordion.Body>
   </Accordion.Item>
 
   <Accordion.Item eventKey="1" className='Box' >
-    <Accordion.Header className='question' >Accordion Item #1</Accordion.Header>
+    <Accordion.Header className='question' >Who can participate?</Accordion.Header>
     <Accordion.Body className='answer'>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.
+    Anyone 18 and over at the time of the event can apply to participate in the #BUIDLathon (see next section if you’re under 18). Applications are based on interest in blockchain technology and demonstrated ability to code, design or otherwise meaningfully contribute to a project. Applications from any corner of the globe will be accepted. PLEASE NOTE that non-technical contributors are highly encouraged to participate (the best teams are well rounded). If you have something you think you can add to the ecosystem – whether it's a knack for crafting white papers to explain dApps, a creative or artistic perspective, or an entrepreneurial vision – we'd welcome your talents and skills on one of the #BUIDLathon teams.
     </Accordion.Body>
   </Accordion.Item>
+
+  <Accordion.Item eventKey="2" className='Box' >
+    <Accordion.Header className='question' > How much does it cost to attend?</Accordion.Header>
+    <Accordion.Body className='answer'>
+
+    </Accordion.Body>
+  </Accordion.Item>
+
+
+  <Accordion.Item eventKey="3" className='Box' >
+    <Accordion.Header className='question' > What are ETH Barcelona’s measure against the corona virus?</Accordion.Header>
+    <Accordion.Body className='answer'>
+
+    </Accordion.Body>
+  </Accordion.Item>
+
+  <Accordion.Item eventKey="4" className='Box' >
+    <Accordion.Header className='question' > How do I get there?</Accordion.Header>
+    <Accordion.Body className='answer'>
+
+    </Accordion.Body>
+  </Accordion.Item>
+
+  <Accordion.Item eventKey="5" className='Box' >
+    <Accordion.Header className='question' > Code of Conduct</Accordion.Header>
+    <Accordion.Body className='answer'>
+
+    </Accordion.Body>
+  </Accordion.Item>
+
+  
 
 </Accordion>
 </Container>

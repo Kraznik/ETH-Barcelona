@@ -7,21 +7,19 @@ import Speakers from './components/Speakers';
 import Sponsers from './components/Sponsers';
 import Hover from "./components/Hover"
 import Intro from "./components/Intro"
+import Header from './components/Navbar';
 
 
 function App() {
   return (
-     <div className="App">
-    {/* //   <Circle></Circle>
-    //   <Sponsers></Sponsers>
-    //   <Footer></Footer>
-    //   <FAQ></FAQ>
-    //   <Speakers></Speakers>
-    //   <Hover></Hover> */}
-     <Intro></Intro> 
-      
+  <div className="App">
+    <Intro></Intro>
+    <Circle></Circle>
+    <Sponsers></Sponsers>
+    <FAQ></FAQ>
+    <Footer></Footer>
 
-    </div>
+  </div>
   );
 }
 

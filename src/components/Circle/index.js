@@ -17,7 +17,7 @@ const ImgContainer = styled.div`
 `;
 
 const TextContainer = styled.div`
-padding:10%;
+  padding:10% 10% 12% 10%;
 @media (max-width: 700px) {
     padding:1%;
 }
@@ -52,7 +52,7 @@ const Circle = () => {
     <>
     <Container>
         <ImgContainer>
-        <img src={Header} width="100%"></img>
+        <img src={Header} height="100%"></img>
             
         </ImgContainer>
         <TextContainer>
