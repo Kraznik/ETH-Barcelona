@@ -1,0 +1,9 @@
+@font-face {
+    font-family: dahlia;
+    src: url(../../Fonts/dahlia-bold.woff);
+}
+
+@font-face {
+    font-family: dahlia-notmal;
+    src: url(../../Fonts/dahlia-regularcondensed.otf);
+}

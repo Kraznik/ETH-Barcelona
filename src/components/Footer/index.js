@@ -1,5 +1,6 @@
 import React from 'react'; 
 import styled from 'styled-components';
+import "./style.css";
 
 const Container = styled.div`
 background: #424242;
@@ -19,7 +20,7 @@ color: #D1ABAD;
 `
 
 const SubHeading = styled.div`
-font-family: 'Dahlia';
+font-family: 'Dahlia-normal';
 font-style: normal;
 margin-top:2%;
 font-weight: 400;
@@ -84,7 +85,6 @@ const Footer = () => {
         <LegalContainer>
             <Text> Privacy Policy</Text>
             <Text> Terms of Conditions</Text>
-            <Text> Privacy Policy</Text>
 
         </LegalContainer>
 
