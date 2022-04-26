@@ -7,6 +7,11 @@ import "./style.css"
 const Container = styled.div`
 background: #424242;
 padding: 5% 10% 1% 10% ;
+@media (max-width: 700px) {
+  padding-top:25%;
+  padding-bottom:20%;
+
+}
 
 `
 const Title = styled.div`
@@ -22,6 +27,12 @@ display: flex;
 align-items: center;
 padding-bottom:2%;
 color: #D1ABAD;
+
+@media (max-width: 700px) {
+
+  padding-bottom:10%;
+
+}
 `
 
 const FAQ = () => {

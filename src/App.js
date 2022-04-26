@@ -17,8 +17,7 @@ function App() {
     <Navbars></Navbars>
   <Intro></Intro>
 <Circle></Circle>
-<Hero></Hero>
-<Sponsers></Sponsers>
+{/* <Hero></Hero> */}
 <FAQ></FAQ>
 <Footer></Footer>
   </div>

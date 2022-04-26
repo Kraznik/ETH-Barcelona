@@ -5,12 +5,17 @@
 
 
 .Box{
-    background-color:red;
+    
     background: #FAFAFA;
 border-radius: 4px;
 margin: 1% 0 1.5% 0;
+}
 
-
+@media screen and (max-width:700px) {
+    .Box{
+        margin-bottom: 10px;
+    }
+    
 }
 
 .question{
@@ -22,6 +27,9 @@ line-height: 24px;
 font-weight: 700;
 font-weight: bold;;
 border: 0px solid black;
+@media only screen and (max-width: 600px) {
+    padding-bottom: 20%;
+  }
 
 
 

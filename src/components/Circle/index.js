@@ -22,7 +22,8 @@ const TextContainer = styled.div`
 
 @media (max-width: 700px) {
     padding:0%;
-    padding-bottom:10%;
+    margin:10%;
+    padding-bottom:30%;
 }
 
 `;
