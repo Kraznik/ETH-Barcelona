@@ -7,13 +7,15 @@ import Speakers from './components/Speakers';
 import Sponsers from './components/Sponsers';
 import Intro from "./components/Intro"
 import Hero from './components/Dual';
+import Navbars from "./components/Navbar";
 
 
 
 function App() {
   return (
   <div className="App">
-    <Intro></Intro>
+    <Navbars></Navbars>
+  <Intro></Intro>
 <Circle></Circle>
 <Hero></Hero>
 <Sponsers></Sponsers>

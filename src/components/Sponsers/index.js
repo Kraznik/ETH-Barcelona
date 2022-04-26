@@ -9,7 +9,7 @@ import Organizer from "../../assets/O1.png"
 
 
 const Container = styled.div`
-background:#E5E5E5;
+background: #F4F4F5;
 padding-top:10%;
 `
 
