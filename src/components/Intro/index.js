@@ -6,6 +6,10 @@ import "./style.css";
 const Container = styled.div`
   background: #f5c34b;
   min-width: 700px;
+
+  @media screen and (max-width: 800px) {
+   min-width:375px;
+  }
 `;
 
 const Title = styled.div`

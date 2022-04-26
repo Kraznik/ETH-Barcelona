@@ -14,7 +14,7 @@ function App() {
       <Navbars></Navbars>
       <Intro></Intro>
       <Circle></Circle>
-      {/* <Hero></Hero> */}
+      <Hero></Hero>
       <FAQ></FAQ>
       <Footer></Footer>
     </div>
