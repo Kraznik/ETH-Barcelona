@@ -1,84 +1,151 @@
-import React from 'react'; 
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import NFT from "../../assets/NFT.png";
 import "./style.css";
 
-
-
 const Container = styled.div`
-background: #F5C34B;
-`
+  background: #f5c34b;
+`;
 
 const Title = styled.div`
-font-family: 'Dahlia-normal';
-font-style: normal;
+  font-family: "Dahlia-normal";
+  font-style: normal;
 
-font-size: 150px;
-line-height: 160px;
+  font-size: 150px;
+  line-height: 160px;
+
+  /* font-size: 5vw;
+  line-height: 2vh; */
   position: relative;
   text-align: center;
   color: white;
-text-align: center;
-letter-spacing: -0.01em;
-color: #354B37;
-`
-const Title1 = styled.div`
-font-family: 'Dahlia-normal';
-font-style: normal;
+  text-align: center;
+  letter-spacing: -0.01em;
+  color: #354b37;
 
-font-size: 150px;
-line-height: 160px;
+  @media screen and (max-width: 1200px) {
+    font-size: 120px;
+    line-height: 130px;
+  }
+
+  @media screen and (max-width: 950px) {
+    font-size: 100px;
+    line-height: 110px;
+  }
+
+  @media screen and (max-width: 800px) {
+    font-size: 70px;
+    line-height: 80px;
+  }
+`;
+const Title1 = styled.div`
+  font-family: "Dahlia-normal";
+  font-style: normal;
+  font-size: 150px;
+  line-height: 160px;
+  /* font-size: 5vw;
+  line-height: 2vh; */
   text-align: center;
   color: white;
-text-align: center;
-letter-spacing: -0.01em;
-color: #354B37;
-`
+  text-align: center;
+  letter-spacing: -0.01em;
+  color: #354b37;
+
+  @media screen and (max-width: 1200px) {
+    font-size: 120px;
+    line-height: 130px;
+  }
+  @media screen and (max-width: 950px) {
+    font-size: 100px;
+    line-height: 110px;
+  }
+
+  @media screen and (max-width: 800px) {
+    font-size: 70px;
+    line-height: 80px;
+  }
+`;
 const Image = styled.div`
-background-image: url(${NFT});
-height: 374.5px;
-display:inline-block;
-margin: 0 0 0 -160px;
-width: 301px;
-position:absolute;
+  background-image: url(${NFT});
+  height: 374.5px;
+  display: inline-block;
+  margin: 0 0 0 -160px;
+  width: 301px;
+  position: absolute;
 
-`
+  @media screen and (max-width: 800px) {
+    zoom: 85%;
+    margin: auto;
+    position: static;
+  }
+`;
 const TextContainer = styled.div`
-padding:10%;
-
-`
+  padding: 10%;
+`;
 
 const Dates = styled.div`
-font-family: 'Dahlia';
-font-style: normal;
-font-weight: 1000;
-font-size: 25px;
-margin-top:2.5%;
-line-height: 30px;
-/* identical to box height, or 120% */5
-align-items: center;
-color: #354B37;
-`
+  font-family: "Dahlia";
+  font-style: normal;
+  font-weight: 1000;
+  font-size: 25px;
+  margin-top: 2.5%;
+  line-height: 30px;
+  /* identical to box height, or 120% */
+  align-items: center;
+  color: #354b37;
+
+  @media screen and (max-width: 950px) {
+    margin-top: 50px;
+  }
+`;
 
 const Intro = () => {
+  const [windowDimension, setWindowDimension] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  const IsMobile = windowDimension <= 800;
+
+  useEffect(() => {
+    setWindowDimension(window.innerWidth);
+    setIsMobile(IsMobile);
+  }, []);
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowDimension(window.innerWidth);
+    }
+    setIsMobile(IsMobile);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [IsMobile]);
+
   return (
     <>
-    <Container>
+      <Container>
         {/* <Navbar></Navbar> */}
+
         <TextContainer>
-        
-        <Image></Image>
-        <Title>What happens in</Title>
-        <Title1>Barcelona stays</Title1>
-        <Title>on the Blockchain</Title>
-        <Dates>July  6-8</Dates>
+          {!isMobile ? (
+            <>
+              <Image></Image>
+              <Title>What happens in</Title>
+              <Title1>Barcelona stays</Title1>
+              <Title>on the Blockchain</Title>
+              <Dates>July 6-8</Dates>
+            </>
+          ) : (
+            <>
+              <Dates>July 6-8</Dates>
+              <Title>What happens in</Title>
+              <Title1>Barcelona stays</Title1>
+              <Title>on the Blockchain</Title>
+              <Image style={{ marginTop: "-80px" }}></Image>
+            </>
+          )}
         </TextContainer>
-
-        
-    </Container>
+      </Container>
     </>
+  );
+};
 
-  )
-}
-
-export default Intro
+export default Intro;
