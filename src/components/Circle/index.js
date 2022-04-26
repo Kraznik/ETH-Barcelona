@@ -23,7 +23,12 @@ const ImgContainer = styled.div`
 
 const TextContainer = styled.div`
   padding: 10% 9% 12% 9%;
-  text-align: center;
+
+  @media (max-width: 700px) {
+    padding: 0%;
+    margin: 10%;
+    padding-bottom: 30%;
+  }
 
   @media (max-width: 700px) {
     padding: 0%;

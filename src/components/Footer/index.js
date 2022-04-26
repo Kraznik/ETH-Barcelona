@@ -17,6 +17,15 @@ text-transform: uppercase;
 
 
 color: #D1ABAD;
+
+@media (max-width: 700px) {
+    font-family: 'Dahlia';
+font-style: normal;
+font-weight: 700;
+font-size: 42px;
+line-height: 54px;
+
+}
 `
 
 const SubHeading = styled.div`
@@ -33,12 +42,40 @@ line-height: 56px;
 /* Dirty Pink */
 
 color: #D1ABAD;
+
+@media (max-width: 700px) {
+    font-family: 'Dahlia-normal';
+    font-style: normal;
+    font-weight: 400;
+    margin-top:10%;
+    font-size: 25px;
+    margin-bottom:15%;
+    line-height: 38px;
+    /* or 119% */
+    
+    
+    /* Dirty Pink */
+    
+    color: #D1ABAD;
+
+}
+
+
 `
 
 const SocialsContainer = styled.div`
 text-align:left;
 padding:0% 10% 0% 10%;
+@media (max-width: 700px) {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 28px;
+    padding-bottom:5%;
+    color: #D1D1D1;
 
+}
 `
 
 const LegalContainer = styled.div`
@@ -56,6 +93,11 @@ display:inline-block;
 float:left;
 color: #808080;
 margin-right:2%;
+
+@media (max-width: 700px) {
+padding-bottom:10%;
+
+}
 
 
 
