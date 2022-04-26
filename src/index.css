@@ -3,7 +3,18 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Dahlia';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: auto !important;
+  box-sizing: inherit;
+  overflow-x: hidden;
+  /* position: absolute;
+  display: grid;
+  justify-self: center; */
+  /* -moz-transform:scale(1);
+     -webkit-transform:scale(1);
+     -o-transform:scale(1);
+     -ms-transform:scale(1); */
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Dahlia',

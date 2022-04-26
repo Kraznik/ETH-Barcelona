@@ -5,6 +5,7 @@ import "./style.css";
 
 const Container = styled.div`
   background: #f5c34b;
+  min-width: 700px;
 `;
 
 const Title = styled.div`
