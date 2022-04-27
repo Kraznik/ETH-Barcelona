@@ -5,6 +5,8 @@ import Event2 from "../../assets/Event2.png";
 import Ticket1 from "../../assets/Ticket1.png";
 import Ticket2 from "../../assets/Ticket2.png";
 
+import { useNavigate } from "react-router-dom";
+
 // import ScrollableSection, { ScrollableLink } from "react-update-url-on-scroll";
 
 const Container = styled.div`
@@ -154,6 +156,8 @@ const Hero = () => {
   const [imageUrlIn, setImageUrlIn] = useState("");
 
   const location = window.location.hash;
+  let navigate = useNavigate();
+
   useEffect(() => {
     setImageUrlOut(Event1);
     setImageUrlIn(Event2);
@@ -203,8 +207,24 @@ const Hero = () => {
               <a> Go to section 2 </a>
             </ScrollableLink> */}
 
-            <a href="/section#section1">Section1</a>
-            <a href="/section#section2">Section2</a>
+            <a
+              href="/section#section1"
+              onClick={() => {
+                navigate("/section#section1");
+                window.location.reload();
+              }}
+            >
+              Section1
+            </a>
+            <a
+              href="/section#section2"
+              onClick={() => {
+                navigate("/section#section2");
+                window.location.reload();
+              }}
+            >
+              Section2
+            </a>
           </Navbar>
           <SectionContainer1 id="section1">
             <TextBox>
