@@ -2,3 +2,31 @@
     font-family: dahlia;
     src: url(../../Fonts/dahlia-boldcondensed.otf);
 }
+
+.outimg {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.inimg {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.outimg1 {
+    background-image: url("../../assets/Event1.png");
+}
+
+.outimg2 {
+    background-image: url("../../assets/Ticket1.png");
+}
+
+.inimg1 {
+    background-image: url("../../assets/Event2.png");
+}
+
+.inimg2 {
+    background-image: url("../../assets/Ticket2.png");
+}

@@ -7,32 +7,69 @@ import Ticket2 from "../../assets/Ticket2.png";
 
 import { useNavigate } from "react-router-dom";
 
-// import ScrollableSection, { ScrollableLink } from "react-update-url-on-scroll";
+import { Scrollchor } from "react-scrollchor";
+
+import "./style.css";
 
 const Container = styled.div`
   background: #f4f4f5;
+  overflow-y: auto;
+  height: 900px;
+  position: relative;
 `;
+
 const Right = styled.div`
   width: 646px;
   display: inline-block;
   float: right;
+  position: relative;
+`;
+/* background-image: url(${imageUrlOut}); */
+
+const OuterContainer = styled.div`
+  /* background-image: url(${Event1}); */
+  height: 900px;
+  padding: 15%;
+  top: 0px;
+  right: 0px;
+  position: sticky;
+  margin-top: -68px;
+  z-index: 100 !important;
 `;
 
-// const OuterContainer2 = styled.div`
-//   background-image: url(${Ticket1});
-//   height: 900px;
-//   padding: 15%;
-// `;
+const ImageRight = styled.img`
+  height: 800px;
+  /* padding: 15%; */
+  /* top: 0px;
+  right: 0px;
+  position: sticky; */
+`;
+
+/* background-image: url(${imageUrlIn}); */
+
+const ImageContainer = styled.div`
+  /* background-image: url(${Event2}); */
+  height: 613px;
+`;
+
+const OuterContainer2 = styled.div`
+  /* background-image: url(${Ticket1}); */
+  height: 900px;
+  padding: 15%;
+  z-index: 1000 !important;
+  position: sticky;
+  margin-top: 68px;
+`;
 const TextContainer = styled.div`
   width: 518px;
   padding: 5%;
   background: #f4f4f5; ;
 `;
 
-// const ImageContainer2 = styled.div`
-//   background-image: url(${Ticket2});
-//   height: 613px;
-// `;
+const ImageContainer2 = styled.div`
+  /* background-image: url(${Ticket2}); */
+  height: 613px;
+`;
 
 const Heading = styled.div`
   font-family: "Dahlia";
@@ -49,8 +86,7 @@ const Heading = styled.div`
 const Left = styled.div`
   display: inline-block;
   height: 900px;
-  overflow-y: auto;
-  position: relative;
+  /* position: relative; */
 `;
 
 const Navbar = styled.div`
@@ -60,7 +96,7 @@ const Navbar = styled.div`
   margin: 20px 0% 0% 0%;
   border-radius: 100px;
   top: 20px;
-  left: 0px;
+  left: 100px;
   position: sticky;
   z-index: 20;
 
@@ -148,8 +184,30 @@ const SectionContainer = styled.div`
   padding-bottom: 200px;
 `;
 
-const SectionContainer1 = styled(SectionContainer)``;
-const SectionContainer2 = styled(SectionContainer)``;
+const SectionContainer1 = styled(SectionContainer)`
+  /* top: 0px;
+  position: sticky; */
+`;
+const SectionContainer2 = styled(SectionContainer)`
+  /* position: sticky; */
+`;
+
+const onScroll = () => {
+  var currentHash = "#initial_hash";
+  document.scroll(function () {
+    ".anchor_tags".each(function () {
+      var top = window.pageYOffset;
+      var distance = top - this.offset().top;
+      var hash = this.attr("href");
+      // 30 is an arbitrary padding choice,
+      // if you want a precise check then use distance===0
+      if (distance < 30 && distance > -30 && currentHash != hash) {
+        window.location.hash = hash;
+        currentHash = hash;
+      }
+    });
+  });
+};
 
 const Hero = () => {
   const [imageUrlOut, setImageUrlOut] = useState("");
@@ -169,66 +227,76 @@ const Hero = () => {
     }
   }, [location]);
 
-  const OuterContainer = styled.div`
-    background-image: url(${imageUrlOut});
-    height: 900px;
-    padding: 15%;
-  `;
-
-  const ImageContainer = styled.div`
-    background-image: url(${imageUrlIn});
-    height: 613px;
-  `;
   return (
     <>
       <Container>
+        <Navbar
+          style={{
+            display: "flex",
+            padding: "10px 50px",
+            gap: "40px",
+          }}
+        >
+          {/* <a
+            href="/section#section1"
+            //   onClick={() => {
+            //     navigate("/section#section1");
+            //     window.location.reload();
+            //   }}
+          >
+            Section1
+          </a>
+          <a
+            href="/section#section2"
+            //   onClick={() => {
+            //     navigate("/section#section2");
+            //     window.location.reload();
+            //   }}
+          >
+            Section2
+          </a> */}
+          <Scrollchor to="#section1">Section1</Scrollchor>
+          <Scrollchor to="#section2">Section2</Scrollchor>
+        </Navbar>
         <Right>
-          <OuterContainer>
+          {/* <OuterContainer className="outimg outimg1">
+            <ImageRight src={Event1} />
+          </OuterContainer> */}
+          <OuterContainer className="outimg outimg1">
+            <TextContainer>
+              <ImageContainer className="inimg inimg1"></ImageContainer>
+              <Heading>Barcelona . Spain</Heading>
+            </TextContainer>
+          </OuterContainer>
+
+          <OuterContainer2 className="outimg outimg2">
+            <TextContainer>
+              <ImageContainer2 className="inimg inimg2"></ImageContainer2>
+              <a href="#claim">
+                <Heading>Claim your NFT</Heading>
+              </a>
+            </TextContainer>
+          </OuterContainer2>
+          {/* <OuterContainer>
             <TextContainer>
               <ImageContainer></ImageContainer>
               <Heading>Barcelona . Spain</Heading>
             </TextContainer>
-          </OuterContainer>
+          </OuterContainer> */}
+          {/* <OuterContainer2>
+            <TextContainer>
+              <ImageContainer2></ImageContainer2>
+              <a href="#claim">
+                <Heading>Claim your NFT</Heading>
+              </a>
+            </TextContainer>
+          </OuterContainer2> */}
         </Right>
 
-        <Left id="section">
-          <Navbar
-            style={{
-              display: "flex",
-              padding: "10px 50px",
-              gap: "40px",
-            }}
-          >
-            {/* <ScrollableLink href="/section1">
-              <a> Go to section 1 </a>
-            </ScrollableLink>
-
-            <ScrollableLink href="/section2">
-              <a> Go to section 2 </a>
-            </ScrollableLink> */}
-
-            <a
-              href="/section#section1"
-              onClick={() => {
-                navigate("/section#section1");
-                window.location.reload();
-              }}
-            >
-              Section1
-            </a>
-            <a
-              href="/section#section2"
-              onClick={() => {
-                navigate("/section#section2");
-                window.location.reload();
-              }}
-            >
-              Section2
-            </a>
-          </Navbar>
+        <Left>
           <SectionContainer1 id="section1">
             <TextBox>
-              <Title>Join us in suuny </Title>
+              <Title>Join us in sunny </Title>
               <Title2>Barcelona </Title2>
             </TextBox>
             <Description>
