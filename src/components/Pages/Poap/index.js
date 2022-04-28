@@ -9,6 +9,7 @@ justify-content: center;
 align-items: center;
 position: absolute;
 width: 530px;
+margin-top:5%;
 height: 618.2px;
 left: calc(50% - 530px/2);
 background: white;

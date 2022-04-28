@@ -1,6 +1,9 @@
 import React from 'react'; 
 import styled from "styled-components";
 import QR from "../../../assets/QRCode.png";
+import Print from "../../../assets/print.svg";
+import Download from "../../../assets/download.svg";
+import Email from "../../../assets/email.svg";
 
 
 const Container = styled.div`
@@ -9,6 +12,7 @@ flex-direction: column;
 align-items: center;
 position: absolute;
 width: 530px;
+margin-top:10%;
 height: 536px;
 left: calc(50% - 530px/2);
 background: white;
@@ -39,21 +43,17 @@ const QRCode = styled.div`
 background-image: url(${QR});
 height:180px;
 width:180px;
-flex: none;
-order: 1;
-align-self: stretch;
-flex-grow: 0;
 align-items:center;
 margin-left: auto;
 margin-right: auto;
 display: block;
-margin-top:10%;
+margin-top:7.5%;
 justify-content:center;
 `;
 
 const Description = styled.div`
 /* Body Text M */
-
+padding: 0 15%;
 font-family: 'Montserrat';
 font-style: normal;
 font-weight: 400;
@@ -73,14 +73,21 @@ color: #354B37;
 `;
 
 const ImageContainer = styled.div`
+display:inline-block;
+
 
 ;`;
 
-const PrintContainer = styled.div``;
+const PrintContainer = styled.div`
+display:
 
-const DownloadContainer = styled.div``;
+`;
 
-const EmailContainer = styled.div``;
+const DownloadContainer = styled.div`
+`;
+
+const EmailContainer = styled.div`
+`;
 
 const index = () => {
   return (
@@ -91,13 +98,19 @@ const index = () => {
         <QRCode> </QRCode>
         <ImageContainer>
             <PrintContainer>
+                <img src={Print}></img>
+                Print
              
 
             </PrintContainer>
             <DownloadContainer>
+                <img src={Download}></img>
+                Download
 
             </DownloadContainer>
             <EmailContainer>
+                <img src={Email}></img>
+                Email
 
             </EmailContainer>
 

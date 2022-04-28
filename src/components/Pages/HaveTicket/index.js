@@ -11,20 +11,21 @@ const TicketBox = styled.div`
 position: static;
 border:1px solid black;
 display:inline-block;
-margin-left:20px;
+margin:20px 20px;
+border-radius:10px;
 padding:10px 0;
 
 `;
 
 const Title = styled.div`
-font-family: 'GT Flexa';
+font-family: 'dahlia';
 font-style: normal;
 font-weight: 400;
 font-size: 20px;
 line-height: 130%;
 /* identical to box height, or 26px */
 
-letter-spacing: -0.04em;
+letter-spacing: 0.05em;
 
 /* Black soft */
 
@@ -47,7 +48,8 @@ height: 268px;
 
 `;
 
-const TicketId = styled.div``;
+const TicketId = styled.div`
+font-family: 'dahlia';`;
 
 const DoinGud = styled.button``;
 
@@ -69,6 +71,36 @@ const ShowTickets = () => {
            <TicketId> Tikcet Id 420 </TicketId>
            <DoinGud> Check on DoinGud </DoinGud>
        </TicketBox>
+
+       <TicketBox>
+           <Title>ETH BCN NFTicket</Title>
+           <TicketImage></TicketImage>
+           <TicketId> Tikcet Id 420 </TicketId>
+           <DoinGud> Check on DoinGud </DoinGud>
+       </TicketBox>
+
+       <TicketBox>
+           <Title>ETH BCN NFTicket</Title>
+           <TicketImage></TicketImage>
+           <TicketId> Tikcet Id 420 </TicketId>
+           <DoinGud> Check on DoinGud </DoinGud>
+       </TicketBox>
+
+       <TicketBox>
+           <Title>ETH BCN NFTicket</Title>
+           <TicketImage></TicketImage>
+           <TicketId> Tikcet Id 420 </TicketId>
+           <DoinGud> Check on DoinGud </DoinGud>
+       </TicketBox>
+
+       <TicketBox>
+           <Title>ETH BCN NFTicket</Title>
+           <TicketImage></TicketImage>
+           <TicketId> Tikcet Id 420 </TicketId>
+           <DoinGud> Check on DoinGud </DoinGud>
+       </TicketBox>
+
+       
    </Container>
    </>
   )

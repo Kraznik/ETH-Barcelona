@@ -22,7 +22,8 @@ function App() {
       <Hero></Hero>
       <FAQ></FAQ>
       <Footer></Footer> */}
-      <RedeemNFT></RedeemNFT>
+
+      
     </div>
   );
 }
