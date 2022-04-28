@@ -1,33 +1,24 @@
 import "./App.css";
-import {Route, Routes, Redirect} from "react-router-dom";
-import Circle from "./components/Circle";
-import FAQ from "./components/FAQ";
-import Footer from "./components/Footer";
-import Speakers from "./components/Speakers";
-import Sponsers from "./components/Sponsers";
-import Intro from "./components/Intro";
-import Hero from "./components/Dual";
-import Navbars from "./components/Navbar";
+
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 import BuyTickets from "./components/Pages/BuyTicket";
 import ShowQRcode from "./components/Pages/ShowQRcode/index.js"
 import Poap from "./components/Pages/Poap";
 import ShowTickets from "./components/Pages/HaveTicket";
 import RedeemNFT from "./components/Pages/Redeem";
+import Landing from "./components/Pages/LandingPage";
 
 function App() {
   return (
     <div className="App">
-      <Navbars></Navbars>
-      <Intro></Intro>
-      <Circle></Circle>
-      <Hero></Hero>
-      <FAQ></FAQ>
-      <Footer></Footer>
-
+    <Router>
+      <Landing />
       <Routes>
-        <Route path="/Poap" />
-
+      <Route path="/" exact components={() => <Landing />} />
+        <Route path="/Poap" exact components={() => <Poap />} />
       </Routes>
+    </Router>
 
       
     </div>

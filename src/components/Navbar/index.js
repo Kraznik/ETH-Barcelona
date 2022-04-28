@@ -5,7 +5,6 @@ import {
   Brand,
   Toggle,
   collapse,
-  Link,
   NavDropdown,
   Item,
   Divider,
@@ -14,6 +13,12 @@ import {
 import "./style.css";
 import styled from "styled-components";
 import Logo from "../../assets/logo.svg";
+import { NavLink } from "react-router-dom";
+
+const Heading = styled(NavLink)`
+color:red;
+
+`
 
 const TicketBox1 = styled.div`
 
@@ -24,10 +29,9 @@ const Navbars = () => {
     <div>
       <Navbar collapseOnSelect expand="lg" className="bar">
         <Container className="bar">
-          <Navbar.Brand href="/Poap" className="text1">
-            Program
+          <Navbar.Brand href="" className="text1"> Program
           </Navbar.Brand>
-          <Navbar.Brand href="#home" className="logo">
+          <Navbar.Brand href="/" className="logo">
             <img alt="" src={Logo} className="d-inline-block align-top" />{" "}
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -38,10 +42,12 @@ const Navbars = () => {
                 FAQ
               </Nav.Link>
 
+
               <Nav.Link className="text3">Program</Nav.Link>
               <TicketBox1>
               <Nav.Link eventKey={2} className="text">
-                Tickets
+                  <Heading exact to="/Poap"> Tickets</Heading>
+                  
               </Nav.Link>
               </TicketBox1>
 

@@ -58,7 +58,7 @@ margin: 10% 0 `;
 const Poap = () => {
   return (
     <>
-    <Container>
+    <Container id='Poap'>
         <Heading>Thanks for coming!</Heading>
         <Description>We have send you an NFT to your wallet. You can check it in your DoinGud profile.</Description>
         <Image></Image>

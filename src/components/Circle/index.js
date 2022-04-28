@@ -1,8 +1,10 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import Header from "../../assets/circle.png";
 import Star from "../../assets/star.png";
 import "./style.css";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   background: #354b37;
@@ -87,7 +89,7 @@ const Circle = () => {
           <img src={Header} width="100%"></img>
         </ImgContainer>
         <TextContainer>
-          <Title>
+          <Title >
             Exploring how <Bold>Blockchain Technology</Bold> can help build a
             sustainable world full of <Bold>Human Potential</Bold>
           </Title>
