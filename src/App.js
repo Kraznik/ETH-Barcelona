@@ -7,16 +7,22 @@ import Sponsers from "./components/Sponsers";
 import Intro from "./components/Intro";
 import Hero from "./components/Dual";
 import Navbars from "./components/Navbar";
+import BuyTickets from "./components/Pages/BuyTicket";
+import ShowQRcode from "./components/Pages/ShowQRcode/index.js"
+import Poap from "./components/Pages/Poap";
+import ShowTickets from "./components/Pages/HaveTicket";
+import RedeemNFT from "./components/Pages/Redeem";
 
 function App() {
   return (
     <div className="App">
-      <Navbars></Navbars>
+      {/* <Navbars></Navbars>
       <Intro></Intro>
       <Circle></Circle>
       <Hero></Hero>
       <FAQ></FAQ>
-      <Footer></Footer>
+      <Footer></Footer> */}
+      <RedeemNFT></RedeemNFT>
     </div>
   );
 }

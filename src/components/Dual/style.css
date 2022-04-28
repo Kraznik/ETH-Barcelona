@@ -2,3 +2,12 @@
     font-family: dahlia;
     src: url(../../Fonts/dahlia-boldcondensed.otf);
 }
+
+
+@media screen and (min-width:700px) {
+
+    .section{
+        display: none;
+    }
+    
+}

@@ -12,7 +12,13 @@ import {
   Nav,
 } from "react-bootstrap";
 import "./style.css";
+import styled from "styled-components";
 import Logo from "../../assets/logo.svg";
+
+const TicketBox1 = styled.div`
+
+`;
+
 const Navbars = () => {
   return (
     <div>
@@ -33,9 +39,12 @@ const Navbars = () => {
               </Nav.Link>
 
               <Nav.Link className="text3">Program</Nav.Link>
+              <TicketBox1>
               <Nav.Link eventKey={2} className="text">
                 Tickets
               </Nav.Link>
+              </TicketBox1>
+
             </Nav>
           </Navbar.Collapse>
         </Container>

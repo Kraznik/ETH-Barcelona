@@ -43,6 +43,7 @@ const Heading = styled.div`
   text-align: center;
   color: #424242;
   padding: 2%;
+  
   margin-top: 5%;
 `;
 
@@ -68,13 +69,33 @@ const Navbar = styled.div`
     text-decoration: none;
     color: white;
   }
+
+  @media (max-width: 800px) {
+   display:none;
+   position:none;
+   background:red;
+  
+  }
 `;
 
 const Title2 = styled.div`
-  font-family: "Dahlia";
+  font-family: "Dahlia-normal";
   font-style: normal;
   font-weight: 700;
   font-size: 78px;
+  text-align: right;
+  line-height: 78px;
+  /* or 100% */
+  letter-spacing: -0.02em;
+
+  color: #424242;
+`;
+
+const Title3 = styled.div`
+  font-family: "Dahlia-normal";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 58px;
   text-align: right;
   line-height: 78px;
   /* or 100% */
@@ -110,9 +131,11 @@ const Description = styled.div`
   color: #424242;
 
   color: #424242;
-  width: 300px;
-  margin: -5% 0 0 20%;
+ 
+  margin: 0% 0 0 43%;
 `;
+
+
 
 const TextBox = styled.div`
   margin: 30% 10% 10% 0%;
@@ -121,13 +144,12 @@ const TextBox = styled.div`
 const Button = styled.div`
   border: 0.8px solid #354b37;
   box-sizing: border-box;
-  transform: rotate(-6.41deg);
   font-family: "Dahlia";
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
   text-align: center;
-  margin: 5% 5% 5% 18%;
+  margin: 5% 5% 5% 45%;
   line-height: 20px;
   justify-content: center;
   border-radius: 50%;
@@ -146,6 +168,13 @@ const SectionContainer = styled.div`
   display: grid;
   align-content: center;
   padding-bottom: 200px;
+
+  @media (max-width: 800px) {
+    display:none;
+
+   
+   }
+
 `;
 
 const SectionContainer1 = styled(SectionContainer)``;
@@ -173,11 +202,16 @@ const Hero = () => {
     background-image: url(${imageUrlOut});
     height: 900px;
     padding: 15%;
+  
+    
   `;
 
   const ImageContainer = styled.div`
     background-image: url(${imageUrlIn});
     height: 613px;
+ 
+
+
   `;
   return (
     <>
@@ -233,7 +267,7 @@ const Hero = () => {
             </TextBox>
             <Description>
               We bring together over 4000 makers, developers, and blockchain{" "}
-              <br></br>enthusiasts for a three-day<br></br> conference. You can
+              enthusiasts for a three-day<br></br> conference. You can
               learn from the<br></br> best in the crypto scene, and finally{" "}
               <br></br> put those networking skills to use.
             </Description>
@@ -242,10 +276,9 @@ const Hero = () => {
 
           <SectionContainer2 id="section2">
             <TextBox>
-              <Title>NFTickets are going fast…</Title>
-              <Title>Claim your at</Title>
-              <Title2>DoinGud </Title2>
-            </TextBox>
+              <Title3>NFTickets are going fast…</Title3>
+              <Title3>Claim your at DoinGud</Title3>
+       </TextBox>
             <Description>
               On the days leading up to the event, your NFTs will <br></br> be
               redeemed to check-in on our website.<br></br> After, you will
