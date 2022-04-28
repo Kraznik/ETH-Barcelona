@@ -1,4 +1,5 @@
 import "./App.css";
+import {Route, Routes, Redirect} from "react-router-dom";
 import Circle from "./components/Circle";
 import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
@@ -16,12 +17,17 @@ import RedeemNFT from "./components/Pages/Redeem";
 function App() {
   return (
     <div className="App">
-      {/* <Navbars></Navbars>
+      <Navbars></Navbars>
       <Intro></Intro>
       <Circle></Circle>
       <Hero></Hero>
       <FAQ></FAQ>
-      <Footer></Footer> */}
+      <Footer></Footer>
+
+      <Routes>
+        <Route path="/Poap" />
+
+      </Routes>
 
       
     </div>
