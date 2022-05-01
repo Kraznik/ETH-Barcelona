@@ -43,39 +43,15 @@ const Heading = styled.div`
   text-align: center;
   color: #424242;
   padding: 2%;
-  
+
   margin-top: 5%;
 `;
 
 const Left = styled.div`
   display: inline-block;
   height: 900px;
-  overflow-y: auto;
+  /* overflow-y: auto; */
   position: relative;
-`;
-
-const Navbar = styled.div`
-  background: #424242;
-  height: 48px;
-  width: 300px;
-  margin: 20px 0% 0% 0%;
-  border-radius: 100px;
-  top: 20px;
-  left: 0px;
-  position: sticky;
-  z-index: 20;
-
-  a {
-    text-decoration: none;
-    color: white;
-  }
-
-  @media (max-width: 800px) {
-   display:none;
-   position:none;
-   background:red;
-  
-  }
 `;
 
 const Title2 = styled.div`
@@ -131,11 +107,9 @@ const Description = styled.div`
   color: #424242;
 
   color: #424242;
- 
+
   margin: 0% 0 0 43%;
 `;
-
-
 
 const TextBox = styled.div`
   margin: 30% 10% 10% 0%;
@@ -164,17 +138,15 @@ const Button = styled.div`
 `;
 
 const SectionContainer = styled.div`
-  height: 900px;
+  height: 800px;
+  width: 700px;
   display: grid;
   align-content: center;
   padding-bottom: 200px;
 
   @media (max-width: 800px) {
-    display:none;
-
-   
-   }
-
+    display: none;
+  }
 `;
 
 const SectionContainer1 = styled(SectionContainer)``;
@@ -183,6 +155,7 @@ const SectionContainer2 = styled(SectionContainer)``;
 const Hero = () => {
   const [imageUrlOut, setImageUrlOut] = useState("");
   const [imageUrlIn, setImageUrlIn] = useState("");
+  const [section2, setSection2] = useState(false);
 
   const location = window.location.hash;
   let navigate = useNavigate();
@@ -195,23 +168,47 @@ const Hero = () => {
     if (location.slice(-1) === "2") {
       setImageUrlOut(Ticket1);
       setImageUrlIn(Ticket2);
+      setSection2(true);
     }
   }, [location]);
+
+  const Navbar = styled.div`
+    background: #424242;
+    height: 48px;
+    width: 300px;
+    margin: 20px 0% 0% 0%;
+    border-radius: 100px;
+    top: 20px;
+    left: 0px;
+    position: sticky;
+    z-index: 20;
+    display: flex;
+    padding: 10px 50px;
+    gap: 10px;
+
+    a {
+      text-decoration: none;
+      color: white;
+      padding: 0px 20px;
+      border-radius: 100px;
+    }
+
+    @media (max-width: 800px) {
+      display: none;
+      position: none;
+      background: red;
+    }
+  `;
 
   const OuterContainer = styled.div`
     background-image: url(${imageUrlOut});
     height: 900px;
     padding: 15%;
-  
-    
   `;
 
   const ImageContainer = styled.div`
     background-image: url(${imageUrlIn});
     height: 613px;
- 
-
-
   `;
   return (
     <>
@@ -226,13 +223,7 @@ const Hero = () => {
         </Right>
 
         <Left id="section">
-          <Navbar
-            style={{
-              display: "flex",
-              padding: "10px 50px",
-              gap: "40px",
-            }}
-          >
+          <Navbar>
             {/* <ScrollableLink href="/section1">
               <a> Go to section 1 </a>
             </ScrollableLink>
@@ -247,6 +238,7 @@ const Hero = () => {
                 navigate("/section#section1");
                 window.location.reload();
               }}
+              style={{ backgroundColor: !section2 ? "grey" : "none" }}
             >
               Section1
             </a>
@@ -256,36 +248,39 @@ const Hero = () => {
                 navigate("/section#section2");
                 window.location.reload();
               }}
+              style={{ backgroundColor: section2 ? "grey" : "none" }}
             >
               Section2
             </a>
           </Navbar>
-          <SectionContainer1 id="section1">
-            <TextBox>
-              <Title>Join us in suuny </Title>
-              <Title2>Barcelona </Title2>
-            </TextBox>
-            <Description>
-              We bring together over 4000 makers, developers, and blockchain{" "}
-              enthusiasts for a three-day<br></br> conference. You can
-              learn from the<br></br> best in the crypto scene, and finally{" "}
-              <br></br> put those networking skills to use.
-            </Description>
-            <Button>Join us</Button>{" "}
-          </SectionContainer1>
-
-          <SectionContainer2 id="section2">
-            <TextBox>
-              <Title3>NFTickets are going fast…</Title3>
-              <Title3>Claim your at DoinGud</Title3>
-       </TextBox>
-            <Description>
-              On the days leading up to the event, your NFTs will <br></br> be
-              redeemed to check-in on our website.<br></br> After, you will
-              receive a QR-code that grants you <br></br>access to the
-              ETHBarcelona conference.
-            </Description>
-          </SectionContainer2>
+          {!section2 ? (
+            <SectionContainer1 id="section1">
+              <TextBox>
+                <Title>Join us in sunny </Title>
+                <Title2>Barcelona </Title2>
+              </TextBox>
+              <Description>
+                We bring together over 4000 makers, developers, and blockchain{" "}
+                enthusiasts for a three-day<br></br> conference. You can learn
+                from the<br></br> best in the crypto scene, and finally{" "}
+                <br></br> put those networking skills to use.
+              </Description>
+              <Button>Join us</Button>{" "}
+            </SectionContainer1>
+          ) : (
+            <SectionContainer2 id="section2">
+              <TextBox>
+                <Title3>NFTickets are going fast…</Title3>
+                <Title3>Claim your at DoinGud</Title3>
+              </TextBox>
+              <Description>
+                On the days leading up to the event, your NFTs will <br></br> be
+                redeemed to check-in on our website.<br></br> After, you will
+                receive a QR-code that grants you <br></br>access to the
+                ETHBarcelona conference.
+              </Description>
+            </SectionContainer2>
+          )}
         </Left>
       </Container>
 
