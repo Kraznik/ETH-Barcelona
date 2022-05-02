@@ -21,7 +21,7 @@ const Heading = styled(NavLink)`
 
 const TicketBox1 = styled.div``;
 
-const Navbars = () => {
+const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
   return (
     <div>
       <Navbar collapseOnSelect expand="lg" className="bar">
@@ -44,13 +44,31 @@ const Navbars = () => {
                 <Nav.Link eventKey={2} className="text">
                   <Heading exact to="/tickets/buy">
                     {" "}
-                    Tickets
+                    Buy
                   </Heading>
                 </Nav.Link>
+                {haveTokens ? (
+                  <Nav.Link eventKey={2} className="text">
+                    <Heading exact to="/tickets/show">
+                      {" "}
+                      Tickets
+                    </Heading>
+                  </Nav.Link>
+                ) : null}
               </TicketBox1>
-              <button href="" className="text">
-                Connect Wallet
-              </button>
+
+              {account === "" || typeof account === "undefined" ? (
+                <button href="" className="text" onClick={onConnectWallet}>
+                  Connect Wallet
+                </button>
+              ) : (
+                <button onClick={onDisconnect}>
+                  {/* <BlockieIcon src={icon ? icon : ""} alt="" /> */}
+                  <h3>
+                    <span>{userAddress}</span>
+                  </h3>
+                </button>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>
