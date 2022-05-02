@@ -8,15 +8,21 @@ import Poap from "./components/Pages/Poap";
 import ShowTickets from "./components/Pages/HaveTicket";
 import RedeemNFT from "./components/Pages/Redeem";
 import Landing from "./components/Pages/LandingPage";
+import Navbars from "./components/Navbar";
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Landing />
+        <Navbars />
         <Routes>
-          <Route path="/" exact component={() => <Landing />} />
-          <Route path="/Poap" exact component={() => <Poap />} />
+          <Route exact path="/" element={<Landing />} />
+          <Route exact path="/section" element={<Landing />} />
+          <Route exact path="/tickets/buy" element={<BuyTickets />} />
+          <Route exact path="/tickets/show" element={<ShowTickets />} />
+          <Route exact path="/tickets/:id/redeem" element={<RedeemNFT />} />
+          <Route exact path="/tickets/:id/qrcode" element={<ShowQRcode />} />
+          <Route exact path="/tickets/:id/poap" element={<Poap />} />
         </Routes>
       </Router>
     </div>

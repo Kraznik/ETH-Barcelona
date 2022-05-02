@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import Circle from "../../Circle";
 import FAQ from "../../FAQ";
 import Footer from "../../Footer";
@@ -10,15 +10,15 @@ import Navbars from "../../Navbar";
 
 const Landing = () => {
   return (
-   <>
-     <Navbars></Navbars>
+    <>
+      {/* <Navbars></Navbars> */}
       <Intro></Intro>
       <Circle></Circle>
       <Hero></Hero>
       <FAQ></FAQ>
       <Footer></Footer>
-   </>
-  )
-}
+    </>
+  );
+};
 
-export default Landing
+export default Landing;
