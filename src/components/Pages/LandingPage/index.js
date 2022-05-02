@@ -8,13 +8,13 @@ import Intro from "../../Intro";
 import Hero from "../../Dual";
 import Navbars from "../../Navbar";
 
-const Landing = () => {
+const Landing = ({ isMobile }) => {
   return (
     <>
       {/* <Navbars></Navbars> */}
-      <Intro></Intro>
+      <Intro isMobile={isMobile}></Intro>
       <Circle></Circle>
-      <Hero></Hero>
+      <Hero isMobile={isMobile}></Hero>
       <FAQ></FAQ>
       <Footer></Footer>
     </>

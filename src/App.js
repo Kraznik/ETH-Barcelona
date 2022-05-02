@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import "./App.css";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -11,13 +12,36 @@ import Landing from "./components/Pages/LandingPage";
 import Navbars from "./components/Navbar";
 
 function App() {
+  const [windowDimension, setWindowDimension] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  const IsMobile = windowDimension <= 800;
+
+  useEffect(() => {
+    setWindowDimension(window.innerWidth);
+    setIsMobile(IsMobile);
+  }, []);
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowDimension(window.innerWidth);
+    }
+    setIsMobile(IsMobile);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [IsMobile]);
+
   return (
     <div className="App">
       <Router>
         <Navbars />
         <Routes>
-          <Route exact path="/" element={<Landing />} />
-          <Route exact path="/section" element={<Landing />} />
+          <Route exact path="/" element={<Landing isMobile={isMobile} />} />
+          <Route
+            exact
+            path="/section"
+            element={<Landing isMobile={isMobile} />}
+          />
           <Route exact path="/tickets/buy" element={<BuyTickets />} />
           <Route exact path="/tickets/show" element={<ShowTickets />} />
           <Route exact path="/tickets/:id/redeem" element={<RedeemNFT />} />

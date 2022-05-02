@@ -101,7 +101,7 @@ const index = () => {
         <Heading> You are going to ETH BCN!  </Heading>
         <Description> This QR code is your access to the event. You could download it or access here with your wallet to use it.</Description>
         <QRCodes>
-                <QRCodeSVG value="$2b$10$2595K0J6lkp6bFhOhtu9WOQBdQVEFKrgOF0V/4aD74Yrch8ZyVTCO" ></QRCodeSVG>, 
+                <QRCodeSVG value="$2b$10$2595K0J6lkp6bFhOhtu9WOQBdQVEFKrgOF0V/4aD74Yrch8ZyVTCO"></QRCodeSVG>
         </QRCodes>
         <ImageContainer>
             <PrintContainer>
