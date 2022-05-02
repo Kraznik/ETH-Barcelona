@@ -3,7 +3,7 @@ import Ticket from "../../../assets/RedeemTicket.png";
 import styled from "styled-components";
 import "./style.css";
 import TicketToken from "../../../ethereum/TicketToken";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
 const Container = styled.div`
@@ -99,7 +99,7 @@ const RedeemNFT = ({ account }) => {
   const tid = id;
 
   const onBurn = async (tokenId) => {
-    await saveData();
+    // await saveData();
     try {
       console.log("Burning the ticket");
       const burnWalletAddress = "0x000000000000000000000000000000000000dEaD";
@@ -163,8 +163,9 @@ const RedeemNFT = ({ account }) => {
           <br />
         </Forum>
         <Tickets></Tickets>
-        <TicketId> NFTicket ${tid}</TicketId>
-        <Redeem onClick={() => onBurn(tid)}>Redeem Now</Redeem>
+        <TicketId> NFTicket ${tid.slice(-2)}</TicketId>
+        {/* <Redeem onClick={() => onBurn(tid)}>Redeem Now</Redeem> */}
+        <Link to={`/tickets/${tid}/qrcode`}>RedeemNFT</Link>
       </Container>
     </>
   );
