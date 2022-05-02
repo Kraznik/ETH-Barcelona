@@ -112,7 +112,7 @@ const Description = styled.div`
 `;
 
 const TextBox = styled.div`
-  margin: 30% 10% 10% 0%;
+  margin: 10% 10% 10% 0%;
 `;
 
 const Button = styled.div`
@@ -138,11 +138,9 @@ const Button = styled.div`
 `;
 
 const SectionContainer = styled.div`
-  height: 800px;
   width: 700px;
   display: grid;
   align-content: center;
-  padding-bottom: 200px;
 
   @media (max-width: 800px) {
     display: none;
@@ -174,23 +172,28 @@ const Hero = () => {
 
   const Navbar = styled.div`
     background: #424242;
-    height: 48px;
-    width: 300px;
-    margin: 20px 0% 0% 0%;
+    height: 68px;
+    width: 250px;
     border-radius: 100px;
     top: 20px;
     left: 0px;
-    position: sticky;
+    margin: 20% 10% 10% -20%;
     z-index: 20;
     display: flex;
-    padding: 10px 50px;
+    position:relative;
+    padding: 10px 10px;
     gap: 10px;
 
     a {
       text-decoration: none;
-      color: white;
       padding: 0px 20px;
       border-radius: 100px;
+      font-family: 'Dahlia';
+font-size: 100%;
+text-align:center;
+justify-content:center;
+text-transform: capitalize;
+color: #424242;
     }
 
     @media (max-width: 800px) {
@@ -224,13 +227,6 @@ const Hero = () => {
 
         <Left id="section">
           <Navbar>
-            {/* <ScrollableLink href="/section1">
-              <a> Go to section 1 </a>
-            </ScrollableLink>
-
-            <ScrollableLink href="/section2">
-              <a> Go to section 2 </a>
-            </ScrollableLink> */}
 
             <a
               href="/section#section1"
@@ -238,9 +234,10 @@ const Hero = () => {
                 navigate("/section#section1");
                 window.location.reload();
               }}
-              style={{ backgroundColor: !section2 ? "grey" : "none" }}
+              style={{ backgroundColor: !section2 ? "white" : "none" , color: !section2 ? "#424242" : "white", fontSize:"25px"}}
+
             >
-              Section1
+              Event
             </a>
             <a
               href="/section#section2"
@@ -248,9 +245,9 @@ const Hero = () => {
                 navigate("/section#section2");
                 window.location.reload();
               }}
-              style={{ backgroundColor: section2 ? "grey" : "none" }}
+              style={{ backgroundColor: section2 ? "white" : "#424242;", color: section2 ? "#424242": "white", fontSize:"25px" }}
             >
-              Section2
+              Tickets
             </a>
           </Navbar>
           {!section2 ? (
@@ -284,33 +281,6 @@ const Hero = () => {
         </Left>
       </Container>
 
-      {/* <Container id="section2">
-        <Right>
-          <OuterContainer2>
-            <TextContainer>
-              <ImageContainer2></ImageContainer2>
-              <a href="#claim">
-                <Heading>Claim your NFT</Heading>
-              </a>
-            </TextContainer>
-          </OuterContainer2>
-        </Right>
-
-        <Left>
-          <Navbar></Navbar>
-          <TextBox>
-            <Title>NFTickets are going fast…</Title>
-            <Title>Claim your at</Title>
-            <Title2>DoinGud </Title2>
-          </TextBox>
-          <Description>
-            On the days leading up to the event, your NFTs will <br></br> be
-            redeemed to check-in on our website.<br></br> After, you will
-            receive a QR-code that grants you <br></br>access to the
-            ETHBarcelona conference.
-          </Description>
-        </Left>
-      </Container> */}
     </>
   );
 };

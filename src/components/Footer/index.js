@@ -127,8 +127,8 @@ const Footer = () => {
             <Social>Instagram</Social>
         </SocialsContainer>
         <LegalContainer>
-            <Text> Privacy Policy</Text>
-            <Text> Terms of Conditions</Text>
+            {/* <Text> Privacy Policy</Text>
+            <Text> Terms of Conditions</Text> */}
 
         </LegalContainer>
 

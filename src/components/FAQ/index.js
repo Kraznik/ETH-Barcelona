@@ -42,59 +42,52 @@ const FAQ = () => {
               {" "}
               What is ETHBarcelona
             </Accordion.Header>
-            <Accordion.Body className="answer"></Accordion.Body>
+            <Accordion.Body className="answer">
+            ETHBarcelona is a community-led passion project about the Ethereum blockchain, cryptocurrency and decentralization that celebrates the community and its values. It focuses on education, innovation, art, and creating positive social impact. <br></br>The goal is to give people the tools they need to further their knowledge in blockchain technology, as well as learn how to build projects that can make an impact on society.
+            </Accordion.Body>
           </Accordion.Item>
 
           <Accordion.Item eventKey="1" className="Box">
             <Accordion.Header className="question">
-              Who can participate?
+            What events, outside of crypto talks, will there 
             </Accordion.Header>
             <Accordion.Body className="answer">
-              Anyone 18 and over at the time of the event can apply to
-              participate in the #BUIDLathon (see next section if you’re under
-              18). Applications are based on interest in blockchain technology
-              and demonstrated ability to code, design or otherwise meaningfully
-              contribute to a project. Applications from any corner of the globe
-              will be accepted. PLEASE NOTE that non-technical contributors are
-              highly encouraged to participate (the best teams are well
-              rounded). If you have something you think you can add to the
-              ecosystem – whether it's a knack for crafting white papers to
-              explain dApps, a creative or artistic perspective, or an
-              entrepreneurial vision – we'd welcome your talents and skills on
-              one of the #BUIDLathon teams.
+            In addition to the talks, discussions, and networking opportunities, we'll be having art installations, musical performances, and special events to maximize the fun during your time at ETHBarcelona.
             </Accordion.Body>
           </Accordion.Item>
 
           <Accordion.Item eventKey="2" className="Box">
             <Accordion.Header className="question">
               {" "}
-              How much does it cost to attend?
+              Who Can Participate?
             </Accordion.Header>
-            <Accordion.Body className="answer"></Accordion.Body>
+            <Accordion.Body className="answer">Anyone who is over the age of 18 is allowed to attend ETHBarcelona.</Accordion.Body>
           </Accordion.Item>
 
           <Accordion.Item eventKey="3" className="Box">
             <Accordion.Header className="question">
               {" "}
-              What are ETH Barcelona’s measure against the corona virus?
+              What is the Code of Conduct?
             </Accordion.Header>
-            <Accordion.Body className="answer"></Accordion.Body>
+            <Accordion.Body className="answer">We are committed to creating a safe and inclusive environment. We are also committed to protecting the safety of everyone in attendance at our event, including staff and volunteers. We know that the event will be much more enjoyable for everyone if we all follow these simple rules:
+<br></br>- Any form of harassment—in person or online—is not permitted
+<br></br>- Abusive comments or behavior towards others will not be tolerated</Accordion.Body>
           </Accordion.Item>
 
           <Accordion.Item eventKey="4" className="Box">
             <Accordion.Header className="question">
               {" "}
-              How do I get there?
+              I have a question not listed here, who can I talk to?
             </Accordion.Header>
-            <Accordion.Body className="answer"></Accordion.Body>
+            <Accordion.Body className="answer">Please reach out directly to info@ethbarcelona.com </Accordion.Body>
           </Accordion.Item>
 
           <Accordion.Item eventKey="5" className="Box">
             <Accordion.Header className="question">
               {" "}
-              Code of Conduct
+              What are the current corona restrictions?
             </Accordion.Header>
-            <Accordion.Body className="answer"></Accordion.Body>
+            <Accordion.Body className="answer">As of April 20th, 2022, people are no longer required to wear masks indoors. This means that all attendees will now be able to enter ETHBarcelona without being required to wear a face mask. Please refer to the most current information from Spain’s official tourism website for the latest details about potential traveling restrictions.</Accordion.Body>
           </Accordion.Item>
         </Accordion>
       </Container>

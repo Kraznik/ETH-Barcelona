@@ -29,8 +29,8 @@ const Navbars = () => {
     <div>
       <Navbar collapseOnSelect expand="lg" className="bar">
         <Container className="bar">
-          <Navbar.Brand href="" className="text1"> Program
-          </Navbar.Brand>
+          {/* <Navbar.Brand href="" className="text1"> Program
+          </Navbar.Brand> */}
           <Navbar.Brand href="/" className="logo">
             <img alt="" src={Logo} className="d-inline-block align-top" />{" "}
           </Navbar.Brand>
@@ -43,10 +43,10 @@ const Navbars = () => {
               </Nav.Link>
 
 
-              <Nav.Link className="text3">Program</Nav.Link>
+              {/* <Nav.Link className="text3">Program</Nav.Link> */}
               <TicketBox1>
               <Nav.Link eventKey={2} className="text">
-                  <Heading exact to="/Poap"> Tickets</Heading>
+                  {/* <Heading exact to="/Poap"> Tickets</Heading> */}
                   
               </Nav.Link>
               </TicketBox1>
