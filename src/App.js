@@ -7,6 +7,8 @@ import Web3Modal from "web3modal";
 import web3 from "./ethereum/web3";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 
+import TicketToken from "./ethereum/TicketToken";
+
 import BuyTickets from "./components/Pages/BuyTicket";
 import ShowQRcode from "./components/Pages/ShowQRcode/index.js";
 import Poap from "./components/Pages/Poap";
@@ -204,11 +206,31 @@ const App = () => {
             path="/section"
             element={<Landing isMobile={isMobile} />}
           />
-          <Route exact path="/tickets/buy" element={<BuyTickets />} />
-          <Route exact path="/tickets/show" element={<ShowTickets />} />
-          <Route exact path="/tickets/:id/redeem" element={<RedeemNFT />} />
-          <Route exact path="/tickets/:id/qrcode" element={<ShowQRcode />} />
-          <Route exact path="/tickets/:id/poap" element={<Poap />} />
+          <Route
+            exact
+            path="/tickets/buy"
+            element={<BuyTickets account={account} />}
+          />
+          <Route
+            exact
+            path="/tickets/show"
+            element={<ShowTickets account={account} />}
+          />
+          <Route
+            exact
+            path="/tickets/:id/redeem"
+            element={<RedeemNFT account={account} />}
+          />
+          <Route
+            exact
+            path="/tickets/:id/qrcode"
+            element={<ShowQRcode account={account} />}
+          />
+          <Route
+            exact
+            path="/tickets/:id/poap"
+            element={<Poap account={account} />}
+          />
         </Routes>
       </Router>
     </div>
