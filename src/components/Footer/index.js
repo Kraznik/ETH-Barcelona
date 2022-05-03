@@ -119,8 +119,14 @@ const Footer = () => {
               Telegram
             </a>{" "}
           </Social>
-          <Social>Twitter</Social>
-          <Social>Instagram</Social>
+          <Social>
+            <a href="https://twitter.com/eth_barcelona" className="link">
+              Twitter
+            </a>
+          </Social>
+          <Social>
+            <a href="https://www.instagram.com/ethbarcelona/">Instagram</a>
+          </Social>
         </SocialsContainer>
         <LegalContainer>
           {/* <Text> Privacy Policy</Text>
