@@ -24,7 +24,7 @@ const TicketBox1 = styled.div`
 `;
 
 const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
-  const userAddress = `${account.slice(0, 4)}....${account.slice(-4)}`;
+  // const userAddress = `${account.slice(0, 4)}....${account.slice(-4)}`;
   return (
     <div>
       <Navbar collapseOnSelect expand="lg" className="bar">

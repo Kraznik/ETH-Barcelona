@@ -38,23 +38,23 @@ const web3Modal = new Web3Modal({
 
 let provider;
 
-const changeNetwork = async () => {
-  try {
-    if (!window.ethereum) throw new Error("No crypto wallet found");
-    // console.log("switch network:", { chainId: "0x1" });
-    await window.ethereum.request({
-      // method: "wallet_addEthereumChain",
-      method: "wallet_switchEthereumChain",
-      params: [
-        {
-          chainId: `0x${Number(80001).toString(16)}`, // mumbai = 80001 // polygon = 137
-        },
-      ],
-    });
-  } catch (err) {
-    if (err) console.log(err.message);
-  }
-};
+// const changeNetwork = async () => {
+//   try {
+//     if (!window.ethereum) throw new Error("No crypto wallet found");
+//     // console.log("switch network:", { chainId: "0x1" });
+//     await window.ethereum.request({
+//       // method: "wallet_addEthereumChain",
+//       method: "wallet_switchEthereumChain",
+//       params: [
+//         {
+//           chainId: `0x${Number(80001).toString(16)}`, // mumbai = 80001 // polygon = 137
+//         },
+//       ],
+//     });
+//   } catch (err) {
+//     if (err) console.log(err.message);
+//   }
+// };
 
 const App = () => {
   const [windowDimension, setWindowDimension] = useState(null);
@@ -80,26 +80,26 @@ const App = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, [IsMobile]);
 
-  const networkChanged = (chainId) => {
-    console.log({ chainId });
-    setChainId(chainId);
-  };
+  // const networkChanged = (chainId) => {
+  //   console.log({ chainId });
+  //   setChainId(chainId);
+  // };
 
-  useEffect(() => {
-    try {
-      window.ethereum.on("chainChanged", networkChanged);
-    } catch (err) {
-      if (err) console.log(err);
-    }
+  // useEffect(() => {
+  //   try {
+  //     window.ethereum.on("chainChanged", networkChanged);
+  //   } catch (err) {
+  //     if (err) console.log(err);
+  //   }
 
-    return () => {
-      window.ethereum.removeListener("chainChanged", networkChanged);
-    };
-  }, []);
+  //   return () => {
+  //     window.ethereum.removeListener("chainChanged", networkChanged);
+  //   };
+  // }, []);
 
-  useEffect(() => {
-    changeNetwork();
-  }, [chainId]);
+  // useEffect(() => {
+  //   changeNetwork();
+  // }, [chainId]);
 
   const onConnectWallet = async () => {
     console.log("connecting wallet...");
@@ -164,40 +164,40 @@ const App = () => {
     }
   };
 
-  useEffect(() => {
-    run();
-  }, [account, chainId]);
+  // useEffect(() => {
+  //   run();
+  // }, [account, chainId]);
 
-  useEffect(() => {
-    async function listenMMAccount() {
-      try {
-        window.ethereum.on("accountsChanged", async function () {
-          // Time to reload your interface with accounts[0]!
-          const accounts = await web3.eth.getAccounts();
-          setaccount(accounts[0]);
-          console.log(accounts);
-          window.location.reload();
-        });
-      } catch (err) {
-        console.log("Browser wallet not installed!");
-      }
-    }
+  // useEffect(() => {
+  //   async function listenMMAccount() {
+  //     try {
+  //       window.ethereum.on("accountsChanged", async function () {
+  //         // Time to reload your interface with accounts[0]!
+  //         const accounts = await web3.eth.getAccounts();
+  //         setaccount(accounts[0]);
+  //         console.log(accounts);
+  //         window.location.reload();
+  //       });
+  //     } catch (err) {
+  //       console.log("Browser wallet not installed!");
+  //     }
+  //   }
 
-    listenMMAccount();
-  }, []);
+  //   listenMMAccount();
+  // }, []);
 
-  useEffect(() => {
-    onConnectWallet();
-  }, []);
+  // useEffect(() => {
+  //   onConnectWallet();
+  // }, []);
 
   return (
     <div className="App">
       <Router>
         <Navbars
-          account={account}
-          onConnectWallet={onConnectWallet}
-          onDisconnect={onDisconnect}
-          haveTokens={haveTokens}
+        // account={account}
+        // onConnectWallet={onConnectWallet}
+        // onDisconnect={onDisconnect}
+        // haveTokens={haveTokens}
         />
         <Routes>
           <Route exact path="/" element={<Landing isMobile={isMobile} />} />
@@ -206,7 +206,7 @@ const App = () => {
             path="/section"
             element={<Landing isMobile={isMobile} />}
           />
-          <Route
+          {/* <Route
             exact
             path="/tickets/buy"
             element={<BuyTickets account={account} />}
@@ -230,7 +230,7 @@ const App = () => {
             exact
             path="/tickets/:id/poap"
             element={<Poap account={account} />}
-          />
+          /> */}
         </Routes>
       </Router>
     </div>
