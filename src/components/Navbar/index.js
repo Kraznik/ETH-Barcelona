@@ -5,40 +5,43 @@ import {
   Brand,
   Toggle,
   collapse,
-  Link,
   NavDropdown,
   Item,
   Divider,
   Nav,
 } from "react-bootstrap";
 import "./style.css";
+import styled from "styled-components";
 import Logo from "../../assets/logo.svg";
+import { NavLink } from "react-router-dom";
+
+const Heading = styled(NavLink)`
+  color: red;
+`;
+
+const TicketBox1 = styled.div``;
+
 const Navbars = () => {
   return (
     <div>
       <Navbar collapseOnSelect expand="lg" className="bar">
         <Container className="bar">
-          <Navbar.Brand href="#home" className="text1">
-            Program
-          </Navbar.Brand>
-          <Navbar.Brand href="#home" className="logo">
+          {/* <Navbar.Brand href="" className="text1"> Program
+          </Navbar.Brand> */}
+          <Navbar.Brand href="/" className="logo">
             <img alt="" src={Logo} className="d-inline-block align-top" />{" "}
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto"></Nav>
-            {/* <Nav>
+            <Nav>
               <Nav.Link href="#faq" className="text">
                 FAQ
               </Nav.Link>
 
-<<<<<<< Updated upstream
-              <Nav.Link className="text3">Program</Nav.Link>
-              <Nav.Link eventKey={2} className="text">
-                Tickets
-              </Nav.Link>
-            </Nav>
-=======
+              {/* <Nav.Link className="text3">Program</Nav.Link> */}
+
+              {/* </Nav> */}
 
               <TicketBox1>
                 <Nav.Link eventKey={2} className="text">
@@ -47,30 +50,28 @@ const Navbars = () => {
                     Buy
                   </Heading>
                 </Nav.Link>
-                {haveTokens ? (
+                {/* {haveTokens ? (
                   <Nav.Link eventKey={2} className="text">
                     <Heading exact to="/tickets/show">
                       {" "}
                       Tickets
                     </Heading>
                   </Nav.Link>
-                ) : null}
+                ) : null} */}
               </TicketBox1>
 
-              {account === "" || typeof account === "undefined" ? (
+              {/* {account === "" || typeof account === "undefined" ? (
                 <button href="" className="text" onClick={onConnectWallet}>
                   Connect Wallet
                 </button>
               ) : (
                 <button onClick={onDisconnect}>
-               
                   <h3>
                     <span>{userAddress}</span>
                   </h3>
                 </button>
-              )}
-            </Nav> */}
->>>>>>> Stashed changes
+              )} */}
+            </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>

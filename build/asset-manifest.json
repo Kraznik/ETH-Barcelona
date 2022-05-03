@@ -1,11 +1,17 @@
 {
   "files": {
+<<<<<<< HEAD
     "main.css": "/static/css/main.96eb12fd.css",
     "main.js": "/static/js/main.2ac82d42.js",
+=======
+    "main.css": "/static/css/main.54fb62fd.css",
+    "main.js": "/static/js/main.bd0ee7e7.js",
+>>>>>>> dd9e8a0e3a7f4b56689751e0d5fe5d26fcdb3151
     "static/media/Event1.png": "/static/media/Event1.bfce9ac6bf93d05e886a.png",
     "static/media/Ticket1.png": "/static/media/Ticket1.dac6a5db3735d3eb3806.png",
     "static/media/Event2.png": "/static/media/Event2.f761f60e61d06c71e7b7.png",
     "static/media/Ticket2.png": "/static/media/Ticket2.5b9d610fc07f8dea134c.png",
+<<<<<<< HEAD
     "static/media/MobileImageBack1.png": "/static/media/MobileImageBack1.dbe71b789a67b0d6dbf8.png",
     "static/media/MobileImageBack2.png": "/static/media/MobileImageBack2.5725a37931b430fee8af.png",
     "static/media/NFT.png": "/static/media/NFT.669a33168c6dc52dd290.png",
@@ -32,5 +38,23 @@
   "entrypoints": [
     "static/css/main.96eb12fd.css",
     "static/js/main.2ac82d42.js"
+=======
+    "static/media/NFT.png": "/static/media/NFT.669a33168c6dc52dd290.png",
+    "static/media/dahlia-bold.otf": "/static/media/dahlia-bold.a706f00c92cf2cd1348f.otf",
+    "static/media/dahlia-boldcondensed.otf": "/static/media/dahlia-boldcondensed.61fd2d165990b914081a.otf",
+    "static/media/dahlia-regularcondensed.otf": "/static/media/dahlia-regularcondensed.270314627773142ce74a.otf",
+    "static/media/circle.png": "/static/media/circle.02b3ce0220484a046ad0.png",
+    "static/media/dahlia-regular.otf": "/static/media/dahlia-regular.dc6b6786a65aeeabe235.otf",
+    "static/media/Speaker1.png": "/static/media/Speaker1.ee5fe14ef429d8930245.png",
+    "static/media/dahlia-bold.woff": "/static/media/dahlia-bold.3d0c55e5baff5fba1dc0.woff",
+    "static/media/logo.svg": "/static/media/logo.95bfc82fa8027db8e3c567c86f55fef3.svg",
+    "index.html": "/index.html",
+    "main.54fb62fd.css.map": "/static/css/main.54fb62fd.css.map",
+    "main.bd0ee7e7.js.map": "/static/js/main.bd0ee7e7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.54fb62fd.css",
+    "static/js/main.bd0ee7e7.js"
+>>>>>>> dd9e8a0e3a7f4b56689751e0d5fe5d26fcdb3151
   ]
 }

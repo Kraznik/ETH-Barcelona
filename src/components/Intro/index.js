@@ -8,7 +8,7 @@ const Container = styled.div`
   min-width: 700px;
 
   @media screen and (max-width: 800px) {
-   min-width:375px;
+    min-width: 375px;
   }
 `;
 
@@ -104,26 +104,7 @@ const Dates = styled.div`
   }
 `;
 
-const Intro = () => {
-  const [windowDimension, setWindowDimension] = useState(null);
-  const [isMobile, setIsMobile] = useState(false);
-
-  const IsMobile = windowDimension <= 800;
-
-  useEffect(() => {
-    setWindowDimension(window.innerWidth);
-    setIsMobile(IsMobile);
-  }, []);
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowDimension(window.innerWidth);
-    }
-    setIsMobile(IsMobile);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [IsMobile]);
-
+const Intro = ({ isMobile }) => {
   return (
     <>
       <Container>
