@@ -38,12 +38,12 @@ const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto"></Nav>
             <Nav>
-              <Nav.Link href="#faq" className="text">
+              {/* <Nav.Link href="#faq" className="text">
                 FAQ
-              </Nav.Link>
+              </Nav.Link> */}
 
               {/* <Nav.Link className="text3">Program</Nav.Link> */}
-              <TicketBox1>
+              {/* <TicketBox1>
                 <Nav.Link eventKey={2} className="text">
                   <Heading exact to="/tickets/buy">
                     {" "}
@@ -58,20 +58,20 @@ const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
                     </Heading>
                   </Nav.Link>
                 ) : null}
-              </TicketBox1>
+              </TicketBox1> */}
 
-              {account === "" || typeof account === "undefined" ? (
+              {/* {account === "" || typeof account === "undefined" ? (
                 <button href="" className="text" onClick={onConnectWallet}>
                   Connect Wallet
                 </button>
               ) : (
                 <button onClick={onDisconnect}>
-                  {/* <BlockieIcon src={icon ? icon : ""} alt="" /> */}
+
                   <h3>
                     <span>{userAddress}</span>
                   </h3>
                 </button>
-              )}
+              )} */}
             </Nav>
           </Navbar.Collapse>
         </Container>

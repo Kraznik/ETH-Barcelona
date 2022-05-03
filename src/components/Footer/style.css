@@ -15,4 +15,11 @@ font-weight: 500;
 font-size: 26px;
 color: #D1D1D1;
 border-bottom: 0px solid black;
+text-decoration: none;
+
+
+}
+
+.link:hover{
+    text-decoration: none;
 }
