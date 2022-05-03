@@ -60,18 +60,15 @@ const OuterContainer2 = styled.div`
   /* background-image: url(${Ticket1}); */
   height: 900px;
   padding: 15%;
-<<<<<<< Updated upstream
   z-index: 1000 !important;
   position: sticky;
   margin-top: 68px;
-=======
 
   @media (max-width: 800px) {
     width: 375px;
     background-image: url(${TicketMobile1});
 height: 522px;
   }
->>>>>>> Stashed changes
 `;
 const TextContainer = styled.div`
   width: 518px;
@@ -113,7 +110,6 @@ const Left = styled.div`
   /* position: relative; */
 `;
 
-<<<<<<< Updated upstream
 const Navbar = styled.div`
   background: #424242;
   height: 48px;
@@ -129,8 +125,9 @@ const Navbar = styled.div`
     text-decoration: none;
     color: white;
   }
-=======
-const Title2 = styled.div`
+`
+
+const Title3 = styled.div`
   font-family: "Dahlia-bold";
   font-style: normal;
   font-weight: 700;
@@ -147,23 +144,19 @@ const Title2 = styled.div`
   @media (max-width: 800px) {
     margin-left:20%;
      }
->>>>>>> Stashed changes
 `;
 
 const Title2 = styled.div`
   font-family: "Dahlia";
   font-style: normal;
-<<<<<<< Updated upstream
   font-weight: 700;
   font-size: 78px;
   text-align: right;
-=======
   font-weight: 400;
   font-size: 78px;
   padding: 0%;
   width: 1000px;
   text-align: left;
->>>>>>> Stashed changes
   line-height: 78px;
   color: #424242;
   margin-left:10%;
@@ -209,7 +202,6 @@ const Description = styled.div`
 
   color: #424242;
 
-<<<<<<< Updated upstream
   color: #424242;
   width: 300px;
   margin: -5% 0 0 20%;
@@ -217,7 +209,6 @@ const Description = styled.div`
 
 const TextBox = styled.div`
   margin: 30% 10% 10% 0%;
-=======
 
   margin: 0% 0 0 43%;
 
@@ -242,7 +233,7 @@ const TextBox = styled.div`
 
 `;
 
-const TextBox = styled.div`
+const TextBox2 = styled.div`
   margin: 10% 10% 10% 0%;
 
   @media (max-width: 800px) {
@@ -277,7 +268,6 @@ margin: -5% 0 0 20%;
     }
 
 
->>>>>>> Stashed changes
 `;
 
 
@@ -363,8 +353,6 @@ const Hero = () => {
     }
   }, [location]);
 
-<<<<<<< Updated upstream
-=======
   const Navbar = styled.div`
     background: #424242;
     height: 68px;
@@ -394,7 +382,6 @@ const Hero = () => {
     @media (max-width: 800px) {
       display: none;
       position: none;
-      background: red;
     }
   `;
 
@@ -421,7 +408,6 @@ background-image: url(${EventMobile1});
       background-image: url(${EventMobile2});
     }
   `;
->>>>>>> Stashed changes
   return (
     <>
       <Container>
@@ -505,27 +491,22 @@ background-image: url(${EventMobile1});
 
           <SectionContainer2 id="section2">
             <TextBox>
-<<<<<<< Updated upstream
               <Title>NFTickets are going fast…</Title>
               <Title>Claim your at</Title>
               <Title2>DoinGud </Title2>
-=======
               <Title3>NFTickets are going fast…</Title3>
               <Title3>Claim yours at </Title3><Title2>DoinGud</Title2>
->>>>>>> Stashed changes
             </TextBox>
             <Description2>
               On the days leading up to the event, your NFTs will  be
               redeemed to check-in on our website.<br></br><br></br>After, you will
               receive a QR-code that grants you access to the
               ETHBarcelona conference.
-<<<<<<< Updated upstream
-            </Description>
+            </Description2>
           </SectionContainer2>
         </Left>
-=======
-            </Description2>
-          </>
+
+
         ) : (
           <>
             <Right>
@@ -602,37 +583,9 @@ background-image: url(${EventMobile1});
               )}
             </Left>
           </>
-        )}
->>>>>>> Stashed changes
+
       </Container>
 
-      {/* <Container id="section2">
-        <Right>
-          <OuterContainer2>
-            <TextContainer>
-              <ImageContainer2></ImageContainer2>
-              <a href="#claim">
-                <Heading>Claim your NFT</Heading>
-              </a>
-            </TextContainer>
-          </OuterContainer2>
-        </Right>
-
-        <Left>
-          <Navbar></Navbar>
-          <TextBox>
-            <Title>NFTickets are going fast…</Title>
-            <Title>Claim your at</Title>
-            <Title2>DoinGud </Title2>
-          </TextBox>
-          <Description>
-            On the days leading up to the event, your NFTs will <br></br> be
-            redeemed to check-in on our website.<br></br> After, you will
-            receive a QR-code that grants you <br></br>access to the
-            ETHBarcelona conference.
-          </Description>
-        </Left>
-      </Container> */}
     </>
   );
 };

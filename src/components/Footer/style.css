@@ -6,8 +6,6 @@
 @font-face {
     font-family: dahlia-notmal;
     src: url(../../Fonts/dahlia-regularcondensed.otf);
-<<<<<<< Updated upstream
-=======
 }
 
 .link{
@@ -25,9 +23,4 @@ link:hover {
     color: #D1D1D1;
     text-decoration:none!important; 
     cursor:pointer;  
-}
-link, link:hover, link:focus, link:active {
-    text-decoration: none!important;
-    color: inherit;
->>>>>>> Stashed changes
 }
