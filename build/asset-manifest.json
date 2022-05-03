@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.41f978c9.css",
+    "main.css": "/static/css/main.b52924c2.css",
     "main.js": "/static/js/main.2a61e2f7.js",
     "static/media/Event1.png": "/static/media/Event1.bfce9ac6bf93d05e886a.png",
     "static/media/Ticket1.png": "/static/media/Ticket1.dac6a5db3735d3eb3806.png",
@@ -18,15 +18,15 @@
     "static/media/RedeemTicket.png": "/static/media/RedeemTicket.dd384e9d2c121ea0626a.png",
     "static/media/dahlia-bold.woff": "/static/media/dahlia-bold.3d0c55e5baff5fba1dc0.woff",
     "static/media/logo.svg": "/static/media/logo.838b30821a4c989d9ba8af2788736ad4.svg",
+    "index.html": "/index.html",
     "static/media/print.svg": "/static/media/print.be8ed0daf910574f5aab022917b004f7.svg",
     "static/media/download.svg": "/static/media/download.3a9cb875209a5d759d40ae9820ee6bc6.svg",
     "static/media/email.svg": "/static/media/email.42092d96b7f8278c461d9862b6d758d8.svg",
-    "index.html": "/index.html",
-    "main.41f978c9.css.map": "/static/css/main.41f978c9.css.map",
+    "main.b52924c2.css.map": "/static/css/main.b52924c2.css.map",
     "main.2a61e2f7.js.map": "/static/js/main.2a61e2f7.js.map"
   },
   "entrypoints": [
-    "static/css/main.41f978c9.css",
+    "static/css/main.b52924c2.css",
     "static/js/main.2a61e2f7.js"
   ]
 }
