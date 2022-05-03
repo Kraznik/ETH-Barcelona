@@ -165,9 +165,7 @@ const RedeemNFT = ({ account }) => {
         <Tickets></Tickets>
         <TicketId> NFTicket ${tid.slice(-2)}</TicketId>
         {/* <Redeem onClick={() => onBurn(tid)}>Redeem Now</Redeem> */}
-        <Link onClick={() => onBurn(tid)} to={`/tickets/${tid}/qrcode`}>
-          RedeemNFT
-        </Link>
+        <Link to={`/tickets/${tid}/qrcode`}>RedeemNFT</Link>
       </Container>
     </>
   );
