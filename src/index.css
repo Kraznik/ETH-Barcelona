@@ -13,6 +13,7 @@ body {
      -webkit-transform:scale(1);
      -o-transform:scale(1);
      -ms-transform:scale(1); */
+  touch-action: pan-x pan-y;
 }
 
 html {
