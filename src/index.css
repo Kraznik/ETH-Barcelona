@@ -6,13 +6,6 @@ body, html {
   width: auto !important;
   box-sizing: inherit;
   overflow-x: hidden;
-  /* position: absolute;
-  display: grid;
-  justify-self: center; */
-  /* -moz-transform:scale(1);
-     -webkit-transform:scale(1);
-     -o-transform:scale(1);
-     -ms-transform:scale(1); */
   touch-action: pan-x pan-y;
   scroll-behavior: smooth;
 }
