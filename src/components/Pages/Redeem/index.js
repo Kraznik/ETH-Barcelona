@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Ticket from "../../../assets/RedeemTicket.png";
 import styled from "styled-components";
 import "./style.css";
@@ -95,6 +95,12 @@ const TicketId = styled.div`
 const Redeem = styled.button``;
 
 const RedeemNFT = ({ account }) => {
+  const [user, setUser] = useState({
+    fullName: "",
+    displayName: "",
+    email: "",
+  });
+
   const { id } = useParams();
   const tid = id;
 
@@ -104,6 +110,8 @@ const RedeemNFT = ({ account }) => {
       console.log("Burning the ticket");
       const burnWalletAddress = "0x000000000000000000000000000000000000dEaD";
       // "0x0000000000000000000000000000000000000000";
+
+      console.log("token id in hex: ", BigInt(tokenId).toString(16));
 
       console.log("token id to burn: ", tokenId);
       const result = await TicketToken.methods
@@ -120,11 +128,16 @@ const RedeemNFT = ({ account }) => {
   const saveData = async () => {
     const url = "https://eth-barcelona.kraznikunderverse.com/users";
     const data = {
-      name: "Disha",
-      optionalName: "test123",
-      email: "disha@test.com",
+      name: user.fullName,
+      optionalName: user.displayName,
+      email: user.email,
     };
-    await axios.post(url, data);
+    await axios.post(url, data, {
+      headers: {
+        "Content-Type": "application/json",
+        validate: "alpha romeo tango",
+      },
+    });
   };
 
   return (
@@ -141,6 +154,8 @@ const RedeemNFT = ({ account }) => {
             type="text"
             placeholder="Add your full name"
             className="input"
+            value={user.fullName}
+            onChange={(e) => setUser({ ...user, fullName: e.target.value })}
           ></input>
           <br />
 
@@ -150,6 +165,8 @@ const RedeemNFT = ({ account }) => {
             type="text"
             placeholder="How do you want to be called"
             className="input"
+            value={user.displayName}
+            onChange={(e) => setUser({ ...user, displayName: e.target.value })}
           ></input>
           <br />
 
@@ -159,15 +176,17 @@ const RedeemNFT = ({ account }) => {
             type="text"
             placeholder="name@email.com"
             className="input"
+            value={user.email}
+            onChange={(e) => setUser({ ...user, email: e.target.value })}
           ></input>
           <br />
         </Forum>
         <Tickets></Tickets>
         <TicketId> NFTicket ${tid.slice(-2)}</TicketId>
-        {/* <Redeem onClick={() => onBurn(tid)}>Redeem Now</Redeem> */}
-        <Link onClick={() => onBurn(tid)} to={`/tickets/${tid}/qrcode`}>
+        <Redeem onClick={() => onBurn(tid)}>Redeem Now</Redeem>
+        {/* <Link onClick={() => onBurn(tid)} to={`/tickets/${tid}/qrcode`}>
           RedeemNFT
-        </Link>
+        </Link> */}
       </Container>
     </>
   );
