@@ -5,10 +5,10 @@ import Event2 from "../../assets/Event2.png";
 import Ticket1 from "../../assets/Ticket1.png";
 import Ticket2 from "../../assets/Ticket2.png";
 
-import EventMobile1 from "../../assets/MobileImageBack1.png"
-import EventMobile2 from "../../assets/MobileImageFront1.png"
-import TicketMobile1 from "../../assets/MobileImageBack2.png"
-import TicketMobile2 from "../../assets/MobileImageFront2.png"
+import EventMobile1 from "../../assets/MobileImageBack1.png";
+import EventMobile2 from "../../assets/MobileImageFront1.png";
+import TicketMobile1 from "../../assets/MobileImageBack2.png";
+import TicketMobile2 from "../../assets/MobileImageFront2.png";
 import { useNavigate } from "react-router-dom";
 
 import { Scrollchor } from "react-scrollchor";
@@ -67,17 +67,17 @@ const OuterContainer2 = styled.div`
   @media (max-width: 800px) {
     width: 375px;
     background-image: url(${TicketMobile1});
-height: 522px;
+    height: 522px;
   }
 `;
 const TextContainer = styled.div`
   width: 518px;
   padding: 5%;
-  background: #f4f4f5; ;
+  background: #f4f4f5;
 
-    @media (max-width: 800px) {
-      width: 300.7px;
-      height: 419.34px;
+  @media (max-width: 800px) {
+    width: 300.7px;
+    height: 419.34px;
   }
 `;
 
@@ -125,7 +125,7 @@ const Navbar = styled.div`
     text-decoration: none;
     color: white;
   }
-`
+`;
 
 const Title3 = styled.div`
   font-family: "Dahlia-bold";
@@ -134,16 +134,15 @@ const Title3 = styled.div`
   font-size: 78px;
   text-align: left;
   line-height: 78px;
-  margin-left:48%;
+  margin-left: 48%;
   /* or 100% */
   letter-spacing: -0.02em;
 
   color: #424242;
 
-
   @media (max-width: 800px) {
-    margin-left:20%;
-     }
+    margin-left: 20%;
+  }
 `;
 
 const Title2 = styled.div`
@@ -159,15 +158,15 @@ const Title2 = styled.div`
   text-align: left;
   line-height: 78px;
   color: #424242;
-  margin-left:10%;
+  margin-left: 10%;
 
   @media (max-width: 800px) {
-    margin-left:10%;
-    font-size:56px;
-    text-align:left;
-    width:343px;
+    margin-left: 10%;
+    font-size: 56px;
+    text-align: left;
+    width: 343px;
     font-family: "Dahlia-normal";
-     }
+  }
 `;
 
 const Title = styled.div`
@@ -182,12 +181,11 @@ const Title = styled.div`
   color: #424242;
 
   @media (max-width: 800px) {
-    margin-left:10%;
-    font-size:50px;
+    margin-left: 10%;
+    font-size: 50px;
     width: 100%;
-    text-align:left;
-
-     }
+    text-align: left;
+  }
 `;
 
 const Description = styled.div`
@@ -237,40 +235,33 @@ const TextBox2 = styled.div`
   margin: 10% 10% 10% 0%;
 
   @media (max-width: 800px) {
-padding-top:35%;
-font-size: 56px;
-}
-  
+    padding-top: 35%;
+    font-size: 56px;
+  }
 `;
 
 const Description2 = styled.div`
-font-family: "Montserrat";
-font-style: normal;
-font-weight: 400;
-width: 412px;
-font-size: 16px;
-line-height: 20px;
-text-align: left;
-display: flex;
-align-items: left;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  width: 412px;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: left;
+  display: flex;
+  align-items: left;
 
-color: #424242;
+  color: #424242;
 
-margin: -5% 0 0 20%;
-
-
+  margin: -5% 0 0 20%;
 
   @media (max-width: 800px) {
-    padding-bottom:35%;
-    margin-left:10%;
-    padding-right:20%;
+    padding-bottom: 35%;
+    margin-left: 10%;
+    padding-right: 20%;
     width: 375px;
-    }
-
-
+  }
 `;
-
-
 
 const Button = styled.div`
   border: 0.8px solid #354b37;
@@ -295,12 +286,10 @@ const Button = styled.div`
   color: #354b37;
 
   @media (max-width: 800px) {
-    margin-bottom:35%;
-    margin-left:35%;
-    margin-top:10%;
-
-
-    }
+    margin-bottom: 35%;
+    margin-left: 35%;
+    margin-top: 10%;
+  }
 `;
 
 const SectionContainer = styled.div`
@@ -338,6 +327,7 @@ const onScroll = () => {
 const Hero = () => {
   const [imageUrlOut, setImageUrlOut] = useState("");
   const [imageUrlIn, setImageUrlIn] = useState("");
+  const [section2, setSection2] = useState(false);
 
   const location = window.location.hash;
   let navigate = useNavigate();
@@ -350,6 +340,7 @@ const Hero = () => {
     if (location.slice(-1) === "2") {
       setImageUrlOut(Ticket1);
       setImageUrlIn(Ticket2);
+      setSection2(true);
     }
   }, [location]);
 
@@ -392,10 +383,9 @@ const Hero = () => {
 
     @media (max-width: 800px) {
       width: 375px;
-height: 522px;
-background-image: url(${EventMobile1});
+      height: 522px;
+      background-image: url(${EventMobile1});
     }
-
   `;
 
   const ImageContainer = styled.div`
@@ -473,7 +463,6 @@ background-image: url(${EventMobile1});
             </TextContainer>
           </OuterContainer2> */}
         </Right>
-
         <Left>
           <SectionContainer1 id="section1">
             <TextBox>
@@ -495,97 +484,96 @@ background-image: url(${EventMobile1});
               <Title>Claim your at</Title>
               <Title2>DoinGud </Title2>
               <Title3>NFTickets are going fast…</Title3>
-              <Title3>Claim yours at </Title3><Title2>DoinGud</Title2>
+              <Title3>Claim yours at </Title3>
+              <Title2>DoinGud</Title2>
             </TextBox>
             <Description2>
-              On the days leading up to the event, your NFTs will  be
-              redeemed to check-in on our website.<br></br><br></br>After, you will
-              receive a QR-code that grants you access to the
-              ETHBarcelona conference.
+              On the days leading up to the event, your NFTs will be redeemed to
+              check-in on our website.<br></br>
+              <br></br>After, you will receive a QR-code that grants you access
+              to the ETHBarcelona conference.
             </Description2>
           </SectionContainer2>
         </Left>
-
-
         ) : (
-          <>
-            <Right>
-              <OuterContainer>
-                <TextContainer>
-                  <ImageContainer></ImageContainer>
-                  {section2 ? (
-                    <Heading>Claim your NFTickets</Heading>
-                  ) : (
-                    <Heading>Barcelona . Spain</Heading>
-                  )}
-                </TextContainer>
-              </OuterContainer>
-            </Right>
+        <>
+          <Right>
+            <OuterContainer>
+              <TextContainer>
+                <ImageContainer></ImageContainer>
+                {section2 ? (
+                  <Heading>Claim your NFTickets</Heading>
+                ) : (
+                  <Heading>Barcelona . Spain</Heading>
+                )}
+              </TextContainer>
+            </OuterContainer>
+          </Right>
 
-            <Left id="section">
-              <Navbar>
-                <a
-                  href="/section#section1"
-                  onClick={() => {
-                    navigate("/section#section1");
-                    window.location.reload();
-                  }}
-                  style={{
-                    backgroundColor: !section2 ? "white" : "none",
-                    color: !section2 ? "#424242" : "white",
-                    fontSize: "25px",
-                  }}
-                >
-                  Event
-                </a>
-                <a
-                  href="/section#section2"
-                  onClick={() => {
-                    navigate("/section#section2");
-                    window.location.reload();
-                  }}
-                  style={{
-                    backgroundColor: section2 ? "white" : "#424242;",
-                    color: section2 ? "#424242" : "white",
-                    fontSize: "25px",
-                  }}
-                >
-                  Tickets
-                </a>
-              </Navbar>
-              {!section2 ? (
-                <SectionContainer1 id="section1">
-                  <TextBox>
-                    <Title>Join us in sunny </Title>
-                    <Title2>Barcelona </Title2>
-                  </TextBox>
-                  <Description>
-                    We bring together over 4000 makers, developers, and
-                    blockchain enthusiasts for a three-day<br></br> conference.
-                    You can learn from the<br></br> best in the crypto scene,
-                    and finally <br></br> put those networking skills to use.
-                  </Description>
-                  <Button>Join us</Button>{" "}
-                </SectionContainer1>
-              ) : (
-                <SectionContainer2 id="section2">
-                  <TextBox>
-                    <Title3>NFTickets are going fast… <br></br>
-                 Claim your at DoinGud</Title3>
-                  </TextBox>
-                  <Description2>
-                    On the days leading up to the event, your NFTs will
-                     be redeemed to check-in on our website.<br></br> <br></br>
-                    After, you will receive a QR-code that grants you 
-                    access to the ETHBarcelona conference.
-                  </Description2>
-                </SectionContainer2>
-              )}
-            </Left>
-          </>
-
+          <Left id="section">
+            <Navbar>
+              <a
+                href="/section#section1"
+                onClick={() => {
+                  navigate("/section#section1");
+                  window.location.reload();
+                }}
+                style={{
+                  backgroundColor: !section2 ? "white" : "none",
+                  color: !section2 ? "#424242" : "white",
+                  fontSize: "25px",
+                }}
+              >
+                Event
+              </a>
+              <a
+                href="/section#section2"
+                onClick={() => {
+                  navigate("/section#section2");
+                  window.location.reload();
+                }}
+                style={{
+                  backgroundColor: section2 ? "white" : "#424242;",
+                  color: section2 ? "#424242" : "white",
+                  fontSize: "25px",
+                }}
+              >
+                Tickets
+              </a>
+            </Navbar>
+            {!section2 ? (
+              <SectionContainer1 id="section1">
+                <TextBox>
+                  <Title>Join us in sunny </Title>
+                  <Title2>Barcelona </Title2>
+                </TextBox>
+                <Description>
+                  We bring together over 4000 makers, developers, and blockchain
+                  enthusiasts for a three-day<br></br> conference. You can learn
+                  from the<br></br> best in the crypto scene, and finally{" "}
+                  <br></br> put those networking skills to use.
+                </Description>
+                <Button>Join us</Button>{" "}
+              </SectionContainer1>
+            ) : (
+              <SectionContainer2 id="section2">
+                <TextBox>
+                  <Title3>
+                    NFTickets are going fast… <br></br>
+                    Claim your at DoinGud
+                  </Title3>
+                </TextBox>
+                <Description2>
+                  On the days leading up to the event, your NFTs will be
+                  redeemed to check-in on our website.<br></br> <br></br>
+                  After, you will receive a QR-code that grants you access to
+                  the ETHBarcelona conference.
+                </Description2>
+              </SectionContainer2>
+            )}
+          </Left>
+        </>
       </Container>
-
     </>
   );
 };
