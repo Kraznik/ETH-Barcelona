@@ -5,6 +5,10 @@ import Event2 from "../../assets/Event2.png";
 import Ticket1 from "../../assets/Ticket1.png";
 import Ticket2 from "../../assets/Ticket2.png";
 
+import EventMobile1 from "../../assets/MobileImageBack1.png"
+import EventMobile2 from "../../assets/MobileImageFront1.png"
+import TicketMobile1 from "../../assets/MobileImageBack2.png"
+import TicketMobile2 from "../../assets/MobileImageFront2.png"
 import { useNavigate } from "react-router-dom";
 
 import { Scrollchor } from "react-scrollchor";
@@ -56,19 +60,39 @@ const OuterContainer2 = styled.div`
   /* background-image: url(${Ticket1}); */
   height: 900px;
   padding: 15%;
+<<<<<<< Updated upstream
   z-index: 1000 !important;
   position: sticky;
   margin-top: 68px;
+=======
+
+  @media (max-width: 800px) {
+    width: 375px;
+    background-image: url(${TicketMobile1});
+height: 522px;
+  }
+>>>>>>> Stashed changes
 `;
 const TextContainer = styled.div`
   width: 518px;
   padding: 5%;
   background: #f4f4f5; ;
+
+    @media (max-width: 800px) {
+      width: 300.7px;
+      height: 419.34px;
+  }
 `;
 
 const ImageContainer2 = styled.div`
   /* background-image: url(${Ticket2}); */
   height: 613px;
+
+  @media (max-width: 800px) {
+    width: 272.83px;
+    height: 355.54px;
+    background-image: url(${TicketMobile2});
+  }
 `;
 
 const Heading = styled.div`
@@ -89,6 +113,7 @@ const Left = styled.div`
   /* position: relative; */
 `;
 
+<<<<<<< Updated upstream
 const Navbar = styled.div`
   background: #424242;
   height: 48px;
@@ -104,20 +129,52 @@ const Navbar = styled.div`
     text-decoration: none;
     color: white;
   }
+=======
+const Title2 = styled.div`
+  font-family: "Dahlia-bold";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 78px;
+  text-align: left;
+  line-height: 78px;
+  margin-left:48%;
+  /* or 100% */
+  letter-spacing: -0.02em;
+
+  color: #424242;
+
+
+  @media (max-width: 800px) {
+    margin-left:20%;
+     }
+>>>>>>> Stashed changes
 `;
 
 const Title2 = styled.div`
   font-family: "Dahlia";
   font-style: normal;
+<<<<<<< Updated upstream
   font-weight: 700;
   font-size: 78px;
   text-align: right;
+=======
+  font-weight: 400;
+  font-size: 78px;
+  padding: 0%;
+  width: 1000px;
+  text-align: left;
+>>>>>>> Stashed changes
   line-height: 78px;
-  /* or 100% */
-
-  letter-spacing: -0.02em;
-
   color: #424242;
+  margin-left:10%;
+
+  @media (max-width: 800px) {
+    margin-left:10%;
+    font-size:56px;
+    text-align:left;
+    width:343px;
+    font-family: "Dahlia-normal";
+     }
 `;
 
 const Title = styled.div`
@@ -127,9 +184,17 @@ const Title = styled.div`
   font-size: 78px;
   padding: 0%;
   width: 700px;
-  text-align: center;
+  text-align: right;
   line-height: 78px;
   color: #424242;
+
+  @media (max-width: 800px) {
+    margin-left:10%;
+    font-size:50px;
+    width: 100%;
+    text-align:left;
+
+     }
 `;
 
 const Description = styled.div`
@@ -138,13 +203,13 @@ const Description = styled.div`
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
-  /* or 125% */
   text-align: left;
   display: flex;
   align-items: left;
 
   color: #424242;
 
+<<<<<<< Updated upstream
   color: #424242;
   width: 300px;
   margin: -5% 0 0 20%;
@@ -152,7 +217,70 @@ const Description = styled.div`
 
 const TextBox = styled.div`
   margin: 30% 10% 10% 0%;
+=======
+
+  margin: 0% 0 0 43%;
+
+  @media (max-width: 800px) {
+   margin-left:10%
+   width: 375px;
+  
+    }
+
+  @media (max-width: 900px) {
+    margin-left:10% 
+     width: 375px;
+     
+   }
+
+       @media (max-width: 700px) {
+        margin-left:10%
+        width: 375px;
+       
+         }
+
+
 `;
+
+const TextBox = styled.div`
+  margin: 10% 10% 10% 0%;
+
+  @media (max-width: 800px) {
+padding-top:35%;
+font-size: 56px;
+}
+  
+`;
+
+const Description2 = styled.div`
+font-family: "Montserrat";
+font-style: normal;
+font-weight: 400;
+width: 412px;
+font-size: 16px;
+line-height: 20px;
+text-align: left;
+display: flex;
+align-items: left;
+
+color: #424242;
+
+margin: -5% 0 0 20%;
+
+
+
+  @media (max-width: 800px) {
+    padding-bottom:35%;
+    margin-left:10%;
+    padding-right:20%;
+    width: 375px;
+    }
+
+
+>>>>>>> Stashed changes
+`;
+
+
 
 const Button = styled.div`
   border: 0.8px solid #354b37;
@@ -175,6 +303,14 @@ const Button = styled.div`
   text-align: center;
   width: 100px;
   color: #354b37;
+
+  @media (max-width: 800px) {
+    margin-bottom:35%;
+    margin-left:35%;
+    margin-top:10%;
+
+
+    }
 `;
 
 const SectionContainer = styled.div`
@@ -227,6 +363,65 @@ const Hero = () => {
     }
   }, [location]);
 
+<<<<<<< Updated upstream
+=======
+  const Navbar = styled.div`
+    background: #424242;
+    height: 68px;
+    width: 250px;
+    border-radius: 100px;
+    top: 20px;
+    left: 0px;
+    margin: 20% 10% 10% -20%;
+    z-index: 20;
+    display: flex;
+    position: relative;
+    padding: 10px 10px;
+    gap: 10px;
+
+    a {
+      text-decoration: none;
+      padding: 0px 20px;
+      border-radius: 100px;
+      font-family: "Dahlia";
+      font-size: 100%;
+      text-align: center;
+      justify-content: center;
+      text-transform: capitalize;
+      color: #424242;
+    }
+
+    @media (max-width: 800px) {
+      display: none;
+      position: none;
+      background: red;
+    }
+  `;
+
+  const OuterContainer = styled.div`
+    background-image: url(${imageUrlOut});
+    height: 900px;
+    padding: 15%;
+
+    @media (max-width: 800px) {
+      width: 375px;
+height: 522px;
+background-image: url(${EventMobile1});
+    }
+
+  `;
+
+  const ImageContainer = styled.div`
+    background-image: url(${imageUrlIn});
+    height: 613px;
+
+    @media (max-width: 800px) {
+      width: 272.83px;
+      height: 355.54px;
+      background-image: url(${EventMobile2});
+    }
+  `;
+>>>>>>> Stashed changes
   return (
     <>
       <Container>
@@ -310,18 +505,105 @@ const Hero = () => {
 
           <SectionContainer2 id="section2">
             <TextBox>
+<<<<<<< Updated upstream
               <Title>NFTickets are going fast…</Title>
               <Title>Claim your at</Title>
               <Title2>DoinGud </Title2>
+=======
+              <Title3>NFTickets are going fast…</Title3>
+              <Title3>Claim yours at </Title3><Title2>DoinGud</Title2>
+>>>>>>> Stashed changes
             </TextBox>
-            <Description>
-              On the days leading up to the event, your NFTs will <br></br> be
-              redeemed to check-in on our website.<br></br> After, you will
-              receive a QR-code that grants you <br></br>access to the
+            <Description2>
+              On the days leading up to the event, your NFTs will  be
+              redeemed to check-in on our website.<br></br><br></br>After, you will
+              receive a QR-code that grants you access to the
               ETHBarcelona conference.
+<<<<<<< Updated upstream
             </Description>
           </SectionContainer2>
         </Left>
+=======
+            </Description2>
+          </>
+        ) : (
+          <>
+            <Right>
+              <OuterContainer>
+                <TextContainer>
+                  <ImageContainer></ImageContainer>
+                  {section2 ? (
+                    <Heading>Claim your NFTickets</Heading>
+                  ) : (
+                    <Heading>Barcelona . Spain</Heading>
+                  )}
+                </TextContainer>
+              </OuterContainer>
+            </Right>
+
+            <Left id="section">
+              <Navbar>
+                <a
+                  href="/section#section1"
+                  onClick={() => {
+                    navigate("/section#section1");
+                    window.location.reload();
+                  }}
+                  style={{
+                    backgroundColor: !section2 ? "white" : "none",
+                    color: !section2 ? "#424242" : "white",
+                    fontSize: "25px",
+                  }}
+                >
+                  Event
+                </a>
+                <a
+                  href="/section#section2"
+                  onClick={() => {
+                    navigate("/section#section2");
+                    window.location.reload();
+                  }}
+                  style={{
+                    backgroundColor: section2 ? "white" : "#424242;",
+                    color: section2 ? "#424242" : "white",
+                    fontSize: "25px",
+                  }}
+                >
+                  Tickets
+                </a>
+              </Navbar>
+              {!section2 ? (
+                <SectionContainer1 id="section1">
+                  <TextBox>
+                    <Title>Join us in sunny </Title>
+                    <Title2>Barcelona </Title2>
+                  </TextBox>
+                  <Description>
+                    We bring together over 4000 makers, developers, and
+                    blockchain enthusiasts for a three-day<br></br> conference.
+                    You can learn from the<br></br> best in the crypto scene,
+                    and finally <br></br> put those networking skills to use.
+                  </Description>
+                  <Button>Join us</Button>{" "}
+                </SectionContainer1>
+              ) : (
+                <SectionContainer2 id="section2">
+                  <TextBox>
+                    <Title3>NFTickets are going fast… <br></br>
+                 Claim your at DoinGud</Title3>
+                  </TextBox>
+                  <Description2>
+                    On the days leading up to the event, your NFTs will
+                     be redeemed to check-in on our website.<br></br> <br></br>
+                    After, you will receive a QR-code that grants you 
+                    access to the ETHBarcelona conference.
+                  </Description2>
+                </SectionContainer2>
+              )}
+            </Left>
+          </>
+        )}
+>>>>>>> Stashed changes
       </Container>
 
       {/* <Container id="section2">

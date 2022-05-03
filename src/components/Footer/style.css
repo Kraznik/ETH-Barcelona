@@ -6,4 +6,28 @@
 @font-face {
     font-family: dahlia-notmal;
     src: url(../../Fonts/dahlia-regularcondensed.otf);
+<<<<<<< Updated upstream
+=======
+}
+
+.link{
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+text-decoration: none;
+font-size: 26px;
+border-bottom: 0 solid black ;
+color: #D1D1D1;
+border-bottom: 0px solid black;
+}
+
+link:hover {
+    color: #D1D1D1;
+    text-decoration:none!important; 
+    cursor:pointer;  
+}
+link, link:hover, link:focus, link:active {
+    text-decoration: none!important;
+    color: inherit;
+>>>>>>> Stashed changes
 }

@@ -13,11 +13,12 @@ const ImgContainer = styled.div`
   justify-items: center;
   img {
     @media screen and (max-width: 900px) {
-      width: 130%;
+      width: 125%;
     }
   }
 
   @media (max-width: 700px) {
+    width:125%;
   }
 `;
 

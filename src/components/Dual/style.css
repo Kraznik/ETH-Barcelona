@@ -27,6 +27,18 @@
     background-image: url("../../assets/Event2.png");
 }
 
+<<<<<<< Updated upstream
 .inimg2 {
     background-image: url("../../assets/Ticket2.png");
+=======
+    .section{
+        display: none;
+    }
+    
+}
+
+@font-face {
+    font-family: dahlia-bold;
+    src: url(../../Fonts/dahlia-boldcondensed.otf);
+>>>>>>> Stashed changes
 }

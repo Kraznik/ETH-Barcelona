@@ -120,9 +120,17 @@ const Footer = () => {
         <Heading>Soon you will  be able to Live the SolarPunk Experience at</Heading>
         <SubHeading>Centre Convencions Internacional Barcelona (CCIB)</SubHeading>
         <SocialsContainer>
+<<<<<<< Updated upstream
             <Social>Telegram</Social>
             <Social>Twitter</Social>
             <Social>Instagram</Social>
+=======
+
+            <Social>
+            <a href="https://t.me/ethbarcelona" className='link' color='red'>   Telegram</a> </Social>
+           <Social><a href="https://twitter.com/eth_barcelona" className='link'> Twitter</a> </Social>
+            <Social><a href="https://www.instagram.com/ethbarcelona/" className='link'>Instagram </a></Social>
+>>>>>>> Stashed changes
         </SocialsContainer>
         <LegalContainer>
             <Text> Privacy Policy</Text>
