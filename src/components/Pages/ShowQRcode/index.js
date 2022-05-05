@@ -94,7 +94,7 @@ const index = ({ account }) => {
         },
       });
       console.log("encypted hash: ", result);
-      setEncryptedHash(result.encrypted);
+      setEncryptedHash(result.data.encrypted);
 
       //   const inputs = [
       //     {
