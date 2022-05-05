@@ -184,11 +184,16 @@ const Button = styled.div`
 
   background: #f4f4f5;
 
+ 
   padding: 2%;
   align-items: flex-end;
   text-align: center;
   width: 100px;
   color: #354b37;
+  a {
+    text-decoration: none;
+    color: #354b37;}
+
 
   @media (max-width: 800px) {
     margin-top:-30%;
@@ -238,7 +243,7 @@ const Hero = ({ isMobile }) => {
     border-radius: 100px;
     top: 20px;
     left: 0px;
-    margin: 20% 10% 10% -20%;
+    margin: 20% 10% 10% 5%;
     z-index: 20;
     display: flex;
     position: relative;
@@ -315,8 +320,8 @@ const Hero = ({ isMobile }) => {
               </TextContainer>
             </OuterContainer2>
             <TextBox>
-              <Title3>NFTickets are going fast…</Title3>
-              <Title3>Claim your at DoinGud</Title3>
+              <Title3>NFTickets are coming soon…</Title3>
+              <Title3>Buy yours on DoinGud</Title3>
             </TextBox>
             <Description>
               On the days leading up to the event, your NFTs will <br></br> be
@@ -383,13 +388,13 @@ const Hero = ({ isMobile }) => {
                     You can learn from the<br></br> best in the crypto scene,
                     and finally <br></br> put those networking skills to use.
                   </Description>
-                  <Button>Join us</Button>{" "}
+                  <Button><a href="https://t.me/ethbarcelona">Join us</a></Button>{" "}
                 </SectionContainer1>
               ) : (
                 <SectionContainer2 id="section2">
                   <TextBox>
-                    <Title3>NFTickets are going fast…</Title3>
-                    <Title3>Claim your at DoinGud</Title3>
+                    <Title3>NFTickets are coming soon…</Title3>
+                    <Title3>Buy yours on DoinGud</Title3>
                   </TextBox>
                   <Description>
                     On the days leading up to the event, your NFTs will{" "}

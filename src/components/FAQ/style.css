@@ -37,6 +37,7 @@ border: 0px solid black;
     padding-right: 3%;
     border: 0px solid black;
     font-size: 16px;
+    font-family: Montserrat-Regular;
 }
 
 @media screen and (max-width:700px) {
@@ -45,4 +46,9 @@ border: 0px solid black;
         font-size: 14px;
     }
     
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url(../../Fonts//Montserrat-Regular.ttf);
 }

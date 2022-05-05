@@ -61,7 +61,8 @@ const FAQ = () => {
               {" "}
               Who Can Participate?
             </Accordion.Header>
-            <Accordion.Body className="answer">Anyone who is over the age of 18 is allowed to attend ETHBarcelona.</Accordion.Body>
+            <Accordion.Body className="answer">Anyone who is passionate about decentralization and web3 is welcome to attend ETHBarcelona.
+</Accordion.Body>
           </Accordion.Item>
 
           <Accordion.Item eventKey="3" className="Box">
