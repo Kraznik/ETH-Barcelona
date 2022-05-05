@@ -158,7 +158,7 @@ const Hero = ({ isMobile }) => {
   const location = window.location.hash;
   let navigate = useNavigate();
 
-  useEffect(() => {
+  const changeSection = async () => {
     setImageUrlOut(Event1);
     setImageUrlIn(Event2);
 
@@ -167,7 +167,13 @@ const Hero = ({ isMobile }) => {
       setImageUrlOut(Ticket1);
       setImageUrlIn(Ticket2);
       setSection2(true);
+    } else {
+      setSection2(false);
     }
+  };
+
+  useEffect(() => {
+    changeSection();
   }, [location]);
 
   const Navbar = styled.div`
@@ -218,7 +224,7 @@ const Hero = ({ isMobile }) => {
       <Container>
         {isMobile ? (
           <>
-            <OuterContainer>
+            <OuterContainer id="section1">
               <TextContainer>
                 <ImageContainer></ImageContainer>
                 <Heading>Barcelona . Spain</Heading>
@@ -235,7 +241,7 @@ const Hero = ({ isMobile }) => {
               put those networking skills to use.
             </Description>
             <Button>Join us</Button>{" "}
-            <OuterContainer2>
+            <OuterContainer2 id="section2">
               <TextContainer>
                 <ImageContainer2></ImageContainer2>
                 <Heading>Claim your NFTickets</Heading>
@@ -273,7 +279,8 @@ const Hero = ({ isMobile }) => {
                   href="/section#section1"
                   onClick={() => {
                     navigate("/section#section1");
-                    window.location.reload();
+                    // window.location.reload();
+                    changeSection();
                   }}
                   style={{
                     backgroundColor: !section2 ? "white" : "none",
@@ -287,7 +294,8 @@ const Hero = ({ isMobile }) => {
                   href="/section#section2"
                   onClick={() => {
                     navigate("/section#section2");
-                    window.location.reload();
+                    // window.location.reload();
+                    changeSection();
                   }}
                   style={{
                     backgroundColor: section2 ? "white" : "#424242;",
@@ -299,7 +307,7 @@ const Hero = ({ isMobile }) => {
                 </a>
               </Navbar>
               {!section2 ? (
-                <SectionContainer1 id="section1">
+                <SectionContainer1>
                   <TextBox>
                     <Title>Join us in sunny </Title>
                     <Title2>Barcelona </Title2>
@@ -313,7 +321,7 @@ const Hero = ({ isMobile }) => {
                   <Button>Join us</Button>{" "}
                 </SectionContainer1>
               ) : (
-                <SectionContainer2 id="section2">
+                <SectionContainer2>
                   <TextBox>
                     <Title3>NFTickets are going fast…</Title3>
                     <Title3>Claim your at DoinGud</Title3>
