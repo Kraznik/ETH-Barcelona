@@ -543,12 +543,34 @@ exports.main = async function (signer, recipient, contractAddress, payload) {
   for (let i = 0; i < events.length; i++) {
     let evt = events[i];
     console.log("transaction: ");
-    console.log(evt.transaction);
+    console.log(evt.transaction.logs[1]);
     const to = evt.transaction.from;
     let tx = await newNFT.mintItem(to, tokenUri, {
       gasLimit: 10000000,
     });
     txs.push(tx);
+
+    const burn_hash = evt.transaction.transactionHash;
+
+    const url_get =
+      "https://api.covalenthq.com/v1/80001/events/address/0x4137cF37598EE871d1F4A6DEE9188217Ed40c649/?starting-block=26200120&ending-block=26200140&key=ckey_9f2ed5152bcb4eb1a8dbc4cf854";
+
+    const { data } = await axios.get(url_get);
+    const token_id = data.data.items[0].decoded.params[3].value;
+    console.log("token id: ", data.data.items[0].decoded.params[3].value);
+
+    const url = "https://eth-barcelona.kraznikunderverse.com/users";
+    const tkt_data = {
+      walletAddress: to,
+      tokenID: token_id,
+      hash: burn_hash,
+    };
+    await axios.post(url, tkt_data, {
+      headers: {
+        "Content-Type": "application/json",
+        validate: "alpha romeo tango",
+      },
+    });
   }
 
   return txs;

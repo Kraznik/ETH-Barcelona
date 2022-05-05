@@ -63,37 +63,31 @@ const ShowTickets = ({ account }) => {
 
       let listOfCards = [];
 
-      for (let i = 1; i <= 9; i++) {
-        // https://doingud.com/creation/0xd005dab4de1f4dd9dee091aa7189e4d41305508e000000000003?edition=8
-        // const tokenId =
-        //   // "1435721072349998590788032814599621341706352861560185436768858689532592136";
-        //   // "1706061175700980423756583045757425390936512072470358289390261915023835139";
-        //   // "1047208622903106330699355649246804111152386481509182670586524793181306881"; //mumbai
-        //   "1047208622903106330699355649246804111152386481509182670586524793181306882";
-        const tid =
-          "104720862290310633069935564924680411115238648150918267058652479318130688";
-        const tokenId = tid + i;
+      const tid = BigInt(
+        "1719757583868960775909331762124959402016076508804645162510781236870381570"
+      );
+
+      for (
+        let tokenId = tid;
+        tokenId < tid + BigInt(10);
+        tokenId = tokenId + BigInt(1)
+      ) {
         const balance = await TicketToken.methods
           .balanceOf(userAddress.toString(), tokenId)
           .call();
 
+        console.log("token id: ", tokenId, ": ", balance);
+
         console.log("Ticket token balance: ", balance);
 
         if (balance > 0) {
-          const uri = await TicketToken.methods.uri(tokenId).call();
-          console.log("uri: ", uri);
+          // const uri = await TicketToken.methods.uri(tokenId).call();
+          // console.log("uri: ", uri);
 
-          let card = renderCard(`Ticket#${i}`, tokenId);
+          let card = renderCard(`Ticket#${tokenId - tid + BigInt(1)}`, tokenId);
           listOfCards.push(card);
         }
-
-        // for (let i = 1; i <= balance; i++) {
-        //   const uri = await TicketToken.methods.uri(tokenId).call();
-        //   console.log("uri: ", uri);
-
-        //   let card = renderCard(`Ticket#${i}`, tokenId);
-        //   listOfCards.push(card);
-        // }
+        // setListCards(listOfCards);
       }
       setListCards(listOfCards);
     } catch (err) {
@@ -113,7 +107,10 @@ const ShowTickets = ({ account }) => {
       <TicketBox key={name}>
         <Title>ETH BCN NFTicket</Title>
         <TicketImage></TicketImage>
-        <TicketId> Tikcet Id ${tokenId.slice(-2)} </TicketId>
+        <TicketId>
+          {" "}
+          Tikcet Id ${BigInt(tokenId).toString(16).slice(-3)}{" "}
+        </TicketId>
         <DoinGud to={`/tickets/${tokenId}/redeem`}> Redeem NFTicket </DoinGud>
       </TicketBox>
     );

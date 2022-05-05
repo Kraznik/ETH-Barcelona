@@ -3,7 +3,7 @@ import Ticket from "../../../assets/RedeemTicket.png";
 import styled from "styled-components";
 import "./style.css";
 import TicketToken from "../../../ethereum/TicketToken";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Container = styled.div`
@@ -104,8 +104,10 @@ const RedeemNFT = ({ account }) => {
   const { id } = useParams();
   const tid = id;
 
+  const navigate = useNavigate();
+
   const onBurn = async (tokenId) => {
-    // await saveData();
+    await saveData();
     try {
       console.log("Burning the ticket");
       const burnWalletAddress = "0x000000000000000000000000000000000000dEaD";
@@ -120,12 +122,21 @@ const RedeemNFT = ({ account }) => {
         .send({ from: account });
 
       console.log(result);
+
+      navigate(`/tickets/${tokenId}/qrcode`);
     } catch (err) {
       console.error(err);
     }
   };
 
   const saveData = async () => {
+    // try {
+
+    // } catch (err) {
+    //   console.error(err);
+    //   console.log("Issue saving user data");
+    // }
+
     const url = "https://eth-barcelona.kraznikunderverse.com/users";
     const data = {
       name: user.fullName,

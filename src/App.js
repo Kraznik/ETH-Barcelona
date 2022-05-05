@@ -146,14 +146,20 @@ const App = () => {
       const userAddress = account;
       console.log("user address: ", userAddress);
 
-      for (let i = 1; i <= 9; i++) {
-        const tid =
-          "104720862290310633069935564924680411115238648150918267058652479318130688";
-        const tokenId = tid + i;
-        console.log("tid", tokenId);
+      const tid = BigInt(
+        "1719757583868960775909331762124959402016076508804645162510781236870381570"
+      );
+
+      for (
+        let tokenId = tid;
+        tokenId < tid + BigInt(10);
+        tokenId = tokenId + BigInt(1)
+      ) {
         const balance = await TicketToken.methods
           .balanceOf(userAddress.toString(), tokenId)
           .call();
+
+        console.log("token id: ", tokenId);
 
         console.log("Ticket token balance: ", balance);
 
