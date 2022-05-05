@@ -87,6 +87,11 @@ const Text = styled.div`
   @media (max-width: 700px) {
     padding-bottom: 10%;
   }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
 `;
 
 const Social = styled.div`
@@ -119,12 +124,18 @@ const Footer = () => {
               Telegram
             </a>{" "}
           </Social>
-          <Social>Twitter</Social>
-          <Social>Instagram</Social>
+          <Social>
+            <a href="https://twitter.com/eth_barcelona" className="link">
+              Twitter
+            </a>
+          </Social>
+          <Social>
+            <a href="https://www.instagram.com/ethbarcelona/">Instagram</a>
+          </Social>
         </SocialsContainer>
         <LegalContainer>
-          {/* <Text> Privacy Policy</Text>
-            <Text> Terms of Conditions</Text> */}
+          {/* <Text> Privacy Policy</Text> */}
+            <Text> <a href="https://docs.google.com/document/d/1xc9zym_QZZp3pAUadDLwxf15XxpUElcmIZ0DfS4dpe4/edit#heading=h.1owjb43onqi">Terms of Conditions </a></Text>
         </LegalContainer>
       </Container>
     </>

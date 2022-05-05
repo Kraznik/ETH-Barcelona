@@ -4,7 +4,10 @@ import Event1 from "../../assets/Event1.png";
 import Event2 from "../../assets/Event2.png";
 import Ticket1 from "../../assets/Ticket1.png";
 import Ticket2 from "../../assets/Ticket2.png";
-
+import MobileEvent1 from "../../assets/MobileBack1.png";
+import MobileEvent2 from "../../assets/MobileFront1.png";
+import MobileEvent3 from "../../assets/MobileBack2.png";
+import MobileEvent4 from "../../assets/MobileFront2.png";
 import { useNavigate } from "react-router-dom";
 
 // import ScrollableSection, { ScrollableLink } from "react-update-url-on-scroll";
@@ -22,16 +25,38 @@ const OuterContainer2 = styled.div`
   background-image: url(${Ticket1});
   height: 900px;
   padding: 15%;
+
+
+  @media (max-width: 800px) {
+    background-image: url(${MobileEvent3});
+    height: 522px;
+    width: 375px;
+
+  }
 `;
 const TextContainer = styled.div`
   width: 518px;
   padding: 5%;
-  background: #f4f4f5; ;
+  background: #f4f4f5; 
+
+  @media (max-width: 800px) {
+
+    height: 420px;
+    width: 300.7px;
+  }
 `;
 
 const ImageContainer2 = styled.div`
   background-image: url(${Ticket2});
   height: 613px;
+
+  @media (max-width: 800px) {
+
+    height: 420px;
+    width: 272.83px;
+
+  background-image: url(${MobileEvent4});
+  }
 `;
 
 const Heading = styled.div`
@@ -65,6 +90,11 @@ const Title2 = styled.div`
   letter-spacing: -0.02em;
 
   color: #424242;
+  @media (max-width: 800px) {
+    font-size:56px;
+    margin:0 0 0 10%;
+    text-align:left;
+  }
 `;
 
 const Title3 = styled.div`
@@ -79,6 +109,11 @@ const Title3 = styled.div`
   letter-spacing: -0.02em;
 
   color: #424242;
+  @media (max-width: 800px) {
+    font-size:56px;
+    margin:0 0 0 10%;
+    text-align:left;
+  }
 `;
 
 const Title = styled.div`
@@ -91,6 +126,12 @@ const Title = styled.div`
   text-align: center;
   line-height: 78px;
   color: #424242;
+
+  @media (max-width: 800px) {
+    font-size:56px;
+    margin:0 0 0 10%;
+    text-align:left;
+  }
 `;
 
 const Description = styled.div`
@@ -109,10 +150,23 @@ const Description = styled.div`
   color: #424242;
 
   margin: 0% 0 0 43%;
+
+  @media (max-width: 800px) {
+    padding-bottom: 35%;
+    margin:0 0 0 10%;
+    padding-right:9%;
+    text-align:left;
+
+  }
 `;
 
 const TextBox = styled.div`
   margin: 10% 10% 10% 0%;
+  
+
+  @media (max-width: 800px) {
+    padding-top: 35%;
+  }
 `;
 
 const Button = styled.div`
@@ -130,11 +184,23 @@ const Button = styled.div`
 
   background: #f4f4f5;
 
+ 
   padding: 2%;
   align-items: flex-end;
   text-align: center;
   width: 100px;
   color: #354b37;
+  a {
+    text-decoration: none;
+    color: #354b37;}
+
+
+  @media (max-width: 800px) {
+    margin-top:-30%;
+    margin-bottom:35%;
+    margin-left:10%;
+
+  }
 `;
 
 const SectionContainer = styled.div`
@@ -183,7 +249,7 @@ const Hero = ({ isMobile }) => {
     border-radius: 100px;
     top: 20px;
     left: 0px;
-    margin: 20% 10% 10% -20%;
+    margin: 20% 10% 10% 5%;
     z-index: 20;
     display: flex;
     position: relative;
@@ -213,11 +279,23 @@ const Hero = ({ isMobile }) => {
     background-image: url(${imageUrlOut});
     height: 900px;
     padding: 15%;
+
+    @media (max-width: 800px) {
+      background-image: url(${MobileEvent1});
+      height: 522px;
+      width: 375px;
+    }
   `;
 
   const ImageContainer = styled.div`
     background-image: url(${imageUrlIn});
     height: 613px;
+
+    @media (max-width: 800px) {
+      background-image: url(${MobileEvent2});
+      height: 355px;
+      width: 272.83px;
+    }
   `;
   return (
     <>
@@ -236,8 +314,8 @@ const Hero = ({ isMobile }) => {
             </TextBox>
             <Description>
               We bring together over 4000 makers, developers, and blockchain{" "}
-              enthusiasts for a three-day<br></br> conference. You can learn
-              from the<br></br> best in the crypto scene, and finally <br></br>{" "}
+              enthusiasts for a three-day conference. You can learn
+              from the best in the crypto scene, and finally 
               put those networking skills to use.
             </Description>
             <Button>Join us</Button>{" "}
@@ -248,12 +326,12 @@ const Hero = ({ isMobile }) => {
               </TextContainer>
             </OuterContainer2>
             <TextBox>
-              <Title3>NFTickets are going fast…</Title3>
-              <Title3>Claim your at DoinGud</Title3>
+              <Title3>NFTickets are coming soon…</Title3>
+              <Title3>Buy yours on DoinGud</Title3>
             </TextBox>
             <Description>
               On the days leading up to the event, your NFTs will <br></br> be
-              redeemed to check-in on our website.<br></br> After, you will
+              redeemed to check-in on our website.<br></br> <br></br>After, you will
               receive a QR-code that grants you <br></br>access to the
               ETHBarcelona conference.
             </Description>
@@ -318,13 +396,13 @@ const Hero = ({ isMobile }) => {
                     You can learn from the<br></br> best in the crypto scene,
                     and finally <br></br> put those networking skills to use.
                   </Description>
-                  <Button>Join us</Button>{" "}
+                  <Button><a href="https://t.me/ethbarcelona">Join us</a></Button>{" "}
                 </SectionContainer1>
               ) : (
                 <SectionContainer2>
                   <TextBox>
-                    <Title3>NFTickets are going fast…</Title3>
-                    <Title3>Claim your at DoinGud</Title3>
+                    <Title3>NFTickets are coming soon…</Title3>
+                    <Title3>Buy yours on DoinGud</Title3>
                   </TextBox>
                   <Description>
                     On the days leading up to the event, your NFTs will{" "}
