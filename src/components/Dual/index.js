@@ -10,6 +10,7 @@ import MobileEvent3 from "../../assets/MobileBack2.png";
 import MobileEvent4 from "../../assets/MobileFront2.png";
 import { useNavigate } from "react-router-dom";
 
+
 // import ScrollableSection, { ScrollableLink } from "react-update-url-on-scroll";
 
 const Container = styled.div`
@@ -21,28 +22,32 @@ const Right = styled.div`
   float: right;
 `;
 
+const Dot = styled.div`
+display:inline-block;
+
+`
+
 const OuterContainer2 = styled.div`
   background-image: url(${Ticket1});
   height: 900px;
   padding: 15%;
 
-
   @media (max-width: 800px) {
     background-image: url(${MobileEvent3});
     height: 522px;
     width: 375px;
-
+    justify-content:center;
   }
 `;
 const TextContainer = styled.div`
   width: 518px;
   padding: 5%;
-  background: #f4f4f5; 
+  background: #f4f4f5;
 
   @media (max-width: 800px) {
-
     height: 420px;
     width: 300.7px;
+    margin-left:-18px;
   }
 `;
 
@@ -51,11 +56,10 @@ const ImageContainer2 = styled.div`
   height: 613px;
 
   @media (max-width: 800px) {
-
-    height: 420px;
+    height: 340px;
     width: 272.83px;
 
-  background-image: url(${MobileEvent4});
+    background-image: url(${MobileEvent4});
   }
 `;
 
@@ -67,9 +71,21 @@ const Heading = styled.div`
   line-height: 24px;
   text-align: center;
   color: #424242;
+
   padding: 2%;
 
   margin-top: 5%;
+
+  a {
+    text-decoration: none;
+    color: #354b37;
+  }
+
+  &:hover {
+    a{
+      border-bottom: 1px solid #424242;
+    }
+  }
 `;
 
 const Left = styled.div`
@@ -91,9 +107,9 @@ const Title2 = styled.div`
 
   color: #424242;
   @media (max-width: 800px) {
-    font-size:56px;
-    margin:0 0 0 10%;
-    text-align:left;
+    font-size: 56px;
+    margin: 0 0 0 10%;
+    text-align: left;
   }
 `;
 
@@ -110,9 +126,9 @@ const Title3 = styled.div`
 
   color: #424242;
   @media (max-width: 800px) {
-    font-size:56px;
-    margin:0 0 0 10%;
-    text-align:left;
+    font-size: 56px;
+    margin: 0 0 0 10%;
+    text-align: left;
   }
 `;
 
@@ -128,9 +144,9 @@ const Title = styled.div`
   color: #424242;
 
   @media (max-width: 800px) {
-    font-size:56px;
-    margin:0 0 0 10%;
-    text-align:left;
+    font-size: 56px;
+    margin: 0 0 0 10%;
+    text-align: left;
   }
 `;
 
@@ -153,16 +169,14 @@ const Description = styled.div`
 
   @media (max-width: 800px) {
     padding-bottom: 35%;
-    margin:0 0 0 10%;
-    padding-right:9%;
-    text-align:left;
-
+    margin: 0 0 0 10%;
+    padding-right: 9%;
+    text-align: left;
   }
 `;
 
 const TextBox = styled.div`
   margin: 10% 10% 10% 0%;
-  
 
   @media (max-width: 800px) {
     padding-top: 35%;
@@ -184,7 +198,6 @@ const Button = styled.div`
 
   background: #f4f4f5;
 
- 
   padding: 2%;
   align-items: flex-end;
   text-align: center;
@@ -192,14 +205,13 @@ const Button = styled.div`
   color: #354b37;
   a {
     text-decoration: none;
-    color: #354b37;}
-
+    color: #354b37;
+  }
 
   @media (max-width: 800px) {
-    margin-top:-30%;
-    margin-bottom:35%;
-    margin-left:10%;
-
+    margin-top: -30%;
+    margin-bottom: 35%;
+    margin-left: 10%;
   }
 `;
 
@@ -305,7 +317,7 @@ const Hero = ({ isMobile }) => {
             <OuterContainer id="event">
               <TextContainer>
                 <ImageContainer></ImageContainer>
-                <Heading>Barcelona . Spain</Heading>
+                <Heading>Barcelona <Dot>.</Dot> Spain</Heading>
               </TextContainer>
             </OuterContainer>
             <TextBox>
@@ -314,15 +326,15 @@ const Hero = ({ isMobile }) => {
             </TextBox>
             <Description>
               We bring together over 4000 makers, developers, and blockchain{" "}
-              enthusiasts for a three-day conference. You can learn
-              from the best in the crypto scene, and finally 
-              put those networking skills to use.
+              enthusiasts for a three-day conference. You can learn from the
+              best in the crypto scene, and finally put those networking skills
+              to use.
             </Description>
             <Button>Join us</Button>{" "}
             <OuterContainer2 id="tickets">
               <TextContainer>
                 <ImageContainer2></ImageContainer2>
-                <Heading>Claim your NFTickets</Heading>
+                <Heading><a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a700000000001c">Buy your NFTickets</a></Heading>
               </TextContainer>
             </OuterContainer2>
             <TextBox>
@@ -331,8 +343,8 @@ const Hero = ({ isMobile }) => {
             </TextBox>
             <Description>
               On the days leading up to the event, your NFTs will <br></br> be
-              redeemed to check-in on our website.<br></br> <br></br>After, you will
-              receive a QR-code that grants you <br></br>access to the
+              redeemed to check-in on our website.<br></br> <br></br>After, you
+              will receive a QR-code that grants you <br></br>access to the
               ETHBarcelona conference.
             </Description>
           </>
@@ -343,7 +355,12 @@ const Hero = ({ isMobile }) => {
                 <TextContainer>
                   <ImageContainer></ImageContainer>
                   {section2 ? (
-                    <Heading>Claim your NFTickets</Heading>
+                    <Heading>
+                      {" "}
+                      <a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a700000000001c">
+                        Buy your NFTickets{" "}
+                      </a>
+                    </Heading>
                   ) : (
                     <Heading>Barcelona . Spain</Heading>
                   )}
@@ -396,7 +413,9 @@ const Hero = ({ isMobile }) => {
                     You can learn from the<br></br> best in the crypto scene,
                     and finally <br></br> put those networking skills to use.
                   </Description>
-                  <Button><a href="https://t.me/ethbarcelona">Join us</a></Button>{" "}
+                  <Button>
+                    <a href="https://t.me/ethbarcelona">Join us</a>
+                  </Button>{" "}
                 </SectionContainer1>
               ) : (
                 <SectionContainer2>
@@ -405,8 +424,8 @@ const Hero = ({ isMobile }) => {
                     <Title3>Buy yours on DoinGud</Title3>
                   </TextBox>
                   <Description>
-                    On the days leading up to the event, your NFTs will{" "}
-                    <br></br> be redeemed to check-in on our website.<br></br>{" "}
+                    On the days leading up to the event, your NFTs will be
+                    redeemed to check-in on our website.<br></br> <br></br>
                     After, you will receive a QR-code that grants you <br></br>
                     access to the ETHBarcelona conference.
                   </Description>

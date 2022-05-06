@@ -39,8 +39,11 @@ const Title = styled.div`
   }
 
   @media screen and (max-width: 800px) {
-    font-size: 70px;
-    line-height: 80px;
+    font-size: 64px;
+    line-height: 64px;
+    width: 346px;
+    margin-left:-20px;
+
   }
 `;
 const Title1 = styled.div`
@@ -66,8 +69,10 @@ const Title1 = styled.div`
   }
 
   @media screen and (max-width: 800px) {
-    font-size: 70px;
-    line-height: 80px;
+    font-size: 64px;
+    line-height: 64px;
+    display:inline-block;
+    margin:0;
   }
 `;
 const Image = styled.div`
@@ -122,10 +127,10 @@ const Intro = ({ isMobile }) => {
           ) : (
             <>
               <Dates>July 6-8</Dates>
-              <Title>What happens in</Title>
-              <Title1>Barcelona stays</Title1>
-              <Title>on the Blockchain</Title>
-              <Image style={{ marginTop: "-80px" }}></Image>
+              <Title>What happens in Barcelona stays on the Blockchain</Title>
+              {/* <Title1>Barcelona stays</Title1>
+              <Title>on the Blockchain</Title> */}
+              <Image style={{ marginTop: "-50px" }}></Image>
             </>
           )}
         </TextContainer>

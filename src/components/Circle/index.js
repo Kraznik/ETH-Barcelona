@@ -26,16 +26,13 @@ const ImgContainer = styled.div`
 const TextContainer = styled.div`
   padding: 10% 9% 12% 9%;
 
-  @media (max-width: 700px) {
-    padding: 0%;
-    margin: 10%;
-    padding-bottom: 30%;
-  }
 
   @media (max-width: 700px) {
-    padding: 0%;
-    text-align: center;
-    padding-bottom: 10%;
+    padding-left:16px;
+    padding-top:0;
+    margin-top:60px;
+    padding-right:16px;
+    padding-bottom: 148px;
   }
 `;
 
@@ -52,7 +49,8 @@ const Title = styled.div`
   @media (max-width: 700px) {
     font-family: "Dahlia-normal";
     font-style: normal;
-    font-size: 50px;
+    font-size: 56px;
+    font-weight: 400;
     line-height: 56px;
     padding: 0;
     text-align: center;
@@ -73,8 +71,9 @@ const Bold = styled.div`
   @media (max-width: 700px) {
     font-family: "Dahlia-bold";
     font-style: normal;
-    font-size: 50px;
+    font-size: 56px;
     line-height: 56px;
+    display:inline;
 
     text-align: center;
     color: #f5c34b;

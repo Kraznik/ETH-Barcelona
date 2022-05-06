@@ -49,7 +49,7 @@ const FAQ = () => {
 
           <Accordion.Item eventKey="1" className="Box">
             <Accordion.Header className="question">
-            What events, outside of crypto talks, will there 
+            What events, outside of crypto talks, will be there 
             </Accordion.Header>
             <Accordion.Body className="answer">
             In addition to the talks, discussions, and networking opportunities, we'll be having art installations, musical performances, and special events to maximize the fun during your time at ETHBarcelona.

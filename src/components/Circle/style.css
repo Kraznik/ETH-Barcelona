@@ -7,3 +7,8 @@
     font-family: dahlia-bold;
     src: url(../../Fonts/dahlia-boldcondensed.otf);
 }
+
+@font-face {
+    font-family: dahlia;
+    src: url(../../Fonts/dahlia-regularcondensed.otf);
+}

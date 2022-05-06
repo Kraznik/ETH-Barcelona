@@ -38,9 +38,12 @@ const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto"></Nav>
             <Nav>
-              {/* <Nav.Link href="#faq" className="text">
+              <Nav.Link href="#faq" className="text">
                 FAQ
-              </Nav.Link> */}
+              </Nav.Link>
+              <Nav.Link href="#faq" className="text">
+                <a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a700000000001c">Tickets</a>
+              </Nav.Link>
 
               {/* <Nav.Link className="text3">Program</Nav.Link> */}
               {/* <TicketBox1>
