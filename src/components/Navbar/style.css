@@ -84,6 +84,12 @@ color: #354B37;
 
 }
 
- a :hover{
-    border-bottom: 1px solid #424242;
+ /* a :hover{
+     transform: scale(105%);
+     transition:330ms ease-in-out;
+    
+} */
+
+.ticket:hover{
+    border-bottom: 1px solid black;
 }

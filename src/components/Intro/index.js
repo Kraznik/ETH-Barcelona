@@ -90,7 +90,12 @@ const Image = styled.div`
   }
 `;
 const TextContainer = styled.div`
-  padding: 10%;
+  padding: 78px 191px 200px 190px;;
+
+  @media screen and (max-width: 800px) {
+    padding:10%;
+  }
+
 `;
 
 const Dates = styled.div`

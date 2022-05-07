@@ -98,7 +98,7 @@ const Social = styled.div`
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
-  font-size: 26px;
+  font-size: 16px;
   color: #d1d1d1;
 
   a {

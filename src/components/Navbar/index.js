@@ -23,6 +23,78 @@ const TicketBox1 = styled.div`
   display: flex;
 `;
 
+const CircleOut = styled.div`
+color: #354B37;
+box-sizing: border-box;
+border: 0.8px solid #354B37;
+transform: rotate(-6.41deg);
+width: 112px;
+height: 50px;
+border-radius:50%;
+
+
+&:hover{
+  transform: rotate(6.7deg);
+}
+
+`;
+
+const CircleIn = styled.div`
+background: #354B37;
+width: 112px;
+transform: rotate(+6.41deg);
+height: 50px;
+padding:5% 18% 5% 5%;
+color:white;
+justify-content:center;
+align-items:center;
+test-align:center;
+border-radius:50%;
+
+&:hover{
+  background: none;
+  transform: rotate(-6.41deg);
+  color: #354B37;
+
+}
+
+
+`;
+
+const Text = styled.div`
+font-family: 'Dahlia';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 32px;
+/* identical to box height, or 160% */
+text-align: right;
+letter-spacing: 1px;
+color: #354B37;
+padding-top: 10px;
+
+`
+
+const Ticket = styled.div`
+
+
+@media screen and (min-width: 900px) {
+  display:none;
+}
+
+@media screen and (max-width: 900px) {
+  margin-left:80px;
+}
+
+`
+
+const Desktop = styled.div`
+@media screen and (max-width: 900px) {
+  display:none;
+}
+
+`
+
 const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
   // const userAddress = `${account.slice(0, 4)}....${account.slice(-4)}`;
   return (
@@ -34,16 +106,46 @@ const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
           <Navbar.Brand href="/" className="logo">
             <img alt="" src={Logo} className="d-inline-block align-top" />{" "}
           </Navbar.Brand>
+
+
+          <Ticket>
+          <Nav.Link href="#faq" className="text">
+                <CircleOut>
+                <a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a700000000001c">
+                  <CircleIn>
+                    
+                 
+                    Tickets
+                
+                  </CircleIn>
+                  </a>
+                </CircleOut>
+              </Nav.Link>
+          </Ticket>
+
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto"></Nav>
             <Nav>
               <Nav.Link href="#faq" className="text">
-                FAQ
+                <Text>FAQ </Text>
               </Nav.Link>
+
+              <Desktop>
               <Nav.Link href="#faq" className="text">
-                <a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a700000000001c">Tickets</a>
+                <CircleOut>
+                <a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a700000000001c">
+                  <CircleIn>
+                    Tickets
+                  
+                  </CircleIn>
+                  </a>
+                </CircleOut>
               </Nav.Link>
+              </Desktop>
+
+
+ 
 
               {/* <Nav.Link className="text3">Program</Nav.Link> */}
               {/* <TicketBox1>

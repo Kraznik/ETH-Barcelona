@@ -24,7 +24,7 @@ const ImgContainer = styled.div`
 `;
 
 const TextContainer = styled.div`
-  padding: 10% 9% 12% 9%;
+  padding: 140px 154px 260px 154px;
 
 
   @media (max-width: 700px) {
@@ -33,6 +33,7 @@ const TextContainer = styled.div`
     margin-top:60px;
     padding-right:16px;
     padding-bottom: 148px;
+    padding: 10% 9% 12% 9%;
   }
 `;
 

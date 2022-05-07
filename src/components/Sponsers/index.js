@@ -1,11 +1,17 @@
 import React from 'react'; 
 import styled from 'styled-components';
-import DoinGud from "../../assets/DS1.png"
 import Gold from "../../assets/GS1.png"
 import Silver from "../../assets/SS1.png"
 import Bronze from "../../assets/BS1.png"
 import General from "../../assets/GSs1.png"
 import Organizer from "../../assets/O1.png"
+import Media1 from "../../assets/mediap1.png";
+import DoinGud from "../../assets/DoinGud.svg";
+import Floc from "../../assets/Floc.svg";
+import Polis from "../../assets/Polis.svg";
+import Eclectic from "../../assets/Eclectic.svg"
+import BeInCrypto from "../../assets/beINcrypto.svg"
+import DefiPrime from "../../assets/defiprime.svg";
 
 
 const Container = styled.div`
@@ -81,7 +87,13 @@ margin:1% 13.5% 1% 0 ;
 const GoldSponserContainer = styled.div`
 border-bottom: 1px solid #BDBDBD;
 margin: 0 10% 0 10%;
-position:relative;`
+position:relative;
+
+@media (max-width: 700px) {
+padding-bottom:100px;
+}
+
+`
 
 const GoldSponserTitle = styled.div`
 text-align:left;
@@ -126,6 +138,11 @@ height: 180px;
 
   }
 
+  .a{
+    text-decoration:none;
+    border-bottom:0px solid black;
+  }
+
 
 `
 
@@ -142,7 +159,7 @@ display:flex;
 @media (max-width: 600px) {
     border-radius: 4px;
     display:inline-block;   
-    background:red;
+
 
   }
 `
@@ -172,19 +189,19 @@ const Sponsers = () => {
     <>
     <Container>
         <TitleBox>
-        <Title1> Our sponsers</Title1>
+        <Title1> Partners</Title1>
         </TitleBox>
 
-        <DiamondSponserContainer>
+        {/* <DiamondSponserContainer>
             <DiamondSponserTitle>Diamond</DiamondSponserTitle>
             <DiamondSponserLogoContainer>
                 <DiamondSponserLogo> <img src={DoinGud}></img></DiamondSponserLogo>
                 <DiamondSponserLogo> <img src={DoinGud}></img></DiamondSponserLogo>
                 <DiamondSponserLogo> <img src={DoinGud}></img></DiamondSponserLogo>
             </DiamondSponserLogoContainer>
-        </DiamondSponserContainer>
+        </DiamondSponserContainer> */}
 
-        <GoldSponserContainer>
+        {/* <GoldSponserContainer>
             <GoldSponserTitle>Gold</GoldSponserTitle>
             <GoldSponserLogoContainer>
                 <GoldSponserLogo><img src={Gold}></img></GoldSponserLogo>
@@ -192,9 +209,9 @@ const Sponsers = () => {
                 <GoldSponserLogo><img src={Gold}></img></GoldSponserLogo>
                 <GoldSponserLogo><img src={Gold}></img></GoldSponserLogo>
             </GoldSponserLogoContainer>
-        </GoldSponserContainer>
+        </GoldSponserContainer> */}
 
-        <SilverSponserContainer>
+        {/* <SilverSponserContainer>
             <GoldSponserTitle>Silver</GoldSponserTitle>
             <SilverSponserLogoContainer>
                 <SilverSponserLogo><img src={Silver}></img> </SilverSponserLogo>
@@ -210,9 +227,9 @@ const Sponsers = () => {
                 <SilverSponserLogo><img src={Silver}></img> </SilverSponserLogo>
                 <SilverSponserLogo><img src={Silver}></img> </SilverSponserLogo>
             </SilverSponserLogoContainer>
-        </SilverSponserContainer>
+        </SilverSponserContainer> */}
 
-        <SilverSponserContainer>
+        {/* <SilverSponserContainer>
             <GoldSponserTitle>Bronze</GoldSponserTitle>
             <SilverSponserLogoContainer>
                 <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
@@ -230,9 +247,9 @@ const Sponsers = () => {
                 <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
                 <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
             </SilverSponserLogoContainer>
-        </SilverSponserContainer>
+        </SilverSponserContainer> */}
 
-        <SilverSponserContainer>
+        {/* <SilverSponserContainer>
             <GoldSponserTitle>General Supporter</GoldSponserTitle>
             <SilverSponserLogoContainer>
             <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
@@ -250,15 +267,25 @@ const Sponsers = () => {
             <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
             <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
             </SilverSponserLogoContainer>
-        </SilverSponserContainer>
+        </SilverSponserContainer> */}
 
         <SilverSponserContainer>
-            <GoldSponserTitle>Organizers</GoldSponserTitle>
+            <GoldSponserTitle>Launch Partners</GoldSponserTitle>
             <SilverSponserLogoContainer>
-                <OrganizerLogo><img src={Organizer}></img></OrganizerLogo>
-                <OrganizerLogo><img src={Organizer}></img></OrganizerLogo>
+                <OrganizerLogo><a href="https://doingud.com/"><img src={DoinGud} width="270px" height=" 200px"></img></a></OrganizerLogo>
+                <OrganizerLogo><a href="https://wearefloc.com/"><img src={Floc} width="270px" height=" 200px"></img></a></OrganizerLogo>
+                <OrganizerLogo><a href="https://twitter.com/PolisParallela"><img src={Polis} width="270px" height=" 200px"></img></a></OrganizerLogo>
             </SilverSponserLogoContainer>
         </SilverSponserContainer>
+
+                <GoldSponserContainer>
+            <GoldSponserTitle>Media Partners</GoldSponserTitle>
+            <GoldSponserLogoContainer>
+                <GoldSponserLogo><a href="https://beincrypto.com/"><img src={BeInCrypto}></img></a></GoldSponserLogo>
+                <GoldSponserLogo><a href="https://www.eclecticmethod.net/"><img src={Eclectic}></img></a></GoldSponserLogo>
+                <GoldSponserLogo><a href="https://defiprime.com/"><img src={DefiPrime}></img></a></GoldSponserLogo>
+            </GoldSponserLogoContainer>
+        </GoldSponserContainer>
 
 
     </Container>
