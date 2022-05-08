@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.96eb12fd.css",
-    "main.js": "/static/js/main.61a178f1.js",
+    "main.js": "/static/js/main.f375eaf5.js",
     "static/media/Event1.png": "/static/media/Event1.bfce9ac6bf93d05e886a.png",
     "static/media/Ticket1.png": "/static/media/Ticket1.dac6a5db3735d3eb3806.png",
     "static/media/Event2.png": "/static/media/Event2.f761f60e61d06c71e7b7.png",
@@ -23,10 +23,10 @@
     "static/media/email.svg": "/static/media/email.bd5be84d8615d5a1b45ff220215f1d14.svg",
     "index.html": "/index.html",
     "main.96eb12fd.css.map": "/static/css/main.96eb12fd.css.map",
-    "main.61a178f1.js.map": "/static/js/main.61a178f1.js.map"
+    "main.f375eaf5.js.map": "/static/js/main.f375eaf5.js.map"
   },
   "entrypoints": [
     "static/css/main.96eb12fd.css",
-    "static/js/main.61a178f1.js"
+    "static/js/main.f375eaf5.js"
   ]
 }

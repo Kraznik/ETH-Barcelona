@@ -69,7 +69,7 @@ const ShowTickets = ({ account }) => {
 
       for (
         let tokenId = tid;
-        tokenId < tid + BigInt(10);
+        tokenId < tid + BigInt(30);
         tokenId = tokenId + BigInt(1)
       ) {
         const balance = await TicketToken.methods
