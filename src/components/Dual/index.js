@@ -10,7 +10,6 @@ import MobileEvent3 from "../../assets/MobileBack2.png";
 import MobileEvent4 from "../../assets/MobileFront2.png";
 import { useNavigate } from "react-router-dom";
 
-
 // import ScrollableSection, { ScrollableLink } from "react-update-url-on-scroll";
 
 const Container = styled.div`
@@ -23,9 +22,8 @@ const Right = styled.div`
 `;
 
 const Dot = styled.div`
-display:inline-block;
-
-`
+  display: inline-block;
+`;
 
 const OuterContainer2 = styled.div`
   background-image: url(${Ticket1});
@@ -36,7 +34,7 @@ const OuterContainer2 = styled.div`
     background-image: url(${MobileEvent3});
     height: 522px;
     width: 375px;
-    justify-content:center;
+    justify-content: center;
   }
 `;
 const TextContainer = styled.div`
@@ -47,7 +45,7 @@ const TextContainer = styled.div`
   @media (max-width: 800px) {
     height: 420px;
     width: 300.7px;
-    margin-left:-18px;
+    margin-left: -18px;
   }
 `;
 
@@ -82,7 +80,7 @@ const Heading = styled.div`
   }
 
   &:hover {
-    a{
+    a {
       border-bottom: 1px solid #424242;
     }
   }
@@ -317,7 +315,9 @@ const Hero = ({ isMobile }) => {
             <OuterContainer id="event">
               <TextContainer>
                 <ImageContainer></ImageContainer>
-                <Heading>Barcelona <Dot>.</Dot> Spain</Heading>
+                <Heading>
+                  Barcelona <Dot>.</Dot> Spain
+                </Heading>
               </TextContainer>
             </OuterContainer>
             <TextBox>
@@ -325,7 +325,7 @@ const Hero = ({ isMobile }) => {
               <Title2>Barcelona </Title2>
             </TextBox>
             <Description>
-              We bring together over 4000 makers, developers, and blockchain{" "}
+              We bring together upto 4000 makers, developers, and blockchain{" "}
               enthusiasts for a three-day conference. You can learn from the
               best in the crypto scene, and finally put those networking skills
               to use.
@@ -334,7 +334,11 @@ const Hero = ({ isMobile }) => {
             <OuterContainer2 id="tickets">
               <TextContainer>
                 <ImageContainer2></ImageContainer2>
-                <Heading><a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a700000000001c">Buy your NFTickets</a></Heading>
+                <Heading>
+                  <a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a700000000001c">
+                    Buy your NFTickets
+                  </a>
+                </Heading>
               </TextContainer>
             </OuterContainer2>
             <TextBox>
@@ -408,7 +412,7 @@ const Hero = ({ isMobile }) => {
                     <Title2>Barcelona </Title2>
                   </TextBox>
                   <Description>
-                    We bring together over 4000 makers, developers, and
+                    We bring together upto 4000 makers, developers, and
                     blockchain enthusiasts for a three-day<br></br> conference.
                     You can learn from the<br></br> best in the crypto scene,
                     and finally <br></br> put those networking skills to use.
