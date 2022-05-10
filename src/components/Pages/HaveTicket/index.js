@@ -133,7 +133,7 @@ const ShowTickets = ({ account }) => {
         <Title>ETH BCN NFTicket</Title>
         <TicketImage></TicketImage>
         <TicketId>
-          Ticket Id ${parseInt(BigInt(tokenId).toString(16).slice(-5), 16)}{" "}
+          #{parseInt(BigInt(tokenId).toString(16).slice(-5), 16)}{" "}
         </TicketId>
         <DoinGud to={`/tickets/${tokenId}/redeem`}> Redeem NFTicket </DoinGud>
       </TicketBox>
@@ -143,14 +143,15 @@ const ShowTickets = ({ account }) => {
   const renderRedeemedCard = (tokenId) => {
     return (
       <Link
+        key={tokenId}
         to={`/tickets/${tokenId}/qrcode`}
         style={{ textDecoration: "none", color: "black" }}
       >
-        <TicketBox key={tokenId}>
+        <TicketBox>
           <Title>ETH BCN NFTicket</Title>
           <RedeemedTicketImage />
           <TicketId>
-            Ticket Id ${parseInt(BigInt(tokenId).toString(16).slice(-5), 16)}{" "}
+            #{parseInt(BigInt(tokenId).toString(16).slice(-5), 16)}{" "}
           </TicketId>
         </TicketBox>
       </Link>
