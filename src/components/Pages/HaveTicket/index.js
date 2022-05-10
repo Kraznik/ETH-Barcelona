@@ -17,7 +17,8 @@ const TicketBox = styled.div`
   display: inline-block;
   margin: 20px 20px;
   border-radius: 10px;
-  padding: 10px 0;
+  padding: 0px 0px 10px 0px;
+  overflow: hidden;
 `;
 
 const Title = styled.div`
@@ -130,7 +131,7 @@ const ShowTickets = ({ account }) => {
   const renderCard = (tokenId) => {
     return (
       <TicketBox key={tokenId}>
-        <Title>ETH BCN NFTicket</Title>
+        {/* <Title>ETH BCN NFTicket</Title> */}
         <TicketImage></TicketImage>
         <TicketId>
           #{parseInt(BigInt(tokenId).toString(16).slice(-5), 16)}{" "}
@@ -148,7 +149,7 @@ const ShowTickets = ({ account }) => {
         style={{ textDecoration: "none", color: "black" }}
       >
         <TicketBox>
-          <Title>ETH BCN NFTicket</Title>
+          {/* <Title>ETH BCN NFTicket</Title> */}
           <RedeemedTicketImage />
           <TicketId>
             #{parseInt(BigInt(tokenId).toString(16).slice(-5), 16)}{" "}

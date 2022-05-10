@@ -8,7 +8,7 @@ import Email from "../../../assets/email.svg";
 import { QRCodeSVG } from "qrcode.react";
 import axios from "axios";
 import web3 from "../../../ethereum/web3";
-import { useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
@@ -90,6 +90,8 @@ const index = ({ account }) => {
 
   const { id } = useParams();
 
+  const navigate = useNavigate();
+
   const getTokenRedeemData = async () => {
     try {
       const url = `https://eth-barcelona.kraznikunderverse.com/users/${account}/${id}`;
@@ -128,7 +130,19 @@ const index = ({ account }) => {
 
   return (
     <>
-      <Container>
+      <Container style={{ position: "relative" }}>
+        <div
+          style={{
+            textDecoration: "underline",
+            cursor: "pointer",
+            position: "absolute",
+            top: 10,
+            left: 10,
+          }}
+          onClick={() => navigate(-1)}
+        >
+          Back
+        </div>
         <Heading> You are going to ETH BCN! </Heading>
         <Description>
           {" "}
