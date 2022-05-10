@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Ticket from "../../../assets/Ticket.png";
 import TicketToken from "../../../ethereum/TicketToken";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import viewQR from "../../../assets/viewQR.png";
 
 const Container = styled.div`
   display: inline-block;
@@ -47,6 +49,13 @@ const TicketImage = styled.div`
   height: 268px;
 `;
 
+const RedeemedTicketImage = styled.div`
+  background-image: url(${viewQR});
+  width: 304px;
+  height: 268px;
+  background-size: 304px 268px;
+`;
+
 const TicketId = styled.div`
   font-family: "dahlia";
 `;
@@ -55,8 +64,9 @@ const DoinGud = styled(Link)``;
 
 const ShowTickets = ({ account }) => {
   const [listCards, setListCards] = useState([]);
+  const [listRedeemedTickets, setListRedeemedTickets] = useState([]);
 
-  const run = async () => {
+  const getTickets = async () => {
     try {
       const userAddress = account;
       console.log("user address: ", userAddress);
@@ -76,15 +86,13 @@ const ShowTickets = ({ account }) => {
           .balanceOf(userAddress.toString(), tokenId)
           .call();
 
-        console.log("token id: ", tokenId, ": ", balance);
+        // console.log("token id: ", tokenId, ": ", balance);
 
-        console.log("Ticket token balance: ", balance);
+        // console.log("Ticket token balance: ", balance);
 
         if (balance > 0) {
-          // const uri = await TicketToken.methods.uri(tokenId).call();
-          // console.log("uri: ", uri);
-
-          let card = renderCard(`Ticket#${tokenId - tid + BigInt(1)}`, tokenId);
+          // `Ticket#${tokenId - tid + BigInt(1)}`
+          let card = renderCard(tokenId);
           listOfCards.push(card);
         }
         // setListCards(listOfCards);
@@ -95,42 +103,68 @@ const ShowTickets = ({ account }) => {
     }
   };
 
-  const renderCard = (name, tokenId) => {
+  const getRedeemedTickets = async () => {
+    try {
+      const url = `https://eth-barcelona.kraznikunderverse.com/qrcode/wallet/${account}`;
+      const { data } = await axios.get(url, {
+        headers: {
+          validate: "alpha romeo tango",
+        },
+      });
+      console.log(data.data);
+      const listCards = [];
+      data.data.map((redeemedTkt) => {
+        const card = renderRedeemedCard(redeemedTkt.tokenID);
+        listCards.push(card);
+      });
+      setListRedeemedTickets(listCards);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    getRedeemedTickets();
+  }, [account]);
+
+  const renderCard = (tokenId) => {
     return (
-      //   <Box key={name}>
-      //     <ImageConatiner>
-      //       <img src={Ticket} width="100%"></img>
-      //     </ImageConatiner>
-      //     <Title>{name}</Title>
-      //     <Button onClick={() => onBurn(tokenId)}>Burn</Button>
-      //   </Box>
-      <TicketBox key={name}>
+      <TicketBox key={tokenId}>
         <Title>ETH BCN NFTicket</Title>
         <TicketImage></TicketImage>
         <TicketId>
-          {" "}
-          Tikcet Id ${BigInt(tokenId).toString(16).slice(-3)}{" "}
+          Ticket Id ${parseInt(BigInt(tokenId).toString(16).slice(-5), 16)}{" "}
         </TicketId>
         <DoinGud to={`/tickets/${tokenId}/redeem`}> Redeem NFTicket </DoinGud>
       </TicketBox>
     );
   };
 
+  const renderRedeemedCard = (tokenId) => {
+    return (
+      <Link
+        to={`/tickets/${tokenId}/qrcode`}
+        style={{ textDecoration: "none", color: "black" }}
+      >
+        <TicketBox key={tokenId}>
+          <Title>ETH BCN NFTicket</Title>
+          <RedeemedTicketImage />
+          <TicketId>
+            Ticket Id ${parseInt(BigInt(tokenId).toString(16).slice(-5), 16)}{" "}
+          </TicketId>
+        </TicketBox>
+      </Link>
+    );
+  };
+
   useEffect(() => {
-    run();
+    getTickets();
   }, [account]);
 
   return (
     <>
       <Container>
-        {/* <TicketBox>
-          <Title>ETH BCN NFTicket</Title>
-          <TicketImage></TicketImage>
-          <TicketId> Tikcet Id 69 </TicketId>
-          <DoinGud> Redeem NFTicket </DoinGud>
-        </TicketBox> */}
-
-        {listCards}
+        {listRedeemedTickets} {listCards}
       </Container>
     </>
   );

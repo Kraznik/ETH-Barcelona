@@ -142,7 +142,10 @@ const RedeemNFT = ({ account }) => {
       name: user.fullName,
       optionalName: user.displayName,
       email: user.email,
+      walletAddress: account,
+      tokenId: id,
     };
+
     await axios.post(url, data, {
       headers: {
         "Content-Type": "application/json",

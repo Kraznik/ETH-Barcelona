@@ -159,9 +159,9 @@ const App = () => {
           .balanceOf(userAddress.toString(), tokenId)
           .call();
 
-        console.log("token id: ", tokenId);
+        // console.log("token id: ", tokenId);
 
-        console.log("Ticket token balance: ", balance);
+        // console.log("Ticket token balance: ", balance);
 
         if (balance > 0) setHaveTokens(true);
       }

@@ -82,83 +82,49 @@ const EmailContainer = styled.div``;
 
 const index = ({ account }) => {
   const [encryptedHash, setEncryptedHash] = useState(null);
+  const [redeemData, setRedeemData] = useState({
+    name: "",
+    optionalName: "",
+    email: "",
+  });
+
   const { id } = useParams();
+
+  const getTokenRedeemData = async () => {
+    try {
+      const url = `https://eth-barcelona.kraznikunderverse.com/users/${account}/${id}`;
+      const { data } = await axios.get(url, {
+        headers: {
+          validate: "alpha romeo tango",
+        },
+      });
+      console.log(data);
+      setRedeemData(data.user);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    getTokenRedeemData();
+  }, [account]);
 
   useEffect(() => {
     const run = async () => {
-      //   const url = `https://eth-barcelona.kraznikunderverse.com/qrcode/123565`;
       const url = `https://eth-barcelona.kraznikunderverse.com/qrcode/${id}`;
-      const result = await axios.get(url, {
+      const { data } = await axios.get(url, {
         headers: {
-          Validate: "alpha romeo tango",
+          validate: "alpha romeo tango",
         },
       });
-      console.log("encypted hash: ", result);
-      setEncryptedHash(result.data.encrypted);
 
-      //   const inputs = [
-      //     {
-      //       indexed: true,
-      //       name: "operator",
-      //       type: "address",
-      //     },
-      //     {
-      //       indexed: true,
-      //       name: "from",
-      //       type: "address",
-      //     },
-      //     {
-      //       indexed: true,
-      //       name: "to",
-      //       type: "address",
-      //     },
-      //     {
-      //       name: "id",
-      //       type: "uint256",
-      //     },
-      //     {
-      //       name: "amount",
-      //       type: "uint256",
-      //     },
-      //   ];
-
-      //   const log_data =
-      //     "0x0000000000000000000000000000000000000000000000000000929ea0c8c400000000000000000000000000000000000000000000000000050a75dfa1c9a9270000000000000000000000000000000000000000000014c8bfa437f1b398c0c80000000000000000000000000000000000000000000000000509e3410100e5270000000000000000000000000000000000000000000014c8bfa4ca90546184c8";
-
-      //   const topics = [
-      //     // "0x4dfe1bbbcf077ddc3e01291eea2d5c70c2b422b415d95645b9adcfd678cb1d63",
-      //     "0x0000000000000000000000000000000000000000000000000000000000001010",
-      //     "0x00000000000000000000000070c1ea05e2a54dffe1088d4a54cb1a6c25c9077c",
-      //     "0x000000000000000000000000be188d6641e8b680743a4815dfa0f6208038960f",
-      //   ];
-
-      //   const typesArray = [
-      //     { type: "address", name: "operator", indexed: "true" },
-      //     { type: "address", name: "from", indexed: "true" },
-      //     { type: "address", name: "to", indexed: "true" },
-      //     { type: "uint256", name: "id" },
-      //     { type: "uint256", name: "amount" },
-      //   ];
-      //   //   const res = web3.eth.abi.decodeLog(inputs, log_data, topics);
-      //   const decodedParameters = web3.eth.abi.decodeParameters(inputs, log_data);
-
-      //   console.log(JSON.stringify(decodedParameters, null, 4)); // correct
-      //   //   console.log("decoded log data: ", JSON.stringify(res, null, 4));
-
-      //   const url_get =
-      //     "https://api.covalenthq.com/v1/80001/events/address/0x4137cF37598EE871d1F4A6DEE9188217Ed40c649/?starting-block=26200120&ending-block=26200140&key=ckey_9f2ed5152bcb4eb1a8dbc4cf854";
-
-      //   const { data } = await axios.get(url_get);
-      //   console.log(data.data.items[0].decoded.params[3].value);
-      //   const res = web3.eth.abi.decodeLog(
-      //     inputs,
-      //     data.items[0].raw_log_data,
-      //     data.items[0].raw_log_topics
-      //   );
-      //   console.log("decoded log data: ", JSON.stringify(res, null, 4));
+      if (redeemData.walletAddress && redeemData.walletAddress === account) {
+        console.log("encypted hash: ", data);
+        setEncryptedHash(data.encrypted);
+      }
     };
     run();
-  }, []);
+  }, [redeemData]);
 
   return (
     <>
@@ -169,11 +135,18 @@ const index = ({ account }) => {
           This QR code is your access to the event. You could download it or
           access here with your wallet to use it.
         </Description>
+        <br />
+
+        <Description>
+          <div>Name: {redeemData.name}</div>
+          <div>Display name: {redeemData.optionalName}</div>
+          <div>Email: {redeemData.email} </div>
+        </Description>
+
         {encryptedHash ? (
           <QRCodes>
             {/* <QRCodeSVG value="$2b$10$2595K0J6lkp6bFhOhtu9WOQBdQVEFKrgOF0V/4aD74Yrch8ZyVTCO"></QRCodeSVG> */}
             <QRCodeSVG
-              // value={`https://organizer-access.web.app?burn_hash=${encryptedHash}`}
               value={`https://ethbc-organizeraccess.web.app/organizer-access?tokenId=${id}&ownerAddress=${account}&encryptedHash=${encryptedHash}`}
             ></QRCodeSVG>
           </QRCodes>
