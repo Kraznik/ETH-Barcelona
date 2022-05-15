@@ -104,6 +104,25 @@ const ShowTickets = ({ account }) => {
     }
   };
 
+  // mumbai test net api
+  const getUnredeemedTickets = async () => {
+    try {
+      const url = `https://api-main.doingud.work/creation/nft?owner=${account}`;
+      const { data } = await axios.get(url);
+      // console.log(data.items);
+
+      let listOfCards = [];
+
+      data.items.map((token) => {
+        let card = renderCard(token.id);
+        listOfCards.push(card);
+      });
+      setListCards(listOfCards.reverse());
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   const getRedeemedTickets = async () => {
     try {
       const url = `https://eth-barcelona.kraznikunderverse.com/qrcode/wallet/${account}`;
@@ -112,7 +131,7 @@ const ShowTickets = ({ account }) => {
           validate: "alpha romeo tango",
         },
       });
-      console.log(data.data);
+      // console.log(data.data);
       const listCards = [];
       data.data.map((redeemedTkt) => {
         const card = renderRedeemedCard(redeemedTkt.tokenID);
@@ -125,7 +144,7 @@ const ShowTickets = ({ account }) => {
   };
 
   useEffect(() => {
-    getRedeemedTickets();
+    if (account) getRedeemedTickets();
   }, [account]);
 
   const renderCard = (tokenId) => {
@@ -160,7 +179,8 @@ const ShowTickets = ({ account }) => {
   };
 
   useEffect(() => {
-    getTickets();
+    // getTickets();
+    if (account) getUnredeemedTickets();
   }, [account]);
 
   return (

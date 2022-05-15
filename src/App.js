@@ -211,9 +211,9 @@ const App = () => {
     listenMMAccount();
   }, []);
 
-  // useEffect(() => {
-  //   onConnectWallet();
-  // }, []);
+  useEffect(() => {
+    onConnectWallet();
+  }, []);
 
   return (
     <div className="App">
