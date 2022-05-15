@@ -31,6 +31,7 @@ const CircleOut = styled.div`
   width: 112px;
   height: 50px;
   border-radius: 50%;
+  transition: all 0.2s ease-in;
 
   &:hover {
     transform: rotate(6.7deg);
@@ -46,8 +47,9 @@ const CircleIn = styled.div`
   color: white;
   justify-content: center;
   align-items: center;
-  test-align: center;
+  /* text-align: center; */
   border-radius: 50%;
+  transition: all 0.2s ease-in;
 
   &:hover {
     background: none;
@@ -100,9 +102,17 @@ const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
           <Ticket>
             <Nav.Link href="#faq" className="text">
               <CircleOut>
-                <a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a700000000001c">
-                  <CircleIn>Tickets</CircleIn>
-                </a>
+                {/* <a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a700000000001c"> */}
+                <CircleIn>
+                  <Heading
+                    style={{ color: "white" }}
+                    exact
+                    to={haveTokens ? "/tickets/show" : "/tickets/buy"}
+                  >
+                    Tickets
+                  </Heading>
+                </CircleIn>
+                {/* </a> */}
               </CircleOut>
             </Nav.Link>
           </Ticket>
@@ -116,17 +126,25 @@ const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
               </Nav.Link>
 
               <Desktop>
-                <Nav.Link href="#faq" className="text">
+                <Nav.Link className="text">
                   <CircleOut>
-                    <a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a700000000001c">
-                      <CircleIn>Tickets</CircleIn>
-                    </a>
+                    {/* <a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a700000000001c"> */}
+                    <CircleIn>
+                      <Heading
+                        style={{ color: "white" }}
+                        exact
+                        to={haveTokens ? "/tickets/show" : "/tickets/buy"}
+                      >
+                        Tickets
+                      </Heading>
+                    </CircleIn>
+                    {/* </a> */}
                   </CircleOut>
                 </Nav.Link>
               </Desktop>
 
               {/* <Nav.Link className="text3">Program</Nav.Link> */}
-              <TicketBox1>
+              {/* <TicketBox1>
                 <Nav.Link eventKey={2} className="text">
                   <Heading exact to="/tickets/buy">
                     {" "}
@@ -136,12 +154,11 @@ const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
                 {haveTokens ? (
                   <Nav.Link eventKey={2} className="text">
                     <Heading exact to="/tickets/show">
-                      {" "}
                       Tickets
                     </Heading>
                   </Nav.Link>
                 ) : null}
-              </TicketBox1>
+              </TicketBox1> */}
 
               {account === "" || typeof account === "undefined" ? (
                 <button href="" className="text" onClick={onConnectWallet}>

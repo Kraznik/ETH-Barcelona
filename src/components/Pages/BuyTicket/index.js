@@ -7,15 +7,17 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   padding: 24px 24px 48px;
-  position: absolute;
+  /* position: absolute; */
   width: 530px;
   height: 331px;
-  left: 455px;
-  top: 110px;
+  /* left: 455px; */
+  /* top: 110px; */
   /* White */
   background: white;
   border: 1px solid black;
   border-radius: 4px;
+  margin: auto;
+  margin-top: 10vh;
 `;
 
 const TextContainer = styled.div``;
@@ -87,11 +89,12 @@ const BuyTickets = () => {
 
       <BuyContainer>
         <a
-          href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a700000000001c"
+          // href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a700000000001c"
+          href="https://main.doingud.work/creation/0xf92d5aa4d7692161e29117a079c1a4cf9231beb7000000000003"
           target={"_blank"}
           style={{ textDecoration: "none" }}
         >
-          <BuyNow>Buy NFTicket</BuyNow>
+          <BuyNow>Buy Ticket</BuyNow>
         </a>
       </BuyContainer>
     </Container>
