@@ -67,42 +67,42 @@ const ShowTickets = ({ account }) => {
   const [listCards, setListCards] = useState([]);
   const [listRedeemedTickets, setListRedeemedTickets] = useState([]);
 
-  const getTickets = async () => {
-    try {
-      const userAddress = account;
-      console.log("user address: ", userAddress);
+  // const getTickets = async () => {
+  //   try {
+  //     const userAddress = account;
+  //     console.log("user address: ", userAddress);
 
-      let listOfCards = [];
+  //     let listOfCards = [];
 
-      const tid = BigInt(
-        "1719757583868960775909331762124959402016076508804645162510781236870381570"
-      );
+  //     const tid = BigInt(
+  //       "1719757583868960775909331762124959402016076508804645162510781236870381570"
+  //     );
 
-      for (
-        let tokenId = tid;
-        tokenId < tid + BigInt(30);
-        tokenId = tokenId + BigInt(1)
-      ) {
-        const balance = await TicketToken.methods
-          .balanceOf(userAddress.toString(), tokenId)
-          .call();
+  //     for (
+  //       let tokenId = tid;
+  //       tokenId < tid + BigInt(30);
+  //       tokenId = tokenId + BigInt(1)
+  //     ) {
+  //       const balance = await TicketToken.methods
+  //         .balanceOf(userAddress.toString(), tokenId)
+  //         .call();
 
-        // console.log("token id: ", tokenId, ": ", balance);
+  //       // console.log("token id: ", tokenId, ": ", balance);
 
-        // console.log("Ticket token balance: ", balance);
+  //       // console.log("Ticket token balance: ", balance);
 
-        if (balance > 0) {
-          // `Ticket#${tokenId - tid + BigInt(1)}`
-          let card = renderCard(tokenId);
-          listOfCards.push(card);
-        }
-        // setListCards(listOfCards);
-      }
-      setListCards(listOfCards);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  //       if (balance > 0) {
+  //         // `Ticket#${tokenId - tid + BigInt(1)}`
+  //         let card = renderCard(tokenId);
+  //         listOfCards.push(card);
+  //       }
+  //       // setListCards(listOfCards);
+  //     }
+  //     setListCards(listOfCards);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
   // mumbai test net api
   const getUnredeemedTickets = async () => {

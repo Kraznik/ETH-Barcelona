@@ -142,30 +142,41 @@ const App = () => {
     window.location.reload();
   };
 
-  const checkForTickets = async () => {
+  // const checkForTickets = async () => {
+  //   try {
+  //     const userAddress = account;
+  //     console.log("user address: ", userAddress);
+
+  //     const tid = BigInt(
+  //       "1719757583868960775909331762124959402016076508804645162510781236870381570"
+  //     );
+
+  //     for (
+  //       let tokenId = tid;
+  //       tokenId < tid + BigInt(30);
+  //       tokenId = tokenId + BigInt(1)
+  //     ) {
+  //       const balance = await TicketToken.methods
+  //         .balanceOf(userAddress.toString(), tokenId)
+  //         .call();
+
+  //       // console.log("token id: ", tokenId);
+
+  //       // console.log("Ticket token balance: ", balance);
+
+  //       if (balance > 0) setHaveTokens(true);
+  //     }
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
+
+  const checkForUnredeemedTickets = async () => {
     try {
-      const userAddress = account;
-      console.log("user address: ", userAddress);
+      const url = `https://api-main.doingud.work/creation/nft?owner=${account}`;
+      const { data } = await axios.get(url);
 
-      const tid = BigInt(
-        "1719757583868960775909331762124959402016076508804645162510781236870381570"
-      );
-
-      for (
-        let tokenId = tid;
-        tokenId < tid + BigInt(30);
-        tokenId = tokenId + BigInt(1)
-      ) {
-        const balance = await TicketToken.methods
-          .balanceOf(userAddress.toString(), tokenId)
-          .call();
-
-        // console.log("token id: ", tokenId);
-
-        // console.log("Ticket token balance: ", balance);
-
-        if (balance > 0) setHaveTokens(true);
-      }
+      if (data.items.length > 0) setHaveTokens(true);
     } catch (err) {
       console.log(err);
     }
@@ -189,7 +200,8 @@ const App = () => {
   useEffect(() => {
     if (account) {
       checkForRedeemedTickets();
-      checkForTickets();
+      // checkForTickets();
+      checkForUnredeemedTickets();
     }
   }, [account, chainId]);
 
