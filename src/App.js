@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Web3Modal from "web3modal";
 import web3 from "./ethereum/web3";
 import WalletConnectProvider from "@walletconnect/web3-provider";
+import axios from "axios";
 
 import TicketToken from "./ethereum/TicketToken";
 
@@ -141,7 +142,7 @@ const App = () => {
     window.location.reload();
   };
 
-  const run = async () => {
+  const checkForTickets = async () => {
     try {
       const userAddress = account;
       console.log("user address: ", userAddress);
@@ -170,8 +171,24 @@ const App = () => {
     }
   };
 
+  const checkForRedeemedTickets = async () => {
+    try {
+      const url = `https://eth-barcelona.kraznikunderverse.com/qrcode/wallet/${account}`;
+      const { data } = await axios.get(url, {
+        headers: {
+          validate: "alpha romeo tango",
+        },
+      });
+      console.log(data.data);
+      if (data.data.length > 0) setHaveTokens(true);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   useEffect(() => {
-    run();
+    checkForRedeemedTickets();
+    checkForTickets();
   }, [account, chainId]);
 
   useEffect(() => {
