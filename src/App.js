@@ -179,16 +179,18 @@ const App = () => {
           validate: "alpha romeo tango",
         },
       });
-      console.log(data.data);
-      if (data.data.length > 0) setHaveTokens(true);
+      // console.log(data?.data);
+      if (data?.data?.length > 0) setHaveTokens(true);
     } catch (err) {
       console.error(err);
     }
   };
 
   useEffect(() => {
-    checkForRedeemedTickets();
-    checkForTickets();
+    if (account) {
+      checkForRedeemedTickets();
+      checkForTickets();
+    }
   }, [account, chainId]);
 
   useEffect(() => {
@@ -209,9 +211,9 @@ const App = () => {
     listenMMAccount();
   }, []);
 
-  useEffect(() => {
-    onConnectWallet();
-  }, []);
+  // useEffect(() => {
+  //   onConnectWallet();
+  // }, []);
 
   return (
     <div className="App">
@@ -224,11 +226,11 @@ const App = () => {
         />
         <Routes>
           <Route exact path="/" element={<Landing isMobile={isMobile} />} />
-          <Route
+          {/* <Route
             exact
             path="/section"
             element={<Landing isMobile={isMobile} />}
-          />
+          /> */}
           <Route
             exact
             path="/tickets/buy"

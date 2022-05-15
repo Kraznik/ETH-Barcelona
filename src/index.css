@@ -1,25 +1,16 @@
-body {
+body,
+html {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Dahlia';
+  font-family: -apple-system, BlinkMacSystemFont, "Dahlia";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: auto !important;
   box-sizing: inherit;
   overflow-x: hidden;
-  /* position: absolute;
-  display: grid;
-  justify-self: center; */
-  /* -moz-transform:scale(1);
-     -webkit-transform:scale(1);
-     -o-transform:scale(1);
-     -ms-transform:scale(1); */
-}
-
-html {
+  touch-action: pan-x pan-y;
   scroll-behavior: smooth;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Dahlia',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Dahlia", monospace;
 }

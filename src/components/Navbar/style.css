@@ -14,11 +14,12 @@ font-weight: 700;
 font-size: 20px;
 line-height: 32px;
 /* identical to box height, or 160% */
-
 text-align: right;
 letter-spacing: 1px;
 color: #354B37;
 color: #354B37;
+
+
 }
 .text3{
     font-family: 'Dahlia';
@@ -75,4 +76,20 @@ color: #354B37;
         display: none;
     }
     
+}
+
+.text a{
+    text-decoration: none;
+    color: #354B37;
+
+}
+
+ /* a :hover{
+     transform: scale(105%);
+     transition:330ms ease-in-out;
+    
+} */
+
+.ticket:hover{
+    border-bottom: 1px solid black;
 }
