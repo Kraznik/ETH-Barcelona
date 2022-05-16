@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Ticket from "../../../assets/RedeemTicket.png";
 import styled from "styled-components";
 import "./style.css";
 import TicketToken from "../../../ethereum/TicketToken";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import ErrorPage from "../../ErrorPage";
 
 const Container = styled.div`
   margin: auto;
@@ -101,6 +102,8 @@ const RedeemNFT = ({ account }) => {
     email: "",
   });
 
+  const [tokenOwned, setTokenOwned] = useState(false);
+
   const { id } = useParams();
   const tid = id;
 
@@ -154,57 +157,76 @@ const RedeemNFT = ({ account }) => {
     });
   };
 
+  const checkIfTokenOwned = async () => {
+    try {
+      const balance = await TicketToken.methods.balanceOf(account, id).call();
+      if (balance > 0) setTokenOwned(true);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    checkIfTokenOwned();
+  }, [account]);
+
   return (
     <>
-      <Container>
-        <Title>Redeem NFT</Title>
-        <Description>
-          Redeem your NFTicket to get a QR code to enter the event
-        </Description>
-        <Forum>
-          <label className="text">Full Name</label>
-          <br />
-          <input
-            type="text"
-            placeholder="Add your full name"
-            className="input"
-            value={user.fullName}
-            onChange={(e) => setUser({ ...user, fullName: e.target.value })}
-          ></input>
-          <br />
+      {tokenOwned ? (
+        <Container>
+          <Title>Redeem NFT</Title>
+          <Description>
+            Redeem your NFTicket to get a QR code to enter the event
+          </Description>
+          <Forum>
+            <label className="text">Full Name</label>
+            <br />
+            <input
+              type="text"
+              placeholder="Add your full name"
+              className="input"
+              value={user.fullName}
+              onChange={(e) => setUser({ ...user, fullName: e.target.value })}
+            ></input>
+            <br />
 
-          <label className="text">Display Name</label>
-          <br />
-          <input
-            type="text"
-            placeholder="How do you want to be called"
-            className="input"
-            value={user.displayName}
-            onChange={(e) => setUser({ ...user, displayName: e.target.value })}
-          ></input>
-          <br />
+            <label className="text">Display Name</label>
+            <br />
+            <input
+              type="text"
+              placeholder="How do you want to be called"
+              className="input"
+              value={user.displayName}
+              onChange={(e) =>
+                setUser({ ...user, displayName: e.target.value })
+              }
+            ></input>
+            <br />
 
-          <label className="text">Email</label>
-          <br />
-          <input
-            type="text"
-            placeholder="name@email.com"
-            className="input"
-            value={user.email}
-            onChange={(e) => setUser({ ...user, email: e.target.value })}
-          ></input>
-          <br />
-        </Forum>
-        <Tickets></Tickets>
+            <label className="text">Email</label>
+            <br />
+            <input
+              type="text"
+              placeholder="name@email.com"
+              className="input"
+              value={user.email}
+              onChange={(e) => setUser({ ...user, email: e.target.value })}
+            ></input>
+            <br />
+          </Forum>
+          <Tickets></Tickets>
 
-        <TicketId>
-          NFTicket #{parseInt(BigInt(tid).toString(16).slice(-5), 16)}
-        </TicketId>
-        <Redeem onClick={() => onBurn(tid)}>Redeem Now</Redeem>
-        {/* <Link onClick={() => onBurn(tid)} to={`/tickets/${tid}/qrcode`}>
+          <TicketId>
+            NFTicket #{parseInt(BigInt(tid).toString(16).slice(-5), 16)}
+          </TicketId>
+          <Redeem onClick={() => onBurn(tid)}>Redeem Now</Redeem>
+          {/* <Link onClick={() => onBurn(tid)} to={`/tickets/${tid}/qrcode`}>
           RedeemNFT
         </Link> */}
-      </Container>
+        </Container>
+      ) : (
+        <ErrorPage text={""} />
+      )}
     </>
   );
 };

@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 
 import Web3Modal from "web3modal";
 import web3 from "./ethereum/web3";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import axios from "axios";
 
-import TicketToken from "./ethereum/TicketToken";
+// import TicketToken from "./ethereum/TicketToken";
+// import ProtectedRoute from "./utils/ProtectedRoute";
 
 import BuyTickets from "./components/Pages/BuyTicket";
 import ShowQRcode from "./components/Pages/ShowQRcode/index.js";
@@ -254,20 +260,24 @@ const App = () => {
             element={<ShowTickets account={account} />}
           />
           <Route
+            permit={true}
             exact
             path="/tickets/:id/redeem"
             element={<RedeemNFT account={account} />}
           />
           <Route
+            permit={true}
             exact
             path="/tickets/:id/qrcode"
             element={<ShowQRcode account={account} />}
           />
           <Route
+            permit={true}
             exact
             path="/tickets/:id/poap"
             element={<Poap account={account} />}
           />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Router>
     </div>

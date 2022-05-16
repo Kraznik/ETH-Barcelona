@@ -133,7 +133,7 @@ const ShowTickets = ({ account }) => {
       });
       // console.log(data.data);
       const listCards = [];
-      data.data.map((redeemedTkt) => {
+      data?.data?.map((redeemedTkt) => {
         const card = renderRedeemedCard(redeemedTkt.tokenID);
         listCards.push(card);
       });

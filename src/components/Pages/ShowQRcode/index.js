@@ -8,7 +8,8 @@ import Email from "../../../assets/email.svg";
 import { QRCodeSVG } from "qrcode.react";
 import axios from "axios";
 import web3 from "../../../ethereum/web3";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate, Navigate } from "react-router-dom";
+import ErrorPage from "../../ErrorPage";
 
 const Container = styled.div`
   display: flex;
@@ -71,7 +72,9 @@ const Description = styled.div`
 `;
 
 const ImageContainer = styled.div`
-  display: inline-block; ;
+  /* display: inline-block;  */
+  display: flex;
+  gap: 40px;
 `;
 
 const PrintContainer = styled.div``;
@@ -87,6 +90,7 @@ const index = ({ account }) => {
     optionalName: "",
     email: "",
   });
+  // const [tokenOwned, setTokenOwned] = useState(false);
 
   const { id } = useParams();
 
@@ -100,7 +104,9 @@ const index = ({ account }) => {
           validate: "alpha romeo tango",
         },
       });
-      console.log(data);
+      // console.log(data);
+      // if (data?.user?.name) setTokenOwned(true);
+      // if (data?.user?.walletAddress === account) setTokenOwned(true);
       setRedeemData(data.user);
     } catch (err) {
       console.error(err);
@@ -108,7 +114,7 @@ const index = ({ account }) => {
   };
 
   useEffect(() => {
-    getTokenRedeemData();
+    if (account) getTokenRedeemData();
   }, [account]);
 
   useEffect(() => {
@@ -120,16 +126,24 @@ const index = ({ account }) => {
         },
       });
 
-      if (redeemData.walletAddress && redeemData.walletAddress === account) {
-        console.log("encypted hash: ", data);
-        setEncryptedHash(data.encrypted);
+      // console.log("encrypted data: ", data);
+
+      if (data?.walletAddress === account.toLowerCase()) {
+        // console.log("encypted hash: ", data);
+        setEncryptedHash(data?.encrypted);
       }
+
+      // if (redeemData.walletAddress && redeemData.walletAddress === account) {
+      //   console.log("encypted hash: ", data);
+      //   setEncryptedHash(data?.encrypted);
+      // }
     };
     run();
-  }, [redeemData]);
+  }, [redeemData, account]);
 
   return (
     <>
+      {/* {tokenOwned ? ( */}
       <Container style={{ position: "relative" }}>
         <div
           style={{
@@ -187,6 +201,10 @@ const index = ({ account }) => {
           </EmailContainer>
         </ImageContainer>
       </Container>
+      {/* ) : (
+        <ErrorPage text={""} />
+        // <Navigate to="/tickets/show" replace />
+      )} */}
     </>
   );
 };
