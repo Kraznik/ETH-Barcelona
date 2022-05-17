@@ -90,7 +90,7 @@ const index = ({ account }) => {
     optionalName: "",
     email: "",
   });
-  // const [tokenOwned, setTokenOwned] = useState(false);
+  const [tokenOwned, setTokenOwned] = useState(false);
 
   const { id } = useParams();
 
@@ -105,8 +105,9 @@ const index = ({ account }) => {
         },
       });
       // console.log(data);
-      // if (data?.user?.name) setTokenOwned(true);
-      // if (data?.user?.walletAddress === account) setTokenOwned(true);
+      if (data?.user?.name) setTokenOwned(true);
+      // wallet address is not lowercased here
+      if (data?.user?.walletAddress === account) setTokenOwned(true);
       setRedeemData(data.user);
     } catch (err) {
       console.error(err);
@@ -128,9 +129,11 @@ const index = ({ account }) => {
 
       // console.log("encrypted data: ", data);
 
+      // wallet address lowercased here
       if (data?.walletAddress === account.toLowerCase()) {
         // console.log("encypted hash: ", data);
         setEncryptedHash(data?.encrypted);
+        setTokenOwned(true);
       }
 
       // if (redeemData.walletAddress && redeemData.walletAddress === account) {
@@ -143,68 +146,68 @@ const index = ({ account }) => {
 
   return (
     <>
-      {/* {tokenOwned ? ( */}
-      <Container style={{ position: "relative" }}>
-        <div
-          style={{
-            textDecoration: "underline",
-            cursor: "pointer",
-            position: "absolute",
-            top: 10,
-            left: 10,
-          }}
-          onClick={() => navigate(-1)}
-        >
-          Back
-        </div>
-        <Heading> You are going to ETH BCN! </Heading>
-        <Description>
-          {" "}
-          This QR code is your access to the event. You could download it or
-          access here with your wallet to use it.
-        </Description>
-        <br />
+      {tokenOwned ? (
+        <Container style={{ position: "relative" }}>
+          <div
+            style={{
+              textDecoration: "underline",
+              cursor: "pointer",
+              position: "absolute",
+              top: 10,
+              left: 10,
+            }}
+            onClick={() => navigate(-1)}
+          >
+            Back
+          </div>
+          <Heading> You are going to ETH BCN! </Heading>
+          <Description>
+            {" "}
+            This QR code is your access to the event. You could download it or
+            access here with your wallet to use it.
+          </Description>
+          <br />
 
-        <Description>
-          <div>Name: {redeemData.name}</div>
-          <div>Display name: {redeemData.optionalName}</div>
-          <div>Email: {redeemData.email} </div>
-        </Description>
+          <Description>
+            <div>Name: {redeemData.name}</div>
+            <div>Display name: {redeemData.optionalName}</div>
+            <div>Email: {redeemData.email} </div>
+          </Description>
 
-        {encryptedHash ? (
-          <QRCodes>
-            {/* <QRCodeSVG value="$2b$10$2595K0J6lkp6bFhOhtu9WOQBdQVEFKrgOF0V/4aD74Yrch8ZyVTCO"></QRCodeSVG> */}
-            <QRCodeSVG
-              value={`https://ethbc-organizeraccess.web.app/organizer-access?tokenId=${id}&ownerAddress=${account}&encryptedHash=${encryptedHash}`}
-            ></QRCodeSVG>
-          </QRCodes>
-        ) : (
-          <QRCodes>
-            Please wait while the qr code is being generated...
-            <br />
-            Reload if not displayed in 2 mins..
-          </QRCodes>
-        )}
+          {encryptedHash ? (
+            <QRCodes>
+              {/* <QRCodeSVG value="$2b$10$2595K0J6lkp6bFhOhtu9WOQBdQVEFKrgOF0V/4aD74Yrch8ZyVTCO"></QRCodeSVG> */}
+              <QRCodeSVG
+                value={`https://ethbc-organizeraccess.web.app/organizer-access?tokenId=${id}&ownerAddress=${account}&encryptedHash=${encryptedHash}`}
+              ></QRCodeSVG>
+            </QRCodes>
+          ) : (
+            <QRCodes>
+              Please wait while the qr code is being generated...
+              <br />
+              Reload if not displayed in 2 mins..
+            </QRCodes>
+          )}
 
-        <ImageContainer>
-          <PrintContainer>
-            <img src={Print}></img>
-            Print
-          </PrintContainer>
-          <DownloadContainer>
-            <img src={Download}></img>
-            Download
-          </DownloadContainer>
-          <EmailContainer>
-            <img src={Email}></img>
-            Email
-          </EmailContainer>
-        </ImageContainer>
-      </Container>
-      {/* ) : (
+          <ImageContainer>
+            <PrintContainer>
+              <img src={Print}></img>
+              Print
+            </PrintContainer>
+            <DownloadContainer>
+              <img src={Download}></img>
+              Download
+            </DownloadContainer>
+            <EmailContainer>
+              <img src={Email}></img>
+              Email
+            </EmailContainer>
+          </ImageContainer>
+        </Container>
+      ) : (
         <ErrorPage text={""} />
         // <Navigate to="/tickets/show" replace />
-      )} */}
+      )}
     </>
   );
 };
