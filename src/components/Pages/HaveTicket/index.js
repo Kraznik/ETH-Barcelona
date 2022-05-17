@@ -113,9 +113,16 @@ const ShowTickets = ({ account }) => {
 
       let listOfCards = [];
 
+      //filter items for nftTypeId == ethbcn's
+
+      const ethBcnNftTypeId =
+        "0xf92d5aa4d7692161e29117a079c1a4cf9231beb7000000000003";
       data.items.map((token) => {
-        let card = renderCard(token.id);
-        listOfCards.push(card);
+        if (token.typeId === ethBcnNftTypeId) {
+          // console.log("type id matched: ", token.id);
+          let card = renderCard(token.id);
+          listOfCards.push(card);
+        }
       });
       setListCards(listOfCards.reverse());
     } catch (err) {
