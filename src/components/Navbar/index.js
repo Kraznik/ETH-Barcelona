@@ -16,6 +16,7 @@ import Logo from "../../assets/logo.svg";
 import { NavLink } from "react-router-dom";
 import Wallet from "../../assets/wallet.svg";
 import ConnectWalletButton from "../ConnectWalletButton";
+import "./style.css";
 
 const Heading = styled(NavLink)`
   color: red;
@@ -146,15 +147,15 @@ const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
               </Desktop>
 
               {account === "" || typeof account === "undefined" ? (
-                <button href="" className="text" onClick={onConnectWallet}>
+                <button href="" className="button" onClick={onConnectWallet}>
                   Connect Wallet
                 </button>
               ) : (
-                <button onClick={onDisconnect}>
+                <button onClick={onDisconnect} className="button">
                   <h3>
                     <img src={Wallet}></img>
 
-                    <span>{userAddress}</span>
+                    <span className="address">{userAddress}</span>
                   </h3>
                 </button>
               )}
