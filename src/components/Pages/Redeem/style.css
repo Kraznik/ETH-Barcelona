@@ -21,3 +21,17 @@ border-radius: 4px;
 
 
 }
+
+@media screen and (max-width:800px) {
+
+    .input{
+        width: 295px;
+height: 36px;
+margin: 4px 0 0 0 ;
+    }
+
+    .text{
+        margin-top: 16px;
+    }
+    
+}

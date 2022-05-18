@@ -161,7 +161,8 @@ const index = ({ account }) => {
         <Description>
           {" "}
           This QR code is your access to the event. You could download it or
-          access here with your wallet to use it.
+          print a copy yo enter the event.Remember to bring your ID on the day of the event.
+          <br></br>
         </Description>
         <br />
 

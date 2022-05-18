@@ -18,6 +18,13 @@ const Container = styled.div`
   border-radius: 4px;
   margin: auto;
   margin-top: 10vh;
+
+  @media (max-width: 800px) {
+    width: 343px;
+height: 327px;
+  }
+
+
 `;
 
 const TextContainer = styled.div``;
@@ -28,18 +35,20 @@ const Heading = styled.div`
   font-weight: 700;
   font-size: 24px;
   line-height: 24px;
-  /* or 100% */
   display: flex;
   align-items: center;
   text-align: center;
-  /* Green Leaf */
   color: #354b37;
-  /* Inside auto layout */
-  flex: none;
-  order: 0;
-  flex-grow: 0;
   margin: 24px 0px;
   padding: 0 25% 0 25%;
+
+  @media (max-width: 800px) {
+    margin:0 0 0 0  ;
+    padding:0;
+
+    
+
+  }
 `;
 
 const Description = styled.div`
@@ -50,18 +59,50 @@ const Description = styled.div`
   line-height: 20px;
   /* or 125% */
   text-align: center;
-  /* Green Leaf */
+ 
   color: #354b37;
-  /* Inside auto layout */
-  flex: none;
-  order: 1;
+
   padding: 0 10% 0 10%;
-  align-self: stretch;
-  flex-grow: 0;
+
   margin: 24px 0px;
+
+  @media (max-width: 800px) {
+    margin:24px 16px 48px 16px;
+    padding:0;
+
+  }
 `;
 
-const BuyContainer = styled.div``;
+const BuyContainer = styled.div`
+width: 184.68px;
+height: 50px;
+border: 0.8px solid #354B37;
+transform: rotate(-4.15deg);
+border-radius:50%;
+
+&:hover{
+  transform: rotate(+4.15deg);
+}
+`;
+
+const BuyInnerContainer = styled.div`
+background: #354B37;
+width: 184.68px;
+height: 50px;
+transform: rotate(+4.15deg);
+border-radius:50%;
+padding: 12px 32px 16px 33px;
+
+&:hover{
+  background: transparent;
+  transform: rotate(-4.15deg);
+  padding:12px 33px 16px 33px;
+
+ 
+}
+
+
+`
 
 const BuyNow = styled.div`
   font-family: "Dahlia";
@@ -69,11 +110,19 @@ const BuyNow = styled.div`
   font-weight: 700;
   font-size: 20px;
   line-height: 20px;
-  /* identical to box height, or 100% */
-  display: flex;
-  align-items: flex-end;
+
   text-align: center;
-  color: #354b37;
+color:white;
+
+  @media (max-width: 800px) {
+  
+    font-size: 20px;
+  }
+
+  &:hover{
+    color: #354B37;
+  }
+
 `;
 
 const BuyTickets = () => {
@@ -89,12 +138,12 @@ const BuyTickets = () => {
 
       <BuyContainer>
         <a
-          // href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a700000000001c"
-          href="https://main.doingud.work/creation/0xf92d5aa4d7692161e29117a079c1a4cf9231beb7000000000003"
+          href="https://doingud.com/@ethbarcelona?tab=created"
           target={"_blank"}
           style={{ textDecoration: "none" }}
         >
-          <BuyNow>Buy Ticket</BuyNow>
+          <BuyInnerContainer>          <BuyNow>Buy NFTicket</BuyNow></BuyInnerContainer>
+
         </a>
       </BuyContainer>
     </Container>

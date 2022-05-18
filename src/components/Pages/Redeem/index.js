@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Ticket from "../../../assets/RedeemTicket.png";
+import Ticket from "../../../assets/RedeemImage.svg";
 import styled from "styled-components";
 import "./style.css";
 import TicketToken from "../../../ethereum/TicketToken";
@@ -9,16 +9,25 @@ import ErrorPage from "../../ErrorPage";
 
 const Container = styled.div`
   margin: auto;
-  margin-top: 3%;
-  padding-top: 1%;
+  padding:0px 0 20px 0 ;
   width: 600px;
+  margin-bottom:43px;
+  margin-top:40px;
   height: 700px;
   left: calc(50% - 530px / 2);
-
-  /* White */
   border: 1px solid black;
   background: #ffffff;
   border-radius: 4px;
+
+  @media (max-width: 800px) {
+width: 343px;
+height: 656px;
+background: #FFFFFF;
+border-radius: 4px;
+padding:0;
+margin:auto;
+
+  }
 `;
 
 const Title = styled.div`
@@ -42,6 +51,12 @@ const Title = styled.div`
   order: 0;
   flex-grow: 0;
   margin: 24px 0px;
+
+  @media (max-width: 800px) {
+    padding:0;
+    margin:30px 0 0 0 ;
+
+  }
 `;
 
 const Description = styled.div`
@@ -66,34 +81,130 @@ const Description = styled.div`
   align-self: stretch;
   flex-grow: 0;
   margin: 24px 0px;
+
+  @media (max-width: 800px) {
+    width: 295px;
+height: 40px;
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 20px;
+color: #354B37;
+padding:0 0 25px 0;
+margin:24px 0 0 24px ;
+
+  }
 `;
 
 const Tickets = styled.div`
   background-image: url(${Ticket});
-  width: 180px;
-  height: 180px;
+  width: 133px;
+  height: 133px;
   margin: auto;
-  margin-top: 20px;
-  border-radius: 4px;
+  border-bottom: 1px solid #F2F2F2;
+  border-radius: 3px 3px 0px 0px;
+
+  @media (max-width: 800px) {
+
+
+  }
 `;
 
 const Forum = styled.div`
   padding: 0 5%;
   text-align: left;
   margin-left: 10%;
+  margin-top:24px;
+  margin-bottom:43px;
+
+  @media (max-width: 800px) {
+    padding:0 0 0 24px;
+    margin:0;
+
+  }
 `;
 
 const TicketId = styled.div`
-  font-family: "Dahlia";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 24px;
-  padding: 10px;
-  /* identical to box height, or 100% */
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+padding: 6px 4px;
+
+
+color: #354B37;
+
+@media (max-width: 800px) {
+
+}
+
+
 `;
 
-const Redeem = styled.button``;
+const TicketBox = styled.div`
+border: 1px solid #F2F2F2;
+border-radius: 4px;
+width:135px;
+margin: 0 auto;
+
+@media (max-width: 800px) {
+  margin: 20px 100px 0 100px ;
+
+
+}
+`
+
+const RedeemOut = styled.div`
+width: 156.7px;
+height: 50px;
+border-radius:50%;
+border: 0.8px solid #354B37;
+transform: rotate(-3.12deg);
+margin: auto;
+
+&:hover{
+  transform: rotate(+3.12deg);
+}
+
+@media (max-width: 800px) {
+  width: 156.7px;
+height: 50px;
+margin: 10px auto ;
+
+}
+`
+
+const Redeem = styled.button`
+text-decoration:none;
+border:none;
+background: #354B37;
+height:48px;
+width:158px;
+border-radius:50%;
+top: calc(50% - 20px/2 - 2.5px);
+font-family: 'Dahlia';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+background:#354B37;;
+line-height: 20px;
+color: #F8F9FA;
+transform: rotate(+3.12deg);
+
+&:hover{
+  transform: rotate(-3.12deg);
+  background:transparent;
+  border:none;
+  color: #354B37;
+
+}
+
+@media (max-width: 800px) {
+
+}
+`;
 
 const RedeemNFT = ({ account }) => {
   const [user, setUser] = useState({
@@ -178,12 +289,22 @@ const RedeemNFT = ({ account }) => {
           <Description>
             Redeem your NFTicket to get a QR code to enter the event
           </Description>
+
+
+          <TicketBox>
+          <Tickets></Tickets>
+          <TicketId>
+             #{parseInt(BigInt(tid).toString(16).slice(-5), 16)}
+          </TicketId>
+          </TicketBox>
+
+
           <Forum>
             <label className="text">Full Name</label>
             <br />
             <input
               type="text"
-              placeholder="Add your full name"
+              placeholder="Add your legal Name"
               className="input"
               value={user.fullName}
               onChange={(e) => setUser({ ...user, fullName: e.target.value })}
@@ -214,12 +335,14 @@ const RedeemNFT = ({ account }) => {
             ></input>
             <br />
           </Forum>
-          <Tickets></Tickets>
 
-          <TicketId>
-            NFTicket #{parseInt(BigInt(tid).toString(16).slice(-5), 16)}
-          </TicketId>
-          <Redeem onClick={() => onBurn(tid)}>Redeem Now</Redeem>
+
+ 
+
+              <RedeemOut>
+              <Redeem onClick={() => onBurn(tid)}>Redeem Now</Redeem>
+              </RedeemOut>
+
           {/* <Link onClick={() => onBurn(tid)} to={`/tickets/${tid}/qrcode`}>
           RedeemNFT
         </Link> */}
