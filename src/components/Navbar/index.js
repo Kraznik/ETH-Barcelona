@@ -111,7 +111,7 @@ const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
           <Ticket>
           <Nav.Link href="#faq" className="text">
                 <CircleOut>
-                <a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a700000000001c">
+                <a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a700000000001d">
                   <CircleIn>
                     
                  
@@ -134,7 +134,7 @@ const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
               <Desktop>
               <Nav.Link href="#faq" className="text">
                 <CircleOut>
-                <a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a700000000001c">
+                <a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a700000000001d">
                   <CircleIn>
                     Tickets
                   
