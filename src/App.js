@@ -8,13 +8,10 @@ import {
   Navigate,
 } from "react-router-dom";
 
-import Web3Modal from "web3modal";
-import web3 from "./ethereum/web3";
-import WalletConnectProvider from "@walletconnect/web3-provider";
-import axios from "axios";
+import { useWeb3React } from "@web3-react/core";
 
-// import TicketToken from "./ethereum/TicketToken";
-// import ProtectedRoute from "./utils/ProtectedRoute";
+import web3 from "./ethereum/web3";
+import axios from "axios";
 
 import BuyTickets from "./components/Pages/BuyTicket";
 import ShowQRcode from "./components/Pages/ShowQRcode/index.js";
@@ -23,27 +20,13 @@ import ShowTickets from "./components/Pages/HaveTicket";
 import RedeemNFT from "./components/Pages/Redeem";
 import Landing from "./components/Pages/LandingPage";
 import Navbars from "./components/Navbar";
-
-const providerOptions = {
-  walletconnect: {
-    package: WalletConnectProvider, // required
-    // options: {
-    //   infuraId: infuraId, // required
-    // },
-    rpc: {
-      80001:
-        "https://polygon-mumbai.g.alchemy.com/v2/T95ylN-bR7zmaXiaZkP0R1sOObutgv-M",
-    },
-  },
-};
-
-const web3Modal = new Web3Modal({
-  // network: "mainnet", // optional
-  cacheProvider: true, // optional
-  providerOptions, // required
-});
-
-let provider;
+import { injected } from "./utils/wallet/connectors";
+import {
+  onDisconnect,
+  onConnectMetamask,
+  onConnectWalletConnect,
+  onConnectCoinbase,
+} from "./components/ConnectWalletButton/functions";
 
 const changeNetwork = async () => {
   try {
@@ -67,11 +50,14 @@ const App = () => {
   const [windowDimension, setWindowDimension] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
 
-  const [account, setaccount] = useState("");
+  const [accounts, setaccount] = useState("");
   const [chainId, setChainId] = useState();
   const [haveTokens, setHaveTokens] = useState(false);
 
   const IsMobile = windowDimension <= 800;
+
+  const { active, account, library, connector, activate, deactivate } =
+    useWeb3React();
 
   useEffect(() => {
     setWindowDimension(window.innerWidth);
@@ -107,75 +93,6 @@ const App = () => {
   useEffect(() => {
     changeNetwork();
   }, [chainId]);
-
-  const onConnectWallet = async () => {
-    console.log("connecting wallet...");
-    console.log("cached provider", web3Modal.cachedProvider);
-    try {
-      provider = await web3Modal.connect();
-    } catch (err) {
-      console.log("Could not get a wallet connection", err);
-      return;
-    }
-    web3.setProvider(provider);
-    const accounts = await web3.eth.getAccounts();
-    setaccount(accounts[0]);
-  };
-
-  const onDisconnect = async (e) => {
-    e.preventDefault();
-
-    console.log(
-      "cached provider before provider.close(): ",
-      web3Modal.cachedProvider
-    );
-    console.log("Killing the session", web3.currentProvider);
-    console.log("web3.givenProvider", web3.givenProvider);
-
-    if (web3 && web3.currentProvider && web3.currentProvider.close) {
-      await web3.currentProvider.close();
-    }
-
-    console.log(
-      "cached provider after provider.close(): ",
-      web3Modal.cachedProvider
-    );
-    web3Modal.clearCachedProvider();
-    console.log("cached provider after clear: ", web3Modal.cachedProvider);
-    provider = null;
-    setaccount("");
-    setHaveTokens(false);
-    window.location.reload();
-  };
-
-  // const checkForTickets = async () => {
-  //   try {
-  //     const userAddress = account;
-  //     console.log("user address: ", userAddress);
-
-  //     const tid = BigInt(
-  //       "1719757583868960775909331762124959402016076508804645162510781236870381570"
-  //     );
-
-  //     for (
-  //       let tokenId = tid;
-  //       tokenId < tid + BigInt(30);
-  //       tokenId = tokenId + BigInt(1)
-  //     ) {
-  //       const balance = await TicketToken.methods
-  //         .balanceOf(userAddress.toString(), tokenId)
-  //         .call();
-
-  //       // console.log("token id: ", tokenId);
-
-  //       // console.log("Ticket token balance: ", balance);
-
-  //       if (balance > 0) setHaveTokens(true);
-  //     }
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
 
   const checkForUnredeemedTickets = async () => {
     try {
@@ -228,35 +145,13 @@ const App = () => {
     }
   }, [account, chainId]);
 
-  useEffect(() => {
-    async function listenMMAccount() {
-      try {
-        window.ethereum.on("accountsChanged", async function () {
-          // Time to reload your interface with accounts[0]!
-          const accounts = await web3.eth.getAccounts();
-          setaccount(accounts[0]);
-          console.log(accounts);
-          window.location.reload();
-        });
-      } catch (err) {
-        console.log("Browser wallet not installed!");
-      }
-    }
-
-    listenMMAccount();
-  }, []);
-
-  useEffect(() => {
-    onConnectWallet();
-  }, []);
-
   return (
     <div className="App">
       <Router>
         <Navbars
           account={account}
-          onConnectWallet={onConnectWallet}
-          onDisconnect={onDisconnect}
+          onConnectWallet={() => onConnectMetamask(activate)}
+          onDisconnect={() => onDisconnect(deactivate)}
           haveTokens={haveTokens}
         />
         <Routes>
