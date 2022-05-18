@@ -7,6 +7,7 @@ import Sponsers from "../../Sponsers";
 import Intro from "../../Intro";
 import Hero from "../../Dual";
 import Navbars from "../../Navbar";
+import Apply from "../../Apply";
 
 const Landing = ({ isMobile }) => {
   return (
@@ -14,6 +15,7 @@ const Landing = ({ isMobile }) => {
       {/* <Navbars></Navbars> */}
       <Intro isMobile={isMobile}></Intro>
       <Circle></Circle>
+      <Apply></Apply>
       <Hero isMobile={isMobile}></Hero>
       <Sponsers></Sponsers>
       <FAQ></FAQ>

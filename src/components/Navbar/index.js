@@ -14,6 +14,7 @@ import "./style.css";
 import styled from "styled-components";
 import Logo from "../../assets/logo.svg";
 import { NavLink } from "react-router-dom";
+import Wallet from "../../assets/wallet.svg";
 
 const Heading = styled(NavLink)`
   color: red;
@@ -167,6 +168,8 @@ const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
               ) : (
                 <button onClick={onDisconnect}>
                   <h3>
+                    <img src={Wallet}></img>
+
                     <span>{userAddress}</span>
                   </h3>
                 </button>
