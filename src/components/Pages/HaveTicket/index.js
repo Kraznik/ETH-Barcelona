@@ -1,14 +1,25 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Ticket from "../../../assets/Ticket.png";
+import Ticket from "../../../assets/Ticket.svg";
 import TicketToken from "../../../ethereum/TicketToken";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import viewQR from "../../../assets/viewQR.png";
+import viewQR from "../../../assets/viewQR.svg";
+
+
 
 const Container = styled.div`
   display: inline-block;
-  padding: 10%;
+  width: 530px;
+  padding: 72px 0 0 0 ;
+
+
+ 
+
+  @media (max-width: 700px) {
+    width:343px;
+  }
+
 `;
 
 const TicketBox = styled.div`
@@ -16,7 +27,10 @@ const TicketBox = styled.div`
   border: 1px solid black;
   display: inline-block;
   margin: 20px 20px;
-  border-radius: 10px;
+  width:135px;
+  border: 1px solid #F2F2F2;
+border-radius: 4px;
+
   padding: 0px 0px 10px 0px;
   overflow: hidden;
 `;
@@ -46,22 +60,65 @@ const Title = styled.div`
 
 const TicketImage = styled.div`
   background-image: url(${Ticket});
-  width: 304px;
-  height: 268px;
+  width: 133px;
+  height: 133px;
+  border-bottom: 1px solid #F2F2F2;
 `;
 
 const RedeemedTicketImage = styled.div`
   background-image: url(${viewQR});
-  width: 304px;
-  height: 268px;
-  background-size: 304px 268px;
+  width: 133px;
+  height: 133px;
+  border-bottom: 1px solid #F2F2F2;
 `;
 
 const TicketId = styled.div`
   font-family: "dahlia";
 `;
 
-const DoinGud = styled(Link)``;
+const Title1 = styled.div`
+font-family: 'Dahlia';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 24px;
+align-items: center;
+text-align: center;
+padding-bottom:24px;
+
+color: #354B37;
+`;
+
+const Description = styled.div`
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 20px;
+align-items: center;
+text-align: center;
+color: #354B37;
+`
+
+const DoinGud = styled(Link)`
+font-family: 'Montserrat';
+font-style: normal;
+font-size: 12px;
+
+`;
+
+const TikcetLot = styled.div`
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 20px;
+align-items: center;
+text-align: center;
+color: #354B37;
+padding:2px;
+
+`;
 
 const ShowTickets = ({ account }) => {
   const [listCards, setListCards] = useState([]);
@@ -161,19 +218,23 @@ const ShowTickets = ({ account }) => {
 
   const renderCard = (tokenId) => {
     return (
+
       <TicketBox key={tokenId}>
         {/* <Title>ETH BCN NFTicket</Title> */}
+        <TikcetLot>Early Bird #1</TikcetLot>
         <TicketImage></TicketImage>
         <TicketId>
           #{parseInt(BigInt(tokenId).toString(16).slice(-5), 16)}{" "}
         </TicketId>
         <DoinGud to={`/tickets/${tokenId}/redeem`}> Redeem NFTicket </DoinGud>
       </TicketBox>
+
     );
   };
 
   const renderRedeemedCard = (tokenId) => {
     return (
+
       <Link
         key={tokenId}
         to={`/tickets/${tokenId}/qrcode`}
@@ -181,12 +242,14 @@ const ShowTickets = ({ account }) => {
       >
         <TicketBox>
           {/* <Title>ETH BCN NFTicket</Title> */}
+          <TikcetLot>Early Bird #2</TikcetLot>
           <RedeemedTicketImage />
           <TicketId>
             #{parseInt(BigInt(tokenId).toString(16).slice(-5), 16)}{" "}
           </TicketId>
         </TicketBox>
       </Link>
+
     );
   };
 
@@ -197,9 +260,13 @@ const ShowTickets = ({ account }) => {
 
   return (
     <>
+
       <Container>
+        <Title1>Choose an NFT to redeem</Title1>
+        <Description>Redeem your NFTicket to get a QR code to enter the event</Description>
         {listRedeemedTickets} {listCards}
       </Container>
+
     </>
   );
 };
