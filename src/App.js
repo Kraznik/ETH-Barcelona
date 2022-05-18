@@ -182,7 +182,24 @@ const App = () => {
       const url = `https://api-main.doingud.work/creation/nft?owner=${account}`;
       const { data } = await axios.get(url);
 
-      if (data.items.length > 0) setHaveTokens(true);
+      // if (data.items.length > 0) setHaveTokens(true);
+
+      const ethBcnNftTypeId1 =
+        "0xf92d5aa4d7692161e29117a079c1a4cf9231beb7000000000003";
+
+      const ethBcnNftTypeId2 =
+        "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000003";
+
+      data.items.map((token) => {
+        if (
+          token.typeId === ethBcnNftTypeId1 ||
+          token.typeId === ethBcnNftTypeId2
+        ) {
+          // console.log("type id matched");
+          setHaveTokens(true);
+          return;
+        }
+      });
     } catch (err) {
       console.log(err);
     }
