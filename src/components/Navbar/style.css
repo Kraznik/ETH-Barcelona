@@ -3,6 +3,11 @@
     src: url(../../Fonts/dahlia-bold.woff);
 }
 
+@font-face {
+    font-family: Dahlia-Normal;
+    src: url(../../Fonts/dahlia-regular.woff);
+}
+
 .bar{
     background: #F5C34B;
 }
@@ -93,3 +98,21 @@ color: #354B37;
 .ticket:hover{
     border-bottom: 1px solid black;
 }
+
+.button{
+    text-decoration: none;
+    border: none;
+    background: transparent;
+    color: #354B37;
+    font-family: 'Dahlia';
+font-style: normal;
+font-weight: 200;
+font-size: 20px;
+line-height: 30px;
+color: #354B37;
+}
+
+.address{
+   margin: 80px 0 0 8px;
+}
+
