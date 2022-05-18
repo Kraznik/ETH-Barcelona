@@ -342,7 +342,7 @@ const Hero = ({ isMobile }) => {
               </TextContainer>
             </OuterContainer2>
             <TextBox>
-              <Title3>NFTickets are coming soon…</Title3>
+              <Title3>NFTickets are here</Title3>
               <Title3>Buy yours on DoinGud</Title3>
             </TextBox>
             <Description>
@@ -424,7 +424,7 @@ const Hero = ({ isMobile }) => {
               ) : (
                 <SectionContainer2>
                   <TextBox>
-                    <Title3>NFTickets are coming soon…</Title3>
+                    <Title3>NFTickets are here</Title3>
                     <Title3>Buy yours on DoinGud</Title3>
                   </TextBox>
                   <Description>
