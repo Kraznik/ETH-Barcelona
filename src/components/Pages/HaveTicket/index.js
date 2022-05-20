@@ -5,21 +5,16 @@ import TicketToken from "../../../ethereum/TicketToken";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import viewQR from "../../../assets/viewQR.svg";
-
-
+import web3 from "../../../ethereum/web3";
 
 const Container = styled.div`
   display: inline-block;
   width: 530px;
-  padding: 72px 0 0 0 ;
-
-
- 
+  padding: 72px 0 0 0;
 
   @media (max-width: 700px) {
-    width:343px;
+    width: 343px;
   }
-
 `;
 
 const TicketBox = styled.div`
@@ -27,9 +22,9 @@ const TicketBox = styled.div`
   border: 1px solid black;
   display: inline-block;
   margin: 20px 20px;
-  width:135px;
-  border: 1px solid #F2F2F2;
-border-radius: 4px;
+  width: 135px;
+  border: 1px solid #f2f2f2;
+  border-radius: 4px;
 
   padding: 0px 0px 10px 0px;
   overflow: hidden;
@@ -62,14 +57,14 @@ const TicketImage = styled.div`
   background-image: url(${Ticket});
   width: 133px;
   height: 133px;
-  border-bottom: 1px solid #F2F2F2;
+  border-bottom: 1px solid #f2f2f2;
 `;
 
 const RedeemedTicketImage = styled.div`
   background-image: url(${viewQR});
   width: 133px;
   height: 133px;
-  border-bottom: 1px solid #F2F2F2;
+  border-bottom: 1px solid #f2f2f2;
 `;
 
 const TicketId = styled.div`
@@ -77,89 +72,55 @@ const TicketId = styled.div`
 `;
 
 const Title1 = styled.div`
-font-family: 'Dahlia';
-font-style: normal;
-font-weight: 700;
-font-size: 24px;
-line-height: 24px;
-align-items: center;
-text-align: center;
-padding-bottom:24px;
+  font-family: "Dahlia";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 24px;
 
-color: #354B37;
+  color: #354b37;
 `;
 
 const Description = styled.div`
-font-family: 'Montserrat';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 20px;
-align-items: center;
-text-align: center;
-color: #354B37;
-`
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  align-items: center;
+  text-align: center;
+  color: #354b37;
+`;
 
 const DoinGud = styled(Link)`
-font-family: 'Montserrat';
-font-style: normal;
-font-size: 12px;
-
+  font-family: "Montserrat";
+  font-style: normal;
+  font-size: 12px;
 `;
 
 const TikcetLot = styled.div`
-font-family: 'Montserrat';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 20px;
-align-items: center;
-text-align: center;
-color: #354B37;
-padding:2px;
-
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  align-items: center;
+  text-align: center;
+  color: #354b37;
+  padding: 2px;
 `;
+
+const ethBcnNftTypeId1 =
+  "0xf92d5aa4d7692161e29117a079c1a4cf9231beb7000000000003";
+const ethBcnNftTypeId2 =
+  "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000003";
 
 const ShowTickets = ({ account }) => {
   const [listCards, setListCards] = useState([]);
   const [listRedeemedTickets, setListRedeemedTickets] = useState([]);
-
-  // const getTickets = async () => {
-  //   try {
-  //     const userAddress = account;
-  //     console.log("user address: ", userAddress);
-
-  //     let listOfCards = [];
-
-  //     const tid = BigInt(
-  //       "1719757583868960775909331762124959402016076508804645162510781236870381570"
-  //     );
-
-  //     for (
-  //       let tokenId = tid;
-  //       tokenId < tid + BigInt(30);
-  //       tokenId = tokenId + BigInt(1)
-  //     ) {
-  //       const balance = await TicketToken.methods
-  //         .balanceOf(userAddress.toString(), tokenId)
-  //         .call();
-
-  //       // console.log("token id: ", tokenId, ": ", balance);
-
-  //       // console.log("Ticket token balance: ", balance);
-
-  //       if (balance > 0) {
-  //         // `Ticket#${tokenId - tid + BigInt(1)}`
-  //         let card = renderCard(tokenId);
-  //         listOfCards.push(card);
-  //       }
-  //       // setListCards(listOfCards);
-  //     }
-  //     setListCards(listOfCards);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
 
   // mumbai test net api
   const getUnredeemedTickets = async () => {
@@ -172,17 +133,24 @@ const ShowTickets = ({ account }) => {
 
       //filter items for nftTypeId == ethbcn's
 
-      const ethBcnNftTypeId1 =
-        "0xf92d5aa4d7692161e29117a079c1a4cf9231beb7000000000003";
-      const ethBcnNftTypeId2 =
-        "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000003";
-      data.items.map((token) => {
-        if (
-          token.typeId === ethBcnNftTypeId1 ||
-          token.typeId === ethBcnNftTypeId2
-        ) {
+      // for (let i = 0; i < data?.items.length; i++) {
+      //   let tokenindec = BigInt(parseInt(data?.items[i].id), 16);
+      //   console.log("token in dec for loop: ", tokenindec);
+      // }
+
+      console.log("iems:", data.items);
+
+      data?.items.map((token) => {
+        console.log("token.id: ", token.id);
+        let tokenIdInDec = web3.utils.toBN(token.id).toString();
+        console.log("tokenId in dec:", tokenIdInDec);
+
+        if (token.typeId === ethBcnNftTypeId1) {
           // console.log("type id matched: ", token.id);
-          let card = renderCard(token.id);
+          let card = renderCard(tokenIdInDec, token.id, "Early Bird Wave1");
+          listOfCards.push(card);
+        } else if (token.typeId === ethBcnNftTypeId2) {
+          let card = renderCard(tokenIdInDec, token.id, "Early Bird Wave2");
           listOfCards.push(card);
         }
       });
@@ -200,11 +168,29 @@ const ShowTickets = ({ account }) => {
           validate: "alpha romeo tango",
         },
       });
+
       // console.log(data.data);
       const listCards = [];
       data?.data?.map((redeemedTkt) => {
-        const card = renderRedeemedCard(redeemedTkt.tokenID);
-        listCards.push(card);
+        const hextokenid = BigInt(redeemedTkt.tokenID).toString(16);
+        console.log("redeemed token id in dec: ", redeemedTkt.tokenID);
+        console.log("redeemed token id in hex: ", hextokenid);
+        console.log("hextokenid to dec: ", BigInt(parseInt(hextokenid, 16)));
+        const nftTypeId = "0x" + hextokenid.slice(0, -8);
+        console.log("checking..");
+        if (nftTypeId === ethBcnNftTypeId1) {
+          const card = renderRedeemedCard(
+            redeemedTkt.tokenID, //dec
+            "Early Bird Wave1"
+          );
+          listCards.push(card);
+        } else if (nftTypeId === ethBcnNftTypeId2) {
+          const card = renderRedeemedCard(
+            redeemedTkt.tokenID,
+            "Early Bird Wave2"
+          );
+          listCards.push(card);
+        }
       });
       setListRedeemedTickets(listCards);
     } catch (err) {
@@ -216,25 +202,26 @@ const ShowTickets = ({ account }) => {
     if (account) getRedeemedTickets();
   }, [account]);
 
-  const renderCard = (tokenId) => {
+  const renderCard = (tokenIdInDec, tokenIdInHex, ticketLotName) => {
     return (
-
-      <TicketBox key={tokenId}>
-        {/* <Title>ETH BCN NFTicket</Title> */}
-        <TikcetLot>Early Bird #1</TikcetLot>
-        <TicketImage></TicketImage>
-        <TicketId>
-          #{parseInt(BigInt(tokenId).toString(16).slice(-5), 16)}{" "}
-        </TicketId>
-        <DoinGud to={`/tickets/${tokenId}/redeem`}> Redeem NFTicket </DoinGud>
-      </TicketBox>
-
+      <Link
+        key={tokenIdInDec}
+        to={`/tickets/${tokenIdInDec}/redeem`}
+        style={{ textDecoration: "none", color: "black" }}
+      >
+        <TicketBox>
+          {/* <Title>ETH BCN NFTicket</Title> */}
+          <TikcetLot>{ticketLotName}</TikcetLot>
+          <TicketImage></TicketImage>
+          <TicketId>#{parseInt(tokenIdInHex.slice(-8), 16)}</TicketId>
+          {/* <DoinGud to={`/tickets/${tokenId}/redeem`}> Redeem NFTicket </DoinGud> */}
+        </TicketBox>
+      </Link>
     );
   };
 
-  const renderRedeemedCard = (tokenId) => {
+  const renderRedeemedCard = (tokenId, ticketLotName) => {
     return (
-
       <Link
         key={tokenId}
         to={`/tickets/${tokenId}/qrcode`}
@@ -242,31 +229,29 @@ const ShowTickets = ({ account }) => {
       >
         <TicketBox>
           {/* <Title>ETH BCN NFTicket</Title> */}
-          <TikcetLot>Early Bird #2</TikcetLot>
+          <TikcetLot>{ticketLotName}</TikcetLot>
           <RedeemedTicketImage />
           <TicketId>
-            #{parseInt(BigInt(tokenId).toString(16).slice(-5), 16)}{" "}
+            #{parseInt(BigInt(tokenId).toString(16).slice(-8), 16)}
           </TicketId>
         </TicketBox>
       </Link>
-
     );
   };
 
   useEffect(() => {
-    // getTickets();
     if (account) getUnredeemedTickets();
   }, [account]);
 
   return (
     <>
-
       <Container>
         <Title1>Choose an NFT to redeem</Title1>
-        <Description>Redeem your NFTicket to get a QR code to enter the event</Description>
+        <Description>
+          Redeem your NFTicket to get a QR code to enter the event
+        </Description>
         {listRedeemedTickets} {listCards}
       </Container>
-
     </>
   );
 };

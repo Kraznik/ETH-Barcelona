@@ -120,6 +120,7 @@ const index = ({ account }) => {
 
   useEffect(() => {
     const run = async () => {
+      const tokenIdInDec = parseInt(id, 16);
       const url = `https://eth-barcelona.kraznikunderverse.com/qrcode/${id}`;
       const { data } = await axios.get(url, {
         headers: {
@@ -127,7 +128,7 @@ const index = ({ account }) => {
         },
       });
 
-      // console.log("encrypted data: ", data);
+      console.log("encrypted data model wallet address: ", data?.walletAddress);
 
       // wallet address lowercased here
       if (data?.walletAddress === account.toLowerCase()) {
@@ -185,7 +186,7 @@ const index = ({ account }) => {
             <QRCodes>
               Please wait while the qr code is being generated...
               <br />
-              Reload if not displayed in 2 mins..
+              Reload and connect wallet if not displayed in 2 mins..
             </QRCodes>
           )}
 
