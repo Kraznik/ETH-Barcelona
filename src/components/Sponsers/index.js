@@ -12,6 +12,8 @@ import Polis from "../../assets/Polis.svg";
 import Eclectic from "../../assets/Eclectic.svg"
 import BeInCrypto from "../../assets/beINcrypto.svg"
 import DefiPrime from "../../assets/defiprime.svg";
+import ShrineHouse from "../../assets/ShrineHouse.svg";
+import GiantCookie from "../../assets/GiantCookie.svg";
 
 
 const Container = styled.div`
@@ -149,7 +151,8 @@ height: 180px;
 
 const SilverSponserContainer = styled.div`
 border-bottom: 1px solid #BDBDBD;
-margin: 0 10% 0 10%;
+margin: 0 8% 0 10%;
+
 padding-bottom:2.5%;
 position:relative;
 `
@@ -181,22 +184,20 @@ width:165px;
 
 const OrganizerLogo = styled.div`
 padding: 2% 2% 2% 0 ;
-margin-right:5%;
+margin-right:1%;
 `
 
 const Sponsers = () => {
   return (
     <>
     <Container>
-        <TitleBox>
-        <Title1> Partners</Title1>
+        {/* <TitleBox>
+        <Title1> Sponsers</Title1>
         </TitleBox>
 
-        {/* <DiamondSponserContainer>
+        <DiamondSponserContainer>
             <DiamondSponserTitle>Diamond</DiamondSponserTitle>
             <DiamondSponserLogoContainer>
-                <DiamondSponserLogo> <img src={DoinGud}></img></DiamondSponserLogo>
-                <DiamondSponserLogo> <img src={DoinGud}></img></DiamondSponserLogo>
                 <DiamondSponserLogo> <img src={DoinGud}></img></DiamondSponserLogo>
             </DiamondSponserLogoContainer>
         </DiamondSponserContainer> */}
@@ -215,35 +216,12 @@ const Sponsers = () => {
             <GoldSponserTitle>Silver</GoldSponserTitle>
             <SilverSponserLogoContainer>
                 <SilverSponserLogo><img src={Silver}></img> </SilverSponserLogo>
-                <SilverSponserLogo><img src={Silver}></img> </SilverSponserLogo>
-                <SilverSponserLogo><img src={Silver}></img> </SilverSponserLogo>
-                <SilverSponserLogo><img src={Silver}></img> </SilverSponserLogo>
-                <SilverSponserLogo><img src={Silver}></img> </SilverSponserLogo>
             </SilverSponserLogoContainer>
-            <SilverSponserLogoContainer>
-                <SilverSponserLogo><img src={Silver}></img> </SilverSponserLogo>
-                <SilverSponserLogo><img src={Silver}></img> </SilverSponserLogo>
-                <SilverSponserLogo><img src={Silver}></img> </SilverSponserLogo>
-                <SilverSponserLogo><img src={Silver}></img> </SilverSponserLogo>
-                <SilverSponserLogo><img src={Silver}></img> </SilverSponserLogo>
-            </SilverSponserLogoContainer>
-        </SilverSponserContainer> */}
+        </SilverSponserContainer>
 
-        {/* <SilverSponserContainer>
+        <SilverSponserContainer>
             <GoldSponserTitle>Bronze</GoldSponserTitle>
             <SilverSponserLogoContainer>
-                <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
-                <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
-                <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
-                <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
-                <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
-                <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
-            </SilverSponserLogoContainer>
-            <SilverSponserLogoContainer>
-                <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
-                <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
-                <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
-                <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
                 <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
                 <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
             </SilverSponserLogoContainer>
@@ -269,12 +247,21 @@ const Sponsers = () => {
             </SilverSponserLogoContainer>
         </SilverSponserContainer> */}
 
+<TitleBox>
+        <Title1> Partners</Title1>
+        </TitleBox>
+
         <SilverSponserContainer>
             <GoldSponserTitle>Launch Partners</GoldSponserTitle>
             <SilverSponserLogoContainer>
                 <OrganizerLogo><a href="https://doingud.com/"><img src={DoinGud} width="270px" height=" 200px"></img></a></OrganizerLogo>
                 <OrganizerLogo><a href="https://wearefloc.com/"><img src={Floc} width="270px" height=" 200px"></img></a></OrganizerLogo>
                 <OrganizerLogo><a href="https://twitter.com/PolisParallela"><img src={Polis} width="270px" height=" 200px"></img></a></OrganizerLogo>
+                <OrganizerLogo><a href=""><img src={ShrineHouse} ></img></a></OrganizerLogo>
+            </SilverSponserLogoContainer>
+            <SilverSponserLogoContainer>
+
+                <OrganizerLogo><a href=""><img src={GiantCookie} ></img></a></OrganizerLogo>
             </SilverSponserLogoContainer>
         </SilverSponserContainer>
 
