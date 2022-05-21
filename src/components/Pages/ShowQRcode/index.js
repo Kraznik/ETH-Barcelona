@@ -122,25 +122,28 @@ const index = ({ account }) => {
     const run = async () => {
       const tokenIdInDec = parseInt(id, 16);
       const url = `https://eth-barcelona.kraznikunderverse.com/qrcode/${id}`;
-      const { data } = await axios.get(url, {
-        headers: {
-          validate: "alpha romeo tango",
-        },
-      });
 
-      console.log("encrypted data model wallet address: ", data?.walletAddress);
+      let hashFound = false;
+      while (!hashFound) {
+        const { data } = await axios.get(url, {
+          headers: {
+            validate: "alpha romeo tango",
+          },
+        });
 
-      // wallet address lowercased here
-      if (data?.walletAddress === account.toLowerCase()) {
-        // console.log("encypted hash: ", data);
-        setEncryptedHash(data?.encrypted);
-        setTokenOwned(true);
+        // console.log(
+        //   "encrypted data model wallet address: ",
+        //   data?.walletAddress
+        // );
+
+        // wallet address lowercased here
+        if (data?.walletAddress === account.toLowerCase()) {
+          // console.log("encypted hash: ", data);
+          setEncryptedHash(data?.encrypted);
+          setTokenOwned(true);
+          hashFound = true;
+        }
       }
-
-      // if (redeemData.walletAddress && redeemData.walletAddress === account) {
-      //   console.log("encypted hash: ", data);
-      //   setEncryptedHash(data?.encrypted);
-      // }
     };
     run();
   }, [redeemData, account]);
