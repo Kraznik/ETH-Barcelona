@@ -229,15 +229,8 @@ const RedeemNFT = ({ account }) => {
   };
 
   const saveData = async () => {
-    // try {
-
-    // } catch (err) {
-    //   console.error(err);
-    //   console.log("Issue saving user data");
-    // }
-
     const url = "https://eth-barcelona.kraznikunderverse.com/users";
-    const data = {
+    const post_data = {
       name: user.fullName,
       optionalName: user.displayName,
       email: user.email,
@@ -245,12 +238,32 @@ const RedeemNFT = ({ account }) => {
       tokenId: id,
     };
 
-    await axios.post(url, data, {
+    const { data } = await axios.get(url + `/${account}/${id}`, {
       headers: {
-        "Content-Type": "application/json",
         validate: "alpha romeo tango",
       },
     });
+
+    if (data.user?.tokenId) {
+      await axios.patch(url + `/${id}`, post_data, {
+        headers: {
+          validate: "alpha romeo tango",
+        },
+      });
+    } else {
+      await axios.post(url, post_data, {
+        headers: {
+          "Content-Type": "application/json",
+          validate: "alpha romeo tango",
+        },
+      });
+    }
+
+    // try {
+    // } catch (err) {
+    //   console.error(err);
+    //   console.log("Issue saving user data");
+    // }
   };
 
   const checkIfTokenOwned = async () => {
