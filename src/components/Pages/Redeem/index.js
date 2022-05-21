@@ -304,7 +304,7 @@ const RedeemNFT = ({ account }) => {
             <br />
             <input
               type="text"
-              placeholder="Add your legal Name"
+              placeholder="Add your name as in your passport"
               className="input"
               value={user.fullName}
               onChange={(e) => setUser({ ...user, fullName: e.target.value })}
@@ -315,7 +315,7 @@ const RedeemNFT = ({ account }) => {
             <br />
             <input
               type="text"
-              placeholder="How do you want to be called"
+              placeholder="Add your name for the lanyard"
               className="input"
               value={user.displayName}
               onChange={(e) =>
@@ -328,7 +328,7 @@ const RedeemNFT = ({ account }) => {
             <br />
             <input
               type="text"
-              placeholder="name@email.com"
+              placeholder="Add your email for sending you notifications"
               className="input"
               value={user.email}
               onChange={(e) => setUser({ ...user, email: e.target.value })}
