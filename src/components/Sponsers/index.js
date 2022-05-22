@@ -18,6 +18,7 @@ import Zerion from "../../assets/Zerion.svg";
 import Moralis from "../../assets/Moralis.svg";
 import Distrikt from "../../assets/Dis.svg" 
 import Degate from "../../assets/Degate.svg";
+import Aragon from "../../assets/Aragon.svg"
 
 
 const Container = styled.div`
@@ -195,32 +196,7 @@ const Sponsers = () => {
   return (
     <>
     <Container>
-    <TitleBox>
-        <Title1> Partners</Title1>
-        </TitleBox>
 
-        <SilverSponserContainer>
-            <GoldSponserTitle>Launch Partners</GoldSponserTitle>
-            <SilverSponserLogoContainer>
-                <OrganizerLogo><a href="https://doingud.com/"><img src={DoinGud} width="270px" height=" 200px"></img></a></OrganizerLogo>
-                <OrganizerLogo><a href="https://wearefloc.com/"><img src={Floc} width="270px" height=" 200px"></img></a></OrganizerLogo>
-                <OrganizerLogo><a href="https://twitter.com/PolisParallela"><img src={Polis} width="270px" height=" 200px"></img></a></OrganizerLogo>
-                <OrganizerLogo><a href=""><img src={ShrineHouse} ></img></a></OrganizerLogo>
-            </SilverSponserLogoContainer>
-            <SilverSponserLogoContainer>
-
-                <OrganizerLogo><a href=""><img src={GiantCookie} ></img></a></OrganizerLogo>
-            </SilverSponserLogoContainer>
-        </SilverSponserContainer>
-
-                <GoldSponserContainer>
-            <GoldSponserTitle>Media Partners</GoldSponserTitle>
-            <GoldSponserLogoContainer>
-                <GoldSponserLogo><a href="https://beincrypto.com/"><img src={BeInCrypto}></img></a></GoldSponserLogo>
-                <GoldSponserLogo><a href="https://www.eclecticmethod.net/"><img src={Eclectic}></img></a></GoldSponserLogo>
-                <GoldSponserLogo><a href="https://defiprime.com/"><img src={DefiPrime}></img></a></GoldSponserLogo>
-            </GoldSponserLogoContainer>
-        </GoldSponserContainer>
 
 
         <TitleBox>
@@ -254,6 +230,7 @@ const Sponsers = () => {
             <SilverSponserLogoContainer>
                 <BronzeSponserLogo><img src={Degate}></img></BronzeSponserLogo>
                 <BronzeSponserLogo><img src={Moralis}></img></BronzeSponserLogo>
+                <BronzeSponserLogo><img src={Aragon}></img></BronzeSponserLogo>
             </SilverSponserLogoContainer>
         </SilverSponserContainer>
 
@@ -276,6 +253,34 @@ const Sponsers = () => {
             <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
             </SilverSponserLogoContainer>
         </SilverSponserContainer> */}
+
+
+<TitleBox>
+        <Title1> Partners</Title1>
+        </TitleBox>
+
+        <SilverSponserContainer>
+            <GoldSponserTitle>Launch Partners</GoldSponserTitle>
+            <SilverSponserLogoContainer>
+                <OrganizerLogo><a href="https://doingud.com/"><img src={DoinGud} width="270px" height=" 200px"></img></a></OrganizerLogo>
+                <OrganizerLogo><a href="https://wearefloc.com/"><img src={Floc} width="270px" height=" 200px"></img></a></OrganizerLogo>
+                <OrganizerLogo><a href="https://twitter.com/PolisParallela"><img src={Polis} width="270px" height=" 200px"></img></a></OrganizerLogo>
+                <OrganizerLogo><a href=""><img src={ShrineHouse} ></img></a></OrganizerLogo>
+            </SilverSponserLogoContainer>
+            <SilverSponserLogoContainer>
+
+                <OrganizerLogo><a href=""><img src={GiantCookie} ></img></a></OrganizerLogo>
+            </SilverSponserLogoContainer>
+        </SilverSponserContainer>
+
+                <GoldSponserContainer>
+            <GoldSponserTitle>Media Partners</GoldSponserTitle>
+            <GoldSponserLogoContainer>
+                <GoldSponserLogo><a href="https://beincrypto.com/"><img src={BeInCrypto}></img></a></GoldSponserLogo>
+                <GoldSponserLogo><a href="https://www.eclecticmethod.net/"><img src={Eclectic}></img></a></GoldSponserLogo>
+                <GoldSponserLogo><a href="https://defiprime.com/"><img src={DefiPrime}></img></a></GoldSponserLogo>
+            </GoldSponserLogoContainer>
+        </GoldSponserContainer>
 
 
 
