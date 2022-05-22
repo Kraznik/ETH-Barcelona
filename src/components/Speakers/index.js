@@ -5,7 +5,7 @@ import "./style.css";
 
 const Container = styled.div`
 background: #F4F4F5;
-padding: 0 51px 100px 51px;
+padding: 0 51px 0px 51px;
 
 @media (max-width: 700px) {
     padding:0 18px;
@@ -39,6 +39,7 @@ const SpeakerContainer = styled.div`
 display:inline-block;
 align-items:left;
 margin-right:60px;
+margin-top:70px;
 
 width:270px;
 &:hover{
@@ -59,6 +60,7 @@ filter: grayscale(100%);
 &:hover{
     cursor:pointer;
     transition: all 0.3s ease-in-out;
+    transform: scale(1.03);
     filter: grayscale(0%);
  
 }
@@ -71,7 +73,7 @@ filter: grayscale(100%);
 `;
 
 const Box = styled.div`
-padding: 48px 0 0 0 ;
+padding: 0px 0 0 0 ;
 align-items:left;
 justify-content:left;
 
@@ -139,7 +141,7 @@ const Footer = styled.div`
 align-items:right;
 justify-content:right;
 display:flex;
-padding: 20px 120px;
+padding: 50px 120px;
 background: #F4F4F5;
 
 @media (max-width: 700px) {
@@ -161,32 +163,78 @@ const Speakers = () => {
     <Container>
         <Title>Speakers</Title>
         <Box>
+
         <SpeakerContainer>
             <SpeakerImage><img src={Speaker}></img></SpeakerImage>
             <Name>Sanchit</Name>
             <Org>DoinGud</Org>
-
         </SpeakerContainer>
+
         <SpeakerContainer>
             <SpeakerImage><img src={Speaker}></img></SpeakerImage>
             <Name>Sanchit</Name>
             <Org>Zerion</Org>
+        </SpeakerContainer>
 
+        <SpeakerContainer>
+            <SpeakerImage><img src={Speaker}></img></SpeakerImage>
+            <Name>Sanchit</Name>
+            <Org>DoinGud</Org>
+        </SpeakerContainer>
+
+        <SpeakerContainer>
+            <SpeakerImage><img src={Speaker}></img></SpeakerImage>
+            <Name>Sanchit</Name>
+            <Org>DoinGud</Org>
         </SpeakerContainer>
         <SpeakerContainer>
             <SpeakerImage><img src={Speaker}></img></SpeakerImage>
             <Name>Sanchit</Name>
             <Org>DoinGud</Org>
+        </SpeakerContainer>
 
+        <SpeakerContainer>
+            <SpeakerImage><img src={Speaker}></img></SpeakerImage>
+            <Name>Sanchit</Name>
+            <Org>Zerion</Org>
+        </SpeakerContainer>
+
+        <SpeakerContainer>
+            <SpeakerImage><img src={Speaker}></img></SpeakerImage>
+            <Name>Sanchit</Name>
+            <Org>DoinGud</Org>
+        </SpeakerContainer>
+
+        <SpeakerContainer>
+            <SpeakerImage><img src={Speaker}></img></SpeakerImage>
+            <Name>Sanchit</Name>
+            <Org>DoinGud</Org>
         </SpeakerContainer>
         <SpeakerContainer>
             <SpeakerImage><img src={Speaker}></img></SpeakerImage>
             <Name>Sanchit</Name>
             <Org>DoinGud</Org>
-
         </SpeakerContainer>
+
+        <SpeakerContainer>
+            <SpeakerImage><img src={Speaker}></img></SpeakerImage>
+            <Name>Sanchit</Name>
+            <Org>Zerion</Org>
+        </SpeakerContainer>
+
+        <SpeakerContainer>
+            <SpeakerImage><img src={Speaker}></img></SpeakerImage>
+            <Name>Sanchit</Name>
+            <Org>DoinGud</Org>
+        </SpeakerContainer>
+
+        <SpeakerContainer>
+            <SpeakerImage><img src={Speaker}></img></SpeakerImage>
+            <Name>Sanchit</Name>
+            <Org>DoinGud</Org>
+        </SpeakerContainer>
+
         </Box>
-
     </Container>
     <Footer>
             <Name>Full Speaker List <span> &#8594; </span></Name>
