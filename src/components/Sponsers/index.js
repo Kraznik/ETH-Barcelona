@@ -162,6 +162,14 @@ padding-bottom:2.5%;
 position:relative;
 `
 
+const BronzrSponserContainer = styled.div`
+
+margin: 0 8% 0 10%;
+
+padding-bottom:2.5%;
+position:relative;
+`
+
 const SilverSponserLogoContainer = styled.div`
 display:flex;
 @media (max-width: 600px) {
@@ -225,14 +233,14 @@ const Sponsers = () => {
             </SilverSponserLogoContainer>
         </SilverSponserContainer>
 
-        <SilverSponserContainer>
+        <GoldSponserContainer>
             <GoldSponserTitle>Bronze</GoldSponserTitle>
             <SilverSponserLogoContainer>
                 <BronzeSponserLogo><img src={Degate}></img></BronzeSponserLogo>
                 <BronzeSponserLogo><img src={Moralis}></img></BronzeSponserLogo>
                 <BronzeSponserLogo><img src={Aragon}></img></BronzeSponserLogo>
             </SilverSponserLogoContainer>
-        </SilverSponserContainer>
+        </GoldSponserContainer>
 
         {/* <SilverSponserContainer>
             <GoldSponserTitle>General Supporter</GoldSponserTitle>
