@@ -14,6 +14,10 @@ import BeInCrypto from "../../assets/beINcrypto.svg"
 import DefiPrime from "../../assets/defiprime.svg";
 import ShrineHouse from "../../assets/ShrineHouse.svg";
 import GiantCookie from "../../assets/GiantCookie.svg";
+import Zerion from "../../assets/Zerion.svg";
+import Moralis from "../../assets/Moralis.svg";
+import Distrikt from "../../assets/Dis.svg" 
+import Degate from "../../assets/Degate.svg";
 
 
 const Container = styled.div`
@@ -87,7 +91,7 @@ margin:1% 13.5% 1% 0 ;
 `
 
 const GoldSponserContainer = styled.div`
-border-bottom: 1px solid #BDBDBD;
+
 margin: 0 10% 0 10%;
 position:relative;
 
@@ -191,63 +195,7 @@ const Sponsers = () => {
   return (
     <>
     <Container>
-        {/* <TitleBox>
-        <Title1> Sponsers</Title1>
-        </TitleBox>
-
-        <DiamondSponserContainer>
-            <DiamondSponserTitle>Diamond</DiamondSponserTitle>
-            <DiamondSponserLogoContainer>
-                <DiamondSponserLogo> <img src={DoinGud}></img></DiamondSponserLogo>
-            </DiamondSponserLogoContainer>
-        </DiamondSponserContainer> */}
-
-        {/* <GoldSponserContainer>
-            <GoldSponserTitle>Gold</GoldSponserTitle>
-            <GoldSponserLogoContainer>
-                <GoldSponserLogo><img src={Gold}></img></GoldSponserLogo>
-                <GoldSponserLogo><img src={Gold}></img></GoldSponserLogo>
-                <GoldSponserLogo><img src={Gold}></img></GoldSponserLogo>
-                <GoldSponserLogo><img src={Gold}></img></GoldSponserLogo>
-            </GoldSponserLogoContainer>
-        </GoldSponserContainer> */}
-
-        {/* <SilverSponserContainer>
-            <GoldSponserTitle>Silver</GoldSponserTitle>
-            <SilverSponserLogoContainer>
-                <SilverSponserLogo><img src={Silver}></img> </SilverSponserLogo>
-            </SilverSponserLogoContainer>
-        </SilverSponserContainer>
-
-        <SilverSponserContainer>
-            <GoldSponserTitle>Bronze</GoldSponserTitle>
-            <SilverSponserLogoContainer>
-                <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
-                <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
-            </SilverSponserLogoContainer>
-        </SilverSponserContainer> */}
-
-        {/* <SilverSponserContainer>
-            <GoldSponserTitle>General Supporter</GoldSponserTitle>
-            <SilverSponserLogoContainer>
-            <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
-            <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
-            <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
-            <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
-            <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
-            <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
-            </SilverSponserLogoContainer>
-            <SilverSponserLogoContainer>
-            <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
-            <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
-            <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
-            <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
-            <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
-            <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
-            </SilverSponserLogoContainer>
-        </SilverSponserContainer> */}
-
-<TitleBox>
+    <TitleBox>
         <Title1> Partners</Title1>
         </TitleBox>
 
@@ -273,6 +221,63 @@ const Sponsers = () => {
                 <GoldSponserLogo><a href="https://defiprime.com/"><img src={DefiPrime}></img></a></GoldSponserLogo>
             </GoldSponserLogoContainer>
         </GoldSponserContainer>
+
+
+        <TitleBox>
+        <Title1> Sponsers</Title1>
+        </TitleBox>
+
+        <DiamondSponserContainer>
+            <DiamondSponserTitle>Diamond</DiamondSponserTitle>
+            <DiamondSponserLogoContainer>
+                <DiamondSponserLogo> <img src={Distrikt}></img></DiamondSponserLogo>
+            </DiamondSponserLogoContainer>
+        </DiamondSponserContainer>
+{/* 
+        <GoldSponserContainer>
+            <GoldSponserTitle>Gold</GoldSponserTitle>
+            <GoldSponserLogoContainer>
+                <GoldSponserLogo><img src={}></img></GoldSponserLogo>
+
+            </GoldSponserLogoContainer>
+        </GoldSponserContainer> */}
+
+        <SilverSponserContainer>
+            <GoldSponserTitle>Silver</GoldSponserTitle>
+            <SilverSponserLogoContainer>
+                <SilverSponserLogo><img src={Zerion}></img> </SilverSponserLogo>
+            </SilverSponserLogoContainer>
+        </SilverSponserContainer>
+
+        <SilverSponserContainer>
+            <GoldSponserTitle>Bronze</GoldSponserTitle>
+            <SilverSponserLogoContainer>
+                <BronzeSponserLogo><img src={Degate}></img></BronzeSponserLogo>
+                <BronzeSponserLogo><img src={Moralis}></img></BronzeSponserLogo>
+            </SilverSponserLogoContainer>
+        </SilverSponserContainer>
+
+        {/* <SilverSponserContainer>
+            <GoldSponserTitle>General Supporter</GoldSponserTitle>
+            <SilverSponserLogoContainer>
+            <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
+            <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
+            <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
+            <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
+            <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
+            <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
+            </SilverSponserLogoContainer>
+            <SilverSponserLogoContainer>
+            <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
+            <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
+            <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
+            <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
+            <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
+            <BronzeSponserLogo><img src={Bronze}></img></BronzeSponserLogo>
+            </SilverSponserLogoContainer>
+        </SilverSponserContainer> */}
+
+
 
 
     </Container>
