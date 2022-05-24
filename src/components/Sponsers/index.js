@@ -207,7 +207,7 @@ const Sponsers = () => {
 
 
 
-        <TitleBox>
+        {/* <TitleBox>
         <Title1> Sponsers</Title1>
         </TitleBox>
 
@@ -216,7 +216,7 @@ const Sponsers = () => {
             <DiamondSponserLogoContainer>
                 <DiamondSponserLogo> <img src={Distrikt}></img></DiamondSponserLogo>
             </DiamondSponserLogoContainer>
-        </DiamondSponserContainer>
+        </DiamondSponserContainer> */}
 {/* 
         <GoldSponserContainer>
             <GoldSponserTitle>Gold</GoldSponserTitle>
@@ -225,7 +225,7 @@ const Sponsers = () => {
 
             </GoldSponserLogoContainer>
         </GoldSponserContainer> */}
-
+{/* 
         <SilverSponserContainer>
             <GoldSponserTitle>Silver</GoldSponserTitle>
             <SilverSponserLogoContainer>
@@ -240,7 +240,7 @@ const Sponsers = () => {
                 <BronzeSponserLogo><img src={Moralis}></img></BronzeSponserLogo>
                 <BronzeSponserLogo><img src={Aragon}></img></BronzeSponserLogo>
             </SilverSponserLogoContainer>
-        </GoldSponserContainer>
+        </GoldSponserContainer> */}
 
         {/* <SilverSponserContainer>
             <GoldSponserTitle>General Supporter</GoldSponserTitle>
@@ -284,7 +284,7 @@ const Sponsers = () => {
                 <GoldSponserContainer>
             <GoldSponserTitle>Media Partners</GoldSponserTitle>
             <GoldSponserLogoContainer>
-                <GoldSponserLogo><a href="https://beincrypto.com/"><img src={BeInCrypto}></img></a></GoldSponserLogo>
+                <GoldSponserLogo><a href="https://es.beincrypto.com/"><img src={BeInCrypto}></img></a></GoldSponserLogo>
                 <GoldSponserLogo><a href="https://www.eclecticmethod.net/"><img src={Eclectic}></img></a></GoldSponserLogo>
                 <GoldSponserLogo><a href="https://defiprime.com/"><img src={DefiPrime}></img></a></GoldSponserLogo>
             </GoldSponserLogoContainer>

@@ -18,7 +18,7 @@ const Landing = ({ isMobile }) => {
       <Apply />
       <Hero isMobile={isMobile}></Hero>
       <Sponsers></Sponsers>
-      <Speakers></Speakers>
+
       <FAQ></FAQ>
       <Footer></Footer>
     </>
