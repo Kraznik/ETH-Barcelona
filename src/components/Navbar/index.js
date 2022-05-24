@@ -124,6 +124,9 @@ const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto"></Nav>
             <Nav>
+            <Nav.Link href="/organizer" className="text">
+                <Text>Organizer </Text>
+              </Nav.Link>
               <Nav.Link href="#faq" className="text">
                 <Text>FAQ </Text>
               </Nav.Link>

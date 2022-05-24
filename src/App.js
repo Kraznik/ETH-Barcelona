@@ -20,6 +20,7 @@ import ShowTickets from "./components/Pages/HaveTicket";
 import RedeemNFT from "./components/Pages/Redeem";
 import Landing from "./components/Pages/LandingPage";
 import Navbars from "./components/Navbar";
+import Organizer from "./components/Pages/Organizer";
 import { injected } from "./utils/wallet/connectors";
 import {
   onDisconnect,
@@ -188,6 +189,11 @@ const App = () => {
             exact
             path="/tickets/:id/poap"
             element={<Poap account={account} />}
+          />
+          <Route
+            exact
+            path="/organizer"
+            element={<Organizer></Organizer>}
           />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
