@@ -136,9 +136,9 @@ const Navbars = ({
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto"></Nav>
             <Nav>
-              <Nav.Link href="/organizer" className="text">
+              {/* <Nav.Link href="/organizer" className="text">
                 <Text>Organizer</Text>
-              </Nav.Link>
+              </Nav.Link> */}
               {/* <Link to="/organizer" className="text">
                 <Text>Organizer </Text>
               </Link> */}

@@ -112,6 +112,10 @@ const ConnectBox = styled.div`
     width: 311px;
     height: 56px;
   }
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const Logo = styled.div``;
