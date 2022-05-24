@@ -114,9 +114,9 @@ const TikcetLot = styled.div`
 `;
 
 const ethBcnNftTypeId1 =
-  "0xf92d5aa4d7692161e29117a079c1a4cf9231beb7000000000003";
+  "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000004";
 const ethBcnNftTypeId2 =
-  "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000003";
+  "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000005";
 
 const ShowTickets = ({ account }) => {
   const [listCards, setListCards] = useState([]);

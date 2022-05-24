@@ -21,10 +21,8 @@ const Container = styled.div`
 
   @media (max-width: 800px) {
     width: 343px;
-height: 327px;
+    height: 327px;
   }
-
-
 `;
 
 const TextContainer = styled.div``;
@@ -43,11 +41,8 @@ const Heading = styled.div`
   padding: 0 25% 0 25%;
 
   @media (max-width: 800px) {
-    margin:0 0 0 0  ;
-    padding:0;
-
-    
-
+    margin: 0 0 0 0;
+    padding: 0;
   }
 `;
 
@@ -59,7 +54,7 @@ const Description = styled.div`
   line-height: 20px;
   /* or 125% */
   text-align: center;
- 
+
   color: #354b37;
 
   padding: 0 10% 0 10%;
@@ -67,42 +62,39 @@ const Description = styled.div`
   margin: 24px 0px;
 
   @media (max-width: 800px) {
-    margin:24px 16px 48px 16px;
-    padding:0;
-
+    margin: 24px 16px 48px 16px;
+    padding: 0;
   }
 `;
 
 const BuyContainer = styled.div`
-width: 184.68px;
-height: 50px;
-border: 0.8px solid #354B37;
-transform: rotate(-4.15deg);
-border-radius:50%;
+  width: 184.68px;
+  height: 50px;
+  border: 0.8px solid #354b37;
+  transform: rotate(-4.15deg);
+  border-radius: 50%;
 
-&:hover{
-  transform: rotate(+4.15deg);
-}
+  &:hover {
+    transform: rotate(+4.15deg);
+    color: #354b37 !important;
+  }
 `;
 
 const BuyInnerContainer = styled.div`
-background: #354B37;
-width: 184.68px;
-height: 50px;
-transform: rotate(+4.15deg);
-border-radius:50%;
-padding: 12px 32px 16px 33px;
+  background: #354b37;
+  width: 184.68px;
+  height: 50px;
+  transform: rotate(+4.15deg);
+  border-radius: 50%;
+  padding: 12px 32px 16px 33px;
 
-&:hover{
-  background: transparent;
-  transform: rotate(-4.15deg);
-  padding:12px 33px 16px 33px;
-
- 
-}
-
-
-`
+  &:hover {
+    background: transparent;
+    transform: rotate(-4.15deg);
+    padding: 12px 33px 16px 33px;
+    color: #354b37 !important;
+  }
+`;
 
 const BuyNow = styled.div`
   font-family: "Dahlia";
@@ -112,17 +104,15 @@ const BuyNow = styled.div`
   line-height: 20px;
 
   text-align: center;
-color:white;
+  color: white;
 
   @media (max-width: 800px) {
-  
     font-size: 20px;
   }
 
-  &:hover{
-    color: #354B37;
+  &:hover {
+    color: #354b37;
   }
-
 `;
 
 const BuyTickets = () => {
@@ -138,12 +128,14 @@ const BuyTickets = () => {
 
       <BuyContainer>
         <a
-          href="https://doingud.com/@ethbarcelona?tab=created"
+          // href="https://doingud.com/@ethbarcelona?tab=created"
+          href="https://main.doingud.work/@banatisanchit?tab=created"
           target={"_blank"}
           style={{ textDecoration: "none" }}
         >
-          <BuyInnerContainer>          <BuyNow>Buy NFTicket</BuyNow></BuyInnerContainer>
-
+          <BuyInnerContainer>
+            <BuyNow>Buy NFTicket</BuyNow>
+          </BuyInnerContainer>
         </a>
       </BuyContainer>
     </Container>
