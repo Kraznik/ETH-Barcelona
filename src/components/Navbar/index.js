@@ -17,7 +17,9 @@ import { NavLink } from "react-router-dom";
 import Wallet from "../../assets/wallet.svg";
 import ConnectWalletButton from "../ConnectWalletButton";
 import "./style.css";
-
+import Popup from 'reactjs-popup';
+import Organizer from "../Pages/Organizer";
+import WalletPopUp from "../Pages/WalletPopUp";
 const Heading = styled(NavLink)`
   color: red;
 `;
@@ -151,7 +153,12 @@ const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
 
               {account === "" || typeof account === "undefined" ? (
                 <button href="" className="button" onClick={onConnectWallet}>
-                  Connect Wallet
+                  <Popup  trigger={<button className="button"  > Connect Wallet </button>}>
+                    <WalletPopUp></WalletPopUp>
+
+                </Popup>
+
+
                 </button>
               ) : (
                 <button onClick={onDisconnect} className="button">
