@@ -1,11 +1,5 @@
 import React from 'react'; 
 import styled from 'styled-components';
-import Gold from "../../assets/GS1.png"
-import Silver from "../../assets/SS1.png"
-import Bronze from "../../assets/BS1.png"
-import General from "../../assets/GSs1.png"
-import Organizer from "../../assets/O1.png"
-import Media1 from "../../assets/mediap1.png";
 import DoinGud from "../../assets/DoinGud.svg";
 import Floc from "../../assets/Floc.svg";
 import Polis from "../../assets/Polis.svg";
@@ -18,7 +12,10 @@ import Zerion from "../../assets/Zerion.svg";
 import Moralis from "../../assets/Moralis.svg";
 import Distrikt from "../../assets/Dis.svg" 
 import Degate from "../../assets/Degate.svg";
-import Aragon from "../../assets/Aragon.svg"
+import Aragon from "../../assets/Aragon.svg";
+import MoonBeam from "../../assets/Moonbeam.svg";
+import Apwine from "../../assets/Apwine.svg";
+import Witnet from "../../assets/witnet.svg";
 
 
 const Container = styled.div`
@@ -207,7 +204,7 @@ const Sponsers = () => {
 
 
 
-        {/* <TitleBox>
+        <TitleBox>
         <Title1> Sponsers</Title1>
         </TitleBox>
 
@@ -216,7 +213,7 @@ const Sponsers = () => {
             <DiamondSponserLogoContainer>
                 <DiamondSponserLogo> <img src={Distrikt}></img></DiamondSponserLogo>
             </DiamondSponserLogoContainer>
-        </DiamondSponserContainer> */}
+        </DiamondSponserContainer>
 {/* 
         <GoldSponserContainer>
             <GoldSponserTitle>Gold</GoldSponserTitle>
@@ -225,11 +222,12 @@ const Sponsers = () => {
 
             </GoldSponserLogoContainer>
         </GoldSponserContainer> */}
-{/* 
+
         <SilverSponserContainer>
             <GoldSponserTitle>Silver</GoldSponserTitle>
             <SilverSponserLogoContainer>
                 <SilverSponserLogo><img src={Zerion}></img> </SilverSponserLogo>
+                <SilverSponserLogo><img src={MoonBeam}></img> </SilverSponserLogo>
             </SilverSponserLogoContainer>
         </SilverSponserContainer>
 
@@ -239,8 +237,10 @@ const Sponsers = () => {
                 <BronzeSponserLogo><img src={Degate}></img></BronzeSponserLogo>
                 <BronzeSponserLogo><img src={Moralis}></img></BronzeSponserLogo>
                 <BronzeSponserLogo><img src={Aragon}></img></BronzeSponserLogo>
+                <BronzeSponserLogo><img src={Witnet}></img></BronzeSponserLogo>
+                <BronzeSponserLogo><img src={Apwine}></img></BronzeSponserLogo>
             </SilverSponserLogoContainer>
-        </GoldSponserContainer> */}
+        </GoldSponserContainer>
 
         {/* <SilverSponserContainer>
             <GoldSponserTitle>General Supporter</GoldSponserTitle>
