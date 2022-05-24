@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Navbar,
   Container,
@@ -17,7 +17,7 @@ import { NavLink } from "react-router-dom";
 import Wallet from "../../assets/wallet.svg";
 import ConnectWalletButton from "../ConnectWalletButton";
 import "./style.css";
-import Popup from 'reactjs-popup';
+import Popup from "reactjs-popup";
 import Organizer from "../Pages/Organizer";
 import WalletPopUp from "../Pages/WalletPopUp";
 const Heading = styled(NavLink)`
@@ -92,7 +92,17 @@ const Desktop = styled.div`
   }
 `;
 
-const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
+const Navbars = ({
+  account,
+  onConnectMetamask,
+  onConnectWalletConnect,
+  onConnectCoinbase,
+  onDisconnect,
+  haveTokens,
+}) => {
+  const [open, setOpen] = useState(false);
+  const closeModal = () => setOpen(false);
+
   const userAddress = `${account?.slice(0, 4)}....${account?.slice(-4)}`;
   return (
     <div>
@@ -126,11 +136,14 @@ const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto"></Nav>
             <Nav>
-            <Nav.Link href="/organizer" className="text">
-                <Text>Organizer </Text>
+              <Nav.Link href="/organizer" className="text">
+                <Text>Organizer</Text>
               </Nav.Link>
+              {/* <Link to="/organizer" className="text">
+                <Text>Organizer </Text>
+              </Link> */}
               <Nav.Link href="#faq" className="text">
-                <Text>FAQ </Text>
+                <Text>FAQ</Text>
               </Nav.Link>
 
               <Desktop>
@@ -152,14 +165,35 @@ const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
               </Desktop>
 
               {account === "" || typeof account === "undefined" ? (
-                <button href="" className="button" onClick={onConnectWallet}>
-                  <Popup  trigger={<button className="button"  > Connect Wallet </button>}>
-                    <WalletPopUp></WalletPopUp>
+                // <button href="" className="button" onClick={onConnectWallet}>
+                //   <Popup
+                //     trigger={
+                //       <button className="button"> Connect Wallet </button>
+                //     }
+                //     modal
+                //     // nested
+                //   >
+                //     <WalletPopUp></WalletPopUp>
+                //   </Popup>
+                // </button>
+                <>
+                  <button
+                    type="button"
+                    className="button"
+                    onClick={() => setOpen((o) => !o)}
+                  >
+                    Connect Wallet
+                  </button>
 
-                </Popup>
-
-
-                </button>
+                  <Popup open={open} closeOnDocumentClick onClose={closeModal}>
+                    <WalletPopUp
+                      onConnectWalletConnect={onConnectWalletConnect}
+                      onConnectCoinbase={onConnectCoinbase}
+                      onConnectMetamask={onConnectMetamask}
+                      closeModal={closeModal}
+                    />
+                  </Popup>
+                </>
               ) : (
                 <button onClick={onDisconnect} className="button">
                   <h3>

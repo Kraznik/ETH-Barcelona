@@ -151,7 +151,9 @@ const App = () => {
       <Router>
         <Navbars
           account={account}
-          onConnectWallet={() => onConnectMetamask(activate)}
+          onConnectWalletConnect={() => onConnectWalletConnect(activate)}
+          onConnectCoinbase={() => onConnectCoinbase(activate)}
+          onConnectMetamask={() => onConnectMetamask(activate)}
           onDisconnect={() => onDisconnect(deactivate)}
           haveTokens={haveTokens}
         />
@@ -190,11 +192,7 @@ const App = () => {
             path="/tickets/:id/poap"
             element={<Poap account={account} />}
           />
-          <Route
-            exact
-            path="/organizer"
-            element={<Organizer></Organizer>}
-          />
+          <Route exact path="/organizer" element={<Organizer></Organizer>} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Router>

@@ -1,151 +1,173 @@
-import React from 'react'; 
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 import Metamask from "../../../assets/Metamask.svg";
 import CoinbaseWallet from "../../../assets/CoinbaseWallet.svg";
 import WalletConnect from "../../../assets/WalletConnect.svg";
 
 const Container = styled.div`
-height: 900px;
-width: 1440px;
-left: 0px;
-top: 0px;
-border-radius: 0px;
+  /* height: 900px;
+  width: 1440px; */
+  height: 100vh;
+  width: 100vw;
+  left: 0px;
+  top: 0px;
+  border-radius: 0px;
+  backdrop-filter: blur(8px);
+  /* margin: -100px; */
 
-@media (max-width: 800px) {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+
+  @media (max-width: 800px) {
     margin: 0;
     height: 00px;
-width: 0px;
+    width: 0px;
   }
-
-`
+`;
 
 const WalletContainer = styled.div`
+  flex-direction: column;
+  justify-content: center;
+  padding: 24px 24px 48px;
+  position: absolute;
+  width: 530px;
+  height: 456px;
+  background: #ffffff;
+  border-radius: 4px;
+  border: 1px solid black;
+  /* margin: 50px 0 0 -100px; */
 
-flex-direction: column;
-justify-content: center;
-padding: 24px 24px 48px;
-position: absolute;
-width: 530px;
-height: 456px;
-background: #FFFFFF;
-border-radius: 4px;
-margin: 50px 0 0 -100px  ;
-
-@media (max-width: 800px) {
+  @media (max-width: 800px) {
     margin: 0 0 0 -170px;
-    padding: 72px 0 0 0 ;
+    padding: 72px 0 0 0;
     width: 343px;
     height: 456px;
   }
-`
+`;
 
 const Title = styled.div`
-font-family: 'Dahlia';
-font-style: normal;
-font-weight: 700;
-font-size: 24px;
-line-height: 24px;
-margin: 48px 56px 0 146px;
-display: flex;
-align-items: center;
-text-align: center;
+  font-family: "Dahlia";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+  margin: 48px 56px 0 146px;
+  display: flex;
+  align-items: center;
+  text-align: center;
 
-/* Green Leaf */
+  /* Green Leaf */
 
-color: #354B37;
+  color: #354b37;
 
-@media (max-width: 800px) {
+  @media (max-width: 800px) {
     margin: 0 60px;
     font-size: 24px;
-line-height: 24px;
-
+    line-height: 24px;
   }
-`
+`;
 
 const Description = styled.div`
-font-family: 'Montserrat';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 20px;
-/* or 125% */
-margin: 24px 56px;
-text-align: center;
-padding-bottom:24px;
-/* Green Leaf */
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  /* or 125% */
+  margin: 24px 56px;
+  text-align: center;
+  padding-bottom: 24px;
+  /* Green Leaf */
 
-color: #354B37;
+  color: #354b37;
 
-
-@media (max-width: 800px) {
-   
-    padding: 0 0 24px 0 ;
+  @media (max-width: 800px) {
+    padding: 0 0 24px 0;
     font-size: 16px;
-  }`
+  }
+`;
 
-const  ConnectBox = styled.div`
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 16px;
-gap: 16px;
-margin:16px 0 0 0 ;
-width: 482px;
-height: 56px;
+const ConnectBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  gap: 16px;
+  margin: 16px 0 0 0;
+  width: 482px;
+  height: 56px;
 
-/* White */
+  /* White */
 
-background: #FFFFFF;
-/* Green Leaf */
+  background: #ffffff;
+  /* Green Leaf */
 
-border: 0.5px solid #354B37;
-border-radius: 60px;
+  border: 0.5px solid #354b37;
+  border-radius: 60px;
 
-@media (max-width: 800px) {
-    margin: 16px ;
+  @media (max-width: 800px) {
+    margin: 16px;
     width: 311px;
     height: 56px;
-  }`
+  }
+`;
 
-const Logo = styled.div``
+const Logo = styled.div``;
 
-const Name = styled.div``
+const Name = styled.div``;
 
-
-
-
-const WalletPopUp = () => {
+const WalletPopUp = ({
+  closeModal,
+  onConnectMetamask,
+  onConnectWalletConnect,
+  onConnectCoinbase,
+}) => {
   return (
     <>
-    <Container>
+      <Container>
         <WalletContainer>
-            <Title>
-                Connect Your Wallet
-            </Title>
-            <Description>
-            You need to be connected to access to your NFT ticket and get your QR code
-            </Description>
+          <a
+            style={{
+              cursor: "pointer",
+              float: "right",
+            }}
+            className="close"
+            onClick={closeModal}
+          >
+            &times;
+          </a>
+          <Title>Connect Your Wallet</Title>
+          <Description>
+            You need to be connected to access to your NFT ticket and get your
+            QR code
+          </Description>
 
-            <ConnectBox>
-                <Logo><img src={Metamask}></img></Logo>
-                <Name>Metamask</Name>
-            </ConnectBox>
+          <ConnectBox onClick={onConnectMetamask}>
+            <Logo>
+              <img src={Metamask}></img>
+            </Logo>
+            <Name>Metamask</Name>
+          </ConnectBox>
 
-            <ConnectBox>
-                <Logo><img src={CoinbaseWallet} width="22px" height="24px"></img></Logo>
-                <Name>Coinbase Wallet</Name>
-            </ConnectBox>
+          <ConnectBox onClick={onConnectCoinbase}>
+            <Logo>
+              <img src={CoinbaseWallet} width="22px" height="24px"></img>
+            </Logo>
+            <Name>Coinbase Wallet</Name>
+          </ConnectBox>
 
-            <ConnectBox>
-                <Logo><img src={WalletConnect}></img></Logo>
-                <Name>WalletConnect</Name>
-            </ConnectBox>
-
+          <ConnectBox onClick={onConnectWalletConnect}>
+            <Logo>
+              <img src={WalletConnect}></img>
+            </Logo>
+            <Name>WalletConnect</Name>
+          </ConnectBox>
         </WalletContainer>
-    </Container>
+      </Container>
     </>
-  )
-}
+  );
+};
 
-export default WalletPopUp
+export default WalletPopUp;
