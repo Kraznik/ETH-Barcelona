@@ -182,7 +182,7 @@ const index = ({ account }) => {
             <QRCodes>
               {/* <QRCodeSVG value="$2b$10$2595K0J6lkp6bFhOhtu9WOQBdQVEFKrgOF0V/4aD74Yrch8ZyVTCO"></QRCodeSVG> */}
               <QRCodeSVG
-                value={`http://localhost:3000/organizer?tokenId=${id}&ownerAddress=${account}&ticketOwnerName=${redeemData.name}&encryptedHash=${encryptedHash}`}
+                value={`https://dev-eth-barcelona.web.app/organizer?tokenId=${id}&ownerAddress=${account}&ticketOwnerName=${redeemData.name}&encryptedHash=${encryptedHash}`}
               ></QRCodeSVG>
             </QRCodes>
           ) : (
