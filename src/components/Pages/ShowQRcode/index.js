@@ -145,7 +145,7 @@ const index = ({ account }) => {
         }
       }
     };
-    run();
+    if (account) run();
   }, [redeemData, account]);
 
   return (
@@ -182,7 +182,7 @@ const index = ({ account }) => {
             <QRCodes>
               {/* <QRCodeSVG value="$2b$10$2595K0J6lkp6bFhOhtu9WOQBdQVEFKrgOF0V/4aD74Yrch8ZyVTCO"></QRCodeSVG> */}
               <QRCodeSVG
-                value={`https://ethbc-organizeraccess.web.app/organizer-access?tokenId=${id}&ownerAddress=${account}&encryptedHash=${encryptedHash}`}
+                value={`http://localhost:3000/organizer?tokenId=${id}&ownerAddress=${account}&ticketOwnerName=${redeemData.name}&encryptedHash=${encryptedHash}`}
               ></QRCodeSVG>
             </QRCodes>
           ) : (

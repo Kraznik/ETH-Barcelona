@@ -12,7 +12,11 @@ const Container = styled.div`
   left: 0px;
   top: 0px;
   border-radius: 0px;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(3px);
+  /* background-color: black; */
+  /* opacity: 40%; */
+  /* z-index: 10; */
+
   /* margin: -100px; */
 
   display: grid;
@@ -27,6 +31,7 @@ const Container = styled.div`
 `;
 
 const WalletContainer = styled.div`
+  /* z-index: 1000; */
   flex-direction: column;
   justify-content: center;
   padding: 24px 24px 48px;
@@ -34,9 +39,11 @@ const WalletContainer = styled.div`
   width: 530px;
   height: 456px;
   background: #ffffff;
+  /* opacity: 100%; */
   border-radius: 4px;
   border: 1px solid black;
   /* margin: 50px 0 0 -100px; */
+  margin-top: -30vh;
 
   @media (max-width: 800px) {
     margin: 0 0 0 -170px;

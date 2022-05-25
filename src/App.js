@@ -12,7 +12,6 @@ import { useWeb3React } from "@web3-react/core";
 
 import web3 from "./ethereum/web3";
 import axios from "axios";
-
 import BuyTickets from "./components/Pages/BuyTicket";
 import ShowQRcode from "./components/Pages/ShowQRcode/index.js";
 import Poap from "./components/Pages/Poap";
@@ -21,13 +20,13 @@ import RedeemNFT from "./components/Pages/Redeem";
 import Landing from "./components/Pages/LandingPage";
 import Navbars from "./components/Navbar";
 import Organizer from "./components/Pages/Organizer";
-import { injected } from "./utils/wallet/connectors";
 import {
   onDisconnect,
   onConnectMetamask,
   onConnectWalletConnect,
   onConnectCoinbase,
 } from "./components/ConnectWalletButton/functions";
+import ProtectedRoute from "./utils/ProtectedRoute";
 
 const changeNetwork = async () => {
   try {
@@ -54,6 +53,9 @@ const App = () => {
   const [accounts, setaccount] = useState("");
   const [chainId, setChainId] = useState();
   const [haveTokens, setHaveTokens] = useState(false);
+
+  const [isOrganizer, setIsOrganizer] = useState(false);
+  const [orgId, setOrgId] = useState();
 
   const IsMobile = windowDimension <= 800;
 
@@ -108,14 +110,29 @@ const App = () => {
       const ethBcnNftTypeId2 =
         "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000005";
 
+      const orgNftTypeId =
+        "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000006";
+
+      let ticketFound,
+        orgFound = false;
+
       data.items.map((token) => {
+        if (ticketFound && orgFound) return;
         if (
           token.typeId === ethBcnNftTypeId1 ||
           token.typeId === ethBcnNftTypeId2
         ) {
           // console.log("type id matched");
           setHaveTokens(true);
-          return;
+          ticketFound = true;
+          // return;
+        }
+
+        if (token.typeId === orgNftTypeId) {
+          setIsOrganizer(true);
+          orgFound = true;
+          let edition = parseInt(token.id.slice(-8), 16);
+          setOrgId(edition);
         }
       });
     } catch (err) {
@@ -154,8 +171,12 @@ const App = () => {
           onConnectWalletConnect={() => onConnectWalletConnect(activate)}
           onConnectCoinbase={() => onConnectCoinbase(activate)}
           onConnectMetamask={() => onConnectMetamask(activate)}
-          onDisconnect={() => onDisconnect(deactivate)}
+          onDisconnect={() => {
+            onDisconnect(deactivate);
+            setIsOrganizer(false);
+          }}
           haveTokens={haveTokens}
+          isOrganizer={isOrganizer}
         />
         <Routes>
           <Route exact path="/" element={<Landing isMobile={isMobile} />} />
@@ -192,7 +213,16 @@ const App = () => {
             path="/tickets/:id/poap"
             element={<Poap account={account} />}
           />
-          <Route exact path="/organizer" element={<Organizer></Organizer>} />
+          <Route
+            exact
+            path="/organizer"
+            element={
+              <ProtectedRoute permit={isOrganizer}>
+                <Organizer account={account} orgId={orgId} />
+              </ProtectedRoute>
+            }
+          />
+
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Router>

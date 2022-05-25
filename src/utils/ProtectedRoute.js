@@ -1,10 +1,16 @@
 import React from "react";
-// import { Redirect, Route } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import ErrorPage from "../components/ErrorPage";
 
 const ProtectedRoute = ({ permit, children }) => {
   if (!permit) {
-    return <ErrorPage text={"404 NOT FOUND"} />;
+    return (
+      <>
+        <ErrorPage text={"Only Organizer Access"} />
+        <a href="/">Go to Main page</a>
+        {/* <Navigate to="/" replace /> */}
+      </>
+    );
   }
 
   return children;

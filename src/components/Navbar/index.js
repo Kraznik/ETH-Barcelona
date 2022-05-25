@@ -99,6 +99,7 @@ const Navbars = ({
   onConnectCoinbase,
   onDisconnect,
   haveTokens,
+  isOrganizer,
 }) => {
   const [open, setOpen] = useState(false);
   const closeModal = () => setOpen(false);
@@ -136,12 +137,14 @@ const Navbars = ({
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto"></Nav>
             <Nav>
-              {/* <Nav.Link href="/organizer" className="text">
-                <Text>Organizer</Text>
-              </Nav.Link> */}
-              {/* <Link to="/organizer" className="text">
-                <Text>Organizer </Text>
-              </Link> */}
+              {isOrganizer ? (
+                <Nav.Link className="text">
+                  <NavLink to="/organizer" className="text">
+                    <Text>Organizer</Text>
+                  </NavLink>
+                </Nav.Link>
+              ) : null}
+
               <Nav.Link href="#faq" className="text">
                 <Text>FAQ</Text>
               </Nav.Link>
