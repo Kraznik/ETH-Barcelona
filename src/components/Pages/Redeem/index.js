@@ -7,12 +7,20 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import ErrorPage from "../../ErrorPage";
 
+const Box = styled.div`
+background: #F5C34B;
+padding:2% 0;
+
+
+
+`
+
 const Container = styled.div`
   margin: auto;
   padding: 0px 0 20px 0;
   width: 600px;
   margin-bottom: 43px;
-  margin-top: 40px;
+
   height: 700px;
   left: calc(50% - 530px / 2);
   border: 1px solid black;
@@ -282,6 +290,7 @@ const RedeemNFT = ({ account }) => {
   return (
     <>
       {tokenOwned ? (
+        <Box>
         <Container>
           <Title>Redeem NFT</Title>
           <Description>
@@ -340,6 +349,7 @@ const RedeemNFT = ({ account }) => {
           RedeemNFT
         </Link> */}
         </Container>
+        </Box>
       ) : (
         <ErrorPage text={""} />
       )}

@@ -11,13 +11,22 @@ import web3 from "../../../ethereum/web3";
 import { Link, useParams, useNavigate, Navigate } from "react-router-dom";
 import ErrorPage from "../../ErrorPage";
 
+const Box = styled.div`
+background: #F5C34B;
+padding-bottom:12%;
+padding-top:2%;
+
+
+
+
+`
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   position: absolute;
   width: 530px;
-  margin-top: 10%;
   height: 536px;
   left: calc(50% - 530px / 2);
   background: white;
@@ -151,6 +160,7 @@ const index = ({ account }) => {
   return (
     <>
       {tokenOwned ? (
+        <Box>
         <Container style={{ position: "relative" }}>
           <div
             style={{
@@ -209,6 +219,7 @@ const index = ({ account }) => {
             </EmailContainer>
           </ImageContainer>
         </Container>
+        </Box>
       ) : (
         <ErrorPage text={""} />
         // <Navigate to="/tickets/show" replace />

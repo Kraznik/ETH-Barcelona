@@ -1,6 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
+const Box = styled.div`
+background: #F5C34B;
+padding-bottom:22%;
+padding-top:5%;
+
+`
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -10,14 +17,12 @@ const Container = styled.div`
   /* position: absolute; */
   width: 530px;
   height: 331px;
-  /* left: 455px; */
-  /* top: 110px; */
-  /* White */
+
   background: white;
   border: 1px solid black;
   border-radius: 4px;
   margin: auto;
-  margin-top: 10vh;
+
 
   @media (max-width: 800px) {
     width: 343px;
@@ -117,6 +122,7 @@ const BuyNow = styled.div`
 
 const BuyTickets = () => {
   return (
+    <Box>
     <Container>
       <TextContainer>
         <Heading>You need an NFTicket to claim a QR code</Heading>
@@ -139,6 +145,7 @@ const BuyTickets = () => {
         </a>
       </BuyContainer>
     </Container>
+    </Box>
   );
 };
 

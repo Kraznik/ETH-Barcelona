@@ -7,10 +7,22 @@ import axios from "axios";
 import viewQR from "../../../assets/viewQR.svg";
 import web3 from "../../../ethereum/web3";
 
+const Box = styled.div`
+background: #F5C34B;
+padding-bottom:22%;
+padding-top:5%;
+
+`
+
 const Container = styled.div`
   display: inline-block;
-  width: 530px;
+  width: 560px;
   padding: 72px 0 0 0;
+  background:white;
+  border-radius: 4px;
+  border: 1px solid black;
+
+  
 
   @media (max-width: 700px) {
     width: 343px;
@@ -22,6 +34,7 @@ const TicketBox = styled.div`
   border: 1px solid black;
   display: inline-block;
   margin: 20px 20px;
+
   width: 135px;
   border: 1px solid #f2f2f2;
   border-radius: 4px;
@@ -245,6 +258,7 @@ const ShowTickets = ({ account }) => {
 
   return (
     <>
+    <Box>
       <Container>
         <Title1>Choose an NFT to redeem</Title1>
         <Description>
@@ -252,6 +266,7 @@ const ShowTickets = ({ account }) => {
         </Description>
         {listRedeemedTickets} {listCards}
       </Container>
+      </Box>
     </>
   );
 };
