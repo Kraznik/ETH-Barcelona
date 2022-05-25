@@ -145,7 +145,7 @@ const App = () => {
       const url = `https://eth-barcelona.kraznikunderverse.com/qrcode/wallet/${account}`;
       const { data } = await axios.get(url, {
         headers: {
-          validate: "alpha romeo tango",
+          validate: process.env.REACT_APP_VALIDATE_TOKEN,
         },
       });
       // console.log(data?.data);

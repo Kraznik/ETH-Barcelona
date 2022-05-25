@@ -101,7 +101,7 @@ const index = ({ account }) => {
       const url = `https://eth-barcelona.kraznikunderverse.com/users/${account}/${id}`;
       const { data } = await axios.get(url, {
         headers: {
-          validate: "alpha romeo tango",
+          validate: process.env.REACT_APP_VALIDATE_TOKEN,
         },
       });
       // console.log(data);
@@ -127,7 +127,7 @@ const index = ({ account }) => {
       while (!hashFound) {
         const { data } = await axios.get(url, {
           headers: {
-            validate: "alpha romeo tango",
+            validate: process.env.REACT_APP_VALIDATE_TOKEN,
           },
         });
 
@@ -182,7 +182,8 @@ const index = ({ account }) => {
             <QRCodes>
               {/* <QRCodeSVG value="$2b$10$2595K0J6lkp6bFhOhtu9WOQBdQVEFKrgOF0V/4aD74Yrch8ZyVTCO"></QRCodeSVG> */}
               <QRCodeSVG
-                value={`https://dev-eth-barcelona.web.app/organizer?tokenId=${id}&ownerAddress=${account}&ticketOwnerName=${redeemData.name}&encryptedHash=${encryptedHash}`}
+                // value={`https://dev-eth-barcelona.web.app/organizer?tokenId=${id}&ownerAddress=${account}&ticketOwnerName=${redeemData.name}&encryptedHash=${encryptedHash}`}
+                value={`https://dev-eth-barcelona.web.app/organizer?tid=${id}&owner=${account}&name=${redeemData.name}&hash=${encryptedHash}`}
               ></QRCodeSVG>
             </QRCodes>
           ) : (

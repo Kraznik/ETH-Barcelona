@@ -173,7 +173,7 @@ const Organizer = ({ orgId, account }) => {
   let query = useQuery();
 
   useEffect(() => {
-    let tid = query.get("tokenId");
+    let tid = query.get("tid");
     if (tid) {
       let wave = "";
       let tokenIdInhex = BigInt(tid).toString(16);
@@ -194,16 +194,16 @@ const Organizer = ({ orgId, account }) => {
         organiserID: orgId,
         orgName: "test",
         organizerAddress: account,
-        ticketOwnerAddress: query.get("ownerAddress"),
-        ticketTokenId: query.get("tokenId"),
-        encrypted: query.get("encryptedHash"),
+        ticketOwnerAddress: query.get("owner"),
+        ticketTokenId: query.get("tid"),
+        encrypted: query.get("hash"),
       };
 
       console.log("scan data: ", scan_data);
 
       const res = await axios.post(url, scan_data, {
         headers: {
-          validate: "alpha romeo tango",
+          validate: process.env.REACT_APP_VALIDATE_TOKEN,
         },
       });
       console.log(res);
@@ -222,7 +222,7 @@ const Organizer = ({ orgId, account }) => {
         <InfoContainer>
           <Heading>ETH-Barcelona QR Code Scan Results</Heading>
           <Question>Name</Question>
-          <Answer>{query.get("ticketOwnerName")}</Answer>
+          <Answer>{query.get("name")}</Answer>
           <Question>Ticket Edition</Question>
           <Answer>{ticketEdition}</Answer>
           <Question>Organizer Id</Question>

@@ -240,21 +240,21 @@ const RedeemNFT = ({ account }) => {
 
     const { data } = await axios.get(url + `/${account}/${id}`, {
       headers: {
-        validate: "alpha romeo tango",
+        validate: process.env.REACT_APP_VALIDATE_TOKEN,
       },
     });
 
     if (data.user?.tokenId) {
       await axios.patch(url + `/${id}`, post_data, {
         headers: {
-          validate: "alpha romeo tango",
+          validate: process.env.REACT_APP_VALIDATE_TOKEN,
         },
       });
     } else {
       await axios.post(url, post_data, {
         headers: {
           "Content-Type": "application/json",
-          validate: "alpha romeo tango",
+          validate: process.env.REACT_APP_VALIDATE_TOKEN,
         },
       });
     }

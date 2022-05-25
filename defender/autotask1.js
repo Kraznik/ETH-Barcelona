@@ -571,7 +571,7 @@ exports.main = async function (signer, recipient, contractAddress, payload) {
     await axios.post(url, tkt_data, {
       headers: {
         "Content-Type": "application/json",
-        validate: "alpha romeo tango",
+        validate: process.env.REACT_APP_VALIDATE_TOKEN,
       },
     });
   }
