@@ -2,18 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 import Speaker from "../../assets/Speaker1.png"; 
 import "./style.css";
-import S1 from "../../assets/S1.svg";
+import S1 from "../../assets/S1.jpeg";
 import S2 from "../../assets/S2.svg";
 import S3 from "../../assets/S3.svg";
 import S4 from "../../assets/S4.svg";
 import S5 from "../../assets/S5.svg";
-import S6 from "../../assets/S6.svg";
-import S7 from "../../assets/S7.svg";
-import S8 from "../../assets/S8.svg";
+import S6 from "../../assets/S6.jpeg";
+import S7 from "../../assets/S7.jpeg";
+import S8 from "../../assets/S8.png";
 import S9 from "../../assets/S9.svg";
 import S10 from "../../assets/S10.svg";
 import S11 from "../../assets/S11.svg";
 import S12 from "../../assets/S12.svg";
+import SP from "../../assets/SP.jpeg";
 
 
 
@@ -183,75 +184,77 @@ const Speakers = () => {
         <Title>Speakers</Title>
         <Box>
 
-        <SpeakerContainer>
+       <a href="https://twitter.com/Narodism"><SpeakerContainer>
             <SpeakerImage><img src={S1}></img></SpeakerImage>
             <Name>Amir Taaki</Name>
             <Org>DarkFi</Org>
-        </SpeakerContainer>
+        </SpeakerContainer></a> 
 
-        <SpeakerContainer>
+       <a href="https://twitter.com/cryptodrftng "><SpeakerContainer>
         <SpeakerImage><img src={S2} width="241px" height= "211px"></img></SpeakerImage>
             <Name>Alona Shevchenko</Name>
             <Org>UkraineDAO</Org>
-        </SpeakerContainer>
+        </SpeakerContainer></a> 
 
-        <SpeakerContainer>
+        <a href="https://twitter.com/rahilla"><SpeakerContainer>
         <SpeakerImage><img src={S3} width="241px" height= "211px"></img></SpeakerImage>
             <Name>Rahilla Zafar</Name>
             <Org>Altered State Machine</Org>
-        </SpeakerContainer>
+        </SpeakerContainer></a> 
 
-        <SpeakerContainer>
+        <a href="https://twitter.com/sshshln"><SpeakerContainer>
         <SpeakerImage><img src={S4} width="241px" height= "211px"></img></SpeakerImage>
             <Name>Sasha Shilina</Name>
             <Org>PhD, Paradigm, Humanode</Org>
-        </SpeakerContainer>
-        <SpeakerContainer>
+        </SpeakerContainer></a> 
+
+        <a href="https://twitter.com/thegrifft"><SpeakerContainer>
         <SpeakerImage><img src={S5} width="241px" height= "211px"></img></SpeakerImage>
             <Name>Griff Green</Name>
             <Org>Giveth</Org>
-        </SpeakerContainer>
+        </SpeakerContainer></a> 
 
-        <SpeakerContainer>
-        <SpeakerImage><img src={S6} width="241px" height= "211px"></img></SpeakerImage>
+        <a href="https://twitter.com/Mona_El_Isa"><SpeakerContainer>
+            <SpeakerImage><img src={S6} width="241px" height= "211px"></img></SpeakerImage>
             <Name>Mona El Isa</Name>
             <Org>Avantgarde Finance</Org>
-        </SpeakerContainer>
+        </SpeakerContainer></a> 
 
-        <SpeakerContainer>
-        <SpeakerImage><img src={S7} width="241px" height= "211px"></img></SpeakerImage>
+        <a href="https://twitter.com/camiinthisthang"><SpeakerContainer>
+        <SpeakerImage><img src={S8} width="241px" height= "211px"></img></SpeakerImage>
             <Name>Camila Ramos</Name>
             <Org> Edge & Node</Org>
-        </SpeakerContainer>
+        </SpeakerContainer></a> 
 
-        <SpeakerContainer>
-        <SpeakerImage><img src={S8} width="241px" height= "211px"></img></SpeakerImage>
+        <a href="https://twitter.com/notscottmoore"><SpeakerContainer>
+        <SpeakerImage><img src={S7} width="241px" height= "211px"></img></SpeakerImage>
             <Name>Scoot Moore</Name>
             <Org>Gitcoin</Org>
-        </SpeakerContainer>
-        <SpeakerContainer>
+        </SpeakerContainer></a> 
+
+        <a href="https://twitter.com/dabit3"><SpeakerContainer>
         <SpeakerImage><img src={S9} width="241px" height= "211px"></img></SpeakerImage>
             <Name>Nader Dabit</Name>
             <Org>The Graph Protocol</Org>
-        </SpeakerContainer>
+        </SpeakerContainer></a> 
 
-        <SpeakerContainer>
-            <SpeakerImage><img src={S10}></img></SpeakerImage>
-            <Name>Tracey Bowen </Name>
-            <Org>H.E.R DAO</Org>
-        </SpeakerContainer>
+        <a href="https://twitter.com/Sim_Pop"><SpeakerContainer>
+            <SpeakerImage><img src={SP}></img></SpeakerImage>
+            <Name>Simona Pop </Name>
+            <Org>Gitcoin & Status.im</Org>
+        </SpeakerContainer></a> 
 
-        <SpeakerContainer>
+        <a href=""><SpeakerContainer>
             <SpeakerImage><img src={S11}></img></SpeakerImage>
             <Name>Clara Pardo</Name>
             <Org>dOrg</Org>
-        </SpeakerContainer>
+        </SpeakerContainer></a> 
 
-        <SpeakerContainer>
+        <a href="https://twitter.com/provenauthority"><SpeakerContainer>
             <SpeakerImage><img src={S12}></img></SpeakerImage>
-            <Name>Alexander Guy</Name>
-            <Org>Zerion</Org>
-        </SpeakerContainer>
+            <Name>Evin McMullen</Name>
+            <Org>Disco</Org>
+        </SpeakerContainer></a> 
 
         </Box>
     </Container>

@@ -151,6 +151,9 @@ const Apply = () => {
           <Heading4>
             <a href="https://bit.ly/ETHBcn_sponsors">Apply as a Sponsor</a>
           </Heading4>
+          <Heading4>
+            <a href="https://doingud.typeform.com/to/IGvuVcA9">Student Ticket Application</a>
+          </Heading4>
         </ApplyContainer>
       </ImageContainer>
     </>

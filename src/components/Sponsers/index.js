@@ -209,7 +209,7 @@ margin: 0 1.5% 0 0 ;
 
 @media (max-width: 800px) {
   padding:0 ;
-margin: 10px 2px 0 0  ;
+margin: 2px 2px 0 0  ;
 float:left;
 
 
@@ -239,7 +239,7 @@ const SilverSponserLogoM = styled.div`
 display:inline-block;
 margin-right:5px;
 float:left;
-margin-top:10px;
+margin-top:2px;
 
 `
 
@@ -262,7 +262,7 @@ const Sponsers = () => {
         <DiamondSponserContainer>
             <DiamondSponserTitle>Diamond</DiamondSponserTitle>
             <DiamondSponserLogoContainer>
-                <DiamondSponserLogo> <img src={Distrikt}></img></DiamondSponserLogo>
+                <DiamondSponserLogo> <a href="https://t.co/dDg5gXdEAe"><img src={Distrikt}></img></a></DiamondSponserLogo>
             </DiamondSponserLogoContainer>
         </DiamondSponserContainer>
 {/* 
@@ -279,19 +279,19 @@ const Sponsers = () => {
             <SilverSponserLogoContainer>
 
               <Desktop>
-                <SilverSponserLogo><img src={Zerion}></img> </SilverSponserLogo>
-                <SilverSponserLogo><img src={MoonBeam}></img> </SilverSponserLogo>
-                <SilverSponserLogo><img src={Certik}></img> </SilverSponserLogo>
-                <SilverSponserLogo><img src={Pillar}></img> </SilverSponserLogo>
-                <SilverSponserLogo><img src={Giveth}></img> </SilverSponserLogo>
+                <SilverSponserLogo><a href="https://zerion.io/"><img src={Zerion}></img></a> </SilverSponserLogo>
+                <SilverSponserLogo><a href="https://moonbeam.network/"><img src={MoonBeam}></img></a> </SilverSponserLogo>
+                <SilverSponserLogo><a href="https://www.certik.com/"><img src={Certik}></img></a> </SilverSponserLogo>
+                <SilverSponserLogo><a href="https://www.pillar.fi/"><img src={Pillar}></img></a> </SilverSponserLogo>
+                <SilverSponserLogo><a href="https://giveth.io/"><img src={Giveth}></img></a> </SilverSponserLogo>
                 </Desktop>
 
                 <Mobile>
-                <SilverSponserLogoM><img src={SM1}></img> </SilverSponserLogoM>
-                <SilverSponserLogoM><img src={SM2}></img> </SilverSponserLogoM>
-                <SilverSponserLogoM><img src={SM3}></img> </SilverSponserLogoM>
-                <SilverSponserLogoM><img src={SM4}></img> </SilverSponserLogoM>
-                <SilverSponserLogoM><img src={SM5}></img> </SilverSponserLogoM>
+                <SilverSponserLogoM><a href="https://zerion.io/"><img src={SM4}width="150px" height="118px"></img></a> </SilverSponserLogoM>
+                <SilverSponserLogoM><a href="https://moonbeam.network/"><img src={SM5}width="150px" height="118px"></img></a> </SilverSponserLogoM>
+                <SilverSponserLogoM><a href="https://www.certik.com/"><img src={SM1}width="150px" height="118px"></img></a> </SilverSponserLogoM>
+                <SilverSponserLogoM><a href="https://www.pillar.fi/"><img src={SM2}width="150px" height="118px"></img></a> </SilverSponserLogoM>
+                <SilverSponserLogoM><a href="https://giveth.io/"><img src={SM3}width="150px" height="118px"></img></a> </SilverSponserLogoM>
                 </Mobile>
 
             </SilverSponserLogoContainer>
@@ -303,28 +303,28 @@ const Sponsers = () => {
             <Desktop>
             <SilverSponserLogoContainer>
 
-                <BronzeSponserLogo><img src={Degate}></img></BronzeSponserLogo>
-                <BronzeSponserLogo><img src={Moralis}></img></BronzeSponserLogo>
-                <BronzeSponserLogo><img src={Aragon}></img></BronzeSponserLogo>
-                <BronzeSponserLogo><img src={Witnet}></img></BronzeSponserLogo>
-                <BronzeSponserLogo><img src={Apwine}></img></BronzeSponserLogo>
-                <BronzeSponserLogo><img src={Mochi}></img></BronzeSponserLogo>
+                <BronzeSponserLogo><a href="https://www.degate.com/"><img src={Degate}></img></a></BronzeSponserLogo>
+                <BronzeSponserLogo><a href="https://moralis.io/"><img src={Moralis}></img></a></BronzeSponserLogo>
+                <BronzeSponserLogo><a href="https://aragon.org/"><img src={Aragon}></img></a></BronzeSponserLogo>
+                <BronzeSponserLogo><a href="https://witnet.io/"><img src={Witnet}></img></a></BronzeSponserLogo>
+                <BronzeSponserLogo><a href="https://www.apwine.fi/"><img src={Apwine}></img></a></BronzeSponserLogo>
+                <BronzeSponserLogo><a href=""><img src={Mochi}></img></a></BronzeSponserLogo>
             </SilverSponserLogoContainer>
             <SilverSponserLogoContainer>
-                <BronzeSponserLogo><img src={Certora}></img></BronzeSponserLogo>
+                <BronzeSponserLogo><a href="https://www.certora.com/"><img src={Certora}></img></a></BronzeSponserLogo>
             </SilverSponserLogoContainer>
             </Desktop>
 
            
               <SilverSponserLogoContainer>
               <Mobile>
-            <BronzeSponserLogo><img src={SM6} ></img></BronzeSponserLogo>
-            <BronzeSponserLogo><img src={SM7}></img></BronzeSponserLogo>
-            <BronzeSponserLogo><img src={SM8}width="163px" height="118px"></img></BronzeSponserLogo>
-            <BronzeSponserLogo><img src={SM9}width="163px" height="118px"></img></BronzeSponserLogo>
-            <BronzeSponserLogo><img src={SM10}width="163px" height="118px"></img></BronzeSponserLogo>
-            <BronzeSponserLogo><img src={SM11}width="163px" height="118px"></img></BronzeSponserLogo>
-            <BronzeSponserLogo><img src={SM12}width="163px" height="118px"></img></BronzeSponserLogo>
+            <BronzeSponserLogo><a href="https://witnet.io/"><img src={SM6} width="150px" height="118px"></img></a></BronzeSponserLogo>
+            <BronzeSponserLogo><a href="https://moralis.io/"><img src={SM7}width="150px" height="118px"></img></a></BronzeSponserLogo>
+            <BronzeSponserLogo><a href="https://www.degate.com/"><img src={SM8}width="150px" height="118px"></img></a></BronzeSponserLogo>
+            <BronzeSponserLogo><a href="https://aragon.org/"><img src={SM9}width="150px" height="118px"></img></a></BronzeSponserLogo>
+            <BronzeSponserLogo><a href="https://www.certora.com/"><img src={SM10}width="150px" height="118px"></img></a></BronzeSponserLogo>
+            <BronzeSponserLogo><a href=""><img src={SM11}width="150px" height="118px"></img></a></BronzeSponserLogo>
+            <BronzeSponserLogo><a href="https://www.apwine.fi/"><img src={SM12}width="150px" height="118px"></img></a></BronzeSponserLogo>
             </Mobile>
         
             </SilverSponserLogoContainer>
@@ -359,7 +359,7 @@ const Sponsers = () => {
         <SilverSponserContainer>
             <GoldSponserTitle>Launch Partners</GoldSponserTitle>
             <SilverSponserLogoContainer>
-                <OrganizerLogo><a href="https://doingud.com/"><img src={ETH} width="270px" height=" 200px"></img></a></OrganizerLogo>
+                <OrganizerLogo><a href="https://ethereum.org/en/foundation/"><img src={ETH} width="270px" height=" 200px"></img></a></OrganizerLogo>
                 <OrganizerLogo><a href="https://doingud.com/"><img src={DoinGud} width="270px" height=" 200px"></img></a></OrganizerLogo>
                 <OrganizerLogo><a href="https://wearefloc.com/"><img src={Floc} width="270px" height=" 200px"></img></a></OrganizerLogo>
                 <OrganizerLogo><a href="https://twitter.com/PolisParallela"><img src={Polis} width="270px" height=" 200px"></img></a></OrganizerLogo>
