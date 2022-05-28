@@ -28,7 +28,13 @@ import SM2 from "../../assets/SM2.svg";
 import SM3 from "../../assets/Sm3.svg";
 import SM4 from "../../assets/SM4.svg";
 import SM5 from "../../assets/SM5.svg";
-
+import SM6 from "../../assets/M6.svg";
+import SM7 from "../../assets/M7.svg";
+import SM8 from "../../assets/M8.svg";
+import SM9 from "../../assets/M9.svg";
+import SM10 from "../../assets/M10.svg";
+import SM11 from "../../assets/M11.svg";
+import SM12 from "../../assets/M12.svg";
 
 const Container = styled.div`
 background: #F4F4F5;
@@ -145,7 +151,7 @@ padding: 0 0 5% 0;
 const GoldSponserLogo = styled.div`
 display:inline-block;
 position:relative;
-width: 250px;
+
 padding:1% 1% 1% 0;
 position:relative;
 margin:1% 3.4% 1% 0 ;
@@ -199,22 +205,32 @@ const BronzeSponserLogo = styled.div`
 display:inline-block;;
 padding:1% 1% 1% 0 ;
 margin: 0 1.5% 0 0 ;
-width:165px;
+
 
 @media (max-width: 800px) {
-  border-radius: 4px;
-  display:inline-block;  
+  padding:0 ;
+margin: 10px 2px 0 0  ;
+float:left;
 
 
 
 }  
 `
 const Mobile = styled.div`
-display:none;
+
+display:inline:block;
+float:left;
 
 @media (min-width: 800px) {
 
+  display:none;
+}
+`
 
+const Desktop = styled.div`
+width:100%;
+@media (max-width: 800px) {
+display:none;
 }
 `
 
@@ -262,20 +278,21 @@ const Sponsers = () => {
             <GoldSponserTitle>Silver</GoldSponserTitle>
             <SilverSponserLogoContainer>
 
+              <Desktop>
                 <SilverSponserLogo><img src={Zerion}></img> </SilverSponserLogo>
                 <SilverSponserLogo><img src={MoonBeam}></img> </SilverSponserLogo>
                 <SilverSponserLogo><img src={Certik}></img> </SilverSponserLogo>
                 <SilverSponserLogo><img src={Pillar}></img> </SilverSponserLogo>
                 <SilverSponserLogo><img src={Giveth}></img> </SilverSponserLogo>
+                </Desktop>
 
-
-                {/* <Mobile>
+                <Mobile>
                 <SilverSponserLogoM><img src={SM1}></img> </SilverSponserLogoM>
                 <SilverSponserLogoM><img src={SM2}></img> </SilverSponserLogoM>
                 <SilverSponserLogoM><img src={SM3}></img> </SilverSponserLogoM>
                 <SilverSponserLogoM><img src={SM4}></img> </SilverSponserLogoM>
                 <SilverSponserLogoM><img src={SM5}></img> </SilverSponserLogoM>
-                </Mobile> */}
+                </Mobile>
 
             </SilverSponserLogoContainer>
         </SilverSponserContainer>
@@ -283,7 +300,9 @@ const Sponsers = () => {
 
         <GoldSponserContainer>
             <GoldSponserTitle>Bronze</GoldSponserTitle>
+            <Desktop>
             <SilverSponserLogoContainer>
+
                 <BronzeSponserLogo><img src={Degate}></img></BronzeSponserLogo>
                 <BronzeSponserLogo><img src={Moralis}></img></BronzeSponserLogo>
                 <BronzeSponserLogo><img src={Aragon}></img></BronzeSponserLogo>
@@ -294,6 +313,22 @@ const Sponsers = () => {
             <SilverSponserLogoContainer>
                 <BronzeSponserLogo><img src={Certora}></img></BronzeSponserLogo>
             </SilverSponserLogoContainer>
+            </Desktop>
+
+           
+              <SilverSponserLogoContainer>
+              <Mobile>
+            <BronzeSponserLogo><img src={SM6} ></img></BronzeSponserLogo>
+            <BronzeSponserLogo><img src={SM7}></img></BronzeSponserLogo>
+            <BronzeSponserLogo><img src={SM8}width="163px" height="118px"></img></BronzeSponserLogo>
+            <BronzeSponserLogo><img src={SM9}width="163px" height="118px"></img></BronzeSponserLogo>
+            <BronzeSponserLogo><img src={SM10}width="163px" height="118px"></img></BronzeSponserLogo>
+            <BronzeSponserLogo><img src={SM11}width="163px" height="118px"></img></BronzeSponserLogo>
+            <BronzeSponserLogo><img src={SM12}width="163px" height="118px"></img></BronzeSponserLogo>
+            </Mobile>
+        
+            </SilverSponserLogoContainer>
+
         </GoldSponserContainer>
 
         {/* <SilverSponserContainer>

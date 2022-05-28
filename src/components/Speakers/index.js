@@ -11,6 +11,9 @@ import S6 from "../../assets/S6.svg";
 import S7 from "../../assets/S7.svg";
 import S8 from "../../assets/S8.svg";
 import S9 from "../../assets/S9.svg";
+import S10 from "../../assets/S10.svg";
+import S11 from "../../assets/S11.svg";
+import S12 from "../../assets/S12.svg";
 
 
 
@@ -144,7 +147,10 @@ position:absolute;
 
 @media (max-width: 700px) {
     padding: 0;
-    margin:-20px 0 0 270px ;
+    width:300px;
+margin: -100px 0 0 120px;
+
+
 
   }
 
@@ -230,21 +236,21 @@ const Speakers = () => {
         </SpeakerContainer>
 
         <SpeakerContainer>
-            <SpeakerImage><img src={Speaker}></img></SpeakerImage>
-            <Name>Sanchit</Name>
+            <SpeakerImage><img src={S10}></img></SpeakerImage>
+            <Name>Tracey Bowen </Name>
+            <Org>H.E.R DAO</Org>
+        </SpeakerContainer>
+
+        <SpeakerContainer>
+            <SpeakerImage><img src={S11}></img></SpeakerImage>
+            <Name>Clara Pardo</Name>
+            <Org>dOrg</Org>
+        </SpeakerContainer>
+
+        <SpeakerContainer>
+            <SpeakerImage><img src={S12}></img></SpeakerImage>
+            <Name>Alexander Guy</Name>
             <Org>Zerion</Org>
-        </SpeakerContainer>
-
-        <SpeakerContainer>
-            <SpeakerImage><img src={Speaker}></img></SpeakerImage>
-            <Name>Sanchit</Name>
-            <Org>DoinGud</Org>
-        </SpeakerContainer>
-
-        <SpeakerContainer>
-            <SpeakerImage><img src={Speaker}></img></SpeakerImage>
-            <Name>Sanchit</Name>
-            <Org>DoinGud</Org>
         </SpeakerContainer>
 
         </Box>
