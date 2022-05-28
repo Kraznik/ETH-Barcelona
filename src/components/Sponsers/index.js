@@ -16,6 +16,18 @@ import Aragon from "../../assets/Aragon.svg";
 import MoonBeam from "../../assets/Moonbeam.svg";
 import Apwine from "../../assets/Apwine.svg";
 import Witnet from "../../assets/witnet.svg";
+import Giveth from "../../assets/GIveth.svg";
+import Pillar from "../../assets/Pillar.svg";
+import Mochi from "../../assets/Mochi.svg";
+import Certik from "../../assets/Certik.svg";
+import Certora from "../../assets/Certora.svg";
+import ETH from "../../assets/ETH.svg";
+import M1 from "../../assets/M1.svg";
+import SM1 from "../../assets/SM1.svg";
+import SM2 from "../../assets/SM2.svg";
+import SM3 from "../../assets/Sm3.svg";
+import SM4 from "../../assets/SM4.svg";
+import SM5 from "../../assets/SM5.svg";
 
 
 const Container = styled.div`
@@ -177,8 +189,6 @@ display:flex;
   }
 `
 const SilverSponserLogo = styled.div`
-width: 185px;
-height: 120px;
 display:inline-block;
 position:relative;
 padding:1% 1% 1% 0;
@@ -190,6 +200,31 @@ display:inline-block;;
 padding:1% 1% 1% 0 ;
 margin: 0 1.5% 0 0 ;
 width:165px;
+
+@media (max-width: 800px) {
+  border-radius: 4px;
+  display:inline-block;  
+
+
+
+}  
+`
+const Mobile = styled.div`
+display:none;
+
+@media (min-width: 800px) {
+
+
+}
+`
+
+
+const SilverSponserLogoM = styled.div`
+display:inline-block;
+margin-right:5px;
+float:left;
+margin-top:10px;
+
 `
 
 const OrganizerLogo = styled.div`
@@ -226,10 +261,25 @@ const Sponsers = () => {
         <SilverSponserContainer>
             <GoldSponserTitle>Silver</GoldSponserTitle>
             <SilverSponserLogoContainer>
+
                 <SilverSponserLogo><img src={Zerion}></img> </SilverSponserLogo>
                 <SilverSponserLogo><img src={MoonBeam}></img> </SilverSponserLogo>
+                <SilverSponserLogo><img src={Certik}></img> </SilverSponserLogo>
+                <SilverSponserLogo><img src={Pillar}></img> </SilverSponserLogo>
+                <SilverSponserLogo><img src={Giveth}></img> </SilverSponserLogo>
+
+
+                {/* <Mobile>
+                <SilverSponserLogoM><img src={SM1}></img> </SilverSponserLogoM>
+                <SilverSponserLogoM><img src={SM2}></img> </SilverSponserLogoM>
+                <SilverSponserLogoM><img src={SM3}></img> </SilverSponserLogoM>
+                <SilverSponserLogoM><img src={SM4}></img> </SilverSponserLogoM>
+                <SilverSponserLogoM><img src={SM5}></img> </SilverSponserLogoM>
+                </Mobile> */}
+
             </SilverSponserLogoContainer>
         </SilverSponserContainer>
+
 
         <GoldSponserContainer>
             <GoldSponserTitle>Bronze</GoldSponserTitle>
@@ -239,6 +289,10 @@ const Sponsers = () => {
                 <BronzeSponserLogo><img src={Aragon}></img></BronzeSponserLogo>
                 <BronzeSponserLogo><img src={Witnet}></img></BronzeSponserLogo>
                 <BronzeSponserLogo><img src={Apwine}></img></BronzeSponserLogo>
+                <BronzeSponserLogo><img src={Mochi}></img></BronzeSponserLogo>
+            </SilverSponserLogoContainer>
+            <SilverSponserLogoContainer>
+                <BronzeSponserLogo><img src={Certora}></img></BronzeSponserLogo>
             </SilverSponserLogoContainer>
         </GoldSponserContainer>
 
@@ -270,14 +324,14 @@ const Sponsers = () => {
         <SilverSponserContainer>
             <GoldSponserTitle>Launch Partners</GoldSponserTitle>
             <SilverSponserLogoContainer>
+                <OrganizerLogo><a href="https://doingud.com/"><img src={ETH} width="270px" height=" 200px"></img></a></OrganizerLogo>
                 <OrganizerLogo><a href="https://doingud.com/"><img src={DoinGud} width="270px" height=" 200px"></img></a></OrganizerLogo>
                 <OrganizerLogo><a href="https://wearefloc.com/"><img src={Floc} width="270px" height=" 200px"></img></a></OrganizerLogo>
                 <OrganizerLogo><a href="https://twitter.com/PolisParallela"><img src={Polis} width="270px" height=" 200px"></img></a></OrganizerLogo>
-                <OrganizerLogo><a href=""><img src={ShrineHouse} ></img></a></OrganizerLogo>
             </SilverSponserLogoContainer>
             <SilverSponserLogoContainer>
-
-                <OrganizerLogo><a href=""><img src={GiantCookie} ></img></a></OrganizerLogo>
+                <OrganizerLogo><a href=""><img src={ShrineHouse} width="270px" height=" 200px"></img></a></OrganizerLogo>
+                <OrganizerLogo><a href=""><img src={GiantCookie} width="270px" height=" 200px"></img></a></OrganizerLogo>
             </SilverSponserLogoContainer>
         </SilverSponserContainer>
 

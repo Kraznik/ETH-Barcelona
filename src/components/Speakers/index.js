@@ -2,6 +2,21 @@ import React from 'react';
 import styled from 'styled-components';
 import Speaker from "../../assets/Speaker1.png"; 
 import "./style.css";
+import S1 from "../../assets/S1.svg";
+import S2 from "../../assets/S2.svg";
+import S3 from "../../assets/S3.svg";
+import S4 from "../../assets/S4.svg";
+import S5 from "../../assets/S5.svg";
+import S6 from "../../assets/S6.svg";
+import S7 from "../../assets/S7.svg";
+import S8 from "../../assets/S8.svg";
+import S9 from "../../assets/S9.svg";
+
+
+
+
+
+
 
 const Container = styled.div`
 background: #F4F4F5;
@@ -25,6 +40,7 @@ font-size: 96px;
 line-height: 100px
 align-items:left;
 justify-content:left;
+
 
 color: #354B37;
 
@@ -93,7 +109,7 @@ line-height: 24px;
 position:relative;
 /* identical to box height, or 100% */
 color: #354B37;
-margin: 24px 0 0 0 ;
+margin: 10px 0 0 0 ;
 
 &:hover{
     cursor:pointer;
@@ -113,16 +129,13 @@ margin: 24px 0 0 0 ;
 const Org = styled.div`
 font-family: 'Montserrat';
 font-style: normal;
-font-weight: 400;
+font-weight: 200;
 font-size: 16px;
-position:relative;
-margin:-70px 0px 0 270px ;
-position:relative;
-
-transform: rotate(-90deg);
-line-height: 20px;
+transform: rotate(270deg);
 color: #354B37;
-
+width:300px;
+margin: -150px 0 0 120px;
+position:absolute;
 &:hover{
     cursor:pointer;
     text-decoration:none;
@@ -165,55 +178,55 @@ const Speakers = () => {
         <Box>
 
         <SpeakerContainer>
-            <SpeakerImage><img src={Speaker}></img></SpeakerImage>
-            <Name>Sanchit</Name>
-            <Org>DoinGud</Org>
+            <SpeakerImage><img src={S1}></img></SpeakerImage>
+            <Name>Amir Taaki</Name>
+            <Org>DarkFi</Org>
         </SpeakerContainer>
 
         <SpeakerContainer>
-            <SpeakerImage><img src={Speaker}></img></SpeakerImage>
-            <Name>Sanchit</Name>
-            <Org>Zerion</Org>
+        <SpeakerImage><img src={S2} width="241px" height= "211px"></img></SpeakerImage>
+            <Name>Alona Shevchenko</Name>
+            <Org>UkraineDAO</Org>
         </SpeakerContainer>
 
         <SpeakerContainer>
-            <SpeakerImage><img src={Speaker}></img></SpeakerImage>
-            <Name>Sanchit</Name>
-            <Org>DoinGud</Org>
+        <SpeakerImage><img src={S3} width="241px" height= "211px"></img></SpeakerImage>
+            <Name>Rahilla Zafar</Name>
+            <Org>Altered State Machine</Org>
         </SpeakerContainer>
 
         <SpeakerContainer>
-            <SpeakerImage><img src={Speaker}></img></SpeakerImage>
-            <Name>Sanchit</Name>
-            <Org>DoinGud</Org>
+        <SpeakerImage><img src={S4} width="241px" height= "211px"></img></SpeakerImage>
+            <Name>Sasha Shilina</Name>
+            <Org>PhD, Paradigm, Humanode</Org>
         </SpeakerContainer>
         <SpeakerContainer>
-            <SpeakerImage><img src={Speaker}></img></SpeakerImage>
-            <Name>Sanchit</Name>
-            <Org>DoinGud</Org>
-        </SpeakerContainer>
-
-        <SpeakerContainer>
-            <SpeakerImage><img src={Speaker}></img></SpeakerImage>
-            <Name>Sanchit</Name>
-            <Org>Zerion</Org>
+        <SpeakerImage><img src={S5} width="241px" height= "211px"></img></SpeakerImage>
+            <Name>Griff Green</Name>
+            <Org>Giveth</Org>
         </SpeakerContainer>
 
         <SpeakerContainer>
-            <SpeakerImage><img src={Speaker}></img></SpeakerImage>
-            <Name>Sanchit</Name>
-            <Org>DoinGud</Org>
+        <SpeakerImage><img src={S6} width="241px" height= "211px"></img></SpeakerImage>
+            <Name>Mona El Isa</Name>
+            <Org>Avantgarde Finance</Org>
         </SpeakerContainer>
 
         <SpeakerContainer>
-            <SpeakerImage><img src={Speaker}></img></SpeakerImage>
-            <Name>Sanchit</Name>
-            <Org>DoinGud</Org>
+        <SpeakerImage><img src={S7} width="241px" height= "211px"></img></SpeakerImage>
+            <Name>Camila Ramos</Name>
+            <Org> Edge & Node</Org>
+        </SpeakerContainer>
+
+        <SpeakerContainer>
+        <SpeakerImage><img src={S8} width="241px" height= "211px"></img></SpeakerImage>
+            <Name>Scoot Moore</Name>
+            <Org>Gitcoin</Org>
         </SpeakerContainer>
         <SpeakerContainer>
-            <SpeakerImage><img src={Speaker}></img></SpeakerImage>
-            <Name>Sanchit</Name>
-            <Org>DoinGud</Org>
+        <SpeakerImage><img src={S9} width="241px" height= "211px"></img></SpeakerImage>
+            <Name>Nader Dabit</Name>
+            <Org>The Graph Protocol</Org>
         </SpeakerContainer>
 
         <SpeakerContainer>
@@ -237,7 +250,7 @@ const Speakers = () => {
         </Box>
     </Container>
     <Footer>
-            <Name>Full Speaker List <span> &#8594; </span></Name>
+            {/* <Name>Full Speaker List <span> &#8594; </span></Name> */}
         </Footer>
 
     
