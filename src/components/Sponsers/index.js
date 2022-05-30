@@ -35,6 +35,7 @@ import SM9 from "../../assets/M9.svg";
 import SM10 from "../../assets/M10.svg";
 import SM11 from "../../assets/M11.svg";
 import SM12 from "../../assets/M12.svg";
+import Cult from "../../assets/Cult.png";
 
 const Container = styled.div`
 background: #F4F4F5;
@@ -97,6 +98,7 @@ padding: 0 0 5% 0;
 @media (max-width: 600px) {
     border-radius: 4px;
     display:block;   
+    margin: 0 15px;
   }
 
 `
@@ -263,6 +265,7 @@ const Sponsers = () => {
             <DiamondSponserTitle>Diamond</DiamondSponserTitle>
             <DiamondSponserLogoContainer>
                 <DiamondSponserLogo> <a href="https://t.co/dDg5gXdEAe"><img src={Distrikt}></img></a></DiamondSponserLogo>
+                <DiamondSponserLogo> <a href="https://cultdao.io/"><img src={Cult} width="270px" height="200px"></img></a></DiamondSponserLogo>
             </DiamondSponserLogoContainer>
         </DiamondSponserContainer>
 {/* 
