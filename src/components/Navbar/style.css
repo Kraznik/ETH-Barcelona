@@ -57,6 +57,7 @@ color: #354B37;
 }
 .logo{
     align-items: center;
+    margin-left: 40%;
 }
 
 @media  screen and (max-width:700px) {
