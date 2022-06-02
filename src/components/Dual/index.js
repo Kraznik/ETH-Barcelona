@@ -325,7 +325,7 @@ const Hero = ({ isMobile }) => {
               <Title2>Barcelona </Title2>
             </TextBox>
             <Description>
-              We bring together upto 2000 makers, developers, and blockchain{" "}
+              We bring together up to 2000 makers, developers, and blockchain{" "}
               enthusiasts for a three-day conference. You can learn from the
               best in the crypto scene, and finally put those networking skills
               to use.
@@ -412,7 +412,7 @@ const Hero = ({ isMobile }) => {
                     <Title2>Barcelona </Title2>
                   </TextBox>
                   <Description>
-                    We bring together upto 2000 makers, developers, and
+                    We bring together up to 2000 makers, developers, and
                     blockchain enthusiasts for a three-day<br></br> conference.
                     You can learn from the<br></br> best in the crypto scene,
                     and finally <br></br> put those networking skills to use.

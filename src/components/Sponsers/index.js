@@ -36,6 +36,9 @@ import SM10 from "../../assets/M10.svg";
 import SM11 from "../../assets/M11.svg";
 import SM12 from "../../assets/M12.svg";
 import Cult from "../../assets/Cult.png";
+import DAOist from "../../assets/Daoist.svg";
+import CT from "../../assets/Cointelegraph.svg";
+import Boba from "../../assets/boba.svg";
 
 const Container = styled.div`
 background: #F4F4F5;
@@ -258,7 +261,7 @@ const Sponsers = () => {
 
 
         <TitleBox>
-        <Title1> Sponsers</Title1>
+        <Title1> Sponsors</Title1>
         </TitleBox>
 
         <DiamondSponserContainer>
@@ -279,25 +282,36 @@ const Sponsers = () => {
 
         <SilverSponserContainer>
             <GoldSponserTitle>Silver</GoldSponserTitle>
-            <SilverSponserLogoContainer>
+   
 
               <Desktop>
+              <SilverSponserLogoContainer>
                 <SilverSponserLogo><a href="https://zerion.io/"><img src={Zerion}></img></a> </SilverSponserLogo>
                 <SilverSponserLogo><a href="https://moonbeam.network/"><img src={MoonBeam}></img></a> </SilverSponserLogo>
                 <SilverSponserLogo><a href="https://www.certik.com/"><img src={Certik}></img></a> </SilverSponserLogo>
                 <SilverSponserLogo><a href="https://www.pillar.fi/"><img src={Pillar}></img></a> </SilverSponserLogo>
                 <SilverSponserLogo><a href="https://giveth.io/"><img src={Giveth}></img></a> </SilverSponserLogo>
+                </SilverSponserLogoContainer>
+                <SilverSponserLogoContainer>
+                <SilverSponserLogo><a href="https://giveth.io/"><img src={Boba}></img></a> </SilverSponserLogo>
+                </SilverSponserLogoContainer>
                 </Desktop>
 
+
+
+
+
                 <Mobile>
+                <SilverSponserLogoContainer>
                 <SilverSponserLogoM><a href="https://zerion.io/"><img src={SM4}width="150px" height="118px"></img></a> </SilverSponserLogoM>
                 <SilverSponserLogoM><a href="https://moonbeam.network/"><img src={SM5}width="150px" height="118px"></img></a> </SilverSponserLogoM>
                 <SilverSponserLogoM><a href="https://www.certik.com/"><img src={SM1}width="150px" height="118px"></img></a> </SilverSponserLogoM>
                 <SilverSponserLogoM><a href="https://www.pillar.fi/"><img src={SM2}width="150px" height="118px"></img></a> </SilverSponserLogoM>
                 <SilverSponserLogoM><a href="https://giveth.io/"><img src={SM3}width="150px" height="118px"></img></a> </SilverSponserLogoM>
+                </SilverSponserLogoContainer>
                 </Mobile>
 
-            </SilverSponserLogoContainer>
+
         </SilverSponserContainer>
 
 
@@ -370,6 +384,7 @@ const Sponsers = () => {
             <SilverSponserLogoContainer>
                 <OrganizerLogo><a href=""><img src={ShrineHouse} width="270px" height=" 200px"></img></a></OrganizerLogo>
                 <OrganizerLogo><a href=""><img src={GiantCookie} width="270px" height=" 200px"></img></a></OrganizerLogo>
+                <OrganizerLogo><a href="https://www.thedaoist.co/"><img src={DAOist} width="270px" height=" 200px"></img></a></OrganizerLogo>
             </SilverSponserLogoContainer>
         </SilverSponserContainer>
 
@@ -379,6 +394,7 @@ const Sponsers = () => {
                 <GoldSponserLogo><a href="https://es.beincrypto.com/"><img src={BeInCrypto}></img></a></GoldSponserLogo>
                 <GoldSponserLogo><a href="https://www.eclecticmethod.net/"><img src={Eclectic}></img></a></GoldSponserLogo>
                 <GoldSponserLogo><a href="https://defiprime.com/"><img src={DefiPrime}></img></a></GoldSponserLogo>
+                <GoldSponserLogo><a href="https://es.cointelegraph.com/"><img src={CT}></img></a></GoldSponserLogo>
             </GoldSponserLogoContainer>
         </GoldSponserContainer>
 
