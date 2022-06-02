@@ -1,0 +1,32 @@
+.text{
+    margin-bottom:1%;
+   }
+   
+   .input{
+       margin-bottom: 2%;
+       width: 418px;
+   height: 36px;
+   left: 0px;
+   top: 24px;
+   padding:10px;
+   text-align: center;
+
+   background: #FFFFFF;
+   border: 1px solid #F2F2F2;
+   box-sizing: border-box;
+   border-radius: 4px;   
+   }
+   
+   @media screen and (max-width:800px) {
+   
+       .input{
+           width: 295px;
+   height: 36px;
+   margin: 4px 0 0 0 ;
+       }
+   
+       .text{
+           margin-top: 16px;
+       }
+       
+   }

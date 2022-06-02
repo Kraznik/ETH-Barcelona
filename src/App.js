@@ -27,6 +27,7 @@ import {
   onConnectCoinbase,
 } from "./components/ConnectWalletButton/functions";
 import ProtectedRoute from "./utils/ProtectedRoute";
+import Moments from "./components/Pages/Moments";
 
 const changeNetwork = async () => {
   try {
@@ -180,6 +181,7 @@ const App = () => {
         />
         <Routes>
           <Route exact path="/" element={<Landing isMobile={isMobile} />} />
+          <Route exact path="/moments" element={<Moments />} />
           {/* <Route
             exact
             path="/section"

@@ -109,8 +109,8 @@ const Navbars = ({
     <div>
       <Navbar collapseOnSelect expand="lg" className="bar">
         <Container className="bar">
-          {/* <Navbar.Brand href="" className="text1"> Program
-          </Navbar.Brand> */}
+          <Navbar.Brand href="/moments" className="text1"> Moments
+          </Navbar.Brand>
           <Navbar.Brand href="/" className="logo">
             <img alt="" src={Logo} className="d-inline-block align-top" />{" "}
           </Navbar.Brand>

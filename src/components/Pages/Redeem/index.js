@@ -37,7 +37,7 @@ const Container = styled.div`
   }
 `;
 
-const Title = styled.div`
+export const Title = styled.div`
   font-family: "Dahlia";
   font-style: normal;
   font-weight: 700;
@@ -65,7 +65,7 @@ const Title = styled.div`
   }
 `;
 
-const Description = styled.div`
+export const Description = styled.div`
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 400;
@@ -114,7 +114,7 @@ const Tickets = styled.div`
   }
 `;
 
-const Forum = styled.div`
+export const Forum = styled.div`
   padding: 0 5%;
   text-align: left;
   margin-left: 10%;
@@ -152,7 +152,7 @@ const TicketBox = styled.div`
   }
 `;
 
-const RedeemOut = styled.div`
+export const RedeemOut = styled.div`
   width: 156.7px;
   height: 50px;
   border-radius: 50%;
@@ -171,7 +171,7 @@ const RedeemOut = styled.div`
   }
 `;
 
-const Redeem = styled.button`
+export const  Redeem = styled.button`
   text-decoration: none;
   border: none;
   background: #354b37;
