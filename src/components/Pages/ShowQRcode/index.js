@@ -10,16 +10,13 @@ import axios from "axios";
 import web3 from "../../../ethereum/web3";
 import { Link, useParams, useNavigate, Navigate } from "react-router-dom";
 import ErrorPage from "../../ErrorPage";
+import Poap from "../Poap";
 
 const Box = styled.div`
-background: #F5C34B;
-padding-bottom:12%;
-padding-top:2%;
-
-
-
-
-`
+  background: #f5c34b;
+  padding-bottom: 12%;
+  padding-top: 2%;
+`;
 
 const Container = styled.div`
   display: flex;
@@ -100,10 +97,42 @@ const index = ({ account }) => {
     email: "",
   });
   const [tokenOwned, setTokenOwned] = useState(false);
+  const [tokenScanned, setTokenScanned] = useState(false);
 
   const { id } = useParams();
 
   const navigate = useNavigate();
+
+  const getIfTokenScanned = async () => {
+    const get_url =
+      "https://eth-barcelona.kraznikunderverse.com/poapDistribution";
+    const { data } = await axios.get(get_url, {
+      headers: {
+        validate: process.env.REACT_APP_VALIDATE_TOKEN,
+      },
+    });
+
+    console.log("poap dis data: ", data.data);
+    try {
+      const url = `https://eth-barcelona.kraznikunderverse.com/event/${id}`;
+      const res = await axios.get(url, {
+        headers: {
+          validate: process.env.REACT_APP_VALIDATE_TOKEN,
+        },
+      });
+      console.log(res.data?.data);
+
+      if (res.data?.data?.timeOfScan) {
+        setTokenScanned(true);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    getIfTokenScanned();
+  }, [account]);
 
   const getTokenRedeemData = async () => {
     try {
@@ -157,68 +186,75 @@ const index = ({ account }) => {
     if (account) run();
   }, [redeemData, account]);
 
+  if (tokenScanned) {
+    return (
+      // <Poap />
+      <Navigate to={`/tickets/${id}/poap`} replace />
+    );
+  }
+
   return (
     <>
       {tokenOwned ? (
         <Box>
-        <Container style={{ position: "relative" }}>
-          <div
-            style={{
-              textDecoration: "underline",
-              cursor: "pointer",
-              position: "absolute",
-              top: 10,
-              left: 10,
-            }}
-            onClick={() => navigate(-1)}
-          >
-            Back
-          </div>
-          <Heading> You are going to ETH BCN! </Heading>
-          <Description>
-            {" "}
-            This QR code is your access to the event. You could download it or
-            access here with your wallet to use it.
-          </Description>
-          <br />
+          <Container style={{ position: "relative" }}>
+            <div
+              style={{
+                textDecoration: "underline",
+                cursor: "pointer",
+                position: "absolute",
+                top: 10,
+                left: 10,
+              }}
+              onClick={() => navigate(-1)}
+            >
+              Back
+            </div>
+            <Heading> You are going to ETH BCN! </Heading>
+            <Description>
+              {" "}
+              This QR code is your access to the event. You could download it or
+              access here with your wallet to use it.
+            </Description>
+            <br />
 
-          <Description>
-            <div>Name: {redeemData.name}</div>
-            <div>Display name: {redeemData.optionalName}</div>
-            <div>Email: {redeemData.email} </div>
-          </Description>
+            <Description>
+              <div>Name: {redeemData.name}</div>
+              <div>Display name: {redeemData.optionalName}</div>
+              <div>Email: {redeemData.email} </div>
+            </Description>
 
-          {encryptedHash ? (
-            <QRCodes>
-              {/* <QRCodeSVG value="$2b$10$2595K0J6lkp6bFhOhtu9WOQBdQVEFKrgOF0V/4aD74Yrch8ZyVTCO"></QRCodeSVG> */}
-              <QRCodeSVG
-                // value={`https://dev-eth-barcelona.web.app/organizer?tokenId=${id}&ownerAddress=${account}&ticketOwnerName=${redeemData.name}&encryptedHash=${encryptedHash}`}
-                value={`https://dev-eth-barcelona.web.app/organizer?tid=${id}&owner=${account}&name=${redeemData.name}&hash=${encryptedHash}`}
-              ></QRCodeSVG>
-            </QRCodes>
-          ) : (
-            <QRCodes>
-              Please wait while the qr code is being generated...
-              <br />
-              Reload and connect wallet if not displayed in 2 mins..
-            </QRCodes>
-          )}
+            {encryptedHash ? (
+              <QRCodes>
+                {/* <QRCodeSVG value="$2b$10$2595K0J6lkp6bFhOhtu9WOQBdQVEFKrgOF0V/4aD74Yrch8ZyVTCO"></QRCodeSVG> */}
+                <QRCodeSVG
+                  // value={`https://dev-eth-barcelona.web.app/organizer?tokenId=${id}&ownerAddress=${account}&ticketOwnerName=${redeemData.name}&encryptedHash=${encryptedHash}`}
+                  value={`https://dev-eth-barcelona.web.app/organizer?tid=${id}&owner=${account}&name=${redeemData.name}&hash=${encryptedHash}`}
+                ></QRCodeSVG>
+              </QRCodes>
+            ) : (
+              <QRCodes>
+                Please wait while the qr code is being generated...
+                <br />
+                Reload and connect wallet if not displayed in 2 mins..
+              </QRCodes>
+            )}
 
-          <ImageContainer>
-            <PrintContainer>
-              <img src={Print}></img>
-              Print
-            </PrintContainer>
-            <DownloadContainer>
-              <img src={Download}></img>
-              Download
-            </DownloadContainer>
-            <EmailContainer>
-              <img src={Email}></img>
-              Email
-            </EmailContainer>
-          </ImageContainer>
-        </Container>
+            <ImageContainer>
+              <PrintContainer>
+                <img src={Print}></img>
+                Print
+              </PrintContainer>
+              <DownloadContainer>
+                <img src={Download}></img>
+                Download
+              </DownloadContainer>
+              <EmailContainer>
+                <img src={Email}></img>
+                Email
+              </EmailContainer>
+            </ImageContainer>
+          </Container>
         </Box>
       ) : (
         <ErrorPage text={""} />
