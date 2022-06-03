@@ -114,15 +114,18 @@ const Moments = () => {
     <>
       <Container>
         <InputContainer>
-          <Title>Mint a Moment </Title>
-          <Description>Make your photo in a NFT instant </Description>
+          <Title> Create a Moment </Title>
+          <Description>
+            Take a selfie or a normal photo and upload it onchain to remember
+            this moment onchain.
+          </Description>
 
           <Forum>
             <label className="text">Title</label>
             <br />
             <input
               type=""
-              placeholder="Add a Title for your Moment"
+              placeholder="Add a title to your moment"
               className="input"
             ></input>
             <br />
@@ -131,7 +134,7 @@ const Moments = () => {
             <br />
             <input
               type=""
-              placeholder="Whats the Moment about"
+              placeholder="Add a description to your moment"
               className="input"
             ></input>
             <br />
@@ -139,8 +142,9 @@ const Moments = () => {
             <label className="text">NFT ID's</label>
             <br />
             <input
-              type="text"
-              placeholder="Enter the NFTId to be minted"
+              multiple
+              type="number"
+              placeholder="Add NFTickets IDs separated by a comma to the moment to receive a copy"
               className="input"
             ></input>
 
