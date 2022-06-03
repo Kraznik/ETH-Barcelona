@@ -81,8 +81,8 @@ const Poap = ({ account }) => {
         },
       });
       console.log(res.data?.data);
-      if (res?.data?.data?.isPoapminted) {
-        setIsPoapMinted(res?.data?.data?.isPoapminted);
+      if (res?.data?.data?.isPoapMinted) {
+        setIsPoapMinted(res?.data?.data?.isPoapMinted);
       }
     } catch (err) {
       console.error(err);
@@ -90,7 +90,7 @@ const Poap = ({ account }) => {
   };
 
   useEffect(() => {
-    if (account) getIfTokenScanned();
+    getIfTokenScanned();
   }, [account]);
 
   return (
