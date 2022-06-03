@@ -48,24 +48,23 @@ exports.main = async function (signer, recipient, contractAddress) {
   const from = relayer; //relayer
   let txs = [];
 
-  // const poap_nft_type_id =
-  //   "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000008";
-
-  // const edition = "00000005";
-
-  // const tokenIdInHex = poap_nft_type_id + edition;
-  // const tokenIdInDec = ethers.BigNumber.from(parseInt(tokenIdInHex, 16));
-
-  // console.log("poap token id: ", tokenIdInDec);
-
+  let poapTokenId;
+  try {
+    const get_url = `${baseApiUrl}/getLatestPoapId`;
+    const { data } = await axios.get(get_url, options);
+    const latestId = data.data.latestTokenId;
+    poapTokenId = ethers.BigNumber.from(latestId);
+  } catch (err) {
+    console.error(err);
+  }
+  let poapId = "";
   for (let i = 0; i < tickets.length; i++) {
     console.log("ticket: ", tickets[i]);
     const to = tickets[i].ticketOwnerAddress, // ticket owner
       id = tickets[i].ticketTokenId; //token id
 
-    const poapTokenId =
-      "778223506044639989037977882871403642790744177833344237845110164656488453";
-    tx = await poapNFT.safeTransferFrom(from, to, poapTokenId, 1, "0x00", {
+    poapId = poapTokenId.add(i);
+    tx = await poapNFT.safeTransferFrom(from, to, poapId, 1, "0x00", {
       gasLimit: "1000000",
     });
     txs.push(tx);
@@ -74,6 +73,19 @@ exports.main = async function (signer, recipient, contractAddress) {
 
     const patch_url = `${baseApiUrl}/setPoapMinted/${id}`;
     await axios.patch(patch_url, {}, options);
+  }
+
+  if (tickets.length > 0) {
+    try {
+      const patch_url = `${baseApiUrl}/setPoapTokenId`;
+      await axios.patch(
+        patch_url,
+        { latestTokenId: poapId.add(1).toString() },
+        options
+      );
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   return txs;
