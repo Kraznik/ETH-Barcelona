@@ -104,15 +104,6 @@ const index = ({ account }) => {
   const navigate = useNavigate();
 
   const getIfTokenScanned = async () => {
-    const get_url =
-      "https://eth-barcelona.kraznikunderverse.com/poapDistribution";
-    const { data } = await axios.get(get_url, {
-      headers: {
-        validate: process.env.REACT_APP_VALIDATE_TOKEN,
-      },
-    });
-
-    console.log("poap dis data: ", data.data);
     try {
       const url = `https://eth-barcelona.kraznikunderverse.com/event/${id}`;
       const res = await axios.get(url, {
