@@ -8,12 +8,9 @@ import axios from "axios";
 import ErrorPage from "../../ErrorPage";
 
 const Box = styled.div`
-background: #F5C34B;
-padding:2% 0;
-
-
-
-`
+  background: #f5c34b;
+  padding: 2% 0;
+`;
 
 const Container = styled.div`
   margin: auto;
@@ -114,12 +111,16 @@ const Tickets = styled.div`
   }
 `;
 
-export const Forum = styled.div`
+export const Forum = styled.form`
   padding: 0 5%;
   text-align: left;
-  margin-left: 10%;
+  /* margin-left: 10%; */
   margin-top: 24px;
   margin-bottom: 43px;
+
+  display: grid;
+  align-items: center;
+  justify-content: center;
 
   @media (max-width: 800px) {
     padding: 0 0 0 24px;
@@ -158,7 +159,7 @@ export const RedeemOut = styled.div`
   border-radius: 50%;
   border: 0.8px solid #354b37;
   transform: rotate(-3.12deg);
-  margin: auto;
+  margin: 30px auto 10px auto;
 
   &:hover {
     transform: rotate(+3.12deg);
@@ -171,7 +172,7 @@ export const RedeemOut = styled.div`
   }
 `;
 
-export const  Redeem = styled.button`
+export const Redeem = styled.button`
   text-decoration: none;
   border: none;
   background: #354b37;
@@ -213,7 +214,8 @@ const RedeemNFT = ({ account }) => {
 
   const navigate = useNavigate();
 
-  const onBurn = async () => {
+  const onBurn = async (e) => {
+    e.preventDefault();
     await saveData();
     try {
       console.log("Burning the ticket");
@@ -291,64 +293,71 @@ const RedeemNFT = ({ account }) => {
     <>
       {tokenOwned ? (
         <Box>
-        <Container>
-          <Title>Redeem NFT</Title>
-          <Description>
-            Redeem your NFTicket to get a QR code to enter the event
-          </Description>
+          <Container>
+            <Title>Redeem NFT</Title>
+            <Description>
+              Redeem your NFTicket to get a QR code to enter the event
+            </Description>
 
-          <TicketBox>
-            <Tickets></Tickets>
-            <TicketId>
-              #{parseInt(BigInt(tid).toString(16).slice(-5), 16)}
-            </TicketId>
-          </TicketBox>
+            <TicketBox>
+              <Tickets></Tickets>
+              <TicketId>
+                #{parseInt(BigInt(tid).toString(16).slice(-5), 16)}
+              </TicketId>
+            </TicketBox>
 
-          <Forum>
-            <label className="text">Full Name</label>
-            <br />
-            <input
-              type="text"
-              placeholder="Add your name as in your passport"
-              className="input"
-              value={user.fullName}
-              onChange={(e) => setUser({ ...user, fullName: e.target.value })}
-            ></input>
-            <br />
+            <Forum onSubmit={onBurn}>
+              <div>
+                <label className="text">Full Name</label>
+                <br />
+                <input
+                  required
+                  type="text"
+                  placeholder="Add your name as in your passport"
+                  className="input"
+                  value={user.fullName}
+                  onChange={(e) =>
+                    setUser({ ...user, fullName: e.target.value })
+                  }
+                ></input>
+                <br />
 
-            <label className="text">Display Name</label>
-            <br />
-            <input
-              type="text"
-              placeholder="Add your name for the lanyard"
-              className="input"
-              value={user.displayName}
-              onChange={(e) =>
-                setUser({ ...user, displayName: e.target.value })
-              }
-            ></input>
-            <br />
+                <label className="text">Display Name</label>
+                <br />
+                <input
+                  type="text"
+                  placeholder="Add your name for the lanyard"
+                  className="input"
+                  value={user.displayName}
+                  onChange={(e) =>
+                    setUser({ ...user, displayName: e.target.value })
+                  }
+                ></input>
+                <br />
 
-            <label className="text">Email</label>
-            <br />
-            <input
-              type="text"
-              placeholder="Add your email for sending you notifications"
-              className="input"
-              value={user.email}
-              onChange={(e) => setUser({ ...user, email: e.target.value })}
-            ></input>
-            <br />
-          </Forum>
+                <label className="text">Email</label>
+                <br />
+                <input
+                  required
+                  type="email"
+                  placeholder="Add your email for sending you notifications"
+                  className="input"
+                  name="email"
+                  value={user.email}
+                  onChange={(e) => setUser({ ...user, email: e.target.value })}
+                ></input>
+                <br />
+              </div>
 
-          <RedeemOut>
-            <Redeem onClick={onBurn}>Redeem Now</Redeem>
-          </RedeemOut>
+              <RedeemOut>
+                <Redeem type="submit">Redeem Now</Redeem>
+              </RedeemOut>
+            </Forum>
 
-          {/* <Link onClick={() => onBurn(tid)} to={`/tickets/${tid}/qrcode`}>
+            {/* <Link onClick={() => onBurn(tid)} to={`/tickets/${tid}/qrcode`}>
           RedeemNFT
         </Link> */}
-        </Container>
+          </Container>
         </Box>
       ) : (
         <ErrorPage text={""} />
