@@ -8,21 +8,18 @@ import viewQR from "../../../assets/viewQR.svg";
 import web3 from "../../../ethereum/web3";
 
 const Box = styled.div`
-background: #F5C34B;
-padding-bottom:22%;
-padding-top:5%;
-
-`
+  background: #f5c34b;
+  /* padding-bottom: 22%; */
+  padding-top: 5%;
+`;
 
 const Container = styled.div`
   display: inline-block;
   width: 560px;
   padding: 72px 0 0 0;
-  background:white;
+  background: white;
   border-radius: 4px;
   border: 1px solid black;
-
-  
 
   @media (max-width: 700px) {
     width: 343px;
@@ -258,14 +255,14 @@ const ShowTickets = ({ account }) => {
 
   return (
     <>
-    <Box>
-      <Container>
-        <Title1>Choose an NFT to redeem</Title1>
-        <Description>
-          Redeem your NFTicket to get a QR code to enter the event
-        </Description>
-        {listRedeemedTickets} {listCards}
-      </Container>
+      <Box>
+        <Container>
+          <Title1>Choose an NFT to redeem</Title1>
+          <Description>
+            Redeem your NFTicket to get a QR code to enter the event
+          </Description>
+          {listRedeemedTickets} {listCards}
+        </Container>
       </Box>
     </>
   );

@@ -162,6 +162,12 @@ const Organizer = ({ orgId, account }) => {
   const [confirmed, setConfirmed] = React.useState(false);
   const [error, setError] = React.useState(false);
   const [scannedMessage, setScannedMessage] = useState("");
+  const [tokenScanned, setTokenScanned] = useState(false);
+  const [scanInfo, setScanInfo] = useState({
+    orgId: "",
+    orgName: "",
+    timeOfScan: "",
+  });
 
   // A custom hook that builds on useLocation to parse
   // the query string for you.
@@ -177,7 +183,8 @@ const Organizer = ({ orgId, account }) => {
     if (tid) {
       let wave = "";
       let tokenIdInhex = BigInt(tid).toString(16);
-      let editionNum = parseInt(tokenIdInhex.slice(-8));
+      let editionNum = parseInt(tokenIdInhex.slice(-8), 16);
+      console.log("edition num: ", editionNum);
       let typeId = "0x" + tokenIdInhex.slice(0, -8);
       let ticketCollectionId = typeId.slice(-12);
       if (parseInt(ticketCollectionId) == 4) wave = "Early Bird 1st Wave";
@@ -185,6 +192,35 @@ const Organizer = ({ orgId, account }) => {
 
       setTicketEdition(wave + " #" + editionNum);
     }
+  }, []);
+
+  const getIfTokenScanned = async () => {
+    try {
+      const url = `https://eth-barcelona.kraznikunderverse.com/event/${query.get(
+        "tid"
+      )}`;
+      const res = await axios.get(url, {
+        headers: {
+          validate: process.env.REACT_APP_VALIDATE_TOKEN,
+        },
+      });
+      console.log(res.data?.data);
+      if (res.data?.data?.timeOfScan) {
+        const { orgId, orgName, timeOfScan } = res.data.data;
+        setTokenScanned(true);
+        setScanInfo({
+          orgId,
+          orgName,
+          timeOfScan,
+        });
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    getIfTokenScanned();
   }, []);
 
   const confirmScan = async () => {
@@ -228,25 +264,32 @@ const Organizer = ({ orgId, account }) => {
           <Question>Organizer Id</Question>
           <Answer>{orgId}</Answer>
 
-          {confirmed || error ? (
-            confirmed ? (
-              <ScanMessage>
-                <br />
-                {scannedMessage}!!
-              </ScanMessage>
+          {!tokenScanned ? (
+            confirmed || error ? (
+              confirmed ? (
+                <ScanMessage>
+                  <br />
+                  {scannedMessage}!!
+                </ScanMessage>
+              ) : (
+                <ScanMessage>
+                  Error!!
+                  <br />
+                  {scannedMessage}!!
+                </ScanMessage>
+              )
             ) : (
-              <ScanMessage>
-                Error!!
-                <br />
-                {scannedMessage}!!
-              </ScanMessage>
+              <BuyContainer>
+                <BuyInnerContainer>
+                  <BuyNow onClick={confirmScan}>Confirm</BuyNow>
+                </BuyInnerContainer>
+              </BuyContainer>
             )
           ) : (
-            <BuyContainer>
-              <BuyInnerContainer>
-                <BuyNow onClick={confirmScan}>Confirm</BuyNow>
-              </BuyInnerContainer>
-            </BuyContainer>
+            <ScanMessage>
+              Token already scanned by {scanInfo.orgName} (Id {scanInfo.orgId})
+              at {scanInfo.timeOfScan}
+            </ScanMessage>
           )}
         </InfoContainer>
       </Container>

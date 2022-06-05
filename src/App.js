@@ -198,19 +198,16 @@ const App = () => {
             element={<ShowTickets account={account} />}
           />
           <Route
-            permit={true}
             exact
             path="/tickets/:id/redeem"
             element={<RedeemNFT account={account} />}
           />
           <Route
-            permit={true}
             exact
             path="/tickets/:id/qrcode"
             element={<ShowQRcode account={account} />}
           />
           <Route
-            permit={true}
             exact
             path="/tickets/:id/poap"
             element={<Poap account={account} />}

@@ -109,15 +109,12 @@ const Navbars = ({
     <div>
       <Navbar collapseOnSelect expand="lg" className="bar">
         <Container className="bar">
-          <Navbar.Brand href="/moments" className="text1"> Moments
+          <Navbar.Brand href="/moments" className="text1">
+            Moments
           </Navbar.Brand>
-
           <Navbar.Brand href="/" className="logo">
             <img alt="" src={Logo} className="d-inline-block align-top" />{" "}
           </Navbar.Brand>
-          
-      
-          
 
           <Ticket>
             <Nav.Link href="#faq" className="text">
@@ -131,14 +128,11 @@ const Navbars = ({
                   >
                     Tickets
                   </Heading>
-                  
                 </CircleIn>
                 {/* </a> */}
               </CircleOut>
             </Nav.Link>
           </Ticket>
-          
-          
 
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
