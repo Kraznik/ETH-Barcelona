@@ -177,7 +177,8 @@ const Organizer = ({ orgId, account }) => {
     if (tid) {
       let wave = "";
       let tokenIdInhex = BigInt(tid).toString(16);
-      let editionNum = parseInt(tokenIdInhex.slice(-8));
+      let editionNum = parseInt(tokenIdInhex.slice(-8), 16);
+      console.log("edition num: ", editionNum);
       let typeId = "0x" + tokenIdInhex.slice(0, -8);
       let ticketCollectionId = typeId.slice(-12);
       if (parseInt(ticketCollectionId) == 4) wave = "Early Bird 1st Wave";
