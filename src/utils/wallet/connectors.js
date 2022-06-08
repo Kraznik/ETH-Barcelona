@@ -34,6 +34,6 @@ export function resetWalletConnector(connector) {
 export const walletlink = new WalletLinkConnector({
   // url: RPC_URLS[4],
   url: RPC_URLS[80001],
-  appName: "demo-app",
+  appName: "ETH BCN",
   supportedChainIds: [1, 4, 80001],
 });
