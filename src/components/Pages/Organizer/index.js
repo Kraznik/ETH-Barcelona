@@ -158,7 +158,7 @@ const ScanMessage = styled(Question)`
 
 const Organizer = ({ orgId, account }) => {
   // const [ticketOwnerName, setTicketOwnerName] = useState("");
-  const [ticketEdition, setTicketEdition] = useState("");
+  // const [ticketEdition, setTicketEdition] = useState("");
   const [confirmed, setConfirmed] = React.useState(false);
   const [error, setError] = React.useState(false);
   const [scannedMessage, setScannedMessage] = useState("");
@@ -178,21 +178,21 @@ const Organizer = ({ orgId, account }) => {
 
   let query = useQuery();
 
-  useEffect(() => {
-    let tid = query.get("tid");
-    if (tid) {
-      let wave = "";
-      let tokenIdInhex = BigInt(tid).toString(16);
-      let editionNum = parseInt(tokenIdInhex.slice(-8), 16);
-      console.log("edition num: ", editionNum);
-      let typeId = "0x" + tokenIdInhex.slice(0, -8);
-      let ticketCollectionId = typeId.slice(-12);
-      if (parseInt(ticketCollectionId) == 4) wave = "Early Bird 1st Wave";
-      else if (parseInt(ticketCollectionId) == 5) wave = "Early Bird 2nd Wave";
+  // useEffect(() => {
+  //   let tid = query.get("tid");
+  //   if (tid) {
+  //     let wave = "";
+  //     let tokenIdInhex = BigInt(tid).toString(16);
+  //     let editionNum = parseInt(tokenIdInhex.slice(-8), 16);
+  //     console.log("edition num: ", editionNum);
+  //     let typeId = "0x" + tokenIdInhex.slice(0, -8);
+  //     let ticketCollectionId = typeId.slice(-12);
+  //     if (parseInt(ticketCollectionId) == 4) wave = "Early Bird 1st Wave";
+  //     else if (parseInt(ticketCollectionId) == 5) wave = "Early Bird 2nd Wave";
 
-      setTicketEdition(wave + " #" + editionNum);
-    }
-  }, []);
+  //     setTicketEdition(wave + " #" + editionNum);
+  //   }
+  // }, []);
 
   const getIfTokenScanned = async () => {
     try {
@@ -260,7 +260,7 @@ const Organizer = ({ orgId, account }) => {
           <Question>Name</Question>
           <Answer>{query.get("name")}</Answer>
           <Question>Ticket Edition</Question>
-          <Answer>{ticketEdition}</Answer>
+          <Answer>{query.get("tkid")}</Answer>
           <Question>Organizer Id</Question>
           <Answer>{orgId}</Answer>
 

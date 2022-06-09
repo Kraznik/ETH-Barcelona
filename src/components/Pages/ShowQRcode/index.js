@@ -97,6 +97,7 @@ const index = ({ account }) => {
     name: "",
     optionalName: "",
     email: "",
+    ticketId: "",
   });
   const [tokenOwned, setTokenOwned] = useState(false);
   const [tokenScanned, setTokenScanned] = useState(false);
@@ -127,50 +128,6 @@ const index = ({ account }) => {
   useEffect(() => {
     getIfTokenScanned();
   }, [account]);
-
-  const calTicketId = async () => {
-    try {
-      const tokenId = id;
-      const url = `https://eth-barcelona.kraznikunderverse.com/collection`;
-      const { data } = await axios.get(url, {
-        headers: {
-          validate: process.env.REACT_APP_VALIDATE_TOKEN,
-        },
-      });
-      console.log("data: ", data?.data);
-      const collections = data.data;
-      let ticketId;
-      const inHex = "0x" + BigInt(tokenId).toString(16);
-      console.log("token in hex: ", inHex);
-      const nftTypeId = inHex.slice(0, -8);
-      console.log("nft type id: ", nftTypeId);
-
-      collections.map((collection) => {
-        if (nftTypeId === collection.nftTypeId) {
-          // convert in hex
-          const editionNum = parseInt(inHex.slice(-8), 16);
-          ticketId = editionNum;
-          if (collection.id > 1) {
-            // collection supply = collectionIndex
-            for (let i = 1; i < collection.id; i++) {
-              // ticketId += previous_supply
-              ticketId += parseInt(collections[i - 1].collectionIndex);
-            }
-          }
-        }
-      });
-
-      console.log("ticket Id: ", ticketId);
-      setTicketId(ticketId);
-      // return ticketId;
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  useState(() => {
-    calTicketId();
-  }, []);
 
   const getTokenRedeemData = async () => {
     try {
@@ -263,7 +220,7 @@ const index = ({ account }) => {
             </Description>
             <br />
             <Description>
-              <div>Ticket Id: {ticketId} </div>
+              <div>Ticket Id: {redeemData.ticketId} </div>
             </Description>
 
             {encryptedHash ? (
@@ -271,7 +228,7 @@ const index = ({ account }) => {
                 {/* <QRCodeSVG value="$2b$10$2595K0J6lkp6bFhOhtu9WOQBdQVEFKrgOF0V/4aD74Yrch8ZyVTCO"></QRCodeSVG> */}
                 <QRCodeSVG
                   // value={`https://dev-eth-barcelona.web.app/organizer?tokenId=${id}&ownerAddress=${account}&ticketOwnerName=${redeemData.name}&encryptedHash=${encryptedHash}`}
-                  value={`https://dev-eth-barcelona.web.app/organizer?tid=${id}&owner=${account}&name=${redeemData.name}&hash=${encryptedHash}`}
+                  value={`https://dev-eth-barcelona.web.app/organizer?tid=${id}&tkid=${redeemData.ticketId}&owner=${account}&name=${redeemData.name}&hash=${encryptedHash}`}
                 ></QRCodeSVG>
               </QRCodes>
             ) : (

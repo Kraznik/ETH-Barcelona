@@ -281,7 +281,7 @@ const RedeemNFT = ({ account }) => {
   };
 
   const saveData = async () => {
-    const ticketId = calTicketId();
+    const ticketId = await calTicketId();
     const url = "https://eth-barcelona.kraznikunderverse.com/users";
     const post_data = {
       name: user.fullName,
