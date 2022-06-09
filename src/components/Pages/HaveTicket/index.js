@@ -132,6 +132,46 @@ const ShowTickets = ({ account }) => {
   const [listCards, setListCards] = useState([]);
   const [listRedeemedTickets, setListRedeemedTickets] = useState([]);
 
+  const calTicketId = async (tokenId) => {
+    try {
+      // const tokenId = id;
+      const url = `https://eth-barcelona.kraznikunderverse.com/collection`;
+      const { data } = await axios.get(url, {
+        headers: {
+          validate: process.env.REACT_APP_VALIDATE_TOKEN,
+        },
+      });
+      console.log("data: ", data?.data);
+      const collections = data.data;
+      let ticketId;
+      const inHex = "0x" + BigInt(tokenId).toString(16);
+      console.log("token in hex: ", inHex);
+      const nftTypeId = inHex.slice(0, -8);
+      console.log("nft type id: ", nftTypeId);
+
+      collections.map((collection) => {
+        if (nftTypeId === collection.nftTypeId) {
+          // convert in hex
+          const editionNum = parseInt(inHex.slice(-8), 16);
+          ticketId = editionNum;
+          if (collection.id > 1) {
+            // collection supply = collectionIndex
+            for (let i = 1; i < collection.id; i++) {
+              // ticketId += previous_supply
+              ticketId += parseInt(collections[i - 1].collectionIndex);
+            }
+          }
+        }
+      });
+
+      console.log("ticket Id: ", ticketId);
+      // setTicketId(ticketId);
+      return { ticketId, collections };
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   // mumbai test net api
   const getUnredeemedTickets = async () => {
     try {
@@ -139,32 +179,27 @@ const ShowTickets = ({ account }) => {
       const { data } = await axios.get(url);
       // console.log(data.items);
 
-      let listOfCards = [];
+      console.log("items:", data.items);
 
-      //filter items for nftTypeId == ethbcn's
-
-      // for (let i = 0; i < data?.items.length; i++) {
-      //   let tokenindec = BigInt(parseInt(data?.items[i].id), 16);
-      //   console.log("token in dec for loop: ", tokenindec);
-      // }
-
-      console.log("iems:", data.items);
-
-      data?.items.map((token) => {
+      let promises = data?.items.map(async (token) => {
         console.log("token.id: ", token.id);
         let tokenIdInDec = web3.utils.toBN(token.id).toString();
         console.log("tokenId in dec:", tokenIdInDec);
-
-        if (token.typeId === ethBcnNftTypeId1) {
-          // console.log("type id matched: ", token.id);
-          let card = renderCard(tokenIdInDec, token.id, "Early Bird Wave1");
-          listOfCards.push(card);
-        } else if (token.typeId === ethBcnNftTypeId2) {
-          let card = renderCard(tokenIdInDec, token.id, "Early Bird Wave2");
-          listOfCards.push(card);
-        }
+        return calTicketId(tokenIdInDec).then(({ ticketId, collections }) => {
+          return collections.map((collection) => {
+            if (token.typeId === collection.nftTypeId) {
+              let card = renderCard(ticketId, tokenIdInDec);
+              return card;
+            }
+          });
+        });
       });
-      setListCards(listOfCards.reverse());
+
+      Promise.all(promises).then((listOfCards) => {
+        listOfCards.reverse();
+        setListCards(listOfCards);
+      });
+      // setListCards(listOfCards.reverse());
     } catch (err) {
       console.error(err);
     }
@@ -180,29 +215,33 @@ const ShowTickets = ({ account }) => {
       });
 
       // console.log(data.data);
-      const listCards = [];
-      data?.data?.map((redeemedTkt) => {
+
+      let promises = data?.data?.map((redeemedTkt) => {
         const hextokenid = BigInt(redeemedTkt.tokenID).toString(16);
         console.log("redeemed token id in dec: ", redeemedTkt.tokenID);
         console.log("redeemed token id in hex: ", hextokenid);
         console.log("hextokenid to dec: ", BigInt(parseInt(hextokenid, 16)));
         const nftTypeId = "0x" + hextokenid.slice(0, -8);
         console.log("checking..");
-        if (nftTypeId === ethBcnNftTypeId1) {
-          const card = renderRedeemedCard(
-            redeemedTkt.tokenID, //dec
-            "Early Bird Wave1"
-          );
-          listCards.push(card);
-        } else if (nftTypeId === ethBcnNftTypeId2) {
-          const card = renderRedeemedCard(
-            redeemedTkt.tokenID,
-            "Early Bird Wave2"
-          );
-          listCards.push(card);
-        }
+
+        return calTicketId(redeemedTkt.tokenID).then(
+          ({ ticketId, collections }) => {
+            return collections.map((collection) => {
+              if (nftTypeId === collection.nftTypeId) {
+                const card = renderRedeemedCard(
+                  ticketId,
+                  redeemedTkt.tokenID, //dec
+                  "Early Bird Wave1"
+                );
+                return card;
+              }
+            });
+          }
+        );
       });
-      setListRedeemedTickets(listCards);
+      Promise.all(promises).then((listRedeemedTickets) => {
+        setListRedeemedTickets(listRedeemedTickets);
+      });
     } catch (err) {
       console.error(err);
     }
@@ -212,7 +251,7 @@ const ShowTickets = ({ account }) => {
     if (account) getRedeemedTickets();
   }, [account]);
 
-  const renderCard = (tokenIdInDec, tokenIdInHex, ticketLotName) => {
+  const renderCard = (ticketId, tokenIdInDec) => {
     return (
       <Link
         key={tokenIdInDec}
@@ -220,17 +259,16 @@ const ShowTickets = ({ account }) => {
         style={{ textDecoration: "none", color: "black" }}
       >
         <TicketBox>
-          {/* <Title>ETH BCN NFTicket</Title> */}
-          <TikcetLot>{ticketLotName}</TikcetLot>
+          {/* <TikcetLot>{ticketLotName}</TikcetLot> */}
           <TicketImage></TicketImage>
-          <TicketId>#{parseInt(tokenIdInHex.slice(-8), 16)}</TicketId>
-          {/* <DoinGud to={`/tickets/${tokenId}/redeem`}> Redeem NFTicket </DoinGud> */}
+          {/* <TicketId>#{parseInt(tokenIdInHex.slice(-8), 16)}</TicketId> */}
+          <TicketId>#{ticketId}</TicketId>
         </TicketBox>
       </Link>
     );
   };
 
-  const renderRedeemedCard = (tokenId, ticketLotName) => {
+  const renderRedeemedCard = (ticketId, tokenId) => {
     return (
       <Link
         key={tokenId}
@@ -239,10 +277,11 @@ const ShowTickets = ({ account }) => {
       >
         <TicketBox>
           {/* <Title>ETH BCN NFTicket</Title> */}
-          <TikcetLot>{ticketLotName}</TikcetLot>
+          {/* <TikcetLot>{ticketLotName}</TikcetLot> */}
           <RedeemedTicketImage />
           <TicketId>
-            #{parseInt(BigInt(tokenId).toString(16).slice(-8), 16)}
+            {/* #{parseInt(BigInt(tokenId).toString(16).slice(-8), 16)} */}#
+            {ticketId}
           </TicketId>
         </TicketBox>
       </Link>
@@ -261,7 +300,8 @@ const ShowTickets = ({ account }) => {
           <Description>
             Redeem your NFTicket to get a QR code to enter the event
           </Description>
-          {listRedeemedTickets} {listCards}
+          {listRedeemedTickets}
+          {listCards}
         </Container>
       </Box>
     </>

@@ -24,7 +24,9 @@ const Container = styled.div`
   align-items: center;
   position: absolute;
   width: 530px;
-  height: 536px;
+  /* height: 536px; */
+  height: fit-content;
+  padding: 40px;
   left: calc(50% - 530px / 2);
   background: white;
   border: 1px solid black;
@@ -98,6 +100,7 @@ const index = ({ account }) => {
   });
   const [tokenOwned, setTokenOwned] = useState(false);
   const [tokenScanned, setTokenScanned] = useState(false);
+  const [ticketId, setTicketId] = useState();
 
   const { id } = useParams();
 
@@ -124,6 +127,50 @@ const index = ({ account }) => {
   useEffect(() => {
     getIfTokenScanned();
   }, [account]);
+
+  const calTicketId = async () => {
+    try {
+      const tokenId = id;
+      const url = `https://eth-barcelona.kraznikunderverse.com/collection`;
+      const { data } = await axios.get(url, {
+        headers: {
+          validate: process.env.REACT_APP_VALIDATE_TOKEN,
+        },
+      });
+      console.log("data: ", data?.data);
+      const collections = data.data;
+      let ticketId;
+      const inHex = "0x" + BigInt(tokenId).toString(16);
+      console.log("token in hex: ", inHex);
+      const nftTypeId = inHex.slice(0, -8);
+      console.log("nft type id: ", nftTypeId);
+
+      collections.map((collection) => {
+        if (nftTypeId === collection.nftTypeId) {
+          // convert in hex
+          const editionNum = parseInt(inHex.slice(-8), 16);
+          ticketId = editionNum;
+          if (collection.id > 1) {
+            // collection supply = collectionIndex
+            for (let i = 1; i < collection.id; i++) {
+              // ticketId += previous_supply
+              ticketId += parseInt(collections[i - 1].collectionIndex);
+            }
+          }
+        }
+      });
+
+      console.log("ticket Id: ", ticketId);
+      setTicketId(ticketId);
+      // return ticketId;
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useState(() => {
+    calTicketId();
+  }, []);
 
   const getTokenRedeemData = async () => {
     try {
@@ -213,6 +260,10 @@ const index = ({ account }) => {
               <div>Name: {redeemData.name}</div>
               <div>Display name: {redeemData.optionalName}</div>
               <div>Email: {redeemData.email} </div>
+            </Description>
+            <br />
+            <Description>
+              <div>Ticket Id: {ticketId} </div>
             </Description>
 
             {encryptedHash ? (

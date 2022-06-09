@@ -552,14 +552,17 @@ exports.main = async function (signer, recipient, contractAddress, payload) {
 
     const burn_hash = evt.transaction.transactionHash;
 
-    const url_get =
-      "https://api.covalenthq.com/v1/80001/events/address/0x4137cF37598EE871d1F4A6DEE9188217Ed40c649/?starting-block=26200120&ending-block=26200140&key=ckey_9f2ed5152bcb4eb1a8dbc4cf854";
+    const block_number = parseInt(evt.transaction.blockNumber, 16);
+
+    const url_get = `https://api.covalenthq.com/v1/80001/events/address/0x4137cF37598EE871d1F4A6DEE9188217Ed40c649/?starting-block=${block_number}&ending-block=${
+      block_number + 1
+    }&key=ckey_9f2ed5152bcb4eb1a8dbc4cf854`;
 
     const { data } = await axios.get(url_get);
     const token_id = data.data.items[0].decoded.params[3].value;
-    console.log("token id: ", data.data.items[0].decoded.params[3].value);
+    console.log("token id: ", token_id);
 
-    const url = "https://eth-barcelona.kraznikunderverse.com/users";
+    const url = "https://eth-barcelona.kraznikunderverse.com/qrcode";
     const tkt_data = {
       walletAddress: to,
       tokenID: token_id,
@@ -568,7 +571,7 @@ exports.main = async function (signer, recipient, contractAddress, payload) {
     await axios.post(url, tkt_data, {
       headers: {
         "Content-Type": "application/json",
-        validate: process.env.REACT_APP_VALIDATE_TOKEN,
+        validate: "alpha romeo tango",
       },
     });
   }

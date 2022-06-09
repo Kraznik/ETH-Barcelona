@@ -209,6 +209,8 @@ const RedeemNFT = ({ account }) => {
 
   const [tokenOwned, setTokenOwned] = useState(false);
 
+  const [ticketId, setTicketId] = useState();
+
   const { id } = useParams();
   const tid = id;
 
@@ -238,7 +240,48 @@ const RedeemNFT = ({ account }) => {
     }
   };
 
+  const calTicketId = async () => {
+    try {
+      const tokenId = id;
+      const url = `https://eth-barcelona.kraznikunderverse.com/collection`;
+      const { data } = await axios.get(url, {
+        headers: {
+          validate: process.env.REACT_APP_VALIDATE_TOKEN,
+        },
+      });
+      console.log("data: ", data?.data);
+      const collections = data.data;
+      let ticketId;
+      const inHex = "0x" + BigInt(tokenId).toString(16);
+      console.log("token in hex: ", inHex);
+      const nftTypeId = inHex.slice(0, -8);
+      console.log("nft type id: ", nftTypeId);
+
+      collections.map((collection) => {
+        if (nftTypeId === collection.nftTypeId) {
+          // convert in hex
+          const editionNum = parseInt(inHex.slice(-8), 16);
+          ticketId = editionNum;
+          if (collection.id > 1) {
+            // collection supply = collectionIndex
+            for (let i = 1; i < collection.id; i++) {
+              // ticketId += previous_supply
+              ticketId += parseInt(collections[i - 1].collectionIndex);
+            }
+          }
+        }
+      });
+
+      console.log("ticket Id: ", ticketId);
+      setTicketId(ticketId);
+      return ticketId;
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   const saveData = async () => {
+    const ticketId = calTicketId();
     const url = "https://eth-barcelona.kraznikunderverse.com/users";
     const post_data = {
       name: user.fullName,
@@ -246,6 +289,7 @@ const RedeemNFT = ({ account }) => {
       email: user.email,
       walletAddress: account,
       tokenId: id,
+      ticketId,
     };
 
     const { data } = await axios.get(url + `/${account}/${id}`, {
@@ -287,6 +331,7 @@ const RedeemNFT = ({ account }) => {
 
   useEffect(() => {
     checkIfTokenOwned();
+    calTicketId();
   }, [account]);
 
   return (
@@ -302,7 +347,8 @@ const RedeemNFT = ({ account }) => {
             <TicketBox>
               <Tickets></Tickets>
               <TicketId>
-                #{parseInt(BigInt(tid).toString(16).slice(-5), 16)}
+                {/* #{parseInt(BigInt(tid).toString(16).slice(-5), 16)} */}#
+                {ticketId}
               </TicketId>
             </TicketBox>
 
