@@ -228,7 +228,7 @@ const Speakers = () => {
 
         <a href="https://twitter.com/notscottmoore"><SpeakerContainer>
         <SpeakerImage><img src={S7} width="241px" height= "211px"></img></SpeakerImage>
-            <Name>Scoot Moore</Name>
+            <Name>Scott Moore</Name>
             <Org>Gitcoin</Org>
         </SpeakerContainer></a> 
 
