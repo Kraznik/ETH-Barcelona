@@ -56,6 +56,9 @@ import Tenderly from "../../assets/tenderly.svg";
 import DoinGudGold from "../../assets/Doingud-Gold.svg";
 import Neon from "../../assets/Neon.svg";
 import SM19 from "../../assets/SM19.svg";
+import SkillWallet from "../../assets/Skill.svg";
+import Skill from "../../assets/SM20.svg";
+import Ripio from "../../assets/Ripio.svg";
 
 const Container = styled.div`
   background: #f4f4f5;
@@ -303,6 +306,11 @@ const Sponsers = () => {
                 <img src={Tenderly}></img>
               </a>
             </GoldSponserLogo>
+            <GoldSponserLogo>
+              <a href="https://www.ripio.com/">
+                <img src={Ripio}></img>
+              </a>
+            </GoldSponserLogo>
           </GoldSponserLogoContainer>
         </GoldSponserContainer>
 
@@ -347,6 +355,11 @@ const Sponsers = () => {
                   <img src={Lido}></img>
                 </a>{" "}
               </SilverSponserLogo>
+              <SilverSponserLogo>
+                <a href="https://skillwallet.id">
+                  <img src={SkillWallet}></img>
+                </a>{" "}
+              </SilverSponserLogo>
             </SilverSponserLogoContainer>
           </Desktop>
 
@@ -385,6 +398,11 @@ const Sponsers = () => {
               <SilverSponserLogoM>
                 <a href="https://lido.fi/">
                   <img src={SM14} width="150px" height="118px"></img>
+                </a>{" "}
+              </SilverSponserLogoM>
+              <SilverSponserLogoM>
+                <a href="https://skillwallet.id/">
+                  <img src={Skill} width="150px" height="118px"></img>
                 </a>{" "}
               </SilverSponserLogoM>
             </SilverSponserLogoContainer>
