@@ -59,6 +59,8 @@ import SM19 from "../../assets/SM19.svg";
 import SkillWallet from "../../assets/Skill.svg";
 import Skill from "../../assets/SM20.svg";
 import Ripio from "../../assets/Ripio.svg";
+import Aurora from "../../assets/Aurora.png";
+import S21 from "../../assets/S21.png";
 
 const Container = styled.div`
   background: #f4f4f5;
@@ -476,6 +478,13 @@ const Sponsers = () => {
                 </a>
               </BronzeSponserLogo>
             </SilverSponserLogoContainer>
+            <SilverSponserLogoContainer>
+            <BronzeSponserLogo>
+                <a href="">
+                  <img src={Aurora}></img>
+                </a>
+              </BronzeSponserLogo>
+            </SilverSponserLogoContainer>
           </Desktop>
 
           <SilverSponserLogoContainer>
@@ -538,6 +547,11 @@ const Sponsers = () => {
               <BronzeSponserLogo>
                 <a href="https://shapeshift.com/">
                   <img src={SM18} width="150px" height="118px"></img>
+                </a>
+              </BronzeSponserLogo>
+              <BronzeSponserLogo>
+                <a href="">
+                  <img src={S21} width="150px" height="118px"></img>
                 </a>
               </BronzeSponserLogo>
             </Mobile>
