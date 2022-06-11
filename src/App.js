@@ -16,6 +16,7 @@ import ShowTickets from "./components/Pages/HaveTicket";
 import RedeemNFT from "./components/Pages/Redeem";
 import Landing from "./components/Pages/LandingPage";
 import Navbars from "./components/Navbar";
+import SpeakerPage from "./components/Pages/Speaker";
 
 const providerOptions = {
   walletconnect: {
@@ -201,6 +202,7 @@ const App = () => {
         />
         <Routes>
           <Route exact path="/" element={<Landing isMobile={isMobile} />} />
+          <Route exact path="/speaker" element={<SpeakerPage></SpeakerPage>} />
           {/* <Route
             exact
             path="/section"
