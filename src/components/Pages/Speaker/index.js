@@ -8,7 +8,7 @@ import {
   SpeakerContainer,
   SpeakerImage,
   Name,
-  Org
+  Org,
 } from "../../Speakers/index";
 import S1 from "../../../assets/Speaker/1.svg";
 import S2 from "../../../assets/Speaker/2.svg";
@@ -74,18 +74,13 @@ import S61 from "../../../assets/Speaker/61.svg";
 import S62 from "../../../assets/Speaker/62.svg";
 import S63 from "../../../assets/Speaker/63.svg";
 
-
-
-
 const SpeakerPage = () => {
   return (
     <>
-
-    <Container>
+      <Container>
         <Title>Speakers</Title>
         <Box>
-
-        <a href="https://twitter.com/Aleborda21">
+          <a href="https://twitter.com/Aleborda21">
             <SpeakerContainer>
               <SpeakerImage>
                 <img src={S1}></img>
@@ -93,9 +88,9 @@ const SpeakerPage = () => {
               <Name>Ale Borda</Name>
               <Org>Fifty Years</Org>
             </SpeakerContainer>
-        </a>
+          </a>
 
-        <a href="https://twitter.com/jabylS">
+          <a href="https://twitter.com/jabylS">
             <SpeakerContainer>
               <SpeakerImage>
                 <img src={S2}></img>
@@ -103,9 +98,9 @@ const SpeakerPage = () => {
               <Name>Alex P</Name>
               <Org>SkillWallet</Org>
             </SpeakerContainer>
-        </a>
+          </a>
 
-        <a href="https://twitter.com/AlexanderGuy19">
+          <a href="https://twitter.com/AlexanderGuy19">
             <SpeakerContainer>
               <SpeakerImage>
                 <img src={S3}></img>
@@ -113,7 +108,7 @@ const SpeakerPage = () => {
               <Name>Alexander Guy</Name>
               <Org>Zerion</Org>
             </SpeakerContainer>
-        </a>
+          </a>
 
           <a href="https://twitter.com/jed_voras">
             <SpeakerContainer>
@@ -225,7 +220,6 @@ const SpeakerPage = () => {
             </SpeakerContainer>
           </a>
 
-
           <a href="">
             <SpeakerContainer>
               <SpeakerImage>
@@ -246,7 +240,6 @@ const SpeakerPage = () => {
             </SpeakerContainer>
           </a>
 
-
           <a href="https://twitter.com/CarrascosaCris_">
             <SpeakerContainer>
               <SpeakerImage>
@@ -256,7 +249,6 @@ const SpeakerPage = () => {
               <Org>ATH21</Org>
             </SpeakerContainer>
           </a>
-
 
           <a href="https://twitter.com/dave_krugman">
             <SpeakerContainer>
@@ -268,7 +260,6 @@ const SpeakerPage = () => {
             </SpeakerContainer>
           </a>
 
-
           <a href="https://twitter.com/dmazorosete">
             <SpeakerContainer>
               <SpeakerImage>
@@ -278,7 +269,6 @@ const SpeakerPage = () => {
               <Org>Tropykus</Org>
             </SpeakerContainer>
           </a>
-
 
           <a href="https://twitter.com/buda_kyiv">
             <SpeakerContainer>
@@ -300,7 +290,6 @@ const SpeakerPage = () => {
             </SpeakerContainer>
           </a>
 
-
           <a href="https://twitter.com/FrancescoRenziA">
             <SpeakerContainer>
               <SpeakerImage>
@@ -310,7 +299,6 @@ const SpeakerPage = () => {
               <Org>Superfluid</Org>
             </SpeakerContainer>
           </a>
-
 
           <a href="https://twitter.com/GabrielGruber">
             <SpeakerContainer>
@@ -322,7 +310,6 @@ const SpeakerPage = () => {
             </SpeakerContainer>
           </a>
 
-
           <a href="https://twitter.com/thegrifft">
             <SpeakerContainer>
               <SpeakerImage>
@@ -332,7 +319,6 @@ const SpeakerPage = () => {
               <Org>Commons Stack</Org>
             </SpeakerContainer>
           </a>
-
 
           <a href="https://twitter.com/iloveguypirelli">
             <SpeakerContainer>
@@ -354,7 +340,6 @@ const SpeakerPage = () => {
             </SpeakerContainer>
           </a>
 
-
           <a href="">
             <SpeakerContainer>
               <SpeakerImage>
@@ -364,7 +349,6 @@ const SpeakerPage = () => {
               <Org>Sherlock</Org>
             </SpeakerContainer>
           </a>
-
 
           <a href="https://twitter.com/againstutopia">
             <SpeakerContainer>
@@ -376,7 +360,6 @@ const SpeakerPage = () => {
             </SpeakerContainer>
           </a>
 
-
           <a href="https://twitter.com/JamesJohnBeck">
             <SpeakerContainer>
               <SpeakerImage>
@@ -386,7 +369,6 @@ const SpeakerPage = () => {
               <Org>ConsenSys (Metamask)</Org>
             </SpeakerContainer>
           </a>
-
 
           <a href="https://twitter.com/positonic">
             <SpeakerContainer>
@@ -418,7 +400,6 @@ const SpeakerPage = () => {
             </SpeakerContainer>
           </a>
 
-
           <a href="https://twitter.com/0x7u4n">
             <SpeakerContainer>
               <SpeakerImage>
@@ -428,7 +409,6 @@ const SpeakerPage = () => {
               <Org>MakerDAO</Org>
             </SpeakerContainer>
           </a>
-
 
           <a href="https://twitter.com/kelsiemvn">
             <SpeakerContainer>
@@ -440,7 +420,6 @@ const SpeakerPage = () => {
             </SpeakerContainer>
           </a>
 
-
           <a href="">
             <SpeakerContainer>
               <SpeakerImage>
@@ -451,7 +430,6 @@ const SpeakerPage = () => {
             </SpeakerContainer>
           </a>
 
-
           <a href="https://twitter.com/karmaticacid">
             <SpeakerContainer>
               <SpeakerImage>
@@ -461,7 +439,6 @@ const SpeakerPage = () => {
               <Org>Giveth</Org>
             </SpeakerContainer>
           </a>
-
 
           <a href="https://twitter.com/LefterisJP">
             <SpeakerContainer>
@@ -593,7 +570,6 @@ const SpeakerPage = () => {
             </SpeakerContainer>
           </a>
 
-
           <a href="https://twitter.com/itsmarkjohns">
             <SpeakerContainer>
               <SpeakerImage>
@@ -603,7 +579,6 @@ const SpeakerPage = () => {
               <Org>Friday Night Dinner</Org>
             </SpeakerContainer>
           </a>
-
 
           <a href="https://twitter.com/comercallejero">
             <SpeakerContainer>
@@ -615,7 +590,6 @@ const SpeakerPage = () => {
             </SpeakerContainer>
           </a>
 
-
           <a href="https://twitter.com/stonecoldpat0">
             <SpeakerContainer>
               <SpeakerImage>
@@ -625,7 +599,6 @@ const SpeakerPage = () => {
               <Org>Infura</Org>
             </SpeakerContainer>
           </a>
-
 
           <a href="https://twitter.com/rahilla">
             <SpeakerContainer>
@@ -637,7 +610,6 @@ const SpeakerPage = () => {
             </SpeakerContainer>
           </a>
 
-
           <a href="https://twitter.com/sshshln">
             <SpeakerContainer>
               <SpeakerImage>
@@ -647,7 +619,6 @@ const SpeakerPage = () => {
               <Org>PHD, Paradigm & Humanode</Org>
             </SpeakerContainer>
           </a>
-
 
           <a href="https://twitter.com/notscottmoore">
             <SpeakerContainer>
@@ -659,7 +630,6 @@ const SpeakerPage = () => {
             </SpeakerContainer>
           </a>
 
-
           <a href="https://twitter.com/esdotge">
             <SpeakerContainer>
               <SpeakerImage>
@@ -669,7 +639,6 @@ const SpeakerPage = () => {
               <Org>FLOC</Org>
             </SpeakerContainer>
           </a>
-
 
           <a href="https://twitter.com/tienshaoku">
             <SpeakerContainer>
@@ -681,7 +650,6 @@ const SpeakerPage = () => {
             </SpeakerContainer>
           </a>
 
-
           <a href="https://twitter.com/Sim_Pop">
             <SpeakerContainer>
               <SpeakerImage>
@@ -691,7 +659,6 @@ const SpeakerPage = () => {
               <Org>Gitcoin & Status.im</Org>
             </SpeakerContainer>
           </a>
-
 
           <a href="https://twitter.com/0ceans404">
             <SpeakerContainer>
@@ -742,15 +709,8 @@ const SpeakerPage = () => {
               <Org>ShapeShift & Giveth</Org>
             </SpeakerContainer>
           </a>
-
-          
-          
-
-
-
         </Box>
       </Container>
-
     </>
   );
 };
