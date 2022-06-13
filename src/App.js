@@ -51,7 +51,7 @@ const App = () => {
   const [windowDimension, setWindowDimension] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
 
-  const [accounts, setaccount] = useState("");
+  // const [accounts, setaccount] = useState("");
   const [chainId, setChainId] = useState();
   const [haveTokens, setHaveTokens] = useState(false);
 
@@ -90,12 +90,16 @@ const App = () => {
     }
 
     return () => {
-      window.ethereum.removeListener("chainChanged", networkChanged);
+      try {
+        window.ethereum.removeListener("chainChanged", networkChanged);
+      } catch {}
     };
   }, []);
 
   useEffect(() => {
-    changeNetwork();
+    try {
+      changeNetwork();
+    } catch {}
   }, [chainId]);
 
   const checkForUnredeemedTickets = async () => {

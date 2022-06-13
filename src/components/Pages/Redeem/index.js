@@ -6,6 +6,8 @@ import TicketToken from "../../../ethereum/TicketToken";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import ErrorPage from "../../ErrorPage";
+import web3 from "../../../ethereum/web3";
+import { useWeb3React } from "@web3-react/core";
 
 const Box = styled.div`
   background: #f5c34b;
@@ -201,6 +203,13 @@ export const Redeem = styled.button`
 `;
 
 const RedeemNFT = ({ account }) => {
+  const { library } = useWeb3React();
+
+  useEffect(() => {
+    console.log("setting provider: ", library?._provider);
+    web3.setProvider(library?._provider);
+  }, [account]);
+
   const [user, setUser] = useState({
     fullName: "",
     displayName: "",
@@ -211,6 +220,7 @@ const RedeemNFT = ({ account }) => {
     isUpdating: false,
     isBurning: false,
     gotError: false,
+    Error: "",
   });
 
   const [tokenOwned, setTokenOwned] = useState(false);
@@ -239,13 +249,13 @@ const RedeemNFT = ({ account }) => {
       const result = await TicketToken.methods
         .safeTransferFrom(account, burnWalletAddress, id, 1, "0x0")
         // .burn(account, tokenId, 1)
-        .send({ from: account });
+        .send({ from: account, gasLimit: "3000000" });
 
       console.log(result);
 
       navigate(`/tickets/${id}/qrcode`);
     } catch (err) {
-      setLoading({ ...loading, gotError: true });
+      setLoading({ ...loading, gotError: true, Error: JSON.stringify(err) });
       console.error(err);
     }
   };
@@ -420,7 +430,13 @@ const RedeemNFT = ({ account }) => {
                 ) : loading.isBurning ? (
                   <span>Burning...</span>
                 ) : loading.gotError ? (
-                  <span style={{ color: "red" }}>Error while burning...</span>
+                  <>
+                    <span style={{ color: "red" }}>Error while burning...</span>
+                    <br />
+                    <div style={{ width: "80vw", margin: "auto" }}>
+                      {loading.Error}
+                    </div>
+                  </>
                 ) : null}
               </div>
             </Forum>
