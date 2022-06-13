@@ -24,76 +24,66 @@ const TicketBox1 = styled.div`
 `;
 
 const CircleOut = styled.div`
-color: #354B37;
-box-sizing: border-box;
-border: 0.8px solid #354B37;
-transform: rotate(-6.41deg);
-width: 112px;
-height: 50px;
-border-radius:50%;
+  color: #354b37;
+  box-sizing: border-box;
+  border: 0.8px solid #354b37;
+  transform: rotate(-6.41deg);
+  width: 112px;
+  height: 50px;
+  border-radius: 50%;
 
-
-&:hover{
-  transform: rotate(6.7deg);
-}
-
+  &:hover {
+    transform: rotate(6.7deg);
+  }
 `;
 
 const CircleIn = styled.div`
-background: #354B37;
-width: 112px;
-transform: rotate(+6.41deg);
-height: 50px;
-padding:5% 18% 5% 5%;
-color:white;
-justify-content:center;
-align-items:center;
-test-align:center;
-border-radius:50%;
+  background: #354b37;
+  width: 112px;
+  transform: rotate(+6.41deg);
+  height: 50px;
+  padding: 5% 18% 5% 5%;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  test-align: center;
+  border-radius: 50%;
 
-&:hover{
-  background: none;
-  transform: rotate(-6.41deg);
-  color: #354B37;
-
-}
-
-
+  &:hover {
+    background: none;
+    transform: rotate(-6.41deg);
+    color: #354b37;
+  }
 `;
 
 const Text = styled.div`
-font-family: 'Dahlia';
-font-style: normal;
-font-weight: 700;
-font-size: 20px;
-line-height: 32px;
-/* identical to box height, or 160% */
-text-align: right;
-letter-spacing: 1px;
-color: #354B37;
-padding-top: 10px;
-
-`
+  font-family: "Dahlia";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 32px;
+  /* identical to box height, or 160% */
+  text-align: right;
+  letter-spacing: 1px;
+  color: #354b37;
+  padding-top: 10px;
+`;
 
 const Ticket = styled.div`
+  @media screen and (min-width: 900px) {
+    display: none;
+  }
 
-
-@media screen and (min-width: 900px) {
-  display:none;
-}
-
-@media screen and (max-width: 900px) {
-  margin-left:80px;
-}
-
-`
+  @media screen and (max-width: 900px) {
+    margin-left: 80px;
+  }
+`;
 
 const Desktop = styled.div`
-@media screen and (max-width: 900px) {
-  display:none;
-}
-
-`
+  @media screen and (max-width: 900px) {
+    display: none;
+  }
+`;
 
 const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
   // const userAddress = `${account.slice(0, 4)}....${account.slice(-4)}`;
@@ -101,51 +91,58 @@ const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
     <div>
       <Navbar collapseOnSelect expand="lg" className="bar">
         <Container className="bar">
-          {/* <Navbar.Brand href="" className="text1"> Program
-          </Navbar.Brand> */}
+          <Nav.Link href="#speaker" className="speaker">
+            <Text>Speakers </Text>
+          </Nav.Link>
+
+          <Nav.Link
+            href="https://www.eventbrite.com/e/ethbarcelona-tickets-344163862377?aff=ebdssbdestsearch"
+            className="speaker"
+          >
+            <Text>Eventbrite </Text>
+          </Nav.Link>
+
           <Navbar.Brand href="/" className="logo">
             <img alt="" src={Logo} className="d-inline-block align-top" />{" "}
           </Navbar.Brand>
 
-
           <Ticket>
-          <Nav.Link href="#faq" className="text">
-                <CircleOut>
-                <a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a700000000001d">
-                  <CircleIn>
-                    
-                 
-                    Tickets
-                
-                  </CircleIn>
-                  </a>
-                </CircleOut>
-              </Nav.Link>
+            <Nav.Link href="#faq" className="text">
+              <CircleOut>
+                <a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a7000000000023">
+                  <CircleIn>Tickets</CircleIn>
+                </a>
+              </CircleOut>
+            </Nav.Link>
           </Ticket>
 
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto"></Nav>
             <Nav>
+
               <Nav.Link href="#faq" className="text">
                 <Text>FAQ </Text>
               </Nav.Link>
+              <Nav.Link href="#speaker" className="speaker2">
+                <Text>Speakers </Text>
+              </Nav.Link>
+              <Nav.Link
+                href="https://www.eventbrite.com/e/ethbarcelona-tickets-344163862377?aff=ebdssbdestsearch"
+                className="speaker2"
+              >
+                <Text>Eventbrite </Text>
+              </Nav.Link>
 
               <Desktop>
-              <Nav.Link href="#faq" className="text">
-                <CircleOut>
-                <a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a700000000001d">
-                  <CircleIn>
-                    Tickets
-                  
-                  </CircleIn>
-                  </a>
-                </CircleOut>
-              </Nav.Link>
+                <Nav.Link href="#faq" className="text">
+                  <CircleOut>
+                    <a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a7000000000023">
+                      <CircleIn>Tickets</CircleIn>
+                    </a>
+                  </CircleOut>
+                </Nav.Link>
               </Desktop>
-
-
- 
 
               {/* <Nav.Link className="text3">Program</Nav.Link> */}
               {/* <TicketBox1>

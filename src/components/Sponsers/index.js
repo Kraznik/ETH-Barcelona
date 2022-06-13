@@ -61,6 +61,7 @@ import Skill from "../../assets/SM20.svg";
 import Ripio from "../../assets/Ripio.svg";
 import Aurora from "../../assets/Aurora.png";
 import S21 from "../../assets/S21.png";
+import Bankless from "../../assets/Bankless.svg";
 
 const Container = styled.div`
   background: #f4f4f5;
@@ -635,7 +636,13 @@ const Sponsers = () => {
                 <img src={CryptoSlate}></img>
               </a>
             </GoldSponserLogo>
+            <GoldSponserLogo>
+              <a href="https://banklesshq.com/">
+                <img src={Bankless}></img>
+              </a>
+            </GoldSponserLogo>
           </GoldSponserLogoContainer>
+
         </BronzeSponserContainer>
       </Container>
     </>

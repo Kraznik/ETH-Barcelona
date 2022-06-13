@@ -335,7 +335,7 @@ const Hero = ({ isMobile }) => {
               <TextContainer>
                 <ImageContainer2></ImageContainer2>
                 <Heading>
-                  <a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a700000000001c">
+                  <a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a7000000000023">
                     Buy your NFTickets
                   </a>
                 </Heading>
@@ -361,7 +361,7 @@ const Hero = ({ isMobile }) => {
                   {section2 ? (
                     <Heading>
                       {" "}
-                      <a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a700000000001c">
+                      <a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a7000000000023">
                         Buy your NFTickets{" "}
                       </a>
                     </Heading>
