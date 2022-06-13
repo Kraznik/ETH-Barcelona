@@ -94,6 +94,12 @@ const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
           <Nav.Link href="#speaker" className="speaker">
             <Text>Speakers </Text>
           </Nav.Link>
+          <Nav.Link href="/speakerCard" className="speaker">
+            <Text>Speaker Card </Text>
+          </Nav.Link>
+          <Nav.Link href="/scavenger" className="speaker">
+            <Text>Scavenger </Text>
+          </Nav.Link>
 
           <Nav.Link
             href="https://www.eventbrite.com/e/ethbarcelona-tickets-344163862377?aff=ebdssbdestsearch"

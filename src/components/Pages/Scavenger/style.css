@@ -1,0 +1,23 @@
+@font-face {
+    font-family: Dahlia-C;
+    src: url(../../../Fonts/dahlia-regularcondensed.otf);
+}
+
+@font-face {
+    font-family: Dahlia-D;
+    src: url(../../../Fonts/dahlia-mediumcondensed.otf);
+}
+
+.ticketid{
+    margin-bottom: 2%;
+    width: 318px;
+height: 36px;
+left: 0px;
+padding:10px;
+background: #FFFFFF;
+border: 1px solid #F2F2F2;
+box-sizing: border-box;
+border-radius: 4px;
+
+
+}
