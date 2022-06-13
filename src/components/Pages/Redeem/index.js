@@ -207,6 +207,12 @@ const RedeemNFT = ({ account }) => {
     email: "",
   });
 
+  const [loading, setLoading] = useState({
+    isUpdating: false,
+    isBurning: false,
+    gotError: false,
+  });
+
   const [tokenOwned, setTokenOwned] = useState(false);
 
   const [ticketId, setTicketId] = useState();
@@ -218,6 +224,7 @@ const RedeemNFT = ({ account }) => {
 
   const onBurn = async (e) => {
     e.preventDefault();
+    setLoading({ ...loading, isUpdating: true });
     await saveData();
     try {
       console.log("Burning the ticket");
@@ -225,6 +232,8 @@ const RedeemNFT = ({ account }) => {
       // "0x0000000000000000000000000000000000000000";
 
       console.log("token id in dec: ", id);
+
+      setLoading({ ...loading, isBurning: true });
 
       // Loading page
       const result = await TicketToken.methods
@@ -236,6 +245,7 @@ const RedeemNFT = ({ account }) => {
 
       navigate(`/tickets/${id}/qrcode`);
     } catch (err) {
+      setLoading({ ...loading, gotError: true });
       console.error(err);
     }
   };
@@ -396,8 +406,23 @@ const RedeemNFT = ({ account }) => {
               </div>
 
               <RedeemOut>
-                <Redeem type="submit">Redeem Now</Redeem>
+                <Redeem type="submit">
+                  {loading.isUpdating || loading.isBurning ? (
+                    <span>Redeeming...</span>
+                  ) : (
+                    <span>Redeem Now</span>
+                  )}
+                </Redeem>
               </RedeemOut>
+              <div style={{ textAlign: "center" }}>
+                {loading.isUpdating ? (
+                  <span>Updating...</span>
+                ) : loading.isBurning ? (
+                  <span>Burning...</span>
+                ) : loading.gotError ? (
+                  <span style={{ color: "red" }}>Error while burning...</span>
+                ) : null}
+              </div>
             </Forum>
 
             {/* <Link onClick={() => onBurn(tid)} to={`/tickets/${tid}/qrcode`}>
