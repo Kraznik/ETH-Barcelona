@@ -62,6 +62,7 @@ import Ripio from "../../assets/Ripio.svg";
 import Aurora from "../../assets/Aurora.png";
 import S21 from "../../assets/S21.png";
 import Bankless from "../../assets/Bankless.svg";
+import CryptoPlaza from "../../assets/cryptoplaza.svg";
 
 const Container = styled.div`
   background: #f4f4f5;
@@ -601,6 +602,11 @@ const Sponsers = () => {
             <OrganizerLogo>
               <a href="https://www.thedaoist.co/">
                 <img src={DAOist} width="270px" height=" 200px"></img>
+              </a>
+            </OrganizerLogo>
+            <OrganizerLogo>
+              <a href="">
+                <img src={CryptoPlaza} width="270px" height=" 200px"></img>
               </a>
             </OrganizerLogo>
           </SilverSponserLogoContainer>
