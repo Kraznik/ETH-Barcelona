@@ -4,7 +4,9 @@ import styled from "styled-components";
 import { RedeemOut, Redeem, Title, Description } from "../Redeem";
 import "./style.css";
 
-import { useUploadArtwork } from "./functions";
+import { useWeb3React } from "@web3-react/core";
+
+import { useUploadArtwork, Claim } from "./functions";
 const { uploadFile } = useUploadArtwork();
 
 const Container = styled.div`
@@ -45,6 +47,7 @@ const Flex = styled.div`
 `;
 
 const Moments = () => {
+  const { library } = useWeb3React();
   const [AccessToken, setAccessToken] = useState();
   const [file, setFile] = useState();
 
@@ -105,7 +108,7 @@ const Moments = () => {
   const getUploadLink = async () => {
     try {
       if (file && AccessToken) {
-        await uploadFile(file, AccessToken);
+        await uploadFile(file, AccessToken, library);
       }
     } catch {}
   };
@@ -163,7 +166,7 @@ const Moments = () => {
             </RedeemOut>
 
             <RedeemOut>
-              <Redeem>Mint a Moment</Redeem>
+              <Redeem onClick={Claim}>Mint a Moment</Redeem>
             </RedeemOut>
           </Forum>
         </InputContainer>
