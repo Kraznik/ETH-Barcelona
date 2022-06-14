@@ -91,8 +91,8 @@ const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
     <div>
       <Navbar collapseOnSelect expand="lg" className="bar">
         <Container className="bar">
-          <Nav.Link href="#speaker" className="speaker">
-            <Text>Speakers </Text>
+          <Nav.Link href="/details" className="speaker">
+            <Text>Details </Text>
           </Nav.Link>
           <Nav.Link href="/speakerCard" className="speaker">
             <Text>Speaker Card </Text>

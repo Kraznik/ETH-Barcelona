@@ -20,6 +20,7 @@ import SpeakerPage from "./components/Pages/Speaker";
 import SpeakerCard from "./components/Pages/Speaker-Cards";
 import Scavenger from "./components/Pages/Scavenger";
 import QrCodeScvengerHunt from "./components/Pages/Scavenger-Hunt-QrCode";
+import ScavengerHuntDetails from "./components/Pages/Scavenger-Hunt-Details";
 
 const providerOptions = {
   walletconnect: {
@@ -209,6 +210,7 @@ const App = () => {
           <Route exact path="/speakerCard" element={<SpeakerCard />} />
           <Route exact path="/scavenger" element={<Scavenger />} />
           <Route exact path="/scavengerhuntqrcode" element={<QrCodeScvengerHunt />} />
+          <Route exact path="/details" element={<ScavengerHuntDetails/>} />
           {/* <Route
             exact
             path="/section"

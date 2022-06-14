@@ -88,7 +88,7 @@ display:inline-block;
 width:311px;
 `
 
-const Question = styled.div`
+export const Question = styled.div`
   font-size: 24px;
   font-family: "GTDB";
   font-weight: 500;
