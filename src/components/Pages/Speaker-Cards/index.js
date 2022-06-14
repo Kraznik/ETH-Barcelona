@@ -5,18 +5,18 @@ import "bootstrap/dist/css/bootstrap.css";
 import Accordion from "react-bootstrap/Accordion";
 import "./style.css";
 
-const Container = styled.div`
+export const Container = styled.div`
   background: #f6f7fb;
 `;
 
-const Banner = styled.div`
+export const Banner = styled.div`
   background-image: url(${HeaderImage});
   width: 100%;
   background-repeat: no-repeat;
   height: 111px;
 `;
 
-const Title1 = styled.div`
+export const Title1 = styled.div`
   font-family: "GT";
   font-style: normal;
   font-weight: 500;
@@ -28,7 +28,7 @@ const Title1 = styled.div`
   color: #2b2b2b;
 `;
 
-const Title2 = styled.div`
+export const Title2 = styled.div`
   font-family: "GT Flexa";
   font-style: normal;
   font-weight: 300;
@@ -53,13 +53,13 @@ const Description = styled.div`
   color: #667079;
 `;
 
-const InputContainer = styled.div`
+export const InputContainer = styled.div`
 background: #FFFFFF;
 padding: 40px 67px 0 23px;
 padding-bottom:68px;
 `;
 
-const Title3 = styled.div`
+export const Title3 = styled.div`
 font-family: 'GT';
 font-style: normal;
 font-weight: 500;
@@ -71,7 +71,7 @@ line-height: 32px;
 letter-spacing: -0.04em;
 `;
 
-const Description2 = styled.div`
+export const Description2 = styled.div`
 font-family: "GTD";
 font-style: normal;
 font-weight: 300;
@@ -83,7 +83,7 @@ text-align:left;
 color: #667079;
 `;
 
-const TikcetContainer = styled.div`
+export const TikcetContainer = styled.div`
 display:inline-block;
 width:311px;
 `
@@ -102,11 +102,11 @@ letter-spacing: -0.04em;
   }
 `;
 
-const Input = styled.div`
+export const Input = styled.div`
 float:left;
 `
 
-const Submit = styled.button`
+export const Submit = styled.button`
 width: 150px;
 height: 56px;
 display:inline-block;
@@ -117,7 +117,7 @@ margin-top:24px;
 margin-left:-15px;
 justify-content: center;
 align-items: center;
-padding: 20px 40px;
+padding: auto 40px;
 font-family: 'GT';
 font-style: normal;
 font-weight: 500;
@@ -130,7 +130,7 @@ letter-spacing: -0.01em;
 color: #FFFFFF;
 `
 
-const Footer = styled.div`
+export const Footer = styled.div`
 height: 119.3px;
 background: #2B2B2B;
 width:100%;

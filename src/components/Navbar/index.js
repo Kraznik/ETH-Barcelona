@@ -101,6 +101,10 @@ const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
             <Text>Scavenger </Text>
           </Nav.Link>
 
+          <Nav.Link href="/scavengerhuntqrcode" className="speaker">
+            <Text>QR </Text>
+          </Nav.Link>
+
           <Nav.Link
             href="https://www.eventbrite.com/e/ethbarcelona-tickets-344163862377?aff=ebdssbdestsearch"
             className="speaker"
