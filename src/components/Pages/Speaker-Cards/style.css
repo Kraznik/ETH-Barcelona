@@ -1,0 +1,42 @@
+@font-face {
+  font-family: GT Flexa;
+  src: url(../../../Fonts/GT-Flexa-X-Compressed-Light.otf);
+}
+
+@font-face {
+  font-family: GT;
+  src: url(../../../Fonts/GT-Flexa-Standard-Medium.woff);
+}
+
+@font-face {
+  font-family: GTD;
+  src: url(../../../Fonts/GT-Flexa-Standard-Light.woff);
+}
+
+@font-face {
+  font-family: GTDB;
+  src: url(../../../Fonts/GT-Flexa-Standard-Black.otf);
+}
+
+.ticketidinput {
+  margin-bottom: 2%;
+  width: 150px;
+  height: 56px;
+  left: 0px;
+  display: inline-block;
+  background: #ffffff;
+  border: 1px solid #f2f2f2;
+  box-sizing: border-box;
+  border-bottom-left-radius: 48px;
+  border-top-left-radius: 48px;
+  justify-content: center;
+align-items: center;
+padding: 20px 20px;
+left: 40px;
+}
+
+
+.reward{
+    text-align: left;
+    justify-content: left;
+}

@@ -127,7 +127,6 @@ const CircleIn = styled.div`
   transform: rotate(+6.41deg);
   height: 50px;
   padding: 5% 18% 5% 5%;
-  
   color: white;
   margin: 0 auto;
   justify-content: center;
