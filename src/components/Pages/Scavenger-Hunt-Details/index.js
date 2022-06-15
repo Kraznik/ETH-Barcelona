@@ -11,6 +11,8 @@ import H5 from "../../../assets/Hunt5.png";
 import H6 from "../../../assets/Hunt6.svg";
 import H7 from "../../../assets/Hunt7.svg";
 import H8 from "../../../assets/Hunt8.svg";
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 const Heart = styled.div`
 margin: 40px 0 20px 0 ;
@@ -27,7 +29,10 @@ const ScavengerHuntDetails = () => {
 
       <Heart>
         <LineContainer>
-            <img src={H1}></img>
+          <Popup trigger ={        <img src={H1}></img>} >
+            <div>Sancvhit</div>
+          </Popup>
+    
             <img src={H2}></img>
             <img src={H3}></img>
         </LineContainer>
