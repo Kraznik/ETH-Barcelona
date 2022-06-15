@@ -6,13 +6,15 @@ import "bootstrap/dist/css/bootstrap.css";
 import H1 from "../../../assets/Hunt1.svg";
 import H2 from "../../../assets/Hunt2.svg";
 import H3 from "../../../assets/Hunt3.svg";
-import H4 from "../../../assets/Hunt4.png";
-import H5 from "../../../assets/Hunt5.svg";
+import H4 from "../../../assets/Hunt4.svg";
+import H5 from "../../../assets/Hunt5.png";
 import H6 from "../../../assets/Hunt6.svg";
 import H7 from "../../../assets/Hunt7.svg";
 import H8 from "../../../assets/Hunt8.svg";
 
-const Heart = styled.div``
+const Heart = styled.div`
+margin: 40px 0 20px 0 ;
+`
 
 const LineContainer = styled.div``
 
