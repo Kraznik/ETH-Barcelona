@@ -32,7 +32,7 @@ import SM6 from "../../assets/M6.svg";
 import SM7 from "../../assets/M7.svg";
 import SM8 from "../../assets/M8.svg";
 import SM9 from "../../assets/M9.svg";
-import SM10 from "../../assets/M10.svg";
+import SM10 from "../../assets/SM10.svg";
 import SM11 from "../../assets/M11.svg";
 import SM12 from "../../assets/M12.svg";
 import SM13 from "../../assets/Sm13.svg";
@@ -63,6 +63,8 @@ import Aurora from "../../assets/Aurora.png";
 import S21 from "../../assets/S21.png";
 import Bankless from "../../assets/Bankless.svg";
 import CryptoPlaza from "../../assets/cryptoplaza.svg";
+import Opolis from "../../assets/Opolis.svg";
+import M17 from "../../assets/M17.svg";
 
 const Container = styled.div`
   background: #f4f4f5;
@@ -486,6 +488,11 @@ const Sponsers = () => {
                   <img src={Aurora}></img>
                 </a>
               </BronzeSponserLogo>
+              <BronzeSponserLogo>
+                <a href="">
+                  <img src={Opolis}></img>
+                </a>
+              </BronzeSponserLogo>
             </SilverSponserLogoContainer>
           </Desktop>
 
@@ -554,6 +561,11 @@ const Sponsers = () => {
               <BronzeSponserLogo>
                 <a href="">
                   <img src={S21} width="150px" height="118px"></img>
+                </a>
+              </BronzeSponserLogo>
+              <BronzeSponserLogo>
+                <a href="">
+                  <img src={M17} width="150px" height="118px"></img>
                 </a>
               </BronzeSponserLogo>
             </Mobile>

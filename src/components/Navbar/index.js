@@ -28,7 +28,7 @@ const CircleOut = styled.div`
   box-sizing: border-box;
   border: 0.8px solid #354b37;
   transform: rotate(-6.41deg);
-  width: 112px;
+  width: 142px;
   height: 50px;
   border-radius: 50%;
 
@@ -39,7 +39,7 @@ const CircleOut = styled.div`
 
 const CircleIn = styled.div`
   background: #354b37;
-  width: 112px;
+  width: 142px;
   transform: rotate(+6.41deg);
   height: 50px;
   padding: 5% 18% 5% 5%;
@@ -95,12 +95,6 @@ const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
             <Text>Speakers </Text>
           </Nav.Link>
 
-          <Nav.Link
-            href="https://www.eventbrite.com/e/ethbarcelona-tickets-344163862377?aff=ebdssbdestsearch"
-            className="speaker"
-          >
-            <Text>Eventbrite </Text>
-          </Nav.Link>
 
           <Navbar.Brand href="/" className="logo">
             <img alt="" src={Logo} className="d-inline-block align-top" />{" "}
@@ -110,7 +104,7 @@ const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
             <Nav.Link href="#faq" className="text">
               <CircleOut>
                 <a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a7000000000023">
-                  <CircleIn>Tickets</CircleIn>
+                  <CircleIn>NFTickets</CircleIn>
                 </a>
               </CircleOut>
             </Nav.Link>
@@ -121,9 +115,17 @@ const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
             <Nav className="me-auto"></Nav>
             <Nav>
 
+
               <Nav.Link href="#faq" className="text">
                 <Text>FAQ </Text>
               </Nav.Link>
+              <Nav.Link
+            href="https://www.eventbrite.com/e/ethbarcelona-tickets-344163862377?aff=ebdssbdestsearch"
+            className="speaker"
+          >
+            <Text>Eventbrite </Text>
+          </Nav.Link>
+
               <Nav.Link href="#speaker" className="speaker2">
                 <Text>Speakers </Text>
               </Nav.Link>
@@ -138,7 +140,7 @@ const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
                 <Nav.Link href="#faq" className="text">
                   <CircleOut>
                     <a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a7000000000023">
-                      <CircleIn>Tickets</CircleIn>
+                      <CircleIn>NFTickets</CircleIn>
                     </a>
                   </CircleOut>
                 </Nav.Link>
