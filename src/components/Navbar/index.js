@@ -91,35 +91,51 @@ const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
     <div>
       <Navbar collapseOnSelect expand="lg" className="bar">
         <Container className="bar">
-          <Nav.Link href="/details" className="speaker">
-            <Text>Details </Text>
-          </Nav.Link>
-          <Nav.Link href="/speakerCard" className="speaker">
-            <Text>Speaker Card </Text>
-          </Nav.Link>
-          <Nav.Link href="/scavenger" className="speaker">
-            <Text>Scavenger </Text>
+          <Nav.Link>
+            <NavLink exact to="/details/10" className="speaker">
+              <Text>Details</Text>
+            </NavLink>
           </Nav.Link>
 
-          <Nav.Link href="/scavengerhuntqrcode" className="speaker">
-            <Text>QR </Text>
+          <Nav.Link>
+            <NavLink exact to="/speakerCard" className="speaker">
+              <Text>Speaker Card </Text>
+            </NavLink>
+          </Nav.Link>
+
+          <Nav.Link>
+            <NavLink exact to="/scavenger" className="speaker">
+              <Text>Scavenger </Text>
+            </NavLink>
+          </Nav.Link>
+
+          <Nav.Link>
+            <NavLink exact to="/scavengerhuntqrcode/1" className="speaker">
+              <Text>QR </Text>
+            </NavLink>
           </Nav.Link>
 
           <Nav.Link
             href="https://www.eventbrite.com/e/ethbarcelona-tickets-344163862377?aff=ebdssbdestsearch"
+            target={"_blank"}
             className="speaker"
           >
             <Text>Eventbrite </Text>
           </Nav.Link>
 
-          <Navbar.Brand href="/" className="logo">
-            <img alt="" src={Logo} className="d-inline-block align-top" />{" "}
+          <Navbar.Brand className="logo">
+            <NavLink to="/">
+              <img alt="" src={Logo} className="d-inline-block align-top" />
+            </NavLink>
           </Navbar.Brand>
 
           <Ticket>
             <Nav.Link href="#faq" className="text">
               <CircleOut>
-                <a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a7000000000023">
+                <a
+                  href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a7000000000023"
+                  target={"_blank"}
+                >
                   <CircleIn>Tickets</CircleIn>
                 </a>
               </CircleOut>
@@ -130,7 +146,6 @@ const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto"></Nav>
             <Nav>
-
               <Nav.Link href="#faq" className="text">
                 <Text>FAQ </Text>
               </Nav.Link>

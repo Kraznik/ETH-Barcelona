@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Title1, Title2, Footer, Question } from "../Speaker-Cards";
 import Accordion from "react-bootstrap/Accordion";
@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import H1 from "../../../assets/Hunt1.svg";
 import H2 from "../../../assets/Hunt2.svg";
 import H3 from "../../../assets/Hunt3.svg";
-import H4 from "../../../assets/Hunt4.svg";
+import H4 from "../../../assets/Hunt4.png";
 import H5 from "../../../assets/Hunt5.png";
 import H6 from "../../../assets/Hunt6.svg";
 import H7 from "../../../assets/Hunt7.svg";
@@ -14,9 +14,12 @@ import H8 from "../../../assets/Hunt8.svg";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import "./style.css";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 const Heart = styled.div`
-  margin: 40px 0 20px 0;
+  /* display: grid; */
+  /* margin: 40px 0 20px 0; */
 `;
 
 const PopupContainer = styled.div`
@@ -57,7 +60,7 @@ const Clue = styled.div`
 const Close = styled.button`
   background: #ffffff;
   border-radius: 100px;
-  text--decoration: none;
+  text-decoration: none;
   border: none;
   width: 103px;
   height: 50px;
@@ -66,14 +69,120 @@ const Close = styled.button`
 
 const LineContainer = styled.div``;
 
+const GrayImage = styled.img`
+  filter: grayscale(100%);
+`;
+
+const options = {
+  headers: {
+    validate: process.env.REACT_APP_VALIDATE_TOKEN,
+  },
+};
+
 const ScavengerHuntDetails = () => {
+  const { ticketId } = useParams();
+  const [huntData, setHuntData] = useState({
+    part1: false,
+    part2: false,
+    part3: false,
+    part4: false,
+    part5: false,
+    part6: false,
+    part7: false,
+    part8: false,
+  });
+
+  const fetchDetails = async () => {
+    try {
+      const url = `http://localhost:4000/hunts/${ticketId}`;
+      const { data } = await axios.get(url, options);
+      if (data?.message === "TicketId Not found") return;
+      console.log(data?.data);
+      const { part1, part2, part3, part4, part5, part6, part7, part8 } =
+        data?.data;
+      setHuntData({ part1, part2, part3, part4, part5, part6, part7, part8 });
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    fetchDetails();
+  }, []);
+
   return (
     <>
       <Title1>DoGood</Title1>
       <Title2>SCAVENGER HUNT</Title2>
 
+      <Heart>TicketId: #{ticketId}</Heart>
+
       <Heart>
+        {huntData.part1 === "true" ? <div>1 Yes</div> : <div>1 No</div>}
+        {huntData.part2 === "true" ? <div>2 Yes</div> : <div>2 No</div>}
+        {huntData.part3 === "true" ? <div>3 Yes</div> : <div>3 No</div>}
+        {huntData.part4 === "true" ? <div>4 Yes</div> : <div>4 No</div>}
+        {huntData.part5 === "true" ? <div>5 Yes</div> : <div>5 No</div>}
+        {huntData.part6 === "true" ? <div>6 Yes</div> : <div>6 No</div>}
+        {huntData.part7 === "true" ? <div>7 Yes</div> : <div>7 No</div>}
+        {huntData.part8 === "true" ? <div>8 Yes</div> : <div>8 No</div>}
+
         <LineContainer>
+          {huntData.part1 === "true" ? (
+            <img src={H1} />
+          ) : (
+            <GrayImage src={H1} />
+          )}
+          {huntData.part2 === "true" ? (
+            <img src={H2} />
+          ) : (
+            <GrayImage src={H2} />
+          )}
+          {huntData.part3 === "true" ? (
+            <img src={H3} />
+          ) : (
+            <GrayImage src={H3} />
+          )}
+        </LineContainer>
+        <LineContainer>
+          {huntData.part4 === "true" ? (
+            <img src={H4} />
+          ) : (
+            <GrayImage src={H4} />
+          )}
+          {huntData.part5 === "true" ? (
+            <img src={H5} />
+          ) : (
+            <GrayImage src={H5} />
+          )}
+          {huntData.part6 === "true" ? (
+            <img src={H6} />
+          ) : (
+            <GrayImage src={H6} />
+          )}
+        </LineContainer>
+        <LineContainer>
+          {huntData.part7 === "true" ? (
+            <img src={H7} />
+          ) : (
+            <GrayImage src={H7} />
+          )}
+          {huntData.part8 === "true" ? (
+            <img src={H8} />
+          ) : (
+            <GrayImage src={H8} />
+          )}
+        </LineContainer>
+
+        {/* <img src={H1}></img>
+        <img src={H2}></img>
+        <img src={H3}></img>
+        <img src={H4}></img>
+        <img src={H5}></img>
+        <img src={H6}></img>
+        <img src={H7}></img>
+        <img src={H8}></img> */}
+        {/* <LineContainer>
           <Popup trigger={<img src={H1}></img>} className="popup">
             <PopupContainer>
               <Title>Clue #1</Title>
@@ -181,7 +290,7 @@ const ScavengerHuntDetails = () => {
               <Close>Close</Close>
             </PopupContainer>
           </Popup>
-        </LineContainer>
+        </LineContainer> */}
       </Heart>
 
       <Accordion>
