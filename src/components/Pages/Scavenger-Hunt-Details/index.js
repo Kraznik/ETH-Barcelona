@@ -94,7 +94,7 @@ const ScavengerHuntDetails = () => {
 
   const fetchDetails = async () => {
     try {
-      const url = `http://localhost:4000/hunts/${ticketId}`;
+      const url = `https://eth-barcelona.kraznikunderverse.com/hunts/${ticketId}`;
       const { data } = await axios.get(url, options);
       if (data?.message === "TicketId Not found") return;
       console.log(data?.data);
@@ -115,17 +115,17 @@ const ScavengerHuntDetails = () => {
       <Title1>DoGood</Title1>
       <Title2>SCAVENGER HUNT</Title2>
 
-      <Heart>TicketId: #{ticketId}</Heart>
+      {/* <Heart>TicketId: #{ticketId}</Heart> */}
 
       <Heart>
-        {huntData.part1 === "true" ? <div>1 Yes</div> : <div>1 No</div>}
+        {/* {huntData.part1 === "true" ? <div>1 Yes</div> : <div>1 No</div>}
         {huntData.part2 === "true" ? <div>2 Yes</div> : <div>2 No</div>}
         {huntData.part3 === "true" ? <div>3 Yes</div> : <div>3 No</div>}
         {huntData.part4 === "true" ? <div>4 Yes</div> : <div>4 No</div>}
         {huntData.part5 === "true" ? <div>5 Yes</div> : <div>5 No</div>}
         {huntData.part6 === "true" ? <div>6 Yes</div> : <div>6 No</div>}
         {huntData.part7 === "true" ? <div>7 Yes</div> : <div>7 No</div>}
-        {huntData.part8 === "true" ? <div>8 Yes</div> : <div>8 No</div>}
+        {huntData.part8 === "true" ? <div>8 Yes</div> : <div>8 No</div>} */}
 
         <LineContainer>
           {huntData.part1 === "true" ? (

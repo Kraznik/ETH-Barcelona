@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "eth-barcelona"
-  }
+    "default": "eth-barcelona",
+    "scav-hunt": "ethbcn-scavhunt"
+  },
+  "targets": {}
 }

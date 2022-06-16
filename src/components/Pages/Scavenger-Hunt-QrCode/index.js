@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Container,
   Banner,
@@ -59,12 +59,13 @@ const QrCodeScvengerHunt = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [message, setMessage] = useState();
+  const [scavData, setScavData] = useState();
 
   const navigate = useNavigate();
 
   const fetchAddress = async () => {
     try {
-      const url = `http://localhost:4000/getusersfromticket/${ticketId}`;
+      const url = `https://eth-barcelona.kraznikunderverse.com/getusersfromticket/${ticketId}`;
       const { data } = await axios.get(url, options);
       console.log(data);
       if (data?.message === "Ticket id not found") return "Not found";
@@ -95,7 +96,7 @@ const QrCodeScvengerHunt = () => {
 
       if (walletAddress) {
         try {
-          const url = `http://localhost:4000/mintHuntToken/${ticketId}`;
+          const url = `https://eth-barcelona.kraznikunderverse.com/mintHuntToken/${ticketId}`;
 
           if (id == 1) {
             var post_data = {
@@ -176,6 +177,20 @@ const QrCodeScvengerHunt = () => {
     setLoading(false);
   };
 
+  const fetchScavDetails = async () => {
+    try {
+      const url = `https://eth-barcelona.kraznikunderverse.com/scavengerPage/${id}`;
+      const { data } = await axios.get(url, options);
+      setScavData(data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    fetchScavDetails();
+  }, []);
+
   return (
     <>
       <Container>
@@ -185,8 +200,11 @@ const QrCodeScvengerHunt = () => {
         <Title2>SCAVENGER HUNT</Title2>
 
         <ImageContainer>
-          <img src={NFT}></img>
-          <Name>Mother Earths Renewal</Name>
+          {/* <img src={NFT}></img> */}
+          {/* <img src="https://firebasestorage.googleapis.com/v0/b/dev-eth-barcelona.appspot.com/o/ScavHunt%2F2.png?alt=media&token=26468ca2-57f4-4ea2-bd99-164004494164" />
+          <Name>Mother Earths Renewal</Name> */}
+          <img src={scavData?.image} />
+          <Name>{scavData?.name}</Name>
           {/* <Creator>
             <img src={Logo}></img>
             <Name>@creatorname</Name>
