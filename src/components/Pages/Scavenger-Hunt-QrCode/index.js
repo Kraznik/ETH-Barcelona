@@ -194,7 +194,7 @@ const QrCodeScvengerHunt = () => {
         </ImageContainer>
 
         <InputContainer>
-          <Title1>NFT 1 of 9</Title1>
+          <Title1>NFT {id} of 9</Title1>
           <TikcetContainer>
             <Input>
               <br />
