@@ -3,6 +3,7 @@ import styled from "styled-components";
 import HeaderImage from "../../../assets/Header.svg";
 import "./style.css";
 import SpeakerImage from "../../../assets/Card.png";
+import { useParams } from "react-router-dom";
 
 const Container = styled.div``;
 
@@ -142,13 +143,16 @@ const CircleIn = styled.div`
 `;
 
 const Scavenger = () => {
+  const { id } = useParams();
+
+
   return (
     <>
       <Container>
         <Header></Header>
 
         <InputContainer>
-          <Title1>SPEAKERS NFT</Title1>
+          <Title1>SPEAKERS NFT {id}</Title1>
           <Title2>ETHBarcelona</Title2>
           <ImageContainer>
             <Image>

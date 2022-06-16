@@ -14,6 +14,8 @@ import "./style.css";
 import styled from "styled-components";
 import Logo from "../../assets/logo.svg";
 import { NavLink } from "react-router-dom";
+import {useLocation } from "react-router-dom";
+
 
 const Heading = styled(NavLink)`
   color: red;
@@ -85,7 +87,26 @@ const Desktop = styled.div`
   }
 `;
 
+const withouSidebarRoutes1 = ["/scavenger"];
+const withouSidebarRoutes2 = ["/speakerCard"];
+const withouSidebarRoutes3 = ["/details"];
+
+
+
 const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
+
+
+  // Validates if the current pathname includes one the routes you want to hide the sidebar is present on the current url
+ // If that's true render null instead of the side
+
+ const { pathname } = useLocation();
+  if (withouSidebarRoutes1.some((item) => pathname.includes(item))) return null;
+  if (withouSidebarRoutes2.some((item) => pathname.includes(item))) return null;
+  if (withouSidebarRoutes3.some((item) => pathname.includes(item))) return null;
+
+
+  
+
   // const userAddress = `${account.slice(0, 4)}....${account.slice(-4)}`;
   return (
     <div>
