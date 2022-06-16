@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { Title1, Title2, Footer, Question } from "../Speaker-Cards";
+import { Title1, Title2, Footer, Question, Banner } from "../Speaker-Cards";
 import Accordion from "react-bootstrap/Accordion";
 import "bootstrap/dist/css/bootstrap.css";
 import H1 from "../../../assets/Hunt1.svg";
 import H2 from "../../../assets/Hunt2.svg";
 import H3 from "../../../assets/Hunt3.svg";
-import H4 from "../../../assets/Hunt4.png";
+import H4 from "../../../assets/Hunt4.jpeg";
 import H5 from "../../../assets/Hunt5.png";
 import H6 from "../../../assets/Hunt6.svg";
 import H7 from "../../../assets/Hunt7.svg";
@@ -112,6 +112,7 @@ const ScavengerHuntDetails = () => {
 
   return (
     <>
+      <Banner></Banner>
       <Title1>DoGood</Title1>
       <Title2>SCAVENGER HUNT</Title2>
 
@@ -131,46 +132,134 @@ const ScavengerHuntDetails = () => {
           {huntData.part1 === "true" ? (
             <img src={H1} />
           ) : (
-            <GrayImage src={H1} />
+            <Popup trigger={<GrayImage src={H1} />}>
+              <PopupContainer>
+                <Title>Clue #4</Title>
+                <Clue>
+                  “You need food to keep your body running. Go to the place
+                  where you go to get it!" <br />
+                  <br />
+                  NFTs Editions: 1111
+                </Clue>
+                <Close>Close</Close>
+              </PopupContainer>
+            </Popup>
           )}
           {huntData.part2 === "true" ? (
             <img src={H2} />
           ) : (
-            <GrayImage src={H2} />
+            <Popup trigger={<GrayImage src={H2} />}>
+              <PopupContainer>
+                <Title>Clue #4</Title>
+                <Clue>
+                  “You need food to keep your body running. Go to the place
+                  where you go to get it!" <br />
+                  <br />
+                  NFTs Editions: 1111
+                </Clue>
+                <Close>Close</Close>
+              </PopupContainer>
+            </Popup>
           )}
           {huntData.part3 === "true" ? (
             <img src={H3} />
           ) : (
-            <GrayImage src={H3} />
+            <Popup trigger={<GrayImage src={H3} />}>
+              <PopupContainer>
+                <Title>Clue #4</Title>
+                <Clue>
+                  “You need food to keep your body running. Go to the place
+                  where you go to get it!" <br />
+                  <br />
+                  NFTs Editions: 1111
+                </Clue>
+                <Close>Close</Close>
+              </PopupContainer>
+            </Popup>
           )}
         </LineContainer>
         <LineContainer>
           {huntData.part4 === "true" ? (
             <img src={H4} />
           ) : (
-            <GrayImage src={H4} />
+            <Popup trigger={<GrayImage src={H4} />}>
+              <PopupContainer>
+                <Title>Clue #4</Title>
+                <Clue>
+                  “You need food to keep your body running. Go to the place
+                  where you go to get it!" <br />
+                  <br />
+                  NFTs Editions: 1111
+                </Clue>
+                <Close>Close</Close>
+              </PopupContainer>
+            </Popup>
           )}
           {huntData.part5 === "true" ? (
             <img src={H5} />
           ) : (
-            <GrayImage src={H5} />
+            <Popup trigger={<GrayImage src={H5} />}>
+              <PopupContainer>
+                <Title>Clue #4</Title>
+                <Clue>
+                  “You need food to keep your body running. Go to the place
+                  where you go to get it!" <br />
+                  <br />
+                  NFTs Editions: 1111
+                </Clue>
+                <Close>Close</Close>
+              </PopupContainer>
+            </Popup>
           )}
           {huntData.part6 === "true" ? (
             <img src={H6} />
           ) : (
-            <GrayImage src={H6} />
+            <Popup trigger={<GrayImage src={H6} />}>
+              <PopupContainer>
+                <Title>Clue #4</Title>
+                <Clue>
+                  “You need food to keep your body running. Go to the place
+                  where you go to get it!" <br />
+                  <br />
+                  NFTs Editions: 1111
+                </Clue>
+                <Close>Close</Close>
+              </PopupContainer>
+            </Popup>
           )}
         </LineContainer>
         <LineContainer>
           {huntData.part7 === "true" ? (
             <img src={H7} />
           ) : (
-            <GrayImage src={H7} />
+            <Popup trigger={<GrayImage src={H7} />}>
+              <PopupContainer>
+                <Title>Clue #4</Title>
+                <Clue>
+                  “You need food to keep your body running. Go to the place
+                  where you go to get it!" <br />
+                  <br />
+                  NFTs Editions: 1111
+                </Clue>
+                <Close>Close</Close>
+              </PopupContainer>
+            </Popup>
           )}
           {huntData.part8 === "true" ? (
             <img src={H8} />
           ) : (
-            <GrayImage src={H8} />
+            <Popup trigger={<GrayImage src={H8} />}>
+              <PopupContainer>
+                <Title>Clue #4</Title>
+                <Clue>
+                  “You need food to keep your body running. Go to the place
+                  where you go to get it!" <br />
+                  <br />
+                  NFTs Editions: 1111
+                </Clue>
+                <Close>Close</Close>
+              </PopupContainer>
+            </Popup>
           )}
         </LineContainer>
 
