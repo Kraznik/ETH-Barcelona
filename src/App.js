@@ -102,6 +102,22 @@ const App = () => {
     } catch {}
   }, [chainId]);
 
+  const getCollections = async () => {
+    try {
+      const url = `https://eth-barcelona.kraznikunderverse.com/collection`;
+      const { data } = await axios.get(url, {
+        headers: {
+          validate: process.env.REACT_APP_VALIDATE_TOKEN,
+        },
+      });
+      console.log("data: ", data?.data);
+      const collections = data.data;
+      return collections;
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   const checkForUnredeemedTickets = async () => {
     try {
       const url = `https://api-main.doingud.work/creation/nft?owner=${account}`;
@@ -109,11 +125,13 @@ const App = () => {
 
       // if (data.items.length > 0) setHaveTokens(true);
 
-      const ethBcnNftTypeId1 =
-        "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000004";
+      const collections = await getCollections();
 
-      const ethBcnNftTypeId2 =
-        "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000005";
+      // const ethBcnNftTypeId1 =
+      //   "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000004";
+
+      // const ethBcnNftTypeId2 =
+      //   "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000005";
 
       const orgNftTypeId =
         "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000006";
@@ -123,15 +141,22 @@ const App = () => {
 
       data.items.map((token) => {
         if (ticketFound && orgFound) return;
-        if (
-          token.typeId === ethBcnNftTypeId1 ||
-          token.typeId === ethBcnNftTypeId2
-        ) {
-          // console.log("type id matched");
-          setHaveTokens(true);
-          ticketFound = true;
-          // return;
-        }
+
+        collections.map((collection) => {
+          if (token.typeId === collection.nftTypeId) {
+            setHaveTokens(true);
+            ticketFound = true;
+          }
+        });
+        // if (
+        //   token.typeId === ethBcnNftTypeId1 ||
+        //   token.typeId === ethBcnNftTypeId2
+        // ) {
+        //   // console.log("type id matched");
+        //   setHaveTokens(true);
+        //   ticketFound = true;
+        //   // return;
+        // }
 
         if (token.typeId === orgNftTypeId) {
           setIsOrganizer(true);
