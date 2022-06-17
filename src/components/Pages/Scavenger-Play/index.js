@@ -137,7 +137,7 @@ export const Footer = styled.div`
   width: 100%;
 `;
 
-const SpeakerCard = () => {
+const ScavengerPlay = () => {
   const [ticketId, setTicketId] = useState();
   const navigate = useNavigate();
   return (
@@ -210,4 +210,4 @@ const SpeakerCard = () => {
   );
 };
 
-export default SpeakerCard;
+export default ScavengerPlay;

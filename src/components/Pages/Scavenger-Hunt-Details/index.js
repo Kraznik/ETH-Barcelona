@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { Title1, Title2, Footer, Question, Banner } from "../Speaker-Cards";
+import { Title1, Title2, Footer, Question, Banner } from "../Scavenger-Play";
 import Accordion from "react-bootstrap/Accordion";
 import "bootstrap/dist/css/bootstrap.css";
 import H1 from "../../../assets/Hunt1.svg";
@@ -262,124 +262,6 @@ const ScavengerHuntDetails = () => {
             </Popup>
           )}
         </LineContainer>
-
-        {/* <img src={H1}></img>
-        <img src={H2}></img>
-        <img src={H3}></img>
-        <img src={H4}></img>
-        <img src={H5}></img>
-        <img src={H6}></img>
-        <img src={H7}></img>
-        <img src={H8}></img> */}
-        {/* <LineContainer>
-          <Popup trigger={<img src={H1}></img>} className="popup">
-            <PopupContainer>
-              <Title>Clue #1</Title>
-              <Clue>
-                “You need food to keep your body running. Go to the place where
-                you go to get it!" <br />
-                <br />
-                NFTs Editions: 1111
-              </Clue>
-              <Close>Close</Close>
-            </PopupContainer>
-          </Popup>
-
-          <Popup trigger={<img src={H2}></img>} className="popup">
-            <PopupContainer>
-              <Title>Clue #2</Title>
-              <Clue>
-                “You need food to keep your body running. Go to the place where
-                you go to get it!" <br />
-                <br />
-                NFTs Editions: 1111
-              </Clue>
-              <Close>Close</Close>
-            </PopupContainer>
-          </Popup>
-
-          <Popup trigger={<img src={H3}></img>} className="popup">
-            <PopupContainer>
-              <Title>Clue #3</Title>
-              <Clue>
-                “You need food to keep your body running. Go to the place where
-                you go to get it!" <br />
-                <br />
-                NFTs Editions: 1111
-              </Clue>
-              <Close>Close</Close>
-            </PopupContainer>
-          </Popup>
-        </LineContainer>
-
-        <LineContainer>
-          <Popup trigger={<img src={H4}></img>} className="popup">
-            <PopupContainer>
-              <Title>Clue #4</Title>
-              <Clue>
-                “You need food to keep your body running. Go to the place where
-                you go to get it!" <br />
-                <br />
-                NFTs Editions: 1111
-              </Clue>
-              <Close>Close</Close>
-            </PopupContainer>
-          </Popup>
-
-          <Popup trigger={<img src={H5}></img>} className="popup">
-            <PopupContainer>
-              <Title>Clue #5</Title>
-              <Clue>
-                “You need food to keep your body running. Go to the place where
-                you go to get it!" <br />
-                <br />
-                NFTs Editions: 1111
-              </Clue>
-              <Close>Close</Close>
-            </PopupContainer>
-          </Popup>
-
-          <Popup trigger={<img src={H6}></img>} className="popup">
-            <PopupContainer>
-              <Title>Clue #6</Title>
-              <Clue>
-                “You need food to keep your body running. Go to the place where
-                you go to get it!" <br />
-                <br />
-                NFTs Editions: 333
-              </Clue>
-              <Close>Close</Close>
-            </PopupContainer>
-          </Popup>
-        </LineContainer>
-
-        <LineContainer>
-          <Popup trigger={<img src={H7}></img>} className="popup">
-            <PopupContainer>
-              <Title>Clue #7</Title>
-              <Clue>
-                “You need food to keep your body running. Go to the place where
-                you go to get it!" <br />
-                <br />
-                NFTs Editions: 333
-              </Clue>
-              <Close>Close</Close>
-            </PopupContainer>
-          </Popup>
-
-          <Popup trigger={<img src={H8}></img>} className="popup">
-            <PopupContainer>
-              <Title>Clue #8</Title>
-              <Clue>
-                “You need food to keep your body running. Go to the place where
-                you go to get it!" <br />
-                <br />
-                NFTs Editions: 333
-              </Clue>
-              <Close>Close</Close>
-            </PopupContainer>
-          </Popup>
-        </LineContainer> */}
       </Heart>
 
       <Accordion>

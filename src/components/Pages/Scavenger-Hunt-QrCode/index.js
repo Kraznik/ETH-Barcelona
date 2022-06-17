@@ -11,11 +11,11 @@ import {
   Input,
   Submit,
   TikcetContainer,
-} from "../../Pages/Speaker-Cards";
+} from "../../Pages/Scavenger-Play";
 import styled from "styled-components";
 import NFT from "../../../assets/NFT.svg";
 import Logo from "../../../assets/NftLogo.svg";
-import { useNavigate, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 const ImageContainer = styled.div`
@@ -63,7 +63,7 @@ const QrCodeScvengerHunt = () => {
 
   const navigate = useNavigate();
 
-  const fetchAddress = async () => {
+  const fetchWalletAddress = async () => {
     try {
       const url = `https://eth-barcelona.kraznikunderverse.com/getusersfromticket/${ticketId}`;
       const { data } = await axios.get(url, options);
@@ -86,7 +86,7 @@ const QrCodeScvengerHunt = () => {
         setMessage("Ticket Id does not exist.");
         return;
       }
-      var walletAddress = await fetchAddress();
+      var walletAddress = await fetchWalletAddress();
       console.log("wallet address: ", walletAddress);
       if (walletAddress === "Not found") {
         setMessage("Ticket Id not redeemed");
@@ -154,10 +154,10 @@ const QrCodeScvengerHunt = () => {
 
           setLoading(false);
 
-          setTimeout(
-            navigate(`/details/${ticketId}`, { replace: true }),
-            3000000
-          );
+          // setTimeout(
+          //   navigate(`/details/${ticketId}`, { replace: true }),
+          //   3000000
+          // );
 
           //
         } catch (err) {
@@ -166,10 +166,10 @@ const QrCodeScvengerHunt = () => {
 
           if (err?.response?.data?.message === "Already minted this part") {
             setAlreadyClaimed(true);
-            setTimeout(
-              navigate(`/details/${ticketId}`, { replace: true }),
-              30000
-            );
+            // setTimeout(
+            //   navigate(`/details/${ticketId}`, { replace: true }),
+            //   30000
+            // );
           } else setError(true);
         }
       }
@@ -234,9 +234,19 @@ const QrCodeScvengerHunt = () => {
         {message ? <Name>{message}</Name> : null}
 
         {success ? (
-          <Name>Successfully Claimed!!</Name>
+          <>
+            <Name>Successfully Claimed ;)</Name>
+            <NavLink to={`/details/${ticketId}`}>
+              View your heart here ->
+            </NavLink>
+          </>
         ) : alreadyClaimed ? (
-          <Name>Have already Claimed!!</Name>
+          <>
+            <Name>Have already Claimed!!</Name>
+            <NavLink to={`/details/${ticketId}`}>
+              View your heart here ->
+            </NavLink>
+          </>
         ) : null}
 
         {error ? (

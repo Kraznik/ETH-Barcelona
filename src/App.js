@@ -17,10 +17,11 @@ import RedeemNFT from "./components/Pages/Redeem";
 import Landing from "./components/Pages/LandingPage";
 import Navbars from "./components/Navbar";
 import SpeakerPage from "./components/Pages/Speaker";
-import SpeakerCard from "./components/Pages/Speaker-Cards";
-import Scavenger from "./components/Pages/Scavenger";
+import ScavengerPlay from "./components/Pages/Scavenger-Play";
+import SpeakerClaim from "./components/Pages/Speaker-Claim";
 import QrCodeScvengerHunt from "./components/Pages/Scavenger-Hunt-QrCode";
 import ScavengerHuntDetails from "./components/Pages/Scavenger-Hunt-Details";
+import SpeakersClaimed from "./components/Pages/SpeakersClaimed";
 
 const providerOptions = {
   walletconnect: {
@@ -206,10 +207,15 @@ const App = () => {
         />
         <Routes>
           <Route exact path="/" element={<Landing isMobile={isMobile} />} />
-          <Route exact path="/speaker" element={<SpeakerPage></SpeakerPage>} />
-          <Route exact path="/speakerCard" element={<Scavenger />} />
+          <Route exact path="/speakers" element={<SpeakerPage></SpeakerPage>} />
+          <Route
+            exact
+            path="/speakers/:ticketId"
+            element={<SpeakersClaimed />}
+          />
+          <Route exact path="/speakerCard/:id" element={<SpeakerClaim />} />
           {/* //done */}
-          <Route exact path="/scavenger" element={<SpeakerCard />} /> 
+          <Route exact path="/scavenger" element={<ScavengerPlay />} />
           <Route
             exact
             path="/scavengerhuntqrcode/:id"

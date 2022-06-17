@@ -27,23 +27,21 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.div`
-font-family: 'Dahliac';
-font-style: normal;
-font-weight: 400;
-margin: 0 25px;
-display:flex;
-border-bottom: 1px solid #354B37;
-font-size: 96px;
-line-height: 100px
-align-items:left;
-justify-content:left;
+  font-family: "Dahliac";
+  font-style: normal;
+  font-weight: 400;
+  margin: 0 25px;
+  display: flex;
+  border-bottom: 1px solid #354b37;
+  font-size: 96px;
+  line-height: 100px;
+  align-items: left;
+  justify-content: left;
+  color: #354b37;
 
-
-color: #354B37;
-
-@media (max-width: 700px) {
-    padding:0;
-    margin:0;
+  @media (max-width: 700px) {
+    padding: 0;
+    margin: 0;
     font-size: 56px;
   }
 `;
@@ -279,7 +277,11 @@ const Speakers = () => {
         </Box>
       </Container>
       <Footer>
-        <Name><a href="/speaker" className="speaker">Full Speaker List <span> &#8594; </span></a></Name>
+        <Name>
+          <a href="/speakers" className="speaker">
+            Full Speaker List <span> &#8594; </span>
+          </a>
+        </Name>
       </Footer>
     </>
   );
