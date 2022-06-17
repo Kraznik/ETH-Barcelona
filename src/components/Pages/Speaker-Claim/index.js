@@ -210,7 +210,7 @@ const SpeakerClaim = () => {
       if (walletAddress) {
         try {
           // const url = `https://eth-barcelona.kraznikunderverse.com/mintSpeakersNft/${ticketId}`;
-          const url = `http://localhost:4000/mintSpeakerNft/${ticketId}`;
+          const url = `https://eth-barcelona.kraznikunderverse.com/mintSpeakerNft/${ticketId}`;
 
           if (id == 1) {
             var post_data = {

@@ -14,7 +14,7 @@ const SpeakersClaimed = () => {
 
   const fetchUserSpeakerDetails = async () => {
     try {
-      const url = `http://localhost:4000/speakers/${ticketId}`;
+      const url = `https://eth-barcelona.kraznikunderverse.com/speakers/${ticketId}`;
       const { data } = await axios.get(url, options);
       const speakers = data.data;
 
