@@ -61,10 +61,21 @@ import Skill from "../../assets/SM20.svg";
 import Ripio from "../../assets/Ripio.svg";
 import Aurora from "../../assets/Aurora.png";
 import S21 from "../../assets/S21.png";
+import SM21 from "../../assets/SM21.svg";
 import Bankless from "../../assets/Bankless.svg";
 import CryptoPlaza from "../../assets/cryptoplaza.svg";
 import Opolis from "../../assets/Opolis.svg";
 import M17 from "../../assets/M17.svg";
+import IOSG from "../../assets/IOSG.png";
+import Aut from "../../assets/Aut.svg";
+import Attestant from "../../assets/Attestant.svg";
+import Metamask from "../../assets/Metamask.svg";
+import Locastic from "../../assets/Locastic.svg";
+import SM22 from "../../assets/SM22.svg";
+import SM23 from "../../assets/SM23.svg";
+import Rungie from "../../assets/Rungie.svg";
+import Win from "../../assets/Win.svg";
+import WC from "../../assets/WC.svg";
 
 const Container = styled.div`
   background: #f4f4f5;
@@ -366,6 +377,23 @@ const Sponsers = () => {
                   <img src={SkillWallet}></img>
                 </a>{" "}
               </SilverSponserLogo>
+              <SilverSponserLogo>
+                <a href="https://neon-labs.org/">
+                  <img src={Neon}></img>
+                </a>{" "}
+              </SilverSponserLogo>
+              <SilverSponserLogo>
+                <a href="">
+                  <img src={Aut}></img>
+                </a>{" "}
+              </SilverSponserLogo>
+            </SilverSponserLogoContainer>
+            <SilverSponserLogoContainer>
+              <SilverSponserLogo>
+                <a href="https://metamask.io/">
+                  <img src={Metamask}></img>
+                </a>{" "}
+              </SilverSponserLogo>
             </SilverSponserLogoContainer>
           </Desktop>
 
@@ -411,6 +439,21 @@ const Sponsers = () => {
                   <img src={Skill} width="150px" height="118px"></img>
                 </a>{" "}
               </SilverSponserLogoM>
+              <SilverSponserLogoM>
+                <a href="https://neon-labs.org/">
+                  <img src={Neon} width="150px" height="118px"></img>
+                </a>{" "}
+              </SilverSponserLogoM>
+              <SilverSponserLogoM>
+                <a href="">
+                  <img src={Aut} width="150px" height="118px"></img>
+                </a>{" "}
+              </SilverSponserLogoM>
+              <SilverSponserLogoM>
+                <a href="">
+                  <img src={Metamask} width="150px" height="118px"></img>
+                </a>{" "}
+              </SilverSponserLogoM>
             </SilverSponserLogoContainer>
           </Mobile>
         </SilverSponserContainer>
@@ -420,8 +463,8 @@ const Sponsers = () => {
           <Desktop>
             <SilverSponserLogoContainer>
               <BronzeSponserLogo>
-                <a href="https://t.co/ekKJoVsf4s">
-                  <img src={Neon}></img>
+                <a href="https://iosg.vc/">
+                  <img src={IOSG}></img>
                 </a>
               </BronzeSponserLogo>
               <BronzeSponserLogo>
@@ -451,7 +494,7 @@ const Sponsers = () => {
               </BronzeSponserLogo>
             </SilverSponserLogoContainer>
             <SilverSponserLogoContainer>
-            <BronzeSponserLogo>
+              <BronzeSponserLogo>
                 <a href="https://www.degate.com/">
                   <img src={Degate}></img>
                 </a>
@@ -483,7 +526,7 @@ const Sponsers = () => {
               </BronzeSponserLogo>
             </SilverSponserLogoContainer>
             <SilverSponserLogoContainer>
-            <BronzeSponserLogo>
+              <BronzeSponserLogo>
                 <a href="">
                   <img src={Aurora}></img>
                 </a>
@@ -493,13 +536,28 @@ const Sponsers = () => {
                   <img src={Opolis}></img>
                 </a>
               </BronzeSponserLogo>
+              <BronzeSponserLogo>
+                <a href="https://www.attestant.io/">
+                  <img src={Attestant}></img>
+                </a>
+              </BronzeSponserLogo>
+              <BronzeSponserLogo>
+                <a href="https://locastic.com/">
+                  <img src={Locastic}></img>
+                </a>
+              </BronzeSponserLogo>
+              <BronzeSponserLogo>
+                <a href="https://locastic.com/">
+                  <img src={Rungie}></img>
+                </a>
+              </BronzeSponserLogo>
             </SilverSponserLogoContainer>
           </Desktop>
 
           <SilverSponserLogoContainer>
             <Mobile>
-            <BronzeSponserLogo>
-                <a href="https://t.co/ekKJoVsf4s">
+              <BronzeSponserLogo>
+                <a href="https://iosg.vc/">
                   <img src={SM19} width="150px" height="118px"></img>
                 </a>
               </BronzeSponserLogo>
@@ -568,6 +626,21 @@ const Sponsers = () => {
                   <img src={M17} width="150px" height="118px"></img>
                 </a>
               </BronzeSponserLogo>
+              <BronzeSponserLogo>
+                <a href="https://www.attestant.io/">
+                  <img src={SM21} width="150px" height="118px"></img>
+                </a>
+              </BronzeSponserLogo>
+              <BronzeSponserLogo>
+                <a href="https://locastic.com/">
+                  <img src={SM22} width="150px" height="118px"></img>
+                </a>
+              </BronzeSponserLogo>
+              <BronzeSponserLogo>
+                <a href="https://locastic.com/">
+                  <img src={SM23} width="150px" height="118px"></img>
+                </a>
+              </BronzeSponserLogo>
             </Mobile>
           </SilverSponserLogoContainer>
         </BronzeSponserContainer>
@@ -622,6 +695,14 @@ const Sponsers = () => {
               </a>
             </OrganizerLogo>
           </SilverSponserLogoContainer>
+          <SilverSponserLogoContainer>
+          <OrganizerLogo>
+              <a href="">
+                <img src={WC} width="270px" height=" 200px"></img>
+              </a>
+            </OrganizerLogo>
+
+          </SilverSponserLogoContainer>
         </SilverSponserContainer>
 
         <BronzeSponserContainer>
@@ -660,8 +741,21 @@ const Sponsers = () => {
               </a>
             </GoldSponserLogo>
           </GoldSponserLogoContainer>
-
         </BronzeSponserContainer>
+
+        <BronzeSponserContainer>
+          <GoldSponserTitle>Accomodation Partners</GoldSponserTitle>
+          <GoldSponserLogoContainer>
+            <GoldSponserLogo>
+              <a href="https://win.so/">
+                <img src={Win}></img>
+              </a>
+            </GoldSponserLogo>
+
+          </GoldSponserLogoContainer>
+        </BronzeSponserContainer>
+       
+
       </Container>
     </>
   );

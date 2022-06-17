@@ -145,7 +145,6 @@ export const Footer = styled.div`
   background: #f4f4f5;
 
   @media (max-width: 700px) {
-    padding: 20px;
     margin: 0;
     justify-content: center;
   }

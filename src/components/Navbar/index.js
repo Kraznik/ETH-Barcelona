@@ -70,6 +70,7 @@ const Text = styled.div`
 `;
 
 const Ticket = styled.div`
+margin-right:-10px;
   @media screen and (min-width: 900px) {
     display: none;
   }
@@ -80,6 +81,7 @@ const Ticket = styled.div`
 `;
 
 const Desktop = styled.div`
+
   @media screen and (max-width: 900px) {
     display: none;
   }
