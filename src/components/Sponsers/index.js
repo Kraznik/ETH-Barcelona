@@ -547,7 +547,7 @@ const Sponsers = () => {
                 </a>
               </BronzeSponserLogo>
               <BronzeSponserLogo>
-                <a href="https://locastic.com/">
+                <a href="https://rungie.io/">
                   <img src={Rungie}></img>
                 </a>
               </BronzeSponserLogo>
@@ -637,7 +637,7 @@ const Sponsers = () => {
                 </a>
               </BronzeSponserLogo>
               <BronzeSponserLogo>
-                <a href="https://locastic.com/">
+                <a href="https://rungie.io/">
                   <img src={SM23} width="150px" height="118px"></img>
                 </a>
               </BronzeSponserLogo>
