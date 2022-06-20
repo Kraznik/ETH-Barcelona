@@ -559,7 +559,14 @@ exports.main = async function (signer, recipient, contractAddress, payload) {
     }&key=ckey_9f2ed5152bcb4eb1a8dbc4cf854`;
 
     const { data } = await axios.get(url_get);
-    const token_id = data.data.items[0].decoded.params[3].value;
+    const items = data.data.items;
+    let token_id;
+    await items.map((item) => {
+      if (item.decoded.params) {
+        token_id = item.decoded.params[3].value;
+      }
+    });
+    // const token_id = data.data.items[0].decoded.params[3].value;
     console.log("token id: ", token_id);
 
     const url = "https://eth-barcelona.kraznikunderverse.com/qrcode";
