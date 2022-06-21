@@ -12,7 +12,10 @@ export const Title = styled.div`
 
   color: #424242;
 `;
-
+export const Container = styled.div`
+padding: 10% 0;
+background: #f4f4f5;
+`
 export const Description = styled.div`
   font-style: normal;
   font-weight: 400;
@@ -37,6 +40,7 @@ export const Bold = styled.div`
 const Terms = () => {
   return (
     <>
+    <Container>
       <Title>Tickets & Visitors Terms and Conditions </Title>
       <br />
       <Description>
@@ -1189,6 +1193,7 @@ const Terms = () => {
         Conference should be addressed to the customer service appointed by us
         through: hello@ethbarcelona.com.
       </Description>
+      </Container>
     </>
   );
 };

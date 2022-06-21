@@ -87,7 +87,22 @@ const Desktop = styled.div`
   }
 `;
 
+// const withouSidebarRoutes4 = ["/"];
+// const withouSidebarRoutes5 = ["/"];
+
+
+
+  // Validates if the current pathname includes one the routes you want to hide the sidebar is present on the current url
+ // If that's true render null instead of the side
+
+
+
+
 const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
+
+  // const { pathname } = useLocation();
+  // if (withouSidebarRoutes4.some((item) => pathname.includes(item))) return null;
+  // if (withouSidebarRoutes5.some((item) => pathname.includes(item))) return null;
   // const userAddress = `${account.slice(0, 4)}....${account.slice(-4)}`;
   return (
     <div>
