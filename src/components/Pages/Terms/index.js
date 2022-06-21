@@ -13,7 +13,7 @@ export const Title = styled.div`
   color: #424242;
 `;
 export const Container = styled.div`
-padding: 10% 0;
+padding: 3% 0;
 background: #f4f4f5;
 `
 export const Description = styled.div`
