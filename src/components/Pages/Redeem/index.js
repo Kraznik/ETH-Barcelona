@@ -205,9 +205,12 @@ export const Redeem = styled.button`
 const RedeemNFT = ({ account }) => {
   const { library } = useWeb3React();
 
-  useEffect(() => {
+  const setWeb3Provider = async () => {
     console.log("setting provider: ", library?._provider);
-    web3.setProvider(library?._provider);
+    await web3.setProvider(library?._provider);
+  };
+  useEffect(() => {
+    setWeb3Provider();
   }, [account]);
 
   const [user, setUser] = useState({
