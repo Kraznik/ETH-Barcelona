@@ -76,6 +76,8 @@ import SM23 from "../../assets/SM23.svg";
 import Rungie from "../../assets/Rungie.svg";
 import Win from "../../assets/Win.svg";
 import WC from "../../assets/WC.svg";
+import Toucan from "../../assets/Toucan.svg";
+import SM24 from "../../assets/SM24.svg";
 
 const Container = styled.div`
   background: #f4f4f5;
@@ -551,6 +553,11 @@ const Sponsers = () => {
                   <img src={Rungie}></img>
                 </a>
               </BronzeSponserLogo>
+              <BronzeSponserLogo>
+                <a href="https://toucan.earth/">
+                  <img src={Toucan}></img>
+                </a>
+              </BronzeSponserLogo>
             </SilverSponserLogoContainer>
           </Desktop>
 
@@ -639,6 +646,11 @@ const Sponsers = () => {
               <BronzeSponserLogo>
                 <a href="https://rungie.io/">
                   <img src={SM23} width="150px" height="118px"></img>
+                </a>
+              </BronzeSponserLogo>
+              <BronzeSponserLogo>
+                <a href="https://toucan.earth/">
+                  <img src={SM24} width="150px" height="118px"></img>
                 </a>
               </BronzeSponserLogo>
             </Mobile>
