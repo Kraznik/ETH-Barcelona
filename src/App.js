@@ -205,8 +205,8 @@ const App = () => {
         <Routes>
           <Route exact path="/" element={<Landing isMobile={isMobile} />} />
           <Route exact path="/speaker" element={<SpeakerPage></SpeakerPage>} />
-          <Route exact path="/Toc" element={<Terms />} />
-          <Route exact path="/pp" element={<Privacy />} />
+          <Route exact path="/terms-and-conditions" element={<Terms />} />
+          <Route exact path="/privacy-policy" element={<Privacy />} />
 
           {/* <Route
             exact

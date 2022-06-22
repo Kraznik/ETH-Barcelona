@@ -137,13 +137,13 @@ const Footer = () => {
           {/* <Text> Privacy Policy</Text> */}
           <Text>
             {" "}
-            <a href="/Toc">
+            <a href="/terms-and-conditions">
               Tickets and Visitors Terms and Conditions{" "}
             </a>
           </Text>
           <Text>
             {" "}
-            <a href="/pp">
+            <a href="/privacy-policy">
               Privacy Policy{" "}
             </a>
           </Text>
