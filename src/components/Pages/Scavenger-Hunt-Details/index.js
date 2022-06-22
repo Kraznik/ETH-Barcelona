@@ -11,6 +11,9 @@ import H5 from "../../../assets/Hunt5.png";
 import H6 from "../../../assets/Hunt6.svg";
 import H7 from "../../../assets/Hunt7.svg";
 import H8 from "../../../assets/Hunt8.svg";
+import DoinGud from "../../../assets/FooterDG.svg";
+import Twitter from "../../../assets/Twitter.svg";
+import Instagram from "../../../assets/Insta.svg";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import "./style.css";
@@ -287,7 +290,14 @@ const ScavengerHuntDetails = () => {
         </Accordion.Item>
       </Accordion>
 
-      <Footer></Footer>
+      <Footer>
+        <div className="ft">
+          <img src={DoinGud} className="dg"></img>
+          <img src={Instagram} className="social"></img>
+          <img src={Twitter} className="social"></img>
+        </div>
+        <p className="rights"> © DoinGud. All Right Reserved. </p>
+      </Footer>
     </>
   );
 };

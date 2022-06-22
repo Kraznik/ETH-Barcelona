@@ -40,3 +40,35 @@ left: 40px;
     text-align: left;
     justify-content: left;
 }
+
+.rights{
+  font-family: 'GT';
+font-style: normal;
+font-weight: 300;
+font-size: 16px;
+line-height: 16px;
+letter-spacing: -0.05em;
+color: #878787;
+margin: 20px 0 0 0 ;
+text-align: left;
+}
+
+.dg{
+  justify-content: left;
+  float: left;
+
+}
+
+.social{
+  justify-content: center;
+  margin-right: 18px;
+  float: right;
+  align-items: center;
+  margin: 17px 15px ;
+
+}
+
+.ft{
+
+height: 23.3px;
+}
