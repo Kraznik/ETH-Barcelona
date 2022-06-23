@@ -3,5 +3,6 @@ build
 .firebase
 .env
 
+build
 
-defender/autotask2.js
+defender

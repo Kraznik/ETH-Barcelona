@@ -57,6 +57,7 @@ color: #354B37;
 }
 .logo{
     align-items: center;
+    margin-left: 40%;
 }
 
 @media  screen and (max-width:700px) {
@@ -65,6 +66,9 @@ color: #354B37;
     }
 
     .text1{
+        display: none;
+    }
+    .speaker{
         display: none;
     }
 
@@ -79,6 +83,12 @@ color: #354B37;
     .section{
         display: none;
     }
+
+    .speaker2{
+        display: none;
+    }
+
+
     
 }
 
@@ -115,3 +125,36 @@ color: #354B37;
    margin: 80px 0 0 8px;
 }
 
+.speaker{
+
+        font-family: 'Dahlia';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 32px;
+    /* identical to box height, or 160% */
+    text-align: right;
+    letter-spacing: 1px;
+    color: #354B37;
+    color: #354B37;
+    
+    
+
+}
+
+.speaker2{
+
+    font-family: 'Dahlia';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 32px;
+/* identical to box height, or 160% */
+text-align: right;
+letter-spacing: 1px;
+color: #354B37;
+color: #354B37;
+
+
+
+}

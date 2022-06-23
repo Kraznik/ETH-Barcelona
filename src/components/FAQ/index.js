@@ -32,17 +32,14 @@ const Title = styled.div`
 `;
 
 const Question = styled.div`
-font-size:24px;
+  font-size: 24px;
 
+  color: #424242;
 
-color: #424242;
-
-@media (max-width: 700px) {
-  font-size:16px;
-
-}
-
-`
+  @media (max-width: 700px) {
+    font-size: 16px;
+  }
+`;
 
 const FAQ = () => {
   return (
@@ -53,47 +50,89 @@ const FAQ = () => {
           <Accordion.Item eventKey="0" className="Box">
             <Accordion.Header className="question">
               {" "}
-             <Question>What is ETH Barcelona?</Question>
+              <Question>What is ETH Barcelona?</Question>
             </Accordion.Header>
             <Accordion.Body className="answer">
-            ETHBarcelona is a community-led passion project about the Ethereum blockchain, cryptocurrency and decentralization that celebrates the community and its values. It focuses on education, innovation, art, and creating positive social impact. <br></br>The goal is to give people the tools they need to further their knowledge in blockchain technology, as well as learn how to build projects that can make an impact on society.
+              ETHBarcelona is a community-led passion project about the Ethereum
+              blockchain, cryptocurrency and decentralization that celebrates
+              the community and its values. It focuses on education, innovation,
+              art, and creating positive social impact. <br></br>The goal is to
+              give people the tools they need to further their knowledge in
+              blockchain technology, as well as learn how to build projects that
+              can make an impact on society.
             </Accordion.Body>
           </Accordion.Item>
 
           <Accordion.Item eventKey="1" className="Box">
             <Accordion.Header className="question">
-            <Question>What events, outside of crypto talks, will be there? </Question>
+              <Question>
+                What events, outside of crypto talks, will be there?{" "}
+              </Question>
             </Accordion.Header>
             <Accordion.Body className="answer">
-            In addition to the talks, discussions, and networking opportunities, we'll be having art installations, musical performances, and special events to maximize the fun during your time at ETHBarcelona.
+              In addition to the talks, discussions, and networking
+              opportunities, we'll be having art installations, musical
+              performances, and special events to maximize the fun during your
+              time at ETHBarcelona.
             </Accordion.Body>
           </Accordion.Item>
 
           <Accordion.Item eventKey="2" className="Box">
             <Accordion.Header className="question">
               {" "}
-             <Question> Who Can Participate?</Question>
+              <Question> Who Can Participate?</Question>
             </Accordion.Header>
-            <Accordion.Body className="answer">Anyone who is passionate about decentralization and web3 is welcome to attend ETHBarcelona.
-</Accordion.Body>
+            <Accordion.Body className="answer">
+              Anyone who is passionate about decentralization and web3 is
+              welcome to attend ETHBarcelona.
+            </Accordion.Body>
           </Accordion.Item>
 
           <Accordion.Item eventKey="3" className="Box">
             <Accordion.Header className="question">
               {" "}
-            <Question>  What is the Code of Conduct? </Question>
+              <Question> What is the Code of Conduct? </Question>
             </Accordion.Header>
-            <Accordion.Body className="answer">We are committed to creating a safe and inclusive environment. We are also committed to protecting the safety of everyone in attendance at our event, including staff and volunteers. We know that the event will be much more enjoyable for everyone if we all follow these simple rules:
-<br></br>- Any form of harassment—in person or online—is not permitted
-<br></br>- Abusive comments or behavior towards others will not be tolerated</Accordion.Body>
+            <Accordion.Body className="answer">
+              We are committed to creating a safe and inclusive environment. We
+              are also committed to protecting the safety of everyone in
+              attendance at our event, including staff and volunteers. We know
+              that the event will be much more enjoyable for everyone if we all
+              follow these simple rules:
+              <br></br>- Any form of harassment—in person or online—is not
+              permitted
+              <br></br>- Abusive comments or behavior towards others will not be
+              tolerated
+            </Accordion.Body>
+          </Accordion.Item>
+
+          <Accordion.Item eventKey="6" className="Box">
+            <Accordion.Header className="question">
+              {" "}
+              <Question>
+                {" "}
+                Why should I bring my own bottle / Bring my own cup to ETHBarcelona?
+              </Question>
+            </Accordion.Header>
+            <Accordion.Body className="answer">
+              ETH Barcelona is working to minimize its footprint to the
+              environment. You too can play your part by making sure we do not
+              need so much throwaway products during those days together. Bring
+              your own bottle to refill water at the fountains, & your own cups
+              to enjoy all our other delicious drinks!
+            </Accordion.Body>
           </Accordion.Item>
 
           <Accordion.Item eventKey="4" className="Box">
             <Accordion.Header className="question">
               {" "}
-              <Question>I have a question not listed here, who can I talk to?</Question>
+              <Question>
+                I have a question not listed here, who can I talk to?
+              </Question>
             </Accordion.Header>
-            <Accordion.Body className="answer">Please reach out directly to info@ethbarcelona.com </Accordion.Body>
+            <Accordion.Body className="answer">
+              Please reach out directly to info@ethbarcelona.com{" "}
+            </Accordion.Body>
           </Accordion.Item>
 
           <Accordion.Item eventKey="5" className="Box">
@@ -101,7 +140,14 @@ const FAQ = () => {
               {" "}
               <Question>What are the current corona restrictions? </Question>
             </Accordion.Header>
-            <Accordion.Body className="answer">As of April 20th, 2022, people are no longer required to wear masks indoors. This means that all attendees will now be able to enter ETHBarcelona without being required to wear a face mask. Please refer to the most current information from Spain’s official tourism website for the latest details about potential traveling restrictions.</Accordion.Body>
+            <Accordion.Body className="answer">
+              As of April 20th, 2022, people are no longer required to wear
+              masks indoors. This means that all attendees will now be able to
+              enter ETHBarcelona without being required to wear a face mask.
+              Please refer to the most current information from Spain’s official
+              tourism website for the latest details about potential traveling
+              restrictions.
+            </Accordion.Body>
           </Accordion.Item>
         </Accordion>
       </Container>

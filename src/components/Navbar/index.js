@@ -33,10 +33,9 @@ const CircleOut = styled.div`
   box-sizing: border-box;
   border: 0.8px solid #354b37;
   transform: rotate(-6.41deg);
-  width: 112px;
+  width: 142px;
   height: 50px;
   border-radius: 50%;
-  transition: all 0.2s ease-in;
 
   &:hover {
     transform: rotate(6.7deg);
@@ -45,16 +44,15 @@ const CircleOut = styled.div`
 
 const CircleIn = styled.div`
   background: #354b37;
-  width: 112px;
+  width: 142px;
   transform: rotate(+6.41deg);
   height: 50px;
   padding: 5% 18% 5% 5%;
   color: white;
   justify-content: center;
   align-items: center;
-  /* text-align: center; */
+  test-align: center;
   border-radius: 50%;
-  transition: all 0.2s ease-in;
 
   &:hover {
     background: none;
@@ -77,6 +75,7 @@ const Text = styled.div`
 `;
 
 const Ticket = styled.div`
+  margin-right: -10px;
   @media screen and (min-width: 900px) {
     display: none;
   }
@@ -109,8 +108,10 @@ const Navbars = ({
     <div>
       <Navbar collapseOnSelect expand="lg" className="bar">
         <Container className="bar">
-          {/* <Navbar.Brand href="/moments" className="text1"> Moments
-          </Navbar.Brand> */}
+          <Nav.Link href="#speaker" className="speaker">
+            <Text>Speakers </Text>
+          </Nav.Link>
+
           <Navbar.Brand href="/" className="logo">
             <img alt="" src={Logo} className="d-inline-block align-top" />{" "}
           </Navbar.Brand>
@@ -129,6 +130,9 @@ const Navbars = ({
                   </Heading>
                 </CircleIn>
                 {/* </a> */}
+                {/* <a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a7000000000023">
+                  <CircleIn>NFTickets</CircleIn>
+                </a> */}
               </CircleOut>
             </Nav.Link>
           </Ticket>
@@ -148,6 +152,22 @@ const Navbars = ({
               <Nav.Link href="#faq" className="text">
                 <Text>FAQ</Text>
               </Nav.Link>
+              <Nav.Link
+                href="https://www.eventbrite.com/e/ethbarcelona-tickets-344163862377?aff=ebdssbdestsearch"
+                className="speaker"
+              >
+                <Text>Eventbrite </Text>
+              </Nav.Link>
+
+              <Nav.Link href="#speaker" className="speaker2">
+                <Text>Speakers </Text>
+              </Nav.Link>
+              <Nav.Link
+                href="https://www.eventbrite.com/e/ethbarcelona-tickets-344163862377?aff=ebdssbdestsearch"
+                className="speaker2"
+              >
+                <Text>Eventbrite </Text>
+              </Nav.Link>
 
               <Desktop>
                 <Nav.Link className="text">
@@ -162,9 +182,16 @@ const Navbars = ({
                         Tickets
                       </Heading>
                     </CircleIn>
-                    {/* </a> */}
                   </CircleOut>
                 </Nav.Link>
+                {/* </a> */}
+                {/* <Nav.Link href="#faq" className="text">
+                  <CircleOut>
+                    <a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a7000000000023">
+                      <CircleIn>NFTickets</CircleIn>
+                    </a>
+                  </CircleOut>
+                </Nav.Link> */}
               </Desktop>
 
               {account === "" || typeof account === "undefined" ? (

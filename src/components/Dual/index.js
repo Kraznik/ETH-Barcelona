@@ -325,7 +325,7 @@ const Hero = ({ isMobile }) => {
               <Title2>Barcelona </Title2>
             </TextBox>
             <Description>
-              We bring together upto 4000 makers, developers, and blockchain{" "}
+              We bring together up to 2000 makers, developers, and blockchain{" "}
               enthusiasts for a three-day conference. You can learn from the
               best in the crypto scene, and finally put those networking skills
               to use.
@@ -335,14 +335,14 @@ const Hero = ({ isMobile }) => {
               <TextContainer>
                 <ImageContainer2></ImageContainer2>
                 <Heading>
-                  <a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a700000000001c">
+                  <a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a7000000000023">
                     Buy your NFTickets
                   </a>
                 </Heading>
               </TextContainer>
             </OuterContainer2>
             <TextBox>
-              <Title3>NFTickets are coming soon…</Title3>
+              <Title3>NFTickets are here</Title3>
               <Title3>Buy yours on DoinGud</Title3>
             </TextBox>
             <Description>
@@ -361,7 +361,7 @@ const Hero = ({ isMobile }) => {
                   {section2 ? (
                     <Heading>
                       {" "}
-                      <a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a700000000001c">
+                      <a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a7000000000023">
                         Buy your NFTickets{" "}
                       </a>
                     </Heading>
@@ -412,7 +412,7 @@ const Hero = ({ isMobile }) => {
                     <Title2>Barcelona </Title2>
                   </TextBox>
                   <Description>
-                    We bring together upto 4000 makers, developers, and
+                    We bring together up to 2000 makers, developers, and
                     blockchain enthusiasts for a three-day<br></br> conference.
                     You can learn from the<br></br> best in the crypto scene,
                     and finally <br></br> put those networking skills to use.
@@ -424,7 +424,7 @@ const Hero = ({ isMobile }) => {
               ) : (
                 <SectionContainer2>
                   <TextBox>
-                    <Title3>NFTickets are coming soon…</Title3>
+                    <Title3>NFTickets are here</Title3>
                     <Title3>Buy yours on DoinGud</Title3>
                   </TextBox>
                   <Description>

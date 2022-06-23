@@ -28,6 +28,9 @@ import {
 } from "./components/ConnectWalletButton/functions";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import Moments from "./components/Pages/Moments";
+import SpeakerPage from "./components/Pages/Speaker";
+import Terms from "./components/Pages/Terms";
+import Privacy from "./components/Pages/Privacy/privacy";
 
 const changeNetwork = async () => {
   try {
@@ -193,6 +196,14 @@ const App = () => {
     }
   }, [account, chainId]);
 
+  useEffect(() => {
+    if (isMobile) {
+      onConnectWalletConnect(activate);
+    } else {
+      onConnectMetamask(activate);
+    }
+  }, []);
+
   return (
     <div className="App">
       <Router>
@@ -211,6 +222,10 @@ const App = () => {
         <Routes>
           <Route exact path="/" element={<Landing isMobile={isMobile} />} />
           <Route exact path="/moments" element={<Moments />} />
+          <Route exact path="/speaker" element={<SpeakerPage></SpeakerPage>} />
+          <Route exact path="/terms-and-conditions" element={<Terms />} />
+          <Route exact path="/privacy-policy" element={<Privacy />} />
+
           {/* <Route
             exact
             path="/section"
@@ -246,7 +261,11 @@ const App = () => {
             path="/organizer"
             element={
               <ProtectedRoute permit={isOrganizer}>
-                <Organizer account={account} orgId={orgId} />
+                <Organizer
+                  account={account}
+                  orgId={orgId}
+                  onConnectMetamask={() => onConnectMetamask(activate)}
+                />
               </ProtectedRoute>
             }
           />

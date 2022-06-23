@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Metamask from "../../../assets/Metamask.svg";
+import Metamask from "../../../assets/ConnectMetamask.svg";
 import CoinbaseWallet from "../../../assets/CoinbaseWallet.svg";
 import WalletConnect from "../../../assets/WalletConnect.svg";
 

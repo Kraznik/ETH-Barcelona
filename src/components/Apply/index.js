@@ -6,6 +6,8 @@ import MObile from "../../assets/ApplyMobile.svg";
 const ImageContainer = styled.div`
   background-image: url(${Desktop});
   /* width: 1440px; */
+
+  /* height: 415px; */
   width: 100vw;
   height: 415px;
 
@@ -148,6 +150,11 @@ const Apply = () => {
           </Heading4>
           <Heading4>
             <a href="https://bit.ly/ETHBcn_sponsors">Apply as a Sponsor</a>
+          </Heading4>
+          <Heading4>
+            <a href="https://doingud.typeform.com/to/IGvuVcA9">
+              Student Ticket Application
+            </a>
           </Heading4>
         </ApplyContainer>
       </ImageContainer>

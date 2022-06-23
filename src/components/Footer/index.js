@@ -135,7 +135,18 @@ const Footer = () => {
         </SocialsContainer>
         <LegalContainer>
           {/* <Text> Privacy Policy</Text> */}
-            <Text> <a href="https://docs.google.com/document/d/1xc9zym_QZZp3pAUadDLwxf15XxpUElcmIZ0DfS4dpe4/edit#heading=h.1owjb43onqi">Terms of Conditions </a></Text>
+          <Text>
+            {" "}
+            <a href="/terms-and-conditions">
+              Tickets and Visitors Terms and Conditions{" "}
+            </a>
+          </Text>
+          <Text>
+            {" "}
+            <a href="/privacy-policy">
+              Privacy Policy{" "}
+            </a>
+          </Text>
         </LegalContainer>
       </Container>
     </>
