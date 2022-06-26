@@ -252,7 +252,7 @@ const RedeemNFT = ({ account }) => {
       const result = await TicketToken.methods
         .safeTransferFrom(account, burnWalletAddress, id, 1, "0x0")
         // .burn(account, tokenId, 1)
-        .send({ from: account, gasLimit: "3000000" });
+        .send({ from: account, gasLimit: "5000000" });
 
       console.log(result);
 
@@ -315,7 +315,7 @@ const RedeemNFT = ({ account }) => {
       ticketId,
     };
 
-    const { data } = await axios.get(url + `/${account}/${id}`, {
+    const { data } = await axios.get(url + `/${id}`, {
       headers: {
         validate: process.env.REACT_APP_VALIDATE_TOKEN,
       },
@@ -427,7 +427,7 @@ const RedeemNFT = ({ account }) => {
                   )}
                 </Redeem>
               </RedeemOut>
-              <div style={{ textAlign: "center" }}>
+              {/* <div style={{ textAlign: "center" }}>
                 {loading.isUpdating ? (
                   <span>Updating...</span>
                 ) : loading.isBurning ? (
@@ -441,7 +441,7 @@ const RedeemNFT = ({ account }) => {
                     </div>
                   </>
                 ) : null}
-              </div>
+              </div> */}
             </Forum>
 
             {/* <Link onClick={() => onBurn(tid)} to={`/tickets/${tid}/qrcode`}>

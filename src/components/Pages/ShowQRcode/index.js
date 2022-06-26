@@ -133,7 +133,7 @@ const index = ({ account }) => {
 
   const getTokenRedeemData = async () => {
     try {
-      const url = `https://eth-barcelona.kraznikunderverse.com/users/${account}/${id}`;
+      const url = `https://eth-barcelona.kraznikunderverse.com/users/${id}`;
       const { data } = await axios.get(url, options);
       // console.log(data);
       if (data?.user?.name) setTokenOwned(true);
@@ -196,7 +196,7 @@ const index = ({ account }) => {
           const url = window.URL.createObjectURL(new Blob([blob]));
           const link = document.createElement("a");
           link.href = url;
-          link.setAttribute("download", `FileName.pdf`);
+          link.setAttribute("download", `ETH-BCN-QR.pdf`);
 
           // Append to html link element page
           document.body.appendChild(link);
