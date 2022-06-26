@@ -78,6 +78,18 @@ import Win from "../../assets/Win.svg";
 import WC from "../../assets/WC.svg";
 import Toucan from "../../assets/Toucan.svg";
 import SM24 from "../../assets/SM24.svg";
+import QuickNode from "../../assets/QN.png";
+import UnstopableDomains from "../../assets/UD.svg";
+import EthicHub from "../../assets/EH.svg";
+import Lens from "../../assets/Lens.svg";
+import W from "../../assets/W.svg";
+import TRGC from "../../assets/TRGC.svg";
+import SM25 from "../../assets/SM25.svg";
+import SM26 from "../../assets/SM26.svg";
+import SM27 from "../../assets/SM27.svg";
+import SM28 from "../../assets/SM28.svg";
+import SM29 from "../../assets/SM29.svg";
+import SM30 from "../../assets/SM30.svg";
 
 const Container = styled.div`
   background: #f4f4f5;
@@ -396,6 +408,12 @@ const Sponsers = () => {
                   <img src={Metamask}></img>
                 </a>{" "}
               </SilverSponserLogo>
+              <SilverSponserLogo>
+                <a href="https://www.quicknode.com/">
+                  <img src={QuickNode}></img>
+                </a>{" "}
+              </SilverSponserLogo>
+              
             </SilverSponserLogoContainer>
           </Desktop>
 
@@ -454,6 +472,11 @@ const Sponsers = () => {
               <SilverSponserLogoM>
                 <a href="">
                   <img src={Metamask} width="150px" height="118px"></img>
+                </a>{" "}
+              </SilverSponserLogoM>
+              <SilverSponserLogoM>
+                <a href="">
+                  <img src={SM25} width="150px" height="118px"></img>
                 </a>{" "}
               </SilverSponserLogoM>
             </SilverSponserLogoContainer>
@@ -559,6 +582,34 @@ const Sponsers = () => {
                 </a>
               </BronzeSponserLogo>
             </SilverSponserLogoContainer>
+            <SilverSponserLogoContainer>
+            <BronzeSponserLogo>
+                <a href="">
+                  <img src={UnstopableDomains}></img>
+                </a>
+              </BronzeSponserLogo>
+              <BronzeSponserLogo>
+                <a href="">
+                  <img src={W}></img>
+                </a>
+              </BronzeSponserLogo>
+              <BronzeSponserLogo>
+                <a href="">
+                  <img src={TRGC}></img>
+                </a>
+              </BronzeSponserLogo>
+              <BronzeSponserLogo>
+                <a href="">
+                  <img src={Lens}></img>
+                </a>
+              </BronzeSponserLogo>
+              <BronzeSponserLogo>
+                <a href="">
+                  <img src={EthicHub}></img>
+                </a>
+              </BronzeSponserLogo>
+
+            </SilverSponserLogoContainer>
           </Desktop>
 
           <SilverSponserLogoContainer>
@@ -651,6 +702,31 @@ const Sponsers = () => {
               <BronzeSponserLogo>
                 <a href="https://toucan.earth/">
                   <img src={SM24} width="150px" height="118px"></img>
+                </a>
+              </BronzeSponserLogo>
+              <BronzeSponserLogo>
+                <a href="">
+                  <img src={SM26} width="150px" height="118px"></img>
+                </a>
+              </BronzeSponserLogo>
+              <BronzeSponserLogo>
+                <a href="">
+                  <img src={SM27} width="150px" height="118px"></img>
+                </a>
+              </BronzeSponserLogo>
+              <BronzeSponserLogo>
+                <a href="">
+                  <img src={SM28} width="150px" height="118px"></img>
+                </a>
+              </BronzeSponserLogo>
+              <BronzeSponserLogo>
+                <a href="">
+                  <img src={SM29} width="150px" height="118px"></img>
+                </a>
+              </BronzeSponserLogo>
+              <BronzeSponserLogo>
+                <a href="">
+                  <img src={SM30} width="150px" height="118px"></img>
                 </a>
               </BronzeSponserLogo>
             </Mobile>
