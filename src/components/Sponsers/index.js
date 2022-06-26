@@ -17,7 +17,7 @@ import MoonBeam from "../../assets/Moonbeam.svg";
 import Apwine from "../../assets/Apwine.svg";
 import Witnet from "../../assets/witnet.svg";
 import Giveth from "../../assets/GIveth.svg";
-import Pillar from "../../assets/Pillar.svg";
+import Pillar from "../../assets/PIllar.svg";
 import Mochi from "../../assets/Mochi.svg";
 import Certik from "../../assets/Certik.svg";
 import Certora from "../../assets/Certora.svg";
@@ -413,7 +413,6 @@ const Sponsers = () => {
                   <img src={QuickNode}></img>
                 </a>{" "}
               </SilverSponserLogo>
-              
             </SilverSponserLogoContainer>
           </Desktop>
 
@@ -583,7 +582,7 @@ const Sponsers = () => {
               </BronzeSponserLogo>
             </SilverSponserLogoContainer>
             <SilverSponserLogoContainer>
-            <BronzeSponserLogo>
+              <BronzeSponserLogo>
                 <a href="">
                   <img src={UnstopableDomains}></img>
                 </a>
@@ -608,7 +607,6 @@ const Sponsers = () => {
                   <img src={EthicHub}></img>
                 </a>
               </BronzeSponserLogo>
-
             </SilverSponserLogoContainer>
           </Desktop>
 
@@ -784,12 +782,11 @@ const Sponsers = () => {
             </OrganizerLogo>
           </SilverSponserLogoContainer>
           <SilverSponserLogoContainer>
-          <OrganizerLogo>
+            <OrganizerLogo>
               <a href="">
                 <img src={WC} width="270px" height=" 200px"></img>
               </a>
             </OrganizerLogo>
-
           </SilverSponserLogoContainer>
         </SilverSponserContainer>
 
@@ -839,11 +836,8 @@ const Sponsers = () => {
                 <img src={Win}></img>
               </a>
             </GoldSponserLogo>
-
           </GoldSponserLogoContainer>
         </BronzeSponserContainer>
-       
-
       </Container>
     </>
   );

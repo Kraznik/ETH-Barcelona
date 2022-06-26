@@ -87,7 +87,9 @@ const ImageContainer = styled.div`
 
 const PrintContainer = styled.div``;
 
-const DownloadContainer = styled.div``;
+const DownloadContainer = styled.div`
+  cursor: pointer;
+`;
 
 const EmailContainer = styled.div``;
 
@@ -271,18 +273,18 @@ const index = ({ account }) => {
             )}
 
             <ImageContainer>
-              <PrintContainer>
+              {/* <PrintContainer>
                 <img src={Print}></img>
                 Print
-              </PrintContainer>
+              </PrintContainer> */}
               <DownloadContainer onClick={onDownload}>
                 <img src={Download}></img>
                 Download
               </DownloadContainer>
-              <EmailContainer>
+              {/* <EmailContainer>
                 <img src={Email}></img>
                 Email
-              </EmailContainer>
+              </EmailContainer> */}
             </ImageContainer>
           </Container>
         </Box>
