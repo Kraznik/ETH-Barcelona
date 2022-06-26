@@ -41,7 +41,7 @@ const changeNetwork = async () => {
       method: "wallet_switchEthereumChain",
       params: [
         {
-          chainId: `0x${Number(80001).toString(16)}`, // mumbai = 80001 // polygon = 137
+          chainId: `0x${Number(137).toString(16)}`, // mumbai = 80001 // polygon = 137
         },
       ],
     });
@@ -107,7 +107,7 @@ const App = () => {
 
   const getCollections = async () => {
     try {
-      const url = `https://eth-barcelona.kraznikunderverse.com/collection`;
+      const url = `https://prod.ethbarcelona.kraznikunderverse.com/collection`;
       const { data } = await axios.get(url, {
         headers: {
           validate: process.env.REACT_APP_VALIDATE_TOKEN,
@@ -123,18 +123,12 @@ const App = () => {
 
   const checkForUnredeemedTickets = async () => {
     try {
-      const url = `https://api-main.doingud.work/creation/nft?owner=${account}`;
+      const url = `https://api.doingud.com/creation/nft?owner=${account}`;
       const { data } = await axios.get(url);
 
-      // if (data.items.length > 0) setHaveTokens(true);
-
       const collections = await getCollections();
-
-      // const ethBcnNftTypeId1 =
-      //   "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000004";
-
-      // const ethBcnNftTypeId2 =
-      //   "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000005";
+      console.log("nfts:", data);
+      console.log("collections: ", collections);
 
       const orgNftTypeId =
         "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000006";
@@ -151,15 +145,6 @@ const App = () => {
             ticketFound = true;
           }
         });
-        // if (
-        //   token.typeId === ethBcnNftTypeId1 ||
-        //   token.typeId === ethBcnNftTypeId2
-        // ) {
-        //   // console.log("type id matched");
-        //   setHaveTokens(true);
-        //   ticketFound = true;
-        //   // return;
-        // }
 
         if (token.typeId === orgNftTypeId) {
           setIsOrganizer(true);
@@ -175,7 +160,7 @@ const App = () => {
 
   const checkForRedeemedTickets = async () => {
     try {
-      const url = `https://eth-barcelona.kraznikunderverse.com/qrcode/wallet/${account}`;
+      const url = `https://prod.ethbarcelona.kraznikunderverse.com/qrcode/wallet/${account}`;
       const { data } = await axios.get(url, {
         headers: {
           validate: process.env.REACT_APP_VALIDATE_TOKEN,

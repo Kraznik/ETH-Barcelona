@@ -6,7 +6,7 @@ const {
 const axios = require("axios");
 
 // Main function, exported separately for testing
-exports.main = async function (signer, recipient, contractAddress, payload) {
+exports.main = async function (signer, recipient, payload) {
   // Create contract instance from the relayer signer
 
   // Check relayer balance via the Defender network provider
@@ -25,7 +25,7 @@ exports.main = async function (signer, recipient, contractAddress, payload) {
 
     const block_number = parseInt(evt.transaction.blockNumber, 16);
 
-    const url_get = `https://api.covalenthq.com/v1/80001/events/address/0x4137cF37598EE871d1F4A6DEE9188217Ed40c649/?starting-block=${block_number}&ending-block=${
+    const url_get = `https://api.covalenthq.com/v1/137/events/address/0xE3A161EdD679fC5ce2dB2316a4B6f7ab33a8eD6A/?starting-block=${block_number}&ending-block=${
       block_number + 1
     }&key=ckey_9f2ed5152bcb4eb1a8dbc4cf854`;
 
@@ -40,7 +40,7 @@ exports.main = async function (signer, recipient, contractAddress, payload) {
     // const token_id = data.data.items[0].decoded.params[3].value;
     console.log("token id: ", token_id);
 
-    const url = "https://eth-barcelona.kraznikunderverse.com/qrcode";
+    const url = "https://prod.ethbarcelona.kraznikunderverse.com/qrcode";
     var tkt_data = {
       walletAddress: to,
       tokenID: token_id,
@@ -69,13 +69,7 @@ exports.handler = async function (event) {
   const signer = new DefenderRelaySigner(event, provider, {
     speed: "fast",
   });
-  const contractAddress = "0x0463E2FED074C5F6736C28a856F4efD05ADA1B8f"; // Mumbai NFT Ticket contract
   const payload = body;
 
-  return exports.main(
-    signer,
-    await signer.getAddress(),
-    contractAddress,
-    payload
-  ); // Send funds to self
+  return exports.main(signer, await signer.getAddress(), payload); // Send funds to self
 };
