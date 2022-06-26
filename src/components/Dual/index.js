@@ -238,7 +238,7 @@ const Hero = ({ isMobile }) => {
     setImageUrlOut(Event1);
     setImageUrlIn(Event2);
 
-    console.log(location);
+    // console.log(location);
     if (location === "#tickets") {
       setImageUrlOut(Ticket1);
       setImageUrlIn(Ticket2);

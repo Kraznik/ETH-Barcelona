@@ -80,7 +80,7 @@ const Poap = ({ account }) => {
           validate: process.env.REACT_APP_VALIDATE_TOKEN,
         },
       });
-      console.log(res.data?.data);
+      // console.log(res.data?.data);
       if (res?.data?.data?.isPoapMinted) {
         setIsPoapMinted(res?.data?.data?.isPoapMinted);
       }

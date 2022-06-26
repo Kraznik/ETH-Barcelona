@@ -27,7 +27,7 @@ import {
   onConnectCoinbase,
 } from "./components/ConnectWalletButton/functions";
 import ProtectedRoute from "./utils/ProtectedRoute";
-import Moments from "./components/Pages/Moments";
+// import Moments from "./components/Pages/Moments";
 import SpeakerPage from "./components/Pages/Speaker";
 import Terms from "./components/Pages/Terms";
 import Privacy from "./components/Pages/Privacy/privacy";
@@ -81,7 +81,7 @@ const App = () => {
   }, [IsMobile]);
 
   const networkChanged = (chainId) => {
-    console.log({ chainId });
+    // console.log({ chainId });
     setChainId(chainId);
   };
 
@@ -113,7 +113,7 @@ const App = () => {
           validate: process.env.REACT_APP_VALIDATE_TOKEN,
         },
       });
-      console.log("data: ", data?.data);
+      // console.log("data: ", data?.data);
       const collections = data.data;
       return collections;
     } catch (err) {
@@ -127,8 +127,8 @@ const App = () => {
       const { data } = await axios.get(url);
 
       const collections = await getCollections();
-      console.log("nfts:", data);
-      console.log("collections: ", collections);
+      // console.log("nfts:", data);
+      // console.log("collections: ", collections);
 
       const orgNftTypeId =
         "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000006";
@@ -203,7 +203,7 @@ const App = () => {
         />
         <Routes>
           <Route exact path="/" element={<Landing isMobile={isMobile} />} />
-          <Route exact path="/moments" element={<Moments />} />
+          {/* <Route exact path="/moments" element={<Moments />} /> */}
           <Route exact path="/speaker" element={<SpeakerPage></SpeakerPage>} />
           <Route exact path="/terms-and-conditions" element={<Terms />} />
           <Route exact path="/privacy-policy" element={<Privacy />} />

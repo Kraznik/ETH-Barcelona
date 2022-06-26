@@ -204,7 +204,7 @@ const Organizer = ({ orgId, account }) => {
           validate: process.env.REACT_APP_VALIDATE_TOKEN,
         },
       });
-      console.log(res.data?.data);
+      // console.log(res.data?.data);
       if (res.data?.data?.timeOfScan) {
         const { orgId, orgName, timeOfScan } = res.data.data;
         setTokenScanned(true);
@@ -235,16 +235,16 @@ const Organizer = ({ orgId, account }) => {
         encrypted: query.get("hash"),
       };
 
-      console.log("scan data: ", scan_data);
+      // console.log("scan data: ", scan_data);
 
       const res = await axios.post(url, scan_data, {
         headers: {
           validate: process.env.REACT_APP_VALIDATE_TOKEN,
         },
       });
-      console.log(res);
+      // console.log(res);
       setScannedMessage(res.data.message);
-      console.log("scanned token succesfully added");
+      // console.log("scanned token succesfully added");
       setConfirmed(true);
     } catch (err) {
       console.error(err);

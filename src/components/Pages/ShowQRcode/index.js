@@ -119,7 +119,7 @@ const index = ({ account }) => {
     try {
       const url = `https://prod.ethbarcelona.kraznikunderverse.com/event/${id}`;
       const res = await axios.get(url, options);
-      console.log(res.data?.data);
+      // console.log(res.data?.data);
 
       if (res.data?.data?.timeOfScan) {
         setTokenScanned(true);
@@ -181,7 +181,7 @@ const index = ({ account }) => {
     try {
       const url = `https://prod.ethbarcelona.kraznikunderverse.com/createDownload?encrypted=${encryptedHash}`;
       var { data } = await axios.get(url, options);
-      console.log(data);
+      // console.log(data);
 
       const downloadUrl = `https://prod.ethbarcelona.kraznikunderverse.com/download/${data?.fileName}`;
 
@@ -259,7 +259,7 @@ const index = ({ account }) => {
             {encryptedHash ? (
               <QRCodes>
                 <QRCodeSVG
-                  value={`https://main-eth-bcn.web.app/organizer?tid=${id}&tkid=${redeemData.ticketId}&owner=${account}&name=${redeemData.name}&hash=${encryptedHash}`}
+                  value={`https://ethbarcelona.com/organizer?tid=${id}&tkid=${redeemData.ticketId}&owner=${account}&name=${redeemData.name}&hash=${encryptedHash}`}
                 ></QRCodeSVG>
               </QRCodes>
             ) : (

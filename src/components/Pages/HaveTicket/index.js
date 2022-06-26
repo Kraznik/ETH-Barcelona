@@ -141,13 +141,13 @@ const ShowTickets = ({ account }) => {
           validate: process.env.REACT_APP_VALIDATE_TOKEN,
         },
       });
-      console.log("data: ", data?.data);
+      // console.log("data: ", data?.data);
       const collections = data.data;
       let ticketId;
       const inHex = "0x" + BigInt(tokenId).toString(16);
-      console.log("token in hex: ", inHex);
+      // console.log("token in hex: ", inHex);
       const nftTypeId = inHex.slice(0, -8);
-      console.log("nft type id: ", nftTypeId);
+      // console.log("nft type id: ", nftTypeId);
 
       collections.map((collection) => {
         if (nftTypeId === collection.nftTypeId) {
@@ -164,7 +164,7 @@ const ShowTickets = ({ account }) => {
         }
       });
 
-      console.log("ticket Id: ", ticketId);
+      // console.log("ticket Id: ", ticketId);
       // setTicketId(ticketId);
       return { ticketId, collections };
     } catch (err) {
@@ -179,12 +179,12 @@ const ShowTickets = ({ account }) => {
       const { data } = await axios.get(url);
       // console.log(data.items);
 
-      console.log("items:", data.items);
+      // console.log("items:", data.items);
 
       let promises = data?.items.map(async (token) => {
-        console.log("token.id: ", token.id);
+        // console.log("token.id: ", token.id);
         let tokenIdInDec = web3.utils.toBN(token.id).toString();
-        console.log("tokenId in dec:", tokenIdInDec);
+        // console.log("tokenId in dec:", tokenIdInDec);
         return calTicketId(tokenIdInDec).then(({ ticketId, collections }) => {
           return collections.map((collection) => {
             if (token.typeId === collection.nftTypeId) {
@@ -218,11 +218,11 @@ const ShowTickets = ({ account }) => {
 
       let promises = data?.data?.map((redeemedTkt) => {
         const hextokenid = BigInt(redeemedTkt.tokenID).toString(16);
-        console.log("redeemed token id in dec: ", redeemedTkt.tokenID);
-        console.log("redeemed token id in hex: ", hextokenid);
-        console.log("hextokenid to dec: ", BigInt(parseInt(hextokenid, 16)));
+        // console.log("redeemed token id in dec: ", redeemedTkt.tokenID);
+        // console.log("redeemed token id in hex: ", hextokenid);
+        // console.log("hextokenid to dec: ", BigInt(parseInt(hextokenid, 16)));
         const nftTypeId = "0x" + hextokenid.slice(0, -8);
-        console.log("checking..");
+        // console.log("checking..");
 
         return calTicketId(redeemedTkt.tokenID).then(
           ({ ticketId, collections }) => {

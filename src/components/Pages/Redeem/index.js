@@ -206,7 +206,7 @@ const RedeemNFT = ({ account }) => {
   const { library } = useWeb3React();
 
   const setWeb3Provider = async () => {
-    console.log("setting provider: ", library?._provider);
+    // console.log("setting provider: ", library?._provider);
     await web3.setProvider(library?._provider);
   };
   useEffect(() => {
@@ -240,11 +240,11 @@ const RedeemNFT = ({ account }) => {
     setLoading({ ...loading, isUpdating: true });
     await saveData();
     try {
-      console.log("Burning the ticket");
+      // console.log("Burning the ticket");
       const burnWalletAddress = "0x000000000000000000000000000000000000dEaD";
       // "0x0000000000000000000000000000000000000000";
 
-      console.log("token id in dec: ", id);
+      // console.log("token id in dec: ", id);
 
       setLoading({ ...loading, isBurning: true });
 
@@ -254,7 +254,7 @@ const RedeemNFT = ({ account }) => {
         // .burn(account, tokenId, 1)
         .send({ from: account, gasLimit: "5000000" });
 
-      console.log(result);
+      // console.log(result);
 
       navigate(`/tickets/${id}/qrcode`);
     } catch (err) {
@@ -272,13 +272,13 @@ const RedeemNFT = ({ account }) => {
           validate: process.env.REACT_APP_VALIDATE_TOKEN,
         },
       });
-      console.log("data: ", data?.data);
+      // console.log("data: ", data?.data);
       const collections = data.data;
       let ticketId;
       const inHex = "0x" + BigInt(tokenId).toString(16);
-      console.log("token in hex: ", inHex);
+      // console.log("token in hex: ", inHex);
       const nftTypeId = inHex.slice(0, -8);
-      console.log("nft type id: ", nftTypeId);
+      // console.log("nft type id: ", nftTypeId);
 
       collections.map((collection) => {
         if (nftTypeId === collection.nftTypeId) {
@@ -295,7 +295,7 @@ const RedeemNFT = ({ account }) => {
         }
       });
 
-      console.log("ticket Id: ", ticketId);
+      // console.log("ticket Id: ", ticketId);
       setTicketId(ticketId);
       return ticketId;
     } catch (err) {
