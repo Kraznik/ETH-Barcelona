@@ -197,11 +197,8 @@ const App = () => {
   }, [account, chainId]);
 
   useEffect(() => {
-    if (isMobile) {
-      onConnectWalletConnect(activate);
-    } else {
-      onConnectMetamask(activate);
-    }
+    if (window?.ethereum) onConnectMetamask(activate);
+    else if (isMobile) onConnectWalletConnect(activate);
   }, []);
 
   return (
@@ -261,11 +258,7 @@ const App = () => {
             path="/organizer"
             element={
               <ProtectedRoute permit={isOrganizer}>
-                <Organizer
-                  account={account}
-                  orgId={orgId}
-                  onConnectMetamask={() => onConnectMetamask(activate)}
-                />
+                <Organizer account={account} orgId={orgId} />
               </ProtectedRoute>
             }
           />

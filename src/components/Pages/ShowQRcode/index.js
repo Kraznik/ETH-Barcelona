@@ -91,6 +91,12 @@ const DownloadContainer = styled.div``;
 
 const EmailContainer = styled.div``;
 
+const options = {
+  headers: {
+    validate: process.env.REACT_APP_VALIDATE_TOKEN,
+  },
+};
+
 const index = ({ account }) => {
   const [encryptedHash, setEncryptedHash] = useState(null);
   const [redeemData, setRedeemData] = useState({
@@ -110,11 +116,7 @@ const index = ({ account }) => {
   const getIfTokenScanned = async () => {
     try {
       const url = `https://eth-barcelona.kraznikunderverse.com/event/${id}`;
-      const res = await axios.get(url, {
-        headers: {
-          validate: process.env.REACT_APP_VALIDATE_TOKEN,
-        },
-      });
+      const res = await axios.get(url, options);
       console.log(res.data?.data);
 
       if (res.data?.data?.timeOfScan) {
@@ -132,11 +134,7 @@ const index = ({ account }) => {
   const getTokenRedeemData = async () => {
     try {
       const url = `https://eth-barcelona.kraznikunderverse.com/users/${account}/${id}`;
-      const { data } = await axios.get(url, {
-        headers: {
-          validate: process.env.REACT_APP_VALIDATE_TOKEN,
-        },
-      });
+      const { data } = await axios.get(url, options);
       // console.log(data);
       if (data?.user?.name) setTokenOwned(true);
       // wallet address is not lowercased here
@@ -158,11 +156,7 @@ const index = ({ account }) => {
 
       let hashFound = false;
       while (!hashFound) {
-        const { data } = await axios.get(url, {
-          headers: {
-            validate: process.env.REACT_APP_VALIDATE_TOKEN,
-          },
-        });
+        const { data } = await axios.get(url, options);
 
         // console.log(
         //   "encrypted data model wallet address: ",
@@ -180,6 +174,43 @@ const index = ({ account }) => {
     };
     if (account) run();
   }, [redeemData, account]);
+
+  const onDownload = async () => {
+    try {
+      const url = `https://eth-barcelona.kraznikunderverse.com/createDownload?encrypted=${encryptedHash}`;
+      var { data } = await axios.get(url, options);
+      console.log(data);
+
+      const downloadUrl = `https://eth-barcelona.kraznikunderverse.com/download/${data?.fileName}`;
+
+      fetch(downloadUrl, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/pdf",
+          validate: process.env.REACT_APP_VALIDATE_TOKEN,
+        },
+      })
+        .then((response) => response.blob())
+        .then((blob) => {
+          // Create blob link to download
+          const url = window.URL.createObjectURL(new Blob([blob]));
+          const link = document.createElement("a");
+          link.href = url;
+          link.setAttribute("download", `FileName.pdf`);
+
+          // Append to html link element page
+          document.body.appendChild(link);
+
+          // Start download
+          link.click();
+
+          // Clean up and remove the link
+          link.parentNode.removeChild(link);
+        });
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   if (tokenScanned) {
     return (
@@ -244,7 +275,7 @@ const index = ({ account }) => {
                 <img src={Print}></img>
                 Print
               </PrintContainer>
-              <DownloadContainer>
+              <DownloadContainer onClick={onDownload}>
                 <img src={Download}></img>
                 Download
               </DownloadContainer>

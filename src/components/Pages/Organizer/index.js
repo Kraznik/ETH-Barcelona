@@ -156,7 +156,7 @@ const ScanMessage = styled(Question)`
   font-weight: bold;
 `;
 
-const Organizer = ({ orgId, account, onConnectMetamask }) => {
+const Organizer = ({ orgId, account }) => {
   // const [ticketOwnerName, setTicketOwnerName] = useState("");
   // const [ticketEdition, setTicketEdition] = useState("");
   const [confirmed, setConfirmed] = React.useState(false);
