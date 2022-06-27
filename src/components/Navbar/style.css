@@ -191,9 +191,14 @@
   font-family: "Dahlia";
   font-style: normal;
   font-weight: 200;
-  font-size: 20px;
+  font-size: 10px;
   color: #354b37;
   display: inline-block;
   position: relative;
 
+}
+
+
+.address{
+    font-size: 16px;
 }

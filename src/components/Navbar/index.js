@@ -268,7 +268,7 @@ const Navbars = ({
                   <h3>
                     <img src={Wallet}></img>
 
-                    <span className="address">{userAddress}</span>
+                    <span className="">{userAddress}</span>
                   </h3>
                 </button>
               )}
