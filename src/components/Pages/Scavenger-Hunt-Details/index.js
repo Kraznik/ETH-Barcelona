@@ -217,6 +217,11 @@ const ScavengerHuntDetails = () => {
       const { data } = await axios.get(url, options);
       console.log(data);
       let listOfCards = [];
+      var putAtLast = true;
+      var ownIndex = data.rank[ticketId];
+      if (data.rank[ticketId] < 9) {
+        putAtLast = false;
+      }
       data.data.map((row, index) => {
         const currentDate = new Date();
         const lastActivity = new Date(row.updatedAt);
@@ -235,12 +240,14 @@ const ScavengerHuntDetails = () => {
           var lastActivityTime = getSeconds + " seconds ago";
         }
 
-        console.log("currentDate: ", currentDate);
-        console.log("lastActivity: ", lastActivity);
-        console.log("timeAgo: ", getMinutes);
+        // console.log("currentDate: ", currentDate);
+        // console.log("lastActivity: ", lastActivity);
+        // console.log("timeAgo: ", getMinutes);
+
         if (index < 9) {
           const card = renderLeaderboardRow(
             index,
+            index === ownIndex,
             row.ticketId,
             row.data,
             lastActivityTime
@@ -250,16 +257,35 @@ const ScavengerHuntDetails = () => {
           return;
         }
       });
+      if (putAtLast) {
+        const OwnCard = renderLeaderboardRow(
+          ownIndex,
+          true,
+          ticketId,
+          data?.data[ownIndex]?.data || 0,
+          ""
+        );
+        listOfCards.push(OwnCard);
+      }
       setLeaderboard(listOfCards);
     } catch (err) {
       console.error(err);
     }
   };
 
-  const renderLeaderboardRow = (index, ticketId, dataPoints, lastActivity) => {
+  const renderLeaderboardRow = (
+    index,
+    you,
+    ticketId,
+    dataPoints,
+    lastActivity
+  ) => {
     return (
-      <LeaderboardBox key={index}>
-        <Info>{index} </Info>
+      <LeaderboardBox
+        style={{ backgroundColor: you ? "yellow" : "white" }}
+        key={index}
+      >
+        <Info>{index + 1} </Info>
         <Info>{ticketId}</Info>
         {dataPoints === 8 ? <Info>9/9</Info> : <Info>{dataPoints}/9</Info>}
         <Activity>{lastActivity}</Activity>
