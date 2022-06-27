@@ -17,7 +17,7 @@ import MoonBeam from "../../assets/Moonbeam.svg";
 import Apwine from "../../assets/Apwine.svg";
 import Witnet from "../../assets/witnet.svg";
 import Giveth from "../../assets/GIveth.svg";
-import Pillar from "../../assets/PIllar.svg";
+import Pillar from "../../assets/Pillar.svg";
 import Mochi from "../../assets/Mochi.svg";
 import Certik from "../../assets/Certik.svg";
 import Certora from "../../assets/Certora.svg";
