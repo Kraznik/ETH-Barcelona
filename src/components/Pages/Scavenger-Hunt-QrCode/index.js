@@ -63,6 +63,7 @@ const QrCodeScvengerHunt = () => {
   const [error, setError] = useState(false);
   const [message, setMessage] = useState();
   const [scavData, setScavData] = useState();
+  const [minted9thNft, setMinted9thNft] = useState(false);
 
   const navigate = useNavigate();
 
@@ -104,48 +105,56 @@ const QrCodeScvengerHunt = () => {
           if (id == 1) {
             var post_data = {
               creatorTypeId: 4,
+              creatorTypeIdFor9th: 15,
               toAddress: walletAddress,
               part1: true,
             };
           } else if (id == 2) {
             var post_data = {
               creatorTypeId: 5,
+              creatorTypeIdFor9th: 15,
               toAddress: walletAddress,
               part2: true,
             };
           } else if (id == 3) {
             var post_data = {
               creatorTypeId: 6,
+              creatorTypeIdFor9th: 15,
               toAddress: walletAddress,
               part3: true,
             };
           } else if (id == 4) {
             var post_data = {
               creatorTypeId: 7,
+              creatorTypeIdFor9th: 15,
               toAddress: walletAddress,
               part4: true,
             };
           } else if (id == 5) {
             var post_data = {
               creatorTypeId: 8,
+              creatorTypeIdFor9th: 15,
               toAddress: walletAddress,
               part5: true,
             };
           } else if (id == 6) {
             var post_data = {
               creatorTypeId: 9,
+              creatorTypeIdFor9th: 15,
               toAddress: walletAddress,
               part6: true,
             };
           } else if (id == 7) {
             var post_data = {
               creatorTypeId: 10,
+              creatorTypeIdFor9th: 15,
               toAddress: walletAddress,
               part7: true,
             };
           } else if (id == 8) {
             var post_data = {
               creatorTypeId: 11,
+              creatorTypeIdFor9th: 15,
               toAddress: walletAddress,
               part8: true,
             };
@@ -154,6 +163,8 @@ const QrCodeScvengerHunt = () => {
           const { data } = await axios.post(url, post_data, options);
 
           if (data?.response?.minted) setSuccess(true);
+
+          if (data?.response?.minted9th) setMinted9thNft(true);
 
           setLoading(false);
 
@@ -255,6 +266,8 @@ const QrCodeScvengerHunt = () => {
         {error ? (
           <Name style={{ color: "red" }}>Got Error!! Please try again...</Name>
         ) : null}
+
+        {minted9thNft ? <div>Display Congrats Popup</div> : null}
 
         <Footer>
           <div className="ft">
