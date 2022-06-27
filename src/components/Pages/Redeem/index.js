@@ -451,6 +451,24 @@ const RedeemNFT = ({ account }) => {
             {/* <Link onClick={() => onBurn(tid)} to={`/tickets/${tid}/qrcode`}>
           RedeemNFT
         </Link> */}
+
+            {/* <button
+              onClick={async () => {
+                const url =
+                  "https://api.covalenthq.com/v1/137/events/address/0xE3A161EdD679fC5ce2dB2316a4B6f7ab33a8eD6A/?starting-block=30057918&ending-block=30057919&key=ckey_9f2ed5152bcb4eb1a8dbc4cf854";
+                const { data } = await axios.get(url);
+                console.log(data.data.items);
+                const items = data.data.items;
+
+                await items.map((item) => {
+                  if (item.decoded) {
+                    console.log(item.decoded.params[3].value);
+                  }
+                });
+              }}
+            >
+              Test
+            </button> */}
           </Container>
         </Box>
       ) : (
