@@ -24,10 +24,8 @@ const Heading = styled(NavLink)`
   color: red;
 
   @media screen and (max-width: 900px) {
-font-size:16px;
-
+    font-size: 16px;
   }
-
 `;
 
 const TicketBox1 = styled.div`
@@ -49,10 +47,8 @@ const CircleOut = styled.div`
 
   @media screen and (max-width: 900px) {
     width: 102px;
-    height:45px;
-
+    height: 45px;
   }
-
 `;
 
 const CircleIn = styled.div`
@@ -102,8 +98,7 @@ const Ticket = styled.div`
   }
 
   @media screen and (max-width: 900px) {
-    margin-left:-20px
-
+    margin-left: -20px;
   }
 `;
 
@@ -146,45 +141,45 @@ const Navbars = ({
           <Navbar.Brand href="/" className="logo">
             <img alt="" src={Logo} className="d-inline-block align-top" />{" "}
           </Navbar.Brand>
-            {account === "" || typeof account === "undefined" ? (
-              // <button href="" className="button" onClick={onConnectWallet}>
-              //   <Popup
-              //     trigger={
-              //       <button className="button"> Connect Wallet </button>
-              //     }
-              //     modal
-              //     // nested
-              //   >
-              //     <WalletPopUp></WalletPopUp>
-              //   </Popup>
-              // </button>
-              <>
-                <button
-                  type="button"
-                  onClick={() => setOpen((o) => !o)}
-                  className="walletmobile"
-                >
-                  Connect<br /> Wallet
-                </button>
-
-                <Popup open={open} closeOnDocumentClick onClose={closeModal}>
-                  <WalletPopUp
-                    onConnectWalletConnect={onConnectWalletConnect}
-                    onConnectCoinbase={onConnectCoinbase}
-                    onConnectMetamask={onConnectMetamask}
-                    closeModal={closeModal}
-                  />
-                </Popup>
-              </>
-            ) : (
-              <button onClick={onDisconnect}         className="walletmobile">
-                <h3>
-                  <img src={Wallet}></img>
-                  <span className="walletmobile">{userAddress}</span>
-                </h3>
+          {account === "" || typeof account === "undefined" ? (
+            // <button href="" className="button" onClick={onConnectWallet}>
+            //   <Popup
+            //     trigger={
+            //       <button className="button"> Connect Wallet </button>
+            //     }
+            //     modal
+            //     // nested
+            //   >
+            //     <WalletPopUp></WalletPopUp>
+            //   </Popup>
+            // </button>
+            <>
+              <button
+                type="button"
+                onClick={() => setOpen((o) => !o)}
+                className="walletmobile"
+              >
+                Connect
+                <br /> Wallet
               </button>
-            )}
 
+              <Popup open={open} closeOnDocumentClick onClose={closeModal}>
+                <WalletPopUp
+                  onConnectWalletConnect={onConnectWalletConnect}
+                  onConnectCoinbase={onConnectCoinbase}
+                  onConnectMetamask={onConnectMetamask}
+                  closeModal={closeModal}
+                />
+              </Popup>
+            </>
+          ) : (
+            <button onClick={onDisconnect} className="walletmobile">
+              <h3>
+                <img src={Wallet}></img>
+                <span className="walletmobile">{userAddress}</span>
+              </h3>
+            </button>
+          )}
 
           <Ticket>
             <Nav.Link href="#faq" className="text">
