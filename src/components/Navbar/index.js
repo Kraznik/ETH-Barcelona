@@ -22,6 +22,12 @@ import Organizer from "../Pages/Organizer";
 import WalletPopUp from "../Pages/WalletPopUp";
 const Heading = styled(NavLink)`
   color: red;
+
+  @media screen and (max-width: 900px) {
+font-size:16px;
+
+  }
+
 `;
 
 const TicketBox1 = styled.div`
@@ -40,6 +46,13 @@ const CircleOut = styled.div`
   &:hover {
     transform: rotate(6.7deg);
   }
+
+  @media screen and (max-width: 900px) {
+    width: 102px;
+    height:45px;
+
+  }
+
 `;
 
 const CircleIn = styled.div`
@@ -59,6 +72,14 @@ const CircleIn = styled.div`
     transform: rotate(-6.41deg);
     color: #354b37;
   }
+
+  @media screen and (max-width: 900px) {
+  
+width:102px;
+height:45px;
+  
+
+
 `;
 
 const Text = styled.div`
@@ -81,8 +102,8 @@ const Ticket = styled.div`
   }
 
   @media screen and (max-width: 900px) {
-    display: inline-block;
-    margin-left:-50px;
+    margin-left:-20px
+
   }
 `;
 
@@ -104,7 +125,7 @@ const Navbars = ({
   const [open, setOpen] = useState(false);
   const closeModal = () => setOpen(false);
 
-  const userAddress = `${account?.slice(0, 4)}....${account?.slice(-4)}`;
+  const userAddress = `${account?.slice(0, 4)}..${account?.slice(-2)}`;
   return (
     <div>
       <Navbar collapseOnSelect expand="lg" className="bar">
@@ -159,8 +180,7 @@ const Navbars = ({
               <button onClick={onDisconnect}         className="walletmobile">
                 <h3>
                   <img src={Wallet}></img>
-
-                  <span className="address">{userAddress}</span>
+                  <span className="walletmobile">{userAddress}</span>
                 </h3>
               </button>
             )}
