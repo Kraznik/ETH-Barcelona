@@ -101,6 +101,58 @@ const RewardDescription = styled.div`
   line-height: 26px;
 `;
 
+export const LeaderboardContainer = styled.div``
+
+export const Titles = styled.div`
+font-family: 'GTD';
+font-style: normal;
+font-weight: 300;
+font-size: 10px;justify-content: space-between;
+line-height: 18px;
+display:inline-block;
+text-transform: uppercase;
+color: #667079;
+margin: 0 10% 0 0 ;
+`
+
+export const LeaderboardBox = styled.div`
+background: #FFFFFF;
+border: 1px solid #C8CCD0;
+border-radius: 4px;
+height:40px;
+margin: 10px 0 0 0 ;
+`
+
+export const Info = styled.div`
+font-family: 'GTD';
+font-style: normal;
+margin: 10px 13% 0 0 ;
+font-weight: 300;
+font-size: 14px;
+line-height: 18px;
+/* identical to box height, or 129% */
+justify-content: space-between;
+display:inline-block;
+/* Black */
+
+color: #2B2B2B;
+`
+
+export const Activity = styled.div`
+font-family: 'GTD';
+font-style: normal;
+font-weight: 300;
+font-size: 12px;
+display:inline-block;
+line-height: 17px;
+/* identical to box height, or 140% */
+
+
+/* Grey 1 */
+
+color: #C8CCD0;
+`
+
 const options = {
   headers: {
     validate: process.env.REACT_APP_VALIDATE_TOKEN,
@@ -320,6 +372,41 @@ useEffect(() => {
     
 
       <Accordion>
+      <Accordion.Item eventKey="" className="">
+          <Accordion.Header className="">
+            <Question>Leaderboard </Question>
+          </Accordion.Header>
+          <Accordion.Body className="leaderboard">
+            
+            <LeaderboardContainer>
+              <Titles>RANK </Titles>
+              <Titles>TicketID </Titles>
+              <Titles>NFTS </Titles>
+              <Titles>LAST Activity</Titles>
+              <LeaderboardBox>
+                <Info>1  </Info>
+                <Info>165</Info>
+                <Info>5/9</Info>
+                <Activity>one minute ago</Activity>
+              </LeaderboardBox>
+
+              <LeaderboardBox>
+                <Info>1  </Info>
+                <Info>165</Info>
+                <Info>5/9</Info>
+                <Activity>one minute ago</Activity>
+              </LeaderboardBox>
+
+              <LeaderboardBox>
+                <Info>1  </Info>
+                <Info>165</Info>
+                <Info>5/9</Info>
+                <Activity>one minute ago</Activity>
+              </LeaderboardBox>
+            </LeaderboardContainer>
+
+          </Accordion.Body>
+        </Accordion.Item>
         <Accordion.Item eventKey="2" className="">
           <Accordion.Header className="">
             <Question>Rewards </Question>
