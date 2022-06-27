@@ -17,7 +17,7 @@ import MoonBeam from "../../assets/Moonbeam.svg";
 import Apwine from "../../assets/Apwine.svg";
 import Witnet from "../../assets/witnet.svg";
 import Giveth from "../../assets/GIveth.svg";
-import Pillar from "../../assets/Pillar.svg";
+import Pillar from "../../assets/PIllar.svg";
 import Mochi from "../../assets/Mochi.svg";
 import Certik from "../../assets/Certik.svg";
 import Certora from "../../assets/Certora.svg";
@@ -128,6 +128,7 @@ const DiamondSponserLogoContainer = styled.div`
     margin: 0 15px;
   }
 `;
+
 const DiamondSponserLogo = styled.div`
   display: inline-block;
   position: relative;
@@ -448,7 +449,7 @@ const Sponsers = () => {
               </BronzeSponserLogo>
             </SilverSponserLogoContainer>
             <SilverSponserLogoContainer>
-            <BronzeSponserLogo>
+              <BronzeSponserLogo>
                 <a href="https://www.degate.com/">
                   <img src={Degate}></img>
                 </a>
@@ -480,7 +481,7 @@ const Sponsers = () => {
               </BronzeSponserLogo>
             </SilverSponserLogoContainer>
             <SilverSponserLogoContainer>
-            <BronzeSponserLogo>
+              <BronzeSponserLogo>
                 <a href="">
                   <img src={Aurora}></img>
                 </a>
@@ -490,7 +491,7 @@ const Sponsers = () => {
 
           <SilverSponserLogoContainer>
             <Mobile>
-            <BronzeSponserLogo>
+              <BronzeSponserLogo>
                 <a href="https://t.co/ekKJoVsf4s">
                   <img src={SM19} width="150px" height="118px"></img>
                 </a>
@@ -642,7 +643,6 @@ const Sponsers = () => {
               </a>
             </GoldSponserLogo>
           </GoldSponserLogoContainer>
-
         </BronzeSponserContainer>
       </Container>
     </>
