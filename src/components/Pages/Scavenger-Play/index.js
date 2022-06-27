@@ -213,10 +213,8 @@ const ScavengerPlay = () => {
             <img src={DoinGud} className="dg"></img>
             <img src={Instagram} className="social"></img>
             <img src={Twitter} className="social"></img>
-
           </div>
-          <p className="rights">        © DoinGud. All Right Reserved. </p>
- 
+          <p className="rights"> © DoinGud. All Right Reserved. </p>
         </Footer>
       </Container>
     </>
