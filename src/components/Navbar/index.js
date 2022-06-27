@@ -160,8 +160,6 @@ const Navbars = ({
           ) : (
             <button onClick={onDisconnect} className="walletmobile">
               <h3>
-                <img src={Wallet}></img>
-
                 <span className="address">{userAddress}</span>
               </h3>
             </button>
