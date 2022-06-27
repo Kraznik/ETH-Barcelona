@@ -252,7 +252,11 @@ const RedeemNFT = ({ account }) => {
       const result = await TicketToken.methods
         .safeTransferFrom(account, burnWalletAddress, id, 1, "0x0")
         // .burn(account, tokenId, 1)
-        .send({ from: account, gasLimit: "5000000" });
+        .send({
+          from: account,
+          // gasPrice: 2000000000,
+          // gasLimit: "10000000",
+        });
 
       // console.log(result);
 
