@@ -125,7 +125,7 @@ const Navbars = ({
   const [open, setOpen] = useState(false);
   const closeModal = () => setOpen(false);
 
-  const userAddress = `${account?.slice(0, 4)}..${account?.slice(-2)}`;
+  const userAddress = `${account?.slice(0, 4)}....${account?.slice(-4)}`;
   return (
     <div>
       <Navbar collapseOnSelect expand="lg" className="bar">
@@ -133,13 +133,13 @@ const Navbars = ({
           <Nav.Link href="#speaker" className="speaker">
             <Text>Speakers </Text>
           </Nav.Link>
-          <Nav.Link href="#speaker" className="speaker">
+          <Nav.Link href="#faq" className="speaker">
             <Text>FAQ </Text>
           </Nav.Link>
-          <Nav.Link href="#speaker" className="speaker">
+          <Nav.Link href="https://www.eventbrite.com/e/ethbarcelona-tickets-344163862377?aff=ebdssbdestsearch" className="speaker">
             <Text>Eventbrite </Text>
           </Nav.Link>
-          <Nav.Link href="#speaker" className="speaker">
+          <Nav.Link href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a7000000000023" className="speaker">
             <Text>NFTickets </Text>
           </Nav.Link>
 
@@ -179,7 +179,6 @@ const Navbars = ({
             ) : (
               <button onClick={onDisconnect}         className="walletmobile">
                 <h3>
-                  <img src={Wallet}></img>
                   <span className="walletmobile">{userAddress}</span>
                 </h3>
               </button>
@@ -241,7 +240,7 @@ const Navbars = ({
               </Nav.Link>
 
               <Nav.Link
-                href="https://www.eventbrite.com/e/ethbarcelona-tickets-344163862377?aff=ebdssbdestsearch"
+                href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a7000000000023"
                 className="speaker2"
               >
                 <Text>NFTickets</Text>
