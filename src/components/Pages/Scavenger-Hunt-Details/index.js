@@ -101,65 +101,63 @@ const RewardDescription = styled.div`
   line-height: 26px;
 `;
 
-export const LeaderboardContainer = styled.div``
+export const LeaderboardContainer = styled.div``;
 
 export const Titles = styled.div`
-font-family: 'GTD';
-font-style: normal;
-font-weight: 300;
-font-size: 10px;justify-content: space-between;
-line-height: 18px;
-display:inline-block;
-text-transform: uppercase;
-color: #667079;
-margin: 0 10% 0 0 ;
-`
+  font-family: "GTD";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 10px;
+  justify-content: space-between;
+  line-height: 18px;
+  display: inline-block;
+  text-transform: uppercase;
+  color: #667079;
+  margin: 0 10% 0 0;
+`;
 
 export const LeaderboardBox = styled.div`
-background: #FFFFFF;
-border: 1px solid #C8CCD0;
-border-radius: 4px;
-height:40px;
-margin: 10px 0 0 0 ;
-`
+  background: #ffffff;
+  border: 1px solid #c8ccd0;
+  border-radius: 4px;
+  height: 40px;
+  margin: 10px 0 0 0;
+`;
 
 export const Info = styled.div`
-font-family: 'GTD';
-font-style: normal;
-margin: 10px 13% 0 0 ;
-font-weight: 300;
-font-size: 14px;
-line-height: 18px;
-/* identical to box height, or 129% */
-justify-content: space-between;
-display:inline-block;
-/* Black */
+  font-family: "GTD";
+  font-style: normal;
+  margin: 10px 13% 0 0;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 18px;
+  /* identical to box height, or 129% */
+  justify-content: space-between;
+  display: inline-block;
+  /* Black */
 
-color: #2B2B2B;
-`
+  color: #2b2b2b;
+`;
 
 export const Activity = styled.div`
-font-family: 'GTD';
-font-style: normal;
-font-weight: 300;
-font-size: 12px;
-display:inline-block;
-line-height: 17px;
-/* identical to box height, or 140% */
+  font-family: "GTD";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  display: inline-block;
+  line-height: 17px;
+  /* identical to box height, or 140% */
 
+  /* Grey 1 */
 
-/* Grey 1 */
-
-color: #C8CCD0;
-`
+  color: #c8ccd0;
+`;
 
 const options = {
   headers: {
     validate: process.env.REACT_APP_VALIDATE_TOKEN,
   },
 };
-
-
 
 const ScavengerHuntDetails = () => {
   const { ticketId } = useParams();
@@ -172,6 +170,7 @@ const ScavengerHuntDetails = () => {
     part6: false,
     part7: false,
     part8: false,
+    data: 0,
   });
 
   const fetchDetails = async () => {
@@ -182,7 +181,17 @@ const ScavengerHuntDetails = () => {
       console.log(data?.data);
       const { part1, part2, part3, part4, part5, part6, part7, part8 } =
         data?.data;
-      setHuntData({ part1, part2, part3, part4, part5, part6, part7, part8 });
+      setHuntData({
+        part1,
+        part2,
+        part3,
+        part4,
+        part5,
+        part6,
+        part7,
+        part8,
+        data: data?.data?.data,
+      });
     } catch (err) {
       console.error(err);
     }
@@ -192,14 +201,13 @@ const ScavengerHuntDetails = () => {
     fetchDetails();
   }, []);
 
-  const  [loading, setLoading] = useState(false);
-useEffect(() => {
-  setLoading(true)
-  setTimeout(() =>{
-    setLoading(false)
-  },2000)
-
-},[])
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
 
   return (
     <>
@@ -209,10 +217,10 @@ useEffect(() => {
 
       {/* <Heart>TicketId: #{ticketId}</Heart> */}
 
-
-      {
-          loading ?   <SyncLoader className="loader" size={10} />:
-          <Heart>
+      {loading ? (
+        <SyncLoader className="loader" size={10} />
+      ) : (
+        <Heart>
           {/* {huntData.part1 === "true" ? <div>1 Yes</div> : <div>1 No</div>}
           {huntData.part2 === "true" ? <div>2 Yes</div> : <div>2 No</div>}
           {huntData.part3 === "true" ? <div>3 Yes</div> : <div>3 No</div>}
@@ -221,8 +229,7 @@ useEffect(() => {
           {huntData.part6 === "true" ? <div>6 Yes</div> : <div>6 No</div>}
           {huntData.part7 === "true" ? <div>7 Yes</div> : <div>7 No</div>}
           {huntData.part8 === "true" ? <div>8 Yes</div> : <div>8 No</div>} */}
-  
-  
+
           <LineContainer>
             {huntData.part1 === "true" ? (
               <img src={H1} />
@@ -367,44 +374,42 @@ useEffect(() => {
             )}
           </LineContainer>
         </Heart>
-      }
+      )}
 
-    
+      {huntData.data === 8 ? <div>9th NFT Claimed</div> : null}
 
       <Accordion>
-      <Accordion.Item eventKey="" className="">
+        <Accordion.Item eventKey="" className="">
           <Accordion.Header className="">
             <Question>Leaderboard </Question>
           </Accordion.Header>
           <Accordion.Body className="leaderboard">
-            
             <LeaderboardContainer>
               <Titles>RANK </Titles>
               <Titles>TicketID </Titles>
               <Titles>NFTS </Titles>
               <Titles>LAST Activity</Titles>
               <LeaderboardBox>
-                <Info>1  </Info>
+                <Info>1 </Info>
                 <Info>165</Info>
                 <Info>5/9</Info>
                 <Activity>one minute ago</Activity>
               </LeaderboardBox>
 
               <LeaderboardBox>
-                <Info>1  </Info>
+                <Info>1 </Info>
                 <Info>165</Info>
                 <Info>5/9</Info>
                 <Activity>one minute ago</Activity>
               </LeaderboardBox>
 
               <LeaderboardBox>
-                <Info>1  </Info>
+                <Info>1 </Info>
                 <Info>165</Info>
                 <Info>5/9</Info>
                 <Activity>one minute ago</Activity>
               </LeaderboardBox>
             </LeaderboardContainer>
-
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="2" className="">
@@ -412,7 +417,9 @@ useEffect(() => {
             <Question>Rewards </Question>
           </Accordion.Header>
           <Accordion.Body className="reward">
-            <div className="r">Come and claim your rewards at the DoinGud’s Booth!</div>
+            <div className="r">
+              Come and claim your rewards at the DoinGud’s Booth!
+            </div>
 
             <RewardContainer>
               <RewardImage>
