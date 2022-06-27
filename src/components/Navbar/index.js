@@ -24,10 +24,8 @@ const Heading = styled(NavLink)`
   color: red;
 
   @media screen and (max-width: 900px) {
-font-size:16px;
-
+    font-size: 16px;
   }
-
 `;
 
 const TicketBox1 = styled.div`
@@ -49,10 +47,8 @@ const CircleOut = styled.div`
 
   @media screen and (max-width: 900px) {
     width: 102px;
-    height:45px;
-
+    height: 45px;
   }
-
 `;
 
 const CircleIn = styled.div`
@@ -102,8 +98,7 @@ const Ticket = styled.div`
   }
 
   @media screen and (max-width: 900px) {
-    margin-left:-20px
-
+    margin-left: -20px;
   }
 `;
 
@@ -136,55 +131,41 @@ const Navbars = ({
           <Nav.Link href="#faq" className="speaker">
             <Text>FAQ </Text>
           </Nav.Link>
-          <Nav.Link href="https://www.eventbrite.com/e/ethbarcelona-tickets-344163862377?aff=ebdssbdestsearch" className="speaker">
+          <Nav.Link
+            href="https://www.eventbrite.com/e/ethbarcelona-tickets-344163862377?aff=ebdssbdestsearch"
+            className="speaker"
+          >
             <Text>Eventbrite </Text>
           </Nav.Link>
-          <Nav.Link href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a7000000000023" className="speaker">
+          <Nav.Link
+            href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a7000000000023"
+            className="speaker"
+          >
             <Text>NFTickets </Text>
           </Nav.Link>
-
           <Navbar.Brand href="/" className="logo">
             <img alt="" src={Logo} className="d-inline-block align-top" />{" "}
           </Navbar.Brand>
-            {account === "" || typeof account === "undefined" ? (
-              // <button href="" className="button" onClick={onConnectWallet}>
-              //   <Popup
-              //     trigger={
-              //       <button className="button"> Connect Wallet </button>
-              //     }
-              //     modal
-              //     // nested
-              //   >
-              //     <WalletPopUp></WalletPopUp>
-              //   </Popup>
-              // </button>
-              <>
-                <button
-                  type="button"
-                  onClick={() => setOpen((o) => !o)}
-                  className="walletmobile"
-                >
-                  Connect<br /> Wallet
-                </button>
-
-                <Popup open={open} closeOnDocumentClick onClose={closeModal}>
-                  <WalletPopUp
-                    onConnectWalletConnect={onConnectWalletConnect}
-                    onConnectCoinbase={onConnectCoinbase}
-                    onConnectMetamask={onConnectMetamask}
-                    closeModal={closeModal}
-                  />
-                </Popup>
-              </>
-            ) : (
-              <button onClick={onDisconnect}         className="walletmobile">
-                <h3>
-                  <span className="walletmobile">{userAddress}</span>
-                </h3>
+          {account === "" || typeof account === "undefined" ? (
+            <>
+              <button
+                type="button"
+                className="walletmobile"
+                onClick={() => setOpen((o) => !o)}
+              >
+                Connect
+                <br /> Wallet
               </button>
-            )}
+            </>
+          ) : (
+            <button onClick={onDisconnect} className="walletmobile">
+              <h3>
+                <img src={Wallet}></img>
 
-
+                <span className="address">{userAddress}</span>
+              </h3>
+            </button>
+          )}
           <Ticket>
             <Nav.Link href="#faq" className="text">
               <CircleOut>
@@ -205,7 +186,6 @@ const Navbars = ({
               </CircleOut>
             </Nav.Link>
           </Ticket>
-
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto"></Nav>
@@ -217,7 +197,6 @@ const Navbars = ({
                   </NavLink>
                 </Nav.Link>
               ) : null} */}
-
               <Nav.Link href="#faq" className="speaker2">
                 <Text>FAQ</Text>
               </Nav.Link>
@@ -227,7 +206,6 @@ const Navbars = ({
               >
                 <Text className="speaker3">Eventbrite </Text>
               </Nav.Link> */}
-
               <Nav.Link href="#speaker" className="speaker2">
                 <Text>Speakers </Text>
               </Nav.Link>
@@ -238,14 +216,12 @@ const Navbars = ({
               >
                 <Text>Eventbrite </Text>
               </Nav.Link>
-
               <Nav.Link
                 href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a7000000000023"
                 className="speaker2"
               >
                 <Text>NFTickets</Text>
               </Nav.Link>
-
               <Desktop>
                 <Nav.Link className="text">
                   <CircleOut>
@@ -270,19 +246,7 @@ const Navbars = ({
                   </CircleOut>
                 </Nav.Link> */}
               </Desktop>
-
               {account === "" || typeof account === "undefined" ? (
-                // <button href="" className="button" onClick={onConnectWallet}>
-                //   <Popup
-                //     trigger={
-                //       <button className="button"> Connect Wallet </button>
-                //     }
-                //     modal
-                //     // nested
-                //   >
-                //     <WalletPopUp></WalletPopUp>
-                //   </Popup>
-                // </button>
                 <>
                   <button
                     type="button"

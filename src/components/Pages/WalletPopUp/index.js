@@ -42,11 +42,10 @@ const WalletContainer = styled.div`
   /* opacity: 100%; */
   border-radius: 4px;
   border: 1px solid black;
-  /* margin: 50px 0 0 -100px; */
   margin-top: -30vh;
 
   @media (max-width: 800px) {
-    margin: 0 0 0 -170px;
+    margin: -200px 0 0 -170px;
     padding: 72px 0 0 0;
     width: 343px;
     height: 456px;
