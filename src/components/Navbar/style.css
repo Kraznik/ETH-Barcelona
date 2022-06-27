@@ -72,6 +72,9 @@
     display: none;
   }
 
+  .desktop-connect {
+    display: none;
+  }
 
 
 }
@@ -96,6 +99,10 @@
     display: none;
   }
   .walletmobile{
+    display: none;
+  }
+
+  .mobile-connect {
     display: none;
   }
 }
@@ -126,6 +133,20 @@
   font-size: 20px;
   line-height: 30px;
   color: #354b37;
+}
+
+
+.walletmobile{
+  text-decoration: none;
+  border: none;
+  background: transparent;
+  color: #354b37;
+  font-family: "Dahlia";
+  font-style: normal;
+  font-weight: 200;
+  font-size: 20px;
+  color: #354b37;
+  margin-top: 20px;
 }
 
 .address {
@@ -175,17 +196,4 @@
   display: inline-block;
   position: relative;
 
-}
-
-.walletmobile{
-    text-decoration: none;
-    border: none;
-    background: transparent;
-    color: #354b37;
-    font-family: "Dahlia";
-    font-style: normal;
-    font-weight: 200;
-    font-size: 20px;
-    color: #354b37;
-    margin-top: 20px;
 }
