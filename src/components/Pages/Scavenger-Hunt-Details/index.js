@@ -202,11 +202,73 @@ const ScavengerHuntDetails = () => {
   }, []);
 
   const [loading, setLoading] = useState(false);
+  const [leaderboard, setLeaderboard] = useState([]);
+
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
     }, 2000);
+  }, []);
+
+  const getLeaderboardDetails = async () => {
+    try {
+      const url = `http://localhost:3100/leaderboard`;
+      const { data } = await axios.get(url, options);
+      console.log(data);
+      let listOfCards = [];
+      data.data.map((row, index) => {
+        const currentDate = new Date();
+        const lastActivity = new Date(row.updatedAt);
+        const getSeconds = Math.floor((currentDate - lastActivity) / 1000);
+        const getMinutes = Math.floor(getSeconds / 60);
+        const getHours = Math.floor(getMinutes / 60);
+        const getDays = Math.floor(getHours / 24);
+
+        if (getDays > 0) {
+          var lastActivityTime = getDays + " days ago";
+        } else if (getHours > 0) {
+          var lastActivityTime = getHours + " hours ago";
+        } else if (getMinutes > 0) {
+          var lastActivityTime = getMinutes + " minutes ago";
+        } else {
+          var lastActivityTime = getSeconds + " seconds ago";
+        }
+
+        console.log("currentDate: ", currentDate);
+        console.log("lastActivity: ", lastActivity);
+        console.log("timeAgo: ", getMinutes);
+        if (index < 9) {
+          const card = renderLeaderboardRow(
+            index,
+            row.ticketId,
+            row.data,
+            lastActivityTime
+          );
+          listOfCards.push(card);
+        } else {
+          return;
+        }
+      });
+      setLeaderboard(listOfCards);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const renderLeaderboardRow = (index, ticketId, dataPoints, lastActivity) => {
+    return (
+      <LeaderboardBox key={index}>
+        <Info>{index} </Info>
+        <Info>{ticketId}</Info>
+        {dataPoints === 8 ? <Info>9/9</Info> : <Info>{dataPoints}/9</Info>}
+        <Activity>{lastActivity}</Activity>
+      </LeaderboardBox>
+    );
+  };
+
+  useEffect(() => {
+    getLeaderboardDetails();
   }, []);
 
   return (
@@ -215,21 +277,10 @@ const ScavengerHuntDetails = () => {
       <Title1>DoGood</Title1>
       <Title2>SCAVENGER HUNT</Title2>
 
-      {/* <Heart>TicketId: #{ticketId}</Heart> */}
-
-      {loading ? (
+      {/* {loading ? (
         <SyncLoader className="loader" size={10} />
       ) : (
         <Heart>
-          {/* {huntData.part1 === "true" ? <div>1 Yes</div> : <div>1 No</div>}
-          {huntData.part2 === "true" ? <div>2 Yes</div> : <div>2 No</div>}
-          {huntData.part3 === "true" ? <div>3 Yes</div> : <div>3 No</div>}
-          {huntData.part4 === "true" ? <div>4 Yes</div> : <div>4 No</div>}
-          {huntData.part5 === "true" ? <div>5 Yes</div> : <div>5 No</div>}
-          {huntData.part6 === "true" ? <div>6 Yes</div> : <div>6 No</div>}
-          {huntData.part7 === "true" ? <div>7 Yes</div> : <div>7 No</div>}
-          {huntData.part8 === "true" ? <div>8 Yes</div> : <div>8 No</div>} */}
-
           <LineContainer>
             {huntData.part1 === "true" ? (
               <img src={H1} />
@@ -374,7 +425,7 @@ const ScavengerHuntDetails = () => {
             )}
           </LineContainer>
         </Heart>
-      )}
+      )} */}
 
       {huntData.data === 8 ? <div>9th NFT Claimed</div> : null}
 
@@ -389,26 +440,14 @@ const ScavengerHuntDetails = () => {
               <Titles>TicketID </Titles>
               <Titles>NFTS </Titles>
               <Titles>LAST Activity</Titles>
-              <LeaderboardBox>
+              {/* <LeaderboardBox>
                 <Info>1 </Info>
                 <Info>165</Info>
                 <Info>5/9</Info>
                 <Activity>one minute ago</Activity>
-              </LeaderboardBox>
+              </LeaderboardBox> */}
 
-              <LeaderboardBox>
-                <Info>1 </Info>
-                <Info>165</Info>
-                <Info>5/9</Info>
-                <Activity>one minute ago</Activity>
-              </LeaderboardBox>
-
-              <LeaderboardBox>
-                <Info>1 </Info>
-                <Info>165</Info>
-                <Info>5/9</Info>
-                <Activity>one minute ago</Activity>
-              </LeaderboardBox>
+              {leaderboard}
             </LeaderboardContainer>
           </Accordion.Body>
         </Accordion.Item>
