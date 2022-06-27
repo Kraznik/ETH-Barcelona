@@ -33,7 +33,7 @@ const CircleOut = styled.div`
   box-sizing: border-box;
   border: 0.8px solid #354b37;
   transform: rotate(-6.41deg);
-  width: 142px;
+  width: 122px;
   height: 50px;
   border-radius: 50%;
 
@@ -44,7 +44,7 @@ const CircleOut = styled.div`
 
 const CircleIn = styled.div`
   background: #354b37;
-  width: 142px;
+  width: 122px;
   transform: rotate(+6.41deg);
   height: 50px;
   padding: 5% 18% 5% 5%;
@@ -75,13 +75,14 @@ const Text = styled.div`
 `;
 
 const Ticket = styled.div`
-  margin-right: -10px;
+  display: inline-block;
   @media screen and (min-width: 900px) {
     display: none;
   }
 
   @media screen and (max-width: 900px) {
-    margin-left: 80px;
+    display: inline-block;
+    margin-left:-50px;
   }
 `;
 
@@ -111,10 +112,59 @@ const Navbars = ({
           <Nav.Link href="#speaker" className="speaker">
             <Text>Speakers </Text>
           </Nav.Link>
+          <Nav.Link href="#speaker" className="speaker">
+            <Text>FAQ </Text>
+          </Nav.Link>
+          <Nav.Link href="#speaker" className="speaker">
+            <Text>Eventbrite </Text>
+          </Nav.Link>
+          <Nav.Link href="#speaker" className="speaker">
+            <Text>NFTickets </Text>
+          </Nav.Link>
 
           <Navbar.Brand href="/" className="logo">
             <img alt="" src={Logo} className="d-inline-block align-top" />{" "}
           </Navbar.Brand>
+            {account === "" || typeof account === "undefined" ? (
+              // <button href="" className="button" onClick={onConnectWallet}>
+              //   <Popup
+              //     trigger={
+              //       <button className="button"> Connect Wallet </button>
+              //     }
+              //     modal
+              //     // nested
+              //   >
+              //     <WalletPopUp></WalletPopUp>
+              //   </Popup>
+              // </button>
+              <>
+                <button
+                  type="button"
+                  onClick={() => setOpen((o) => !o)}
+                  className="walletmobile"
+                >
+                  Connect<br /> Wallet
+                </button>
+
+                <Popup open={open} closeOnDocumentClick onClose={closeModal}>
+                  <WalletPopUp
+                    onConnectWalletConnect={onConnectWalletConnect}
+                    onConnectCoinbase={onConnectCoinbase}
+                    onConnectMetamask={onConnectMetamask}
+                    closeModal={closeModal}
+                  />
+                </Popup>
+              </>
+            ) : (
+              <button onClick={onDisconnect}         className="walletmobile">
+                <h3>
+                  <img src={Wallet}></img>
+
+                  <span className="address">{userAddress}</span>
+                </h3>
+              </button>
+            )}
+
 
           <Ticket>
             <Nav.Link href="#faq" className="text">
@@ -126,7 +176,7 @@ const Navbars = ({
                     exact
                     to={haveTokens ? "/tickets/show" : "/tickets/buy"}
                   >
-                    Tickets
+                    Redeem
                   </Heading>
                 </CircleIn>
                 {/* </a> */}
@@ -141,23 +191,23 @@ const Navbars = ({
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto"></Nav>
             <Nav>
-              {isOrganizer ? (
+              {/* {isOrganizer ? (
                 <Nav.Link className="text">
                   <NavLink to="/organizer" className="text">
                     <Text>Organizer</Text>
                   </NavLink>
                 </Nav.Link>
-              ) : null}
+              ) : null} */}
 
-              <Nav.Link href="#faq" className="text">
+              <Nav.Link href="#faq" className="speaker2">
                 <Text>FAQ</Text>
               </Nav.Link>
-              <Nav.Link
+              {/* <Nav.Link
                 href="https://www.eventbrite.com/e/ethbarcelona-tickets-344163862377?aff=ebdssbdestsearch"
-                className="speaker"
+                className="speaker3"
               >
-                <Text>Eventbrite </Text>
-              </Nav.Link>
+                <Text className="speaker3">Eventbrite </Text>
+              </Nav.Link> */}
 
               <Nav.Link href="#speaker" className="speaker2">
                 <Text>Speakers </Text>
@@ -165,8 +215,16 @@ const Navbars = ({
               <Nav.Link
                 href="https://www.eventbrite.com/e/ethbarcelona-tickets-344163862377?aff=ebdssbdestsearch"
                 className="speaker2"
+                id="Desk"
               >
                 <Text>Eventbrite </Text>
+              </Nav.Link>
+
+              <Nav.Link
+                href="https://www.eventbrite.com/e/ethbarcelona-tickets-344163862377?aff=ebdssbdestsearch"
+                className="speaker2"
+              >
+                <Text>NFTickets</Text>
               </Nav.Link>
 
               <Desktop>
@@ -179,7 +237,7 @@ const Navbars = ({
                         exact
                         to={haveTokens ? "/tickets/show" : "/tickets/buy"}
                       >
-                        Tickets
+                        Redeem
                       </Heading>
                     </CircleIn>
                   </CircleOut>

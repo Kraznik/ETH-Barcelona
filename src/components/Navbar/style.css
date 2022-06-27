@@ -1,159 +1,193 @@
 @font-face {
-    font-family: dahlia;
-    src: url(../../Fonts/dahlia-bold.woff);
+  font-family: dahlia;
+  src: url(../../Fonts/dahlia-bold.woff);
 }
 
 @font-face {
-    font-family: Dahlia-Normal;
-    src: url(../../Fonts/dahlia-regular.woff);
+  font-family: Dahlia-Normal;
+  src: url(../../Fonts/dahlia-regular.woff);
 }
 
-.bar{
-    background: #F5C34B;
+.bar {
+  background: #f5c34b;
 }
 
-.text{
-    font-family: 'Dahlia';
-font-style: normal;
-font-weight: 700;
-font-size: 20px;
-line-height: 32px;
-/* identical to box height, or 160% */
-text-align: right;
-letter-spacing: 1px;
-color: #354B37;
-color: #354B37;
-
-
+.text {
+  font-family: "Dahlia";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  /* identical to box height, or 160% */
+  text-align: right;
+  letter-spacing: 1px;
+  color: #354b37;
+  color: #354b37;
 }
-.text3{
-    font-family: 'Dahlia';
-font-style: normal;
-font-weight: 700;
-font-size: 20px;
-line-height: 32px;
-background-color: #354B37;
+.text3 {
+  font-family: "Dahlia";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 32px;
+  background-color: #354b37;
 
-/* identical to box height, or 160% */
+  /* identical to box height, or 160% */
 
-text-align: right;
-letter-spacing: 1px;
-color: #354B37;
-color: #354B37;
+  text-align: right;
+  letter-spacing: 1px;
+  color: #354b37;
+  color: #354b37;
 }
 
-.text1{
-    font-family: 'Dahlia';
-font-style: normal;
-font-weight: 700;
-font-size: 20px;
-line-height: 32px;
-/* identical to box height, or 160% */
+.text1 {
+  font-family: "Dahlia";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 32px;
+  /* identical to box height, or 160% */
 
-text-align: right;
-letter-spacing: 1px;
-color: #354B37;
-color: #354B37;
+  text-align: right;
+  letter-spacing: 1px;
+  color: #354b37;
+  color: #354b37;
 }
-.logo{
-    align-items: center;
-    margin-left: 40%;
-}
-
-@media  screen and (max-width:700px) {
-    .logo{
-        margin-left: 0%;
-    }
-
-    .text1{
-        display: none;
-    }
-    .speaker{
-        display: none;
-    }
-
-    
+.logo {
+  align-items: center;
+  margin-left: 15%;
 }
 
-@media screen and (min-width:700px) {
-    .text3{
-        display: none;
-    }
+@media screen and (max-width: 800px) {
+  .logo {
+    margin-left: 0%;
+  }
 
-    .section{
-        display: none;
-    }
+  .text1 {
+    display: none;
+  }
+  .speaker {
+    display: none;
+  }
+  .button {
+    display: none;
+  }
 
-    .speaker2{
-        display: none;
-    }
 
-
-    
-}
-
-.text a{
-    text-decoration: none;
-    color: #354B37;
 
 }
 
- /* a :hover{
+@media screen and (min-width: 900px) {
+  .text3 {
+    display: none;
+  }
+  .mobilewallet{
+    display: none;
+  }
+
+  .section {
+    display: none;
+  }
+
+  .speaker2 {
+    display: none;
+  }
+
+  .speaker3{
+    display: none;
+  }
+  .walletmobile{
+    display: none;
+  }
+}
+
+.text a {
+  text-decoration: none;
+  color: #354b37;
+}
+
+/* a :hover{
      transform: scale(105%);
      transition:330ms ease-in-out;
     
 } */
 
-.ticket:hover{
-    border-bottom: 1px solid black;
+.ticket:hover {
+  border-bottom: 1px solid black;
 }
 
-.button{
+.button {
+  text-decoration: none;
+  border: none;
+  background: transparent;
+  color: #354b37;
+  font-family: "Dahlia";
+  font-style: normal;
+  font-weight: 200;
+  font-size: 20px;
+  line-height: 30px;
+  color: #354b37;
+}
+
+.address {
+  margin: 80px 0 0 8px;
+}
+
+.speaker {
+  font-family: "Dahlia";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 32px;
+  /* identical to box height, or 160% */
+  text-align: right;
+  letter-spacing: 1px;
+  color: #354b37;
+  color: #354b37;
+}
+
+.speaker2 {
+  font-family: "Dahlia";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 32px;
+  /* identical to box height, or 160% */
+  text-align: right;
+  letter-spacing: 1px;
+  color: #354b37;
+  color: #354b37;
+}
+
+.speaker3{
+    color: aquamarine;
+}
+
+.mobilewallet {
+  text-decoration: none;
+  border: none;
+  background: transparent;
+  color: #354b37;
+  font-family: "Dahlia";
+  font-style: normal;
+  font-weight: 200;
+  font-size: 20px;
+  color: #354b37;
+  display: inline-block;
+  position: relative;
+
+}
+
+.walletmobile{
     text-decoration: none;
     border: none;
     background: transparent;
-    color: #354B37;
-    font-family: 'Dahlia';
-font-style: normal;
-font-weight: 200;
-font-size: 20px;
-line-height: 30px;
-color: #354B37;
-}
-
-.address{
-   margin: 80px 0 0 8px;
-}
-
-.speaker{
-
-        font-family: 'Dahlia';
+    color: #354b37;
+    font-family: "Dahlia";
     font-style: normal;
-    font-weight: 700;
+    font-weight: 200;
     font-size: 20px;
-    line-height: 32px;
-    /* identical to box height, or 160% */
-    text-align: right;
-    letter-spacing: 1px;
-    color: #354B37;
-    color: #354B37;
-    
-    
-
-}
-
-.speaker2{
-
-    font-family: 'Dahlia';
-font-style: normal;
-font-weight: 700;
-font-size: 20px;
-line-height: 32px;
-/* identical to box height, or 160% */
-text-align: right;
-letter-spacing: 1px;
-color: #354B37;
-color: #354B37;
+    color: #354b37;
+    margin-right: 40px;
 
 
 

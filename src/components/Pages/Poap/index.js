@@ -109,7 +109,7 @@ const Poap = ({ account }) => {
             href={`https://main.doingud.work/creation/0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000008?edition=`}
             target={"_blank"}
           >
-            Check it in DoinGud
+            Check it within your DoinGud Profile
           </a>
         </Check>
       </Container>
