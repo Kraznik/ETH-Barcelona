@@ -133,12 +133,14 @@ const Navbars = ({
           </Nav.Link>
           <Nav.Link
             href="https://www.eventbrite.com/e/ethbarcelona-tickets-344163862377?aff=ebdssbdestsearch"
+            target={"_blank"}
             className="speaker"
           >
             <Text>Eventbrite </Text>
           </Nav.Link>
           <Nav.Link
             href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a7000000000023"
+            target={"_blank"}
             className="speaker"
           >
             <Text>NFTickets </Text>

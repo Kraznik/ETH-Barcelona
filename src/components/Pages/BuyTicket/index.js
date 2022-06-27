@@ -2,11 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 const Box = styled.div`
-background: #F5C34B;
-padding-bottom:22%;
-padding-top:5%;
-
-`
+  background: #f5c34b;
+  padding-bottom: 22%;
+  padding-top: 5%;
+`;
 
 const Container = styled.div`
   display: flex;
@@ -22,7 +21,6 @@ const Container = styled.div`
   border: 1px solid black;
   border-radius: 4px;
   margin: auto;
-
 
   @media (max-width: 800px) {
     width: 343px;
@@ -123,28 +121,29 @@ const BuyNow = styled.div`
 const BuyTickets = () => {
   return (
     <Box>
-    <Container>
-      <TextContainer>
-        <Heading>You need an NFTicket to claim a QR code</Heading>
-        <Description>
-          Please change your wallet to see your NFT ticket or buy one in DoinGud
-          platform
-        </Description>
-      </TextContainer>
+      <Container>
+        <TextContainer>
+          <Heading>You need an NFTicket to claim a QR code</Heading>
+          <Description>
+            Please change your wallet to see your NFT ticket or buy one in
+            DoinGud platform
+          </Description>
+        </TextContainer>
 
-      <BuyContainer>
-        <a
-          // href="https://doingud.com/@ethbarcelona?tab=created"
-          href="https://main.doingud.work/@banatisanchit?tab=created"
-          target={"_blank"}
-          style={{ textDecoration: "none" }}
-        >
-          <BuyInnerContainer>
-            <BuyNow>Buy NFTicket</BuyNow>
-          </BuyInnerContainer>
-        </a>
-      </BuyContainer>
-    </Container>
+        <BuyContainer>
+          <a
+            // href="https://doingud.com/@ethbarcelona?tab=created"
+            // href="https://main.doingud.work/@banatisanchit?tab=created"
+            href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a7000000000023"
+            target={"_blank"}
+            style={{ textDecoration: "none" }}
+          >
+            <BuyInnerContainer>
+              <BuyNow>Buy NFTicket</BuyNow>
+            </BuyInnerContainer>
+          </a>
+        </BuyContainer>
+      </Container>
     </Box>
   );
 };
