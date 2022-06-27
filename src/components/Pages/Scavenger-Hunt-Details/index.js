@@ -228,7 +228,7 @@ useEffect(() => {
               <img src={H1} />
             ) : (
               <Popup trigger={<GrayImage src={H1} />}>
-                <PopupContainer>
+                <PopupContainer className="popup">
                   <Title>Clue #1</Title>
                   <Clue>
                     “You need food to keep your body running. Go to the place
@@ -253,7 +253,7 @@ useEffect(() => {
               <img src={H2} />
             ) : (
               <Popup trigger={<GrayImage src={H2} />}>
-                <PopupContainer>
+                <PopupContainer className="popup">
                   <Title>Clue #2</Title>
                   <Clue>
                     “You need food to keep your body running. Go to the place
@@ -269,7 +269,7 @@ useEffect(() => {
               <img src={H3} />
             ) : (
               <Popup trigger={<GrayImage src={H3} />}>
-                <PopupContainer>
+                <PopupContainer className="popup">
                   <Title>Clue #3</Title>
                   <Clue>
                     “You need food to keep your body running. Go to the place
@@ -287,7 +287,7 @@ useEffect(() => {
               <img src={H4} />
             ) : (
               <Popup trigger={<GrayImage src={H4} />}>
-                <PopupContainer>
+                <PopupContainer className="popup">
                   <Title>Clue #4</Title>
                   <Clue>
                     “You need food to keep your body running. Go to the place
@@ -303,7 +303,7 @@ useEffect(() => {
               <img src={H5} />
             ) : (
               <Popup trigger={<GrayImage src={H5} />}>
-                <PopupContainer>
+                <PopupContainer className="popup">
                   <Title>Clue #5</Title>
                   <Clue>
                     “You need food to keep your body running. Go to the place
@@ -319,7 +319,7 @@ useEffect(() => {
               <img src={H6} />
             ) : (
               <Popup trigger={<GrayImage src={H6} />}>
-                <PopupContainer>
+                <PopupContainer className="popup">
                   <Title>Clue #6</Title>
                   <Clue>
                     “You need food to keep your body running. Go to the place
@@ -337,7 +337,7 @@ useEffect(() => {
               <img src={H7} />
             ) : (
               <Popup trigger={<GrayImage src={H7} />}>
-                <PopupContainer>
+                <PopupContainer className="popup">
                   <Title>Clue #7</Title>
                   <Clue>
                     “You need food to keep your body running. Go to the place
@@ -353,7 +353,7 @@ useEffect(() => {
               <img src={H8} />
             ) : (
               <Popup trigger={<GrayImage src={H8} />}>
-                <PopupContainer>
+                <PopupContainer className="popup">
                   <Title>Clue #8</Title>
                   <Clue>
                     “You need food to keep your body running. Go to the place
