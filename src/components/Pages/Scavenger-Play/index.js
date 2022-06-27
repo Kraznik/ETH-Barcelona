@@ -5,6 +5,9 @@ import "bootstrap/dist/css/bootstrap.css";
 import Accordion from "react-bootstrap/Accordion";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
+import DoinGud from "../../../assets/FooterDG.svg";
+import Twitter from "../../../assets/Twitter.svg";
+import Instagram from "../../../assets/Insta.svg";
 
 export const Container = styled.div`
   background: #f6f7fb;
@@ -135,6 +138,7 @@ export const Footer = styled.div`
   height: 119.3px;
   background: #2b2b2b;
   width: 100%;
+  padding: 30px 24px 30px 22px;
 `;
 
 const ScavengerPlay = () => {
@@ -204,7 +208,14 @@ const ScavengerPlay = () => {
           </TikcetContainer>
         </InputContainer>
 
-        <Footer></Footer>
+        <Footer>
+          <div className="ft">
+            <img src={DoinGud} className="dg"></img>
+            <img src={Instagram} className="social"></img>
+            <img src={Twitter} className="social"></img>
+          </div>
+          <p className="rights"> © DoinGud. All Right Reserved. </p>
+        </Footer>
       </Container>
     </>
   );

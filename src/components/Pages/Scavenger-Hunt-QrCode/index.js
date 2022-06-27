@@ -16,6 +16,9 @@ import styled from "styled-components";
 import NFT from "../../../assets/NFT.svg";
 import Logo from "../../../assets/NftLogo.svg";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
+import DoinGud from "../../../assets/FooterDG.svg";
+import Twitter from "../../../assets/Twitter.svg";
+import Instagram from "../../../assets/Insta.svg";
 import axios from "axios";
 
 const ImageContainer = styled.div`
@@ -237,14 +240,14 @@ const QrCodeScvengerHunt = () => {
           <>
             <Name>Successfully Claimed ;)</Name>
             <NavLink to={`/details/${ticketId}`}>
-              View your heart here ->
+              View your heart here -
             </NavLink>
           </>
         ) : alreadyClaimed ? (
           <>
             <Name>Have already Claimed!!</Name>
             <NavLink to={`/details/${ticketId}`}>
-              View your heart here ->
+              View your heart here -
             </NavLink>
           </>
         ) : null}
@@ -253,7 +256,14 @@ const QrCodeScvengerHunt = () => {
           <Name style={{ color: "red" }}>Got Error!! Please try again...</Name>
         ) : null}
 
-        <Footer></Footer>
+        <Footer>
+          <div className="ft">
+            <img src={DoinGud} className="dg"></img>
+            <img src={Instagram} className="social"></img>
+            <img src={Twitter} className="social"></img>
+          </div>
+          <p className="rights"> © DoinGud. All Right Reserved. </p>
+        </Footer>
       </Container>
     </>
   );
