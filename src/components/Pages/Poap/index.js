@@ -74,7 +74,7 @@ const Poap = ({ account }) => {
 
   const getIfTokenScanned = async () => {
     try {
-      const url = `https://prod.ethbarcelona.kraznikunderverse.com/event/${id}`;
+      const url = `https://eth-barcelona.kraznikunderverse.com/event/${id}`;
       const res = await axios.get(url, {
         headers: {
           validate: process.env.REACT_APP_VALIDATE_TOKEN,

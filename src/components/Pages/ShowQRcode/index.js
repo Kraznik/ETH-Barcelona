@@ -117,7 +117,7 @@ const index = ({ account }) => {
 
   const getIfTokenScanned = async () => {
     try {
-      const url = `https://prod.ethbarcelona.kraznikunderverse.com/event/${id}`;
+      const url = `https://eth-barcelona.kraznikunderverse.com/event/${id}`;
       const res = await axios.get(url, options);
       // console.log(res.data?.data);
 
@@ -135,7 +135,7 @@ const index = ({ account }) => {
 
   const getTokenRedeemData = async () => {
     try {
-      const url = `https://prod.ethbarcelona.kraznikunderverse.com/users/${id}`;
+      const url = `https://eth-barcelona.kraznikunderverse.com/users/${id}`;
       const { data } = await axios.get(url, options);
       // console.log(data);
       if (data?.user?.name) setTokenOwned(true);
@@ -154,7 +154,7 @@ const index = ({ account }) => {
   useEffect(() => {
     const run = async () => {
       const tokenIdInDec = parseInt(id, 16);
-      const url = `https://prod.ethbarcelona.kraznikunderverse.com/qrcode/${id}`;
+      const url = `https://eth-barcelona.kraznikunderverse.com/qrcode/${id}`;
 
       let hashFound = false;
       while (!hashFound) {
@@ -179,11 +179,11 @@ const index = ({ account }) => {
 
   const onDownload = async () => {
     try {
-      const url = `https://prod.ethbarcelona.kraznikunderverse.com/createDownload?encrypted=${encryptedHash}`;
+      const url = `https://eth-barcelona.kraznikunderverse.com/createDownload?encrypted=${encryptedHash}`;
       var { data } = await axios.get(url, options);
       // console.log(data);
 
-      const downloadUrl = `https://prod.ethbarcelona.kraznikunderverse.com/download/${data?.fileName}`;
+      const downloadUrl = `https://eth-barcelona.kraznikunderverse.com/download/${data?.fileName}`;
 
       fetch(downloadUrl, {
         method: "GET",

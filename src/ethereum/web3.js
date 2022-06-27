@@ -9,8 +9,8 @@ if (typeof window !== "undefined" && typeof window.web3 !== "undefined") {
   web3 = new Web3(window.ethereum);
 } else {
   const provider = new Web3.providers.HttpProvider(
-    // "https://polygon-mumbai.g.alchemy.com/v2/T95ylN-bR7zmaXiaZkP0R1sOObutgv-M"
-    "https://polygon-mainnet.g.alchemy.com/v2/VX9hsINm25dNmmBqKi9ydn_iBW4sio4i"
+    "https://polygon-mumbai.g.alchemy.com/v2/T95ylN-bR7zmaXiaZkP0R1sOObutgv-M"
+    // "https://polygon-mainnet.g.alchemy.com/v2/VX9hsINm25dNmmBqKi9ydn_iBW4sio4i"
   );
 
   // "https://rinkeby.infura.io/v3/97c2d52095a84da7a0b710a8daa16acf"

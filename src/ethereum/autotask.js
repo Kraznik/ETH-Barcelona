@@ -40,7 +40,7 @@ exports.main = async function (signer, recipient, payload) {
     // const token_id = data.data.items[0].decoded.params[3].value;
     console.log("token id: ", token_id);
 
-    const url = "https://prod.ethbarcelona.kraznikunderverse.com/qrcode";
+    const url = "https://eth-barcelona.kraznikunderverse.com/qrcode";
     var tkt_data = {
       walletAddress: to,
       tokenID: token_id,

@@ -41,7 +41,7 @@ const changeNetwork = async () => {
       method: "wallet_switchEthereumChain",
       params: [
         {
-          chainId: `0x${Number(137).toString(16)}`, // mumbai = 80001 // polygon = 137
+          chainId: `0x${Number(80001).toString(16)}`, // mumbai = 80001 // polygon = 137
         },
       ],
     });
@@ -107,7 +107,7 @@ const App = () => {
 
   const getCollections = async () => {
     try {
-      const url = `https://prod.ethbarcelona.kraznikunderverse.com/collection`;
+      const url = `https://eth-barcelona.kraznikunderverse.com/collection`;
       const { data } = await axios.get(url, {
         headers: {
           validate: process.env.REACT_APP_VALIDATE_TOKEN,
@@ -123,7 +123,7 @@ const App = () => {
 
   const checkForUnredeemedTickets = async () => {
     try {
-      const url = `https://api.doingud.com/creation/nft?owner=${account}`;
+      const url = `https://api-main.doingud.work/creation/nft?owner=${account}`;
       const { data } = await axios.get(url);
 
       const collections = await getCollections();
@@ -160,7 +160,7 @@ const App = () => {
 
   const checkForRedeemedTickets = async () => {
     try {
-      const url = `https://prod.ethbarcelona.kraznikunderverse.com/qrcode/wallet/${account}`;
+      const url = `https://eth-barcelona.kraznikunderverse.com/qrcode/wallet/${account}`;
       const { data } = await axios.get(url, {
         headers: {
           validate: process.env.REACT_APP_VALIDATE_TOKEN,

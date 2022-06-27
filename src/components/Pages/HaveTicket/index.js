@@ -135,7 +135,7 @@ const ShowTickets = ({ account }) => {
   const calTicketId = async (tokenId) => {
     try {
       // const tokenId = id;
-      const url = `https://prod.ethbarcelona.kraznikunderverse.com/collection`;
+      const url = `https://eth-barcelona.kraznikunderverse.com/collection`;
       const { data } = await axios.get(url, {
         headers: {
           validate: process.env.REACT_APP_VALIDATE_TOKEN,
@@ -175,7 +175,7 @@ const ShowTickets = ({ account }) => {
   // main net api
   const getUnredeemedTickets = async () => {
     try {
-      const url = `https://api.doingud.com/creation/nft?owner=${account}`;
+      const url = `https://api-main.doingud.work/creation/nft?owner=${account}`;
       const { data } = await axios.get(url);
       // console.log(data.items);
 
@@ -207,7 +207,7 @@ const ShowTickets = ({ account }) => {
 
   const getRedeemedTickets = async () => {
     try {
-      const url = `https://prod.ethbarcelona.kraznikunderverse.com/qrcode/wallet/${account}`;
+      const url = `https://eth-barcelona.kraznikunderverse.com/qrcode/wallet/${account}`;
       const { data } = await axios.get(url, {
         headers: {
           validate: process.env.REACT_APP_VALIDATE_TOKEN,

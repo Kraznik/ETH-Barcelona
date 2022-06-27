@@ -196,7 +196,7 @@ const Organizer = ({ orgId, account }) => {
 
   const getIfTokenScanned = async () => {
     try {
-      const url = `https://prod.ethbarcelona.kraznikunderverse.com/event/${query.get(
+      const url = `https://eth-barcelona.kraznikunderverse.com/event/${query.get(
         "tid"
       )}`;
       const res = await axios.get(url, {
@@ -225,7 +225,7 @@ const Organizer = ({ orgId, account }) => {
 
   const confirmScan = async () => {
     try {
-      const url = "https://prod.ethbarcelona.kraznikunderverse.com/event";
+      const url = "https://eth-barcelona.kraznikunderverse.com/event";
       const scan_data = {
         organiserID: orgId,
         orgName: "test",

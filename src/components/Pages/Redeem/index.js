@@ -266,7 +266,7 @@ const RedeemNFT = ({ account }) => {
   const calTicketId = async () => {
     try {
       const tokenId = id;
-      const url = `https://prod.ethbarcelona.kraznikunderverse.com/collection`;
+      const url = `https://eth-barcelona.kraznikunderverse.com/collection`;
       const { data } = await axios.get(url, {
         headers: {
           validate: process.env.REACT_APP_VALIDATE_TOKEN,
@@ -305,7 +305,7 @@ const RedeemNFT = ({ account }) => {
 
   const saveData = async () => {
     const ticketId = await calTicketId();
-    const url = "https://prod.ethbarcelona.kraznikunderverse.com/users";
+    const url = "https://eth-barcelona.kraznikunderverse.com/users";
     const post_data = {
       name: user.fullName,
       optionalName: user.displayName,
