@@ -91,6 +91,7 @@ const withouSidebarRoutes1 = ["/scavenger"];
 const withouSidebarRoutes2 = ["/speakerCard"];
 const withouSidebarRoutes3 = ["/details"];
 const withouSidebarRoutes4 = ["/speakers"];
+const withouSidebarRoutes5 = ["/speakerHomePage"];
 
 
 
@@ -107,6 +108,7 @@ const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
   if (withouSidebarRoutes2.some((item) => pathname.includes(item))) return null;
   if (withouSidebarRoutes3.some((item) => pathname.includes(item))) return null;
   if (withouSidebarRoutes4.some((item) => pathname.includes(item))) return null;
+  if (withouSidebarRoutes5.some((item) => pathname.includes(item))) return null;
 
 
   
@@ -131,6 +133,11 @@ const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
           <Nav.Link>
             <NavLink exact to="/scavenger" className="speaker">
               <Text>Scavenger </Text>
+            </NavLink>
+          </Nav.Link>
+          <Nav.Link>
+            <NavLink exact to="/speakerHomePage" className="speaker">
+              <Text>SpeakerHomePage </Text>
             </NavLink>
           </Nav.Link>
 

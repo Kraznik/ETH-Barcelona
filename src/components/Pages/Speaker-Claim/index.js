@@ -58,7 +58,7 @@ const Image = styled.div`
   padding: 96px 50px 0 50px;
 `;
 
-const Name = styled.div`
+export const Name = styled.div`
   font-family: "Dahlia-D";
   font-style: normal;
   font-weight: 700;
@@ -82,14 +82,14 @@ const Org = styled.div`
   color: #354b37;
 `;
 
-const TicketInput = styled.div`
+export const TicketInput = styled.div`
   position: absolute;
   width: 100%;
   height: 285px;
   background: #f5c34b;
 `;
 
-const Title3 = styled.div`
+export const Title3 = styled.div`
   font-family: "Dahlia";
   font-style: normal;
   font-weight: 700;
@@ -100,7 +100,7 @@ const Title3 = styled.div`
   color: #354b37;
 `;
 
-const Input = styled.div``;
+export const Input = styled.div``;
 
 export const Footer = styled.div`
   padding: 30px 17px;
@@ -108,7 +108,7 @@ export const Footer = styled.div`
   background: #354b37;
 `;
 
-const CircleOut = styled.div`
+export const CircleOut = styled.div`
   color: #354b37;
   box-sizing: border-box;
   border: 0.8px solid #354b37;
@@ -124,7 +124,7 @@ const CircleOut = styled.div`
   }
 `;
 
-const CircleIn = styled.div`
+export const CircleIn = styled.div`
   background: #354b37;
   width: 112px;
   transform: rotate(+6.41deg);
