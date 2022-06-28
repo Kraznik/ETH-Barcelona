@@ -29,7 +29,7 @@ import SyncLoader from "react-spinners/SyncLoader";
 const Heart = styled.div`
   /* display: grid; */
   /* margin: 80px 0 20px 0; */
-  padding:40px 0 20px 0;
+  padding: 40px 0 20px 0;
 `;
 
 const PopupContainer = styled.div`
@@ -322,7 +322,7 @@ const ScavengerHuntDetails = () => {
                     <br />
                     NFTs Editions: 1111
                   </Clue>
-                  <a
+                  {/* <a
                     style={{
                       cursor: "pointer",
                       float: "right",
@@ -331,7 +331,7 @@ const ScavengerHuntDetails = () => {
                   >
                     &times;
                     <Close>Close</Close>
-                  </a>
+                  </a> */}
                 </PopupContainer>
               </Popup>
             )}
@@ -347,7 +347,7 @@ const ScavengerHuntDetails = () => {
                     <br />
                     NFTs Editions: 1111
                   </Clue>
-                  <Close>Close</Close>
+                  {/* <Close>Close</Close> */}
                 </PopupContainer>
               </Popup>
             )}
@@ -363,7 +363,7 @@ const ScavengerHuntDetails = () => {
                     <br />
                     NFTs Editions: 1111
                   </Clue>
-                  <Close>Close</Close>
+                  {/* <Close>Close</Close> */}
                 </PopupContainer>
               </Popup>
             )}
@@ -381,7 +381,7 @@ const ScavengerHuntDetails = () => {
                     <br />
                     NFTs Editions: 1111
                   </Clue>
-                  <Close>Close</Close>
+                  {/* <Close>Close</Close> */}
                 </PopupContainer>
               </Popup>
             )}
@@ -397,7 +397,7 @@ const ScavengerHuntDetails = () => {
                     <br />
                     NFTs Editions: 1111
                   </Clue>
-                  <Close>Close</Close>
+                  {/* <Close>Close</Close> */}
                 </PopupContainer>
               </Popup>
             )}
@@ -413,7 +413,7 @@ const ScavengerHuntDetails = () => {
                     <br />
                     NFTs Editions: 1111
                   </Clue>
-                  <Close>Close</Close>
+                  {/* <Close>Close</Close> */}
                 </PopupContainer>
               </Popup>
             )}
@@ -431,7 +431,7 @@ const ScavengerHuntDetails = () => {
                     <br />
                     NFTs Editions: 1111
                   </Clue>
-                  <Close>Close</Close>
+                  {/* <Close>Close</Close> */}
                 </PopupContainer>
               </Popup>
             )}
@@ -447,7 +447,7 @@ const ScavengerHuntDetails = () => {
                     <br />
                     NFTs Editions: 1111
                   </Clue>
-                  <Close>Close</Close>
+                  {/* <Close>Close</Close> */}
                 </PopupContainer>
               </Popup>
             )}
@@ -455,7 +455,11 @@ const ScavengerHuntDetails = () => {
         </Heart>
       )}
 
-      {huntData.data === 8 ? <div className="winner"><img src={H9}></img></div> : null}
+      {huntData.data === 8 ? (
+        <div className="winner">
+          <img src={H9}></img>
+        </div>
+      ) : null}
 
       <Accordion>
         <Accordion.Item eventKey="" className="">
