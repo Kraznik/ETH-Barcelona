@@ -19,6 +19,8 @@ import { NavLink, useNavigate, useParams } from "react-router-dom";
 import DoinGud from "../../../assets/FooterDG.svg";
 import Twitter from "../../../assets/Twitter.svg";
 import Instagram from "../../../assets/Insta.svg";
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index.css";
 import axios from "axios";
 
 const ImageContainer = styled.div`
@@ -42,6 +44,20 @@ const Name = styled.div`
   text-align: left;
 
   color: #2b2b2b;
+`;
+
+const Name2 = styled.div`
+  font-family: "GT";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 130%;
+  /* identical to box height, or 26px */
+  text-align: center;
+  margin-top: 8px;
+  margin-left: 16px;
+  letter-spacing: -0.04em;
+  margin: 10px 0;
 `;
 
 const Creator = styled.div`
@@ -249,15 +265,15 @@ const QrCodeScvengerHunt = () => {
 
         {success ? (
           <>
-            <Name>Successfully Claimed ;)</Name>
-            <NavLink to={`/details/${ticketId}`}>
+            <Name2 className="claimed">Successfully Claimed ;)</Name2>
+            <NavLink to={`/details/${ticketId}`} className="view">
               View your heart here -
             </NavLink>
           </>
         ) : alreadyClaimed ? (
           <>
-            <Name>Have already Claimed!!</Name>
-            <NavLink to={`/details/${ticketId}`}>
+            <Name2>Have already Claimed!!</Name2>
+            <NavLink to={`/details/${ticketId}`} className="view">
               View your heart here -
             </NavLink>
           </>
@@ -267,7 +283,8 @@ const QrCodeScvengerHunt = () => {
           <Name style={{ color: "red" }}>Got Error!! Please try again...</Name>
         ) : null}
 
-        {minted9thNft ? <div>Display Congrats Popup</div> : null}
+        {minted9thNft ? <div> Congrats
+        </div> : null}
 
         <Footer>
           <div className="ft">
