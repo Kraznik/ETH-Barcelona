@@ -11,7 +11,7 @@ import {
   CircleOut,
   CircleIn,
   Name,
-  Input,
+  Input
 } from "../Speaker-Claim";
 import { LeaderboardContainer, LeaderboardBox , Titles, Info, Activity} from "../Scavenger-Hunt-Details";
 
@@ -58,7 +58,7 @@ font-weight: 700;
 font-size: 36px;
 line-height: 56px;
 /* or 156% */
-margin-top:15px;
+padding-top:15px;
 margin-bottom:20px;
 text-align: center;
 color: #354B37;
@@ -87,6 +87,12 @@ background: #FFFFFF;
 padding-bottom:50px;
 `
 
+export const InputContainer = styled.div`
+height: 285px;
+
+background: #FFD731;
+`
+
 const SpeakerHomePage = () => {
   return (
     <>
@@ -101,6 +107,26 @@ const SpeakerHomePage = () => {
         </Description>
         <img src={Star} className="s"></img>
       </Infos>
+
+      <InputContainer>
+      <Title3>NFT Ticket ID</Title3>
+      <Input>
+            <br />
+            <input
+              type="number"
+              placeholder="Ticket ID"
+              className="ticketid"
+            ></input>
+            <br />
+          </Input>
+
+          <CircleOut>
+            <CircleIn>
+                Check
+            </CircleIn>
+          </CircleOut>
+
+      </InputContainer>
 
       <Container>
         <img src={BS} className="bs"></img>
