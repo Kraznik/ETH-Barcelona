@@ -3,14 +3,15 @@ import styled from "styled-components";
 import { Title1, Title2, Footer, Question, Banner } from "../Scavenger-Play";
 import Accordion from "react-bootstrap/Accordion";
 import "bootstrap/dist/css/bootstrap.css";
-import H1 from "../../../assets/Hunt1.svg";
-import H2 from "../../../assets/Hunt2.svg";
-import H3 from "../../../assets/Hunt3.svg";
-import H4 from "../../../assets/Hunt4.jpeg";
+import H1 from "../../../assets/Hunt1.png";
+import H2 from "../../../assets/Hunt2.png";
+import H3 from "../../../assets/Hunt3.png";
+import H4 from "../../../assets/Hunt4.png";
 import H5 from "../../../assets/Hunt5.png";
-import H6 from "../../../assets/Hunt6.svg";
-import H7 from "../../../assets/Hunt7.svg";
-import H8 from "../../../assets/Hunt8.svg";
+import H6 from "../../../assets/Hunt6.png";
+import H7 from "../../../assets/Hunt7.png";
+import H8 from "../../../assets/Hunt8.png";
+import H9 from "../../../assets/H9.png";
 import DoinGud from "../../../assets/FooterDG.svg";
 import Twitter from "../../../assets/Twitter.svg";
 import Instagram from "../../../assets/Insta.svg";
@@ -27,7 +28,8 @@ import SyncLoader from "react-spinners/SyncLoader";
 
 const Heart = styled.div`
   /* display: grid; */
-  /* margin: 40px 0 20px 0; */
+  /* margin: 80px 0 20px 0; */
+  padding:40px 0 20px 0;
 `;
 
 const PopupContainer = styled.div`
@@ -81,17 +83,17 @@ const GrayImage = styled.img`
   filter: grayscale(100%);
 `;
 
-const RewardContainer = styled.div`
+export const RewardContainer = styled.div`
   disaply: inline-block;
   margin: 20px 0 0 0;
 `;
 
-const RewardImage = styled.div`
+export const RewardImage = styled.div`
   disaply: inline-block;
   position: absolute;
 `;
 
-const RewardDescription = styled.div`
+export const RewardDescription = styled.div`
   font-family: "GTD";
   font-style: normal;
   font-weight: 300;
@@ -303,7 +305,7 @@ const ScavengerHuntDetails = () => {
       <Title1>DoGood</Title1>
       <Title2>SCAVENGER HUNT</Title2>
 
-      {/* {loading ? (
+      {loading ? (
         <SyncLoader className="loader" size={10} />
       ) : (
         <Heart>
@@ -451,9 +453,9 @@ const ScavengerHuntDetails = () => {
             )}
           </LineContainer>
         </Heart>
-      )} */}
+      )}
 
-      {huntData.data === 8 ? <div>9th NFT Claimed</div> : null}
+      {huntData.data === 8 ? <div className="winner"><img src={H9}></img></div> : null}
 
       <Accordion>
         <Accordion.Item eventKey="" className="">

@@ -8,15 +8,17 @@ import { useNavigate } from "react-router-dom";
 import DoinGud from "../../../assets/FooterDG.svg";
 import Twitter from "../../../assets/Twitter.svg";
 import Instagram from "../../../assets/Insta.svg";
-
+import { RewardContainer, RewardDescription, RewardImage } from "../Scavenger-Hunt-Details";
+import R1 from "../../../assets/R1.svg";
+import R2 from "../../../assets/R2.svg";
+import R3 from "../../../assets/R3.svg";
 export const Container = styled.div`
   background: #f6f7fb;
 `;
 
 export const Banner = styled.div`
   background-image: url(${HeaderImage});
-  width: 100%;
-  background-repeat: no-repeat;
+  width: 120%;
   height: 111px;
 `;
 
@@ -139,6 +141,7 @@ export const Footer = styled.div`
   background: #2b2b2b;
   width: 100%;
   padding: 30px 24px 30px 22px;
+  margin: 10px 0 0 0;
 `;
 
 const ScavengerPlay = () => {
@@ -169,16 +172,45 @@ const ScavengerPlay = () => {
             </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="2" className="">
-            <Accordion.Header className="">
-              <Question>Rewards </Question>
-            </Accordion.Header>
-            <Accordion.Body className="reward">
-              In addition to the talks, discussions, and networking
-              opportunities, we'll be having art installations, musical
-              performances, and special events to maximize the fun during your
-              time at ETHBarcelona.
-            </Accordion.Body>
-          </Accordion.Item>
+          <Accordion.Header className="">
+            <Question>Rewards </Question>
+          </Accordion.Header>
+          <Accordion.Body className="reward">
+            <div className="r">
+              Come and claim your rewards at the DoinGud’s Booth!
+            </div>
+
+            <RewardContainer>
+              <RewardImage>
+                <img src={R1}></img>
+              </RewardImage>
+              <RewardDescription>
+                3 NFTs claimed + follow @DoinGudHQ on Social Media to win:
+                Stickers Pack **Only 400**
+              </RewardDescription>
+            </RewardContainer>
+
+            <RewardContainer>
+              <RewardImage>
+                <img src={R2}></img>
+              </RewardImage>
+              <RewardDescription>
+                5 NFTs claimed + Join our DoinGud Discord to win: DoinGud
+                T-shirt **Only 150**
+              </RewardDescription>
+            </RewardContainer>
+
+            <RewardContainer>
+              <RewardImage>
+                <img src={R3}></img>
+              </RewardImage>
+              <RewardDescription>
+                8 NFTs claimed + Answering a question in our booth to win: Swag
+                kit and experiences! **Only 9**
+              </RewardDescription>
+            </RewardContainer>
+          </Accordion.Body>
+        </Accordion.Item>
         </Accordion>
 
         <InputContainer>
