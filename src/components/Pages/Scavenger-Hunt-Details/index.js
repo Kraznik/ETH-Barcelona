@@ -213,7 +213,7 @@ const ScavengerHuntDetails = () => {
 
   const getLeaderboardDetails = async () => {
     try {
-      const url = `http://localhost:3100/leaderboard`;
+      const url = `https://eth-barcelona.kraznikunderverse.com/leaderboard`;
       const { data } = await axios.get(url, options);
       console.log(data);
       let listOfCards = [];
