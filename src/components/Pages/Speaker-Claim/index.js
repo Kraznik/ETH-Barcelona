@@ -8,10 +8,11 @@ import axios from "axios";
 import DoinGud from "../../../assets/ETH-BCN.svg";
 import Twitter from "../../../assets/ETH-Twitter.svg";
 import Instagram from "../../../assets/ETH-Insta.svg";
+import S from "../../../assets/S.png";
 
 const Container = styled.div``;
 
-const Header = styled.div`
+export const Header = styled.div`
   background-image: url(${HeaderImage});
   width: 100%;
   height: 125px;
@@ -57,7 +58,7 @@ const Image = styled.div`
   padding: 96px 50px 0 50px;
 `;
 
-const Name = styled.div`
+export const Name = styled.div`
   font-family: "Dahlia-D";
   font-style: normal;
   font-weight: 700;
@@ -81,14 +82,14 @@ const Org = styled.div`
   color: #354b37;
 `;
 
-const TicketInput = styled.div`
+export const TicketInput = styled.div`
   position: absolute;
   width: 100%;
   height: 285px;
   background: #f5c34b;
 `;
 
-const Title3 = styled.div`
+export const Title3 = styled.div`
   font-family: "Dahlia";
   font-style: normal;
   font-weight: 700;
@@ -99,17 +100,15 @@ const Title3 = styled.div`
   color: #354b37;
 `;
 
-const Input = styled.div``;
+export const Input = styled.div``;
 
-const Footer = styled.div`
+export const Footer = styled.div`
   padding: 30px 17px;
   height: 108px;
-  margin: 50px 0 0 0;
   background: #354b37;
 `;
 
-
-const CircleOut = styled.div`
+export const CircleOut = styled.div`
   color: #354b37;
   box-sizing: border-box;
   border: 0.8px solid #354b37;
@@ -125,7 +124,7 @@ const CircleOut = styled.div`
   }
 `;
 
-const CircleIn = styled.div`
+export const CircleIn = styled.div`
   background: #354b37;
   width: 112px;
   transform: rotate(+6.41deg);
@@ -142,7 +141,6 @@ const CircleIn = styled.div`
     background: none;
     transform: rotate(-6.41deg);
     color: #354b37;
-    background: #354B37;
   }
 `;
 
@@ -271,17 +269,19 @@ const SpeakerClaim = () => {
         <InputContainer>
           <Title1>SPEAKERS NFT {id}</Title1>
           <Title2>ETHBarcelona</Title2>
-          <ImageContainer>
+          {/* <ImageContainer>
             <Image>
               <img src={SpeakerImage}></img>
             </Image>
             <Name>{speakerData?.name}</Name>
             <Org>{speakerData?.org}</Org>
-          </ImageContainer>
+
+          </ImageContainer> */}
+          <img src={S}></img>
         </InputContainer>
 
         <TicketInput>
-          <Title3>Ticket ID</Title3>
+          <Title3>NFTicket ID</Title3>
           <Input>
             <br />
             <input
@@ -298,46 +298,49 @@ const SpeakerClaim = () => {
               onClick={mintSpeakerNft}
               disabled={loading ? true : false}
             >
-              {loading ? <span>Minting...</span> : <span className="mint">Mint NFT</span>}
+              {loading ? (
+                <span>Minting...</span>
+              ) : (
+                <span className="mint">Mint NFT</span>
+              )}
             </CircleIn>
           </CircleOut>
-          <Footer>
-        <div className="ft">
-            <img src={DoinGud} className="dg"></img>
-            <img src={Instagram} className="social"></img>
-            <img src={Twitter} className="social"></img>
-          </div>
-        </Footer>
- 
+
           <div>
             {message ? <Name>{message}</Name> : null}
 
             {success ? (
               <>
                 <Name>Successfully Claimed ;)</Name>
-                <NavLink to={`/speakers/${ticketId}`}>
-                  View your connections here -
-                </NavLink>
+                <div className="vi">
+                  <NavLink to={`/speakers/${ticketId}`} className="view">
+                    View your connections here -
+                  </NavLink>
+                </div>
               </>
             ) : alreadyClaimed ? (
               <>
-                <Name>Have already Claimed!!</Name>
-                <NavLink to={`/speakers/${ticketId}`}>
-                  View your connections here -
-                </NavLink>
+                <Name>Already Claimed!!</Name>
+                <div className="vi">
+                  <NavLink to={`/speakers/${ticketId}`} className="view">
+                    View your connections here -
+                  </NavLink>
+                </div>
               </>
             ) : null}
 
             {error ? (
-              <Name style={{ color: "red" }}>
-                Got Error!! Please try again...
-              </Name>
+              <Name style={{ color: "red" }}>Error!! Please try again...</Name>
             ) : null}
           </div>
+          <Footer>
+            <div className="ft">
+              <img src={DoinGud} className="dg"></img>
+              <img src={Instagram} className="social"></img>
+              <img src={Twitter} className="social"></img>
+            </div>
+          </Footer>
         </TicketInput>
-  
-
-       
       </Container>
     </>
   );

@@ -1,6 +1,69 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Title2 } from "../Scavenger-Play";
+import { Header } from "../Speaker-Claim";
+import styled from "styled-components";
+import S from "../../../assets/S.png";
+import DoinGud from "../../../assets/ETH-BCN.svg";
+import Twitter from "../../../assets/ETH-Twitter.svg";
+import Instagram from "../../../assets/ETH-Insta.svg";
+import { Footer } from "../Speaker-Claim";
+import Star from ".././../../assets/SS.png"
+
+export const TicketContainer = styled.div`
+background: #354B37;
+height: 180px;`
+
+export const Claimed =styled.div`
+margin: 54px 0  56px 0 ;
+
+
+`
+
+
+export const TicketId = styled.div`
+font-family: 'Dahlia';
+font-style: normal;
+font-weight: 500;
+font-size: 46px;
+line-height: 56px;
+/* identical to box height, or 122% */
+padding: 20px 0 0 0;
+text-align: center;
+
+color: #FFD731;
+`
+export const SpeakerContainer = styled.div`
+padding: 30px 0 0 0 ;
+`
+
+export const Title = styled.div`
+font-family: 'Dahlia';
+font-style: normal;
+font-weight: 700;
+font-size: 49px;
+line-height: 56px;
+/* or 114% */
+
+text-align: center;
+
+color: #354B37;
+`
+
+export const NFT = styled.div`
+font-family: 'Dahlia-D';
+font-style: normal;
+font-weight: 400;
+font-size: 30px;
+line-height: 56px;
+/* identical to box height, or 187% */
+margin-top:-10px;
+text-align: center;
+
+color: #FFD731;
+
+`
 
 const options = {
   headers: {
@@ -43,8 +106,41 @@ const SpeakersClaimed = () => {
 
   return (
     <>
+    <Header></Header>
+    <TicketContainer>
+      <TicketId>{ticketId}</TicketId>
+      <NFT>NFT Ticket Id</NFT>
+      <img src={Star} className="star"></img>
+    </TicketContainer>
+
+    <SpeakerContainer>
+    <Title>Speaker Cards</Title>
+    <Title>Collected!</Title>
+    <Title className="number"> /100</Title>
+    <Claimed>
+      <img src={S} className="claimed"></img>
+      <img src={S} className="claimed"></img>
+      <img src={S} className="claimed"></img>
+      <img src={S} className="claimed"></img>
+      <img src={S} className="claimed"></img>
+      <img src={S} className="claimed"></img>
+      <img src={S} className="claimed"></img>
+      <img src={S} className="claimed"></img>
+    </Claimed>
+
+    </SpeakerContainer>
+
+    <Footer>
+            <div className="ft">
+              <img src={DoinGud} className="dg"></img>
+              <img src={Instagram} className="social"></img>
+              <img src={Twitter} className="social"></img>
+            </div>
+          </Footer>
+{/* 
+
       <div>Speakers Claimed for ticket id ${ticketId}</div>
-      {listSpeakers}
+      {listSpeakers} */}
     </>
   );
 };

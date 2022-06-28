@@ -34,8 +34,9 @@ const Heart = styled.div`
 
 const PopupContainer = styled.div`
   background: #2b2b2b;
-  height: 400px;
+  height: 320px;
   width: 350px;
+  border-radius:10px;
 `;
 
 const Title = styled.div`

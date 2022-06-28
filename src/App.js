@@ -22,6 +22,7 @@ import SpeakerClaim from "./components/Pages/Speaker-Claim";
 import QrCodeScvengerHunt from "./components/Pages/Scavenger-Hunt-QrCode";
 import ScavengerHuntDetails from "./components/Pages/Scavenger-Hunt-Details";
 import SpeakersClaimed from "./components/Pages/SpeakersClaimed";
+import SpeakerHomePage from "./components/Pages/SpeakerHomePage";
 
 const providerOptions = {
   walletconnect: {
@@ -208,6 +209,7 @@ const App = () => {
         <Routes>
           <Route exact path="/" element={<Landing isMobile={isMobile} />} />
           <Route exact path="/speakers" element={<SpeakerPage></SpeakerPage>} />
+          <Route exact path="/speakerHomePage" element={<SpeakerHomePage></SpeakerHomePage>} />
           <Route
             exact
             path="/speakers/:ticketId"
