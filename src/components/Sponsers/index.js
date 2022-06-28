@@ -90,6 +90,12 @@ import SM27 from "../../assets/SM27.svg";
 import SM28 from "../../assets/SM28.svg";
 import SM29 from "../../assets/SM29.svg";
 import SM30 from "../../assets/SM30.svg";
+import EX1 from "../../assets/EX1.svg";
+import EX2 from "../../assets/EX2.svg";
+import EX3 from "../../assets/EX3.svg";
+import EX4 from "../../assets/EX4.svg";
+import EX5 from "../../assets/EX5.svg";
+import EX6 from "../../assets/EX6.svg";
 
 const Container = styled.div`
   background: #f4f4f5;
@@ -836,6 +842,45 @@ const Sponsers = () => {
                 <img src={Win}></img>
               </a>
             </GoldSponserLogo>
+          </GoldSponserLogoContainer>
+        </BronzeSponserContainer>
+
+        <BronzeSponserContainer>
+          <GoldSponserTitle>Exhibition partners</GoldSponserTitle>
+          <GoldSponserLogoContainer>
+            <GoldSponserLogo>
+              <a href="">
+                <img src={EX1}></img>
+              </a>
+            </GoldSponserLogo>
+            <GoldSponserLogo>
+              <a href="">
+                <img src={EX2}></img>
+              </a>
+            </GoldSponserLogo>
+            <GoldSponserLogo>
+              <a href="">
+                <img src={EX3}></img>
+              </a>
+            </GoldSponserLogo>
+            <GoldSponserLogo>
+              <a href="">
+                <img src={EX4}></img>
+              </a>
+            </GoldSponserLogo>
+          </GoldSponserLogoContainer>
+          <GoldSponserLogoContainer>
+          <GoldSponserLogo>
+              <a href="">
+                <img src={EX5}></img>
+              </a>
+            </GoldSponserLogo>
+            <GoldSponserLogo>
+              <a href="">
+                <img src={EX6}></img>
+              </a>
+            </GoldSponserLogo>
+
           </GoldSponserLogoContainer>
         </BronzeSponserContainer>
       </Container>
