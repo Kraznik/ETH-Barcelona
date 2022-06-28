@@ -95,7 +95,12 @@ import EX2 from "../../assets/EX2.svg";
 import EX3 from "../../assets/EX3.svg";
 import EX4 from "../../assets/EX4.svg";
 import EX5 from "../../assets/EX5.svg";
+import EX7 from "../../assets/EX7.svg";
 import EX6 from "../../assets/EX6.svg";
+import Bit from "../../assets/Bit.svg";
+import SM33 from "../../assets/SM33.svg";
+import Status from "../../assets/Status.svg";
+import SM31 from "../../assets/SM31.svg"
 
 const Container = styled.div`
   background: #f4f4f5;
@@ -419,6 +424,16 @@ const Sponsers = () => {
                   <img src={QuickNode}></img>
                 </a>{" "}
               </SilverSponserLogo>
+              <SilverSponserLogo>
+                <a href="https://bit2me.com/">
+                  <img src={Bit} ></img>
+                </a>{" "}
+              </SilverSponserLogo>
+              <SilverSponserLogo>
+                <a href="https://status.im/">
+                  <img src={Status}></img>
+                </a>{" "}
+              </SilverSponserLogo>
             </SilverSponserLogoContainer>
           </Desktop>
 
@@ -482,6 +497,16 @@ const Sponsers = () => {
               <SilverSponserLogoM>
                 <a href="">
                   <img src={SM25} width="150px" height="118px"></img>
+                </a>{" "}
+              </SilverSponserLogoM>
+              <SilverSponserLogoM>
+                <a href="https://bit2me.com/">
+                  <img src={SM33} width="150px" height="118px"></img>
+                </a>{" "}
+              </SilverSponserLogoM>
+              <SilverSponserLogoM>
+                <a href="https://status.im/">
+                  <img src={SM31} width="150px" height="118px"></img>
                 </a>{" "}
               </SilverSponserLogoM>
             </SilverSponserLogoContainer>
@@ -880,6 +905,13 @@ const Sponsers = () => {
                 <img src={EX6}></img>
               </a>
             </GoldSponserLogo>
+            <GoldSponserLogo>
+              <a href="">
+                <img src={EX7}></img>
+              </a>
+            </GoldSponserLogo>
+
+
 
           </GoldSponserLogoContainer>
         </BronzeSponserContainer>
