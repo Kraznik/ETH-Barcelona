@@ -5,16 +5,17 @@ import Twitter from "../../../assets/ETH-Twitter.svg";
 import Instagram from "../../../assets/ETH-Insta.svg";
 import styled from "styled-components";
 import Star from ".././../../assets/SS.png";
+import BS from "../../../assets/BS.svg";
 import {
   TicketInput,
-  Title3,
   CircleOut,
   CircleIn,
   Name,
   Input,
 } from "../Speaker-Claim";
+import { LeaderboardContainer, LeaderboardBox , Titles, Info, Activity} from "../Scavenger-Hunt-Details";
 
-export const Info = styled.div`
+export const Infos = styled.div`
   background: #354b37;
   height: 380px;
   padding: 30px 0 0 0;
@@ -50,6 +51,21 @@ export const Title2 = styled.div`
   color: #ffd731;
 `;
 
+export const Title3 = styled.div`
+font-family: 'Dahlia';
+font-style: normal;
+font-weight: 700;
+font-size: 36px;
+line-height: 56px;
+/* or 156% */
+margin-top:15px;
+margin-bottom:20px;
+text-align: center;
+color: #354B37;
+
+
+`;
+
 export const Description = styled.div`
   font-family: "Montserrat";
   font-style: normal;
@@ -66,12 +82,17 @@ export const Description = styled.div`
   color: #ffd731;
 `;
 
+export const Container = styled.div`
+background: #FFFFFF;
+padding-bottom:50px;
+`
+
 const SpeakerHomePage = () => {
   return (
     <>
       <Header></Header>
 
-      <Info>
+      <Infos>
         <Title>SPEAKERS</Title>
         <Title2>Collection</Title2>
         <Description>
@@ -79,7 +100,39 @@ const SpeakerHomePage = () => {
           them and scanning their Speaker Card!
         </Description>
         <img src={Star} className="s"></img>
-      </Info>
+      </Infos>
+
+      <Container>
+        <img src={BS} className="bs"></img>
+        <Title3>Top 10 Collectors</Title3>
+
+        <LeaderboardContainer>
+              <Titles>RANK </Titles>
+              <Titles>TicketID </Titles>
+              <Titles>NFTS </Titles>
+              <Titles>LAST Activity</Titles>
+              <LeaderboardBox>
+                <Info>1 </Info>
+                <Info>165</Info>
+                <Info>5/9</Info>
+                <Activity>one minute ago</Activity>
+              </LeaderboardBox>
+              <LeaderboardBox>
+                <Info>1 </Info>
+                <Info>165</Info>
+                <Info>5/9</Info>
+                <Activity>one minute ago</Activity>
+              </LeaderboardBox>
+              <LeaderboardBox>
+                <Info>1 </Info>
+                <Info>165</Info>
+                <Info>5/9</Info>
+                <Activity>one minute ago</Activity>
+              </LeaderboardBox>
+
+
+            </LeaderboardContainer>
+      </Container>
 
 
 
