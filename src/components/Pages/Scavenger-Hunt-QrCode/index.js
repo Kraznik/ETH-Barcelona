@@ -19,9 +19,11 @@ import { NavLink, useNavigate, useParams } from "react-router-dom";
 import DoinGud from "../../../assets/FooterDG.svg";
 import Twitter from "../../../assets/Twitter.svg";
 import Instagram from "../../../assets/Insta.svg";
+import H9 from "../../../assets/H9.png";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import axios from "axios";
+import { Titles } from "../Scavenger-Hunt-Details";
 
 const ImageContainer = styled.div`
   width: 343px;
@@ -283,8 +285,18 @@ const QrCodeScvengerHunt = () => {
           <Name style={{ color: "red" }}>Got Error!! Please try again...</Name>
         ) : null}
 
-        {minted9thNft ? <div> Congrats
-        </div> : null}
+        {minted9thNft ? (
+          <div>
+            {" "}
+            <div className="box">
+              <div className="title">Congratulations</div>
+              <img src={H9}></img>
+              <NavLink to={`/details/${ticketId}`} className="view">
+              View your heart here -
+            </NavLink>
+            </div>
+          </div>
+        ) : null}
 
         <Footer>
           <div className="ft">
