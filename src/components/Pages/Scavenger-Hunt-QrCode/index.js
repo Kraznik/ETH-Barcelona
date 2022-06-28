@@ -24,6 +24,7 @@ import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import axios from "axios";
 import { Titles } from "../Scavenger-Hunt-Details";
+import { scavhunt } from "./config";
 
 const ImageContainer = styled.div`
   width: 343px;
@@ -73,7 +74,7 @@ const options = {
 };
 
 const QrCodeScvengerHunt = () => {
-  const { id } = useParams();
+  const { id, hunt } = useParams();
   const [ticketId, setTicketId] = useState();
   const [success, setSuccess] = useState(false);
   const [alreadyClaimed, setAlreadyClaimed] = useState(false);
@@ -223,92 +224,96 @@ const QrCodeScvengerHunt = () => {
     fetchScavDetails();
   }, []);
 
-  return (
-    <>
-      <Container>
-        <Banner></Banner>
+  if (hunt === scavhunt[id]) {
+    return (
+      <>
+        <Container>
+          <Banner></Banner>
 
-        <Title1>DoGood</Title1>
-        <Title2>SCAVENGER HUNT</Title2>
+          <Title1>DoGood</Title1>
+          <Title2>SCAVENGER HUNT</Title2>
 
-        <ImageContainer>
-          {/* <img src={NFT}></img> */}
-          {/* <img src="https://firebasestorage.googleapis.com/v0/b/dev-eth-barcelona.appspot.com/o/ScavHunt%2F2.png?alt=media&token=26468ca2-57f4-4ea2-bd99-164004494164" />
+          <ImageContainer>
+            {/* <img src={NFT}></img> */}
+            {/* <img src="https://firebasestorage.googleapis.com/v0/b/dev-eth-barcelona.appspot.com/o/ScavHunt%2F2.png?alt=media&token=26468ca2-57f4-4ea2-bd99-164004494164" />
           <Name>Mother Earths Renewal</Name> */}
-          <img src={scavData?.image} />
-          <Name>{scavData?.name}</Name>
-          {/* <Creator>
+            <img src={scavData?.image} />
+            <Name>{scavData?.name}</Name>
+            {/* <Creator>
             <img src={Logo}></img>
             <Name>@creatorname</Name>
             </Creator> */}
-        </ImageContainer>
+          </ImageContainer>
 
-        <InputContainer>
-          <Title1>NFT {id} of 9</Title1>
-          <TikcetContainer>
-            <Input>
-              <br />
-              <input
-                type="number"
-                placeholder="TicketID"
-                className="ticketidinput"
-                value={ticketId}
-                onChange={(e) => setTicketId(e.target.value)}
-              ></input>
-              <br />
-            </Input>
-            <Submit onClick={claimNft} disabled={loading ? true : false}>
-              {loading ? <span>Claiming...</span> : <span>Claim NFT</span>}
-            </Submit>
-          </TikcetContainer>
-        </InputContainer>
+          <InputContainer>
+            <Title1>NFT {id} of 9</Title1>
+            <TikcetContainer>
+              <Input>
+                <br />
+                <input
+                  type="number"
+                  placeholder="TicketID"
+                  className="ticketidinput"
+                  value={ticketId}
+                  onChange={(e) => setTicketId(e.target.value)}
+                ></input>
+                <br />
+              </Input>
+              <Submit onClick={claimNft} disabled={loading ? true : false}>
+                {loading ? <span>Claiming...</span> : <span>Claim NFT</span>}
+              </Submit>
+            </TikcetContainer>
+          </InputContainer>
 
-        {message ? <Name>{message}</Name> : null}
+          {message ? <Name>{message}</Name> : null}
 
-        {success ? (
-          <>
-            <Name2 className="claimed">Successfully Claimed ;)</Name2>
-            <NavLink to={`/details/${ticketId}`} className="view">
-              View your heart here -
-            </NavLink>
-          </>
-        ) : alreadyClaimed ? (
-          <>
-            <Name2>Have already Claimed!!</Name2>
-            <NavLink to={`/details/${ticketId}`} className="view">
-              View your heart here -
-            </NavLink>
-          </>
-        ) : null}
-
-        {error ? (
-          <Name style={{ color: "red" }}>Got Error!! Please try again...</Name>
-        ) : null}
-
-        {minted9thNft ? (
-          <div>
-            {" "}
-            <div className="box">
-              <div className="title">Congratulations</div>
-              <img src={H9}></img>
+          {success ? (
+            <>
+              <Name2 className="claimed">Successfully Claimed ;)</Name2>
               <NavLink to={`/details/${ticketId}`} className="view">
-              View your heart here -
-            </NavLink>
-            </div>
-          </div>
-        ) : null}
+                View your heart here -
+              </NavLink>
+            </>
+          ) : alreadyClaimed ? (
+            <>
+              <Name2>Have already Claimed!!</Name2>
+              <NavLink to={`/details/${ticketId}`} className="view">
+                View your heart here -
+              </NavLink>
+            </>
+          ) : null}
 
-        <Footer>
-          <div className="ft">
-            <img src={DoinGud} className="dg"></img>
-            <img src={Instagram} className="social"></img>
-            <img src={Twitter} className="social"></img>
-          </div>
-          <p className="rights"> © DoinGud. All Right Reserved. </p>
-        </Footer>
-      </Container>
-    </>
-  );
+          {error ? (
+            <Name style={{ color: "red" }}>
+              Got Error!! Please try again...
+            </Name>
+          ) : null}
+
+          {minted9thNft ? (
+            <div>
+              {" "}
+              <div className="box">
+                <div className="title">Congratulations</div>
+                <img src={H9}></img>
+                <NavLink to={`/details/${ticketId}`} className="view">
+                  View your heart here -
+                </NavLink>
+              </div>
+            </div>
+          ) : null}
+
+          <Footer>
+            <div className="ft">
+              <img src={DoinGud} className="dg"></img>
+              <img src={Instagram} className="social"></img>
+              <img src={Twitter} className="social"></img>
+            </div>
+            <p className="rights"> © DoinGud. All Right Reserved. </p>
+          </Footer>
+        </Container>
+      </>
+    );
+  }
 };
 
 export default QrCodeScvengerHunt;

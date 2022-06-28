@@ -218,7 +218,7 @@ const App = () => {
           <Route exact path="/scavenger" element={<ScavengerPlay />} />
           <Route
             exact
-            path="/scavengerhuntqrcode/:id"
+            path="/scavengerhuntqrcode/:id/:hunt"
             element={<QrCodeScvengerHunt />}
           />
           <Route
