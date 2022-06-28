@@ -31,3 +31,30 @@
   align-items: flex-end;
   text-align: center;
 }
+
+
+.view{
+  font-family: "Dahlia";
+  font-size: 24px;
+  line-height: 20px;
+  text-align: center;
+  margin: 0 0 20px 0;
+
+}
+
+.vi{
+  padding: 0 0 30px 0;
+  background: #f5c34b;
+}
+
+.number{
+  margin-top: 15px;;
+}
+
+.claimed{
+  margin: 15px 0 0 0px ;
+}
+
+.star{
+  margin: 12px auto;
+}

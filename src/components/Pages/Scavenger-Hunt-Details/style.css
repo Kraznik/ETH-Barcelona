@@ -84,3 +84,17 @@
 color: #ffffff;
 margin: 0 0 40px 0;
 }
+
+.des{
+    font-family: "GT";
+    font-style: normal;
+    font-weight: 500;
+    margin: 11px 19px 0 19px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: -0.03em;
+color: #ffffff;
+margin: 0 0 40px 0;
+
+}

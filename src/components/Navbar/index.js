@@ -90,6 +90,9 @@ const Desktop = styled.div`
 const withouSidebarRoutes1 = ["/scavenger"];
 const withouSidebarRoutes2 = ["/speakerCard"];
 const withouSidebarRoutes3 = ["/details"];
+const withouSidebarRoutes4 = ["/speakers"];
+
+
 
 
 
@@ -103,6 +106,7 @@ const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
   if (withouSidebarRoutes1.some((item) => pathname.includes(item))) return null;
   if (withouSidebarRoutes2.some((item) => pathname.includes(item))) return null;
   if (withouSidebarRoutes3.some((item) => pathname.includes(item))) return null;
+  if (withouSidebarRoutes4.some((item) => pathname.includes(item))) return null;
 
 
   

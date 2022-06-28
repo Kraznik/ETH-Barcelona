@@ -289,11 +289,12 @@ const QrCodeScvengerHunt = () => {
           <div>
             {" "}
             <div className="box">
-              <div className="title">Congratulations</div>
+              <div className="title">You won!</div>
+              <div className="des">
+                You are one of the 9 winners of the DoGud Scavenger hunt! Make
+                sure to go to the DoinGud Booth and claim your prize.
+              </div>
               <img src={H9}></img>
-              <NavLink to={`/details/${ticketId}`} className="view">
-              View your heart here -
-            </NavLink>
             </div>
           </div>
         ) : null}
