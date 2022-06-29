@@ -31,6 +31,11 @@ const ImageContainer = styled.div`
   height: 402px;
   background: #ffffff;
   margin: 25px auto;
+
+  img {
+    width: 343px;
+    height: auto;
+  }
 `;
 
 const Name = styled.div`
@@ -123,57 +128,49 @@ const QrCodeScvengerHunt = () => {
 
           if (id == 1) {
             var post_data = {
-              creatorTypeId: 4,
-              creatorTypeIdFor9th: 15,
+              creatorTypeId: 11,
               toAddress: walletAddress,
               part1: true,
             };
           } else if (id == 2) {
             var post_data = {
-              creatorTypeId: 5,
-              creatorTypeIdFor9th: 15,
+              creatorTypeId: 12,
               toAddress: walletAddress,
               part2: true,
             };
           } else if (id == 3) {
             var post_data = {
-              creatorTypeId: 6,
-              creatorTypeIdFor9th: 15,
+              creatorTypeId: 13,
               toAddress: walletAddress,
               part3: true,
             };
           } else if (id == 4) {
             var post_data = {
-              creatorTypeId: 7,
-              creatorTypeIdFor9th: 15,
+              creatorTypeId: 14,
               toAddress: walletAddress,
               part4: true,
             };
           } else if (id == 5) {
             var post_data = {
-              creatorTypeId: 8,
-              creatorTypeIdFor9th: 15,
+              creatorTypeId: 15,
               toAddress: walletAddress,
               part5: true,
             };
           } else if (id == 6) {
             var post_data = {
-              creatorTypeId: 9,
-              creatorTypeIdFor9th: 15,
+              creatorTypeId: 16,
               toAddress: walletAddress,
               part6: true,
             };
           } else if (id == 7) {
             var post_data = {
-              creatorTypeId: 10,
-              creatorTypeIdFor9th: 15,
+              creatorTypeId: 17,
               toAddress: walletAddress,
               part7: true,
             };
           } else if (id == 8) {
             var post_data = {
-              creatorTypeId: 11,
-              creatorTypeIdFor9th: 15,
+              creatorTypeId: 18,
               toAddress: walletAddress,
               part8: true,
             };

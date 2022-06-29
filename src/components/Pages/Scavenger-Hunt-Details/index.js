@@ -36,7 +36,7 @@ const PopupContainer = styled.div`
   background: #2b2b2b;
   height: 320px;
   width: 350px;
-  border-radius:10px;
+  border-radius: 10px;
 `;
 
 const Title = styled.div`
@@ -290,7 +290,8 @@ const ScavengerHuntDetails = () => {
       >
         <Info>{index + 1} </Info>
         <Info>{ticketId}</Info>
-        {dataPoints === 8 ? <Info>9/9</Info> : <Info>{dataPoints}/9</Info>}
+        {/* {dataPoints === 8 ? <Info>9/9</Info> : <Info>{dataPoints}/9</Info>} */}
+        <Info>{dataPoints}/9</Info>
         <Activity>{lastActivity}</Activity>
       </LeaderboardBox>
     );
@@ -456,7 +457,7 @@ const ScavengerHuntDetails = () => {
         </Heart>
       )}
 
-      {huntData.data === 8 ? (
+      {huntData.data === 9 ? (
         <div className="winner">
           <img src={H9}></img>
         </div>
