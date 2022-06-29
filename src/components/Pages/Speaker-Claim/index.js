@@ -9,6 +9,7 @@ import DoinGud from "../../../assets/ETH-BCN.svg";
 import Twitter from "../../../assets/ETH-Twitter.svg";
 import Instagram from "../../../assets/ETH-Insta.svg";
 import S from "../../../assets/S.png";
+import { speakers } from "./speaker-map";
 
 const Container = styled.div``;
 
@@ -151,7 +152,7 @@ const options = {
 };
 
 const SpeakerClaim = () => {
-  const { id } = useParams();
+  const { id, speakerMap } = useParams();
   const [speakerData, setSpeakerData] = useState();
   const [ticketId, setTicketId] = useState();
 
@@ -254,15 +255,16 @@ const SpeakerClaim = () => {
     setLoading(false);
   };
 
-  return (
-    <>
-      <Container>
-        <Header></Header>
+  if (speakerMap === speakers[id])
+    return (
+      <>
+        <Container>
+          <Header></Header>
 
-        <InputContainer>
-          <Title1>SPEAKERS NFT {id}</Title1>
-          <Title2>ETHBarcelona</Title2>
-          {/* <ImageContainer>
+          <InputContainer>
+            <Title1>SPEAKERS NFT {id}</Title1>
+            <Title2>ETHBarcelona</Title2>
+            {/* <ImageContainer>
             <Image>
               <img src={SpeakerImage}></img>
             </Image>
@@ -270,73 +272,75 @@ const SpeakerClaim = () => {
             <Org>{speakerData?.org}</Org>
 
           </ImageContainer> */}
-          <img src={S}></img>
-        </InputContainer>
+            <img src={S}></img>
+          </InputContainer>
 
-        <TicketInput>
-          <Title3>NFTicket ID</Title3>
-          <Input>
-            <br />
-            <input
-              type="number"
-              placeholder="Ticket ID"
-              className="ticketid"
-              value={ticketId}
-              onChange={(e) => setTicketId(e.target.value)}
-            ></input>
-            <br />
-          </Input>
-          <CircleOut>
-            <CircleIn
-              onClick={mintSpeakerNft}
-              disabled={loading ? true : false}
-            >
-              {loading ? (
-                <span>Minting...</span>
-              ) : (
-                <span className="mint">Mint NFT</span>
-              )}
-            </CircleIn>
-          </CircleOut>
+          <TicketInput>
+            <Title3>NFTicket ID</Title3>
+            <Input>
+              <br />
+              <input
+                type="number"
+                placeholder="Ticket ID"
+                className="ticketid"
+                value={ticketId}
+                onChange={(e) => setTicketId(e.target.value)}
+              ></input>
+              <br />
+            </Input>
+            <CircleOut>
+              <CircleIn
+                onClick={mintSpeakerNft}
+                disabled={loading ? true : false}
+              >
+                {loading ? (
+                  <span>Minting...</span>
+                ) : (
+                  <span className="mint">Mint NFT</span>
+                )}
+              </CircleIn>
+            </CircleOut>
 
-          <div>
-            {message ? <Name>{message}</Name> : null}
+            <div>
+              {message ? <Name>{message}</Name> : null}
 
-            {success ? (
-              <>
-                <Name>Successfully Claimed ;)</Name>
-                <div className="vi">
-                  <NavLink to={`/speakers/${ticketId}`} className="view">
-                    View your connections here -
-                  </NavLink>
-                </div>
-              </>
-            ) : alreadyClaimed ? (
-              <>
-                <Name>Already Claimed!!</Name>
-                <div className="vi">
-                  <NavLink to={`/speakers/${ticketId}`} className="view">
-                    View your connections here -
-                  </NavLink>
-                </div>
-              </>
-            ) : null}
+              {success ? (
+                <>
+                  <Name>Successfully Claimed ;)</Name>
+                  <div className="vi">
+                    <NavLink to={`/speakers/${ticketId}`} className="view">
+                      View your connections here -
+                    </NavLink>
+                  </div>
+                </>
+              ) : alreadyClaimed ? (
+                <>
+                  <Name>Already Claimed!!</Name>
+                  <div className="vi">
+                    <NavLink to={`/speakers/${ticketId}`} className="view">
+                      View your connections here -
+                    </NavLink>
+                  </div>
+                </>
+              ) : null}
 
-            {error ? (
-              <Name style={{ color: "red" }}>Error!! Please try again...</Name>
-            ) : null}
-          </div>
-          <Footer>
-            <div className="ft">
-              <img src={DoinGud} className="dg"></img>
-              <img src={Instagram} className="social"></img>
-              <img src={Twitter} className="social"></img>
+              {error ? (
+                <Name style={{ color: "red" }}>
+                  Error!! Please try again...
+                </Name>
+              ) : null}
             </div>
-          </Footer>
-        </TicketInput>
-      </Container>
-    </>
-  );
+            <Footer>
+              <div className="ft">
+                <img src={DoinGud} className="dg"></img>
+                <img src={Instagram} className="social"></img>
+                <img src={Twitter} className="social"></img>
+              </div>
+            </Footer>
+          </TicketInput>
+        </Container>
+      </>
+    );
 };
 
 export default SpeakerClaim;
