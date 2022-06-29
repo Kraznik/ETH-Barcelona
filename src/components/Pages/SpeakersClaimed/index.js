@@ -18,6 +18,10 @@ export const TicketContainer = styled.div`
 
 export const Claimed = styled.div`
   margin: 54px 0 56px 0;
+
+  img {
+    height: 550px;
+  }
 `;
 
 export const TicketId = styled.div`
@@ -71,28 +75,62 @@ const options = {
 const SpeakersClaimed = () => {
   const { ticketId } = useParams();
   const [listSpeakers, setListSpeakers] = useState([]);
+  const [numOfSpeakersCollected, setNumOfSpeakersCollected] = useState(0);
+
+  const fetchSpeakerDetails = async (speakerId) => {
+    try {
+      const url = `https://eth-barcelona.kraznikunderverse.com/speakersPage/${speakerId}`;
+      const { data } = await axios.get(url, options);
+      console.log(data);
+      // setSpeakerData(data);
+      return data;
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   const fetchUserSpeakerDetails = async () => {
     try {
       const url = `https://eth-barcelona.kraznikunderverse.com/speakers/${ticketId}`;
       const { data } = await axios.get(url, options);
       const speakers = data.data;
+      console.log("speakers: ", speakers);
+      setNumOfSpeakersCollected(speakers.length);
 
-      let listCards = [];
-      speakers.map((speaker) => {
-        const card = renderCard(speaker);
-        listCards.push(card);
+      // let listCards = [];
+      const promises = speakers.map((speakerId) => {
+        return fetchSpeakerDetails(speakerId).then((speakerData) => {
+          const card = renderCard(speakerId, speakerData);
+          // return listCards.push(card);
+          return card;
+        });
       });
-      setListSpeakers(listCards);
+
+      Promise.all(promises).then((listCards) => {
+        listCards.reverse();
+        setListSpeakers(listCards);
+      });
+      // await speakers.map(async (speakerId) => {
+      //   const speakerData = await fetchSpeakerDetails(speakerId);
+      //   const card = renderCard(speakerId, speakerData);
+      //   listCards.push(card);
+      // });
+      // setListSpeakers(listCards);
     } catch (err) {
       console.error(err);
     }
   };
 
-  const renderCard = (speakerId) => {
+  const renderCard = (speakerId, speakerData) => {
     return (
       <>
-        <h1>{speakerId}</h1>
+        {/* <h1>{speakerId}</h1> */}
+        <a
+          href={`https://main.doingud.work/creation/${speakerData.nftTypeId}`}
+          target={"_blank"}
+        >
+          <img src={speakerData.image} className="claimed"></img>
+        </a>
       </>
     );
   };
@@ -113,26 +151,17 @@ const SpeakersClaimed = () => {
       <SpeakerContainer>
         <Title>Speaker Cards</Title>
         <Title>Collected!</Title>
-        <Title className="number"> /100</Title>
-        <Claimed>
-          <img src={S} className="claimed"></img>
-          <img src={S} className="claimed"></img>
-          <img src={S} className="claimed"></img>
-          <img src={S} className="claimed"></img>
-          <img src={S} className="claimed"></img>
-          <img src={S} className="claimed"></img>
-          <img src={S} className="claimed"></img>
-          <img src={S} className="claimed"></img>
-        </Claimed>
+        <Title className="number"> {numOfSpeakersCollected} /100</Title>
+        <Claimed>{listSpeakers}</Claimed>
       </SpeakerContainer>
 
       <Footer>
         <div className="ft">
           <img src={DoinGud} className="dg"></img>
-          <a href="https://www.instagram.com/ethbarcelona/">
+          <a href="https://www.instagram.com/ethbarcelona/" target={"_blank"}>
             <img src={Instagram} className="social"></img>
           </a>
-          <a href="https://twitter.com/eth_barcelona">
+          <a href="https://twitter.com/eth_barcelona" target={"_blank"}>
             <img src={Twitter} className="social"></img>
           </a>
         </div>
