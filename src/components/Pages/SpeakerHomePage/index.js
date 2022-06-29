@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Footer, Header } from "../Speaker-Claim";
 import DoinGud from "../../../assets/ETH-BCN.svg";
 import Twitter from "../../../assets/ETH-Twitter.svg";
@@ -11,9 +11,17 @@ import {
   CircleOut,
   CircleIn,
   Name,
-  Input
+  Input,
 } from "../Speaker-Claim";
-import { LeaderboardContainer, LeaderboardBox , Titles, Info, Activity} from "../Scavenger-Hunt-Details";
+import {
+  LeaderboardContainer,
+  LeaderboardBox,
+  Titles,
+  Info,
+  Activity,
+} from "../Scavenger-Hunt-Details";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export const Infos = styled.div`
   background: #354b37;
@@ -52,18 +60,16 @@ export const Title2 = styled.div`
 `;
 
 export const Title3 = styled.div`
-font-family: 'Dahlia';
-font-style: normal;
-font-weight: 700;
-font-size: 36px;
-line-height: 56px;
-/* or 156% */
-padding-top:15px;
-margin-bottom:20px;
-text-align: center;
-color: #354B37;
-
-
+  font-family: "Dahlia";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 56px;
+  /* or 156% */
+  padding-top: 15px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #354b37;
 `;
 
 export const Description = styled.div`
@@ -83,21 +89,88 @@ export const Description = styled.div`
 `;
 
 export const Container = styled.div`
-background: #FFFFFF;
-padding-bottom:50px;
-`
+  background: #ffffff;
+  padding-bottom: 50px;
+`;
 
 export const InputContainer = styled.div`
-height: 285px;
+  height: 285px;
 
-background: #FFD731;
-`
+  background: #ffd731;
+`;
+
+const options = {
+  headers: {
+    validate: process.env.REACT_APP_VALIDATE_TOKEN,
+  },
+};
 
 const SpeakerHomePage = () => {
+  const [ticketId, setTicketId] = useState();
+  const [leaderboard, setLeaderboard] = useState([]);
+  const navigate = useNavigate();
+
+  const fetchSpeakerLeaderboard = async () => {
+    const url =
+      "https://eth-barcelona.kraznikunderverse.com/speakers-leaderboard";
+    const { data } = await axios.get(url, options);
+    // console.log(data);
+
+    const top10 = data.filter((details, index) => index < 10);
+    console.log(top10);
+
+    let listOfCards = [];
+    data.map((row, index) => {
+      const currentDate = new Date();
+      const lastActivity = new Date(row.updatedAt);
+      const getSeconds = Math.floor((currentDate - lastActivity) / 1000);
+      const getMinutes = Math.floor(getSeconds / 60);
+      const getHours = Math.floor(getMinutes / 60);
+      const getDays = Math.floor(getHours / 24);
+
+      if (getDays > 0) {
+        var lastActivityTime = getDays + " days ago";
+      } else if (getHours > 0) {
+        var lastActivityTime = getHours + " hours ago";
+      } else if (getMinutes > 0) {
+        var lastActivityTime = getMinutes + " minutes ago";
+      } else {
+        var lastActivityTime = getSeconds + " seconds ago";
+      }
+
+      if (index < 10 && row.count > 0) {
+        const card = renderLeaderboardRow(
+          index,
+          row.ticketId,
+          row.count,
+          lastActivityTime
+        );
+        listOfCards.push(card);
+      } else {
+        return;
+      }
+    });
+    setLeaderboard(listOfCards);
+  };
+
+  const renderLeaderboardRow = (index, ticketId, count, lastActivity) => {
+    return (
+      <LeaderboardBox key={index}>
+        <Info>{index + 1} </Info>
+        <Info>{ticketId}</Info>
+        <Info>{count}/130</Info>
+        <Activity>{lastActivity}</Activity>
+      </LeaderboardBox>
+    );
+  };
+
+  useEffect(() => {
+    fetchSpeakerLeaderboard();
+  }, []);
+
   return (
     <>
       <Header></Header>
-
       <Infos>
         <Title>SPEAKERS</Title>
         <Title2>Collection</Title2>
@@ -109,23 +182,25 @@ const SpeakerHomePage = () => {
       </Infos>
 
       <InputContainer>
-      <Title3>NFT Ticket ID</Title3>
-      <Input>
-            <br />
-            <input
-              type="number"
-              placeholder="Ticket ID"
-              className="ticketid"
-            ></input>
-            <br />
-          </Input>
+        <Title3>NFT Ticket ID</Title3>
+        <Input>
+          <br />
+          <input
+            type="number"
+            placeholder="Ticket ID"
+            className="ticketid"
+            min={1}
+            value={ticketId}
+            onChange={(e) => setTicketId(e.target.value)}
+          ></input>
+          <br />
+        </Input>
 
-          <CircleOut>
-            <CircleIn>
-                Check
-            </CircleIn>
-          </CircleOut>
-
+        <CircleOut>
+          <CircleIn onClick={() => navigate(`/speakers/${ticketId}`)}>
+            Check
+          </CircleIn>
+        </CircleOut>
       </InputContainer>
 
       <Container>
@@ -133,34 +208,13 @@ const SpeakerHomePage = () => {
         <Title3>Top 10 Collectors</Title3>
 
         <LeaderboardContainer>
-              <Titles>RANK </Titles>
-              <Titles>TicketID </Titles>
-              <Titles>NFTS </Titles>
-              <Titles>LAST Activity</Titles>
-              <LeaderboardBox>
-                <Info>1 </Info>
-                <Info>165</Info>
-                <Info>5/9</Info>
-                <Activity>one minute ago</Activity>
-              </LeaderboardBox>
-              <LeaderboardBox>
-                <Info>1 </Info>
-                <Info>165</Info>
-                <Info>5/9</Info>
-                <Activity>one minute ago</Activity>
-              </LeaderboardBox>
-              <LeaderboardBox>
-                <Info>1 </Info>
-                <Info>165</Info>
-                <Info>5/9</Info>
-                <Activity>one minute ago</Activity>
-              </LeaderboardBox>
-
-
-            </LeaderboardContainer>
+          <Titles>RANK </Titles>
+          <Titles>TicketID </Titles>
+          <Titles>NFTS </Titles>
+          <Titles>LAST Activity</Titles>
+          {leaderboard}
+        </LeaderboardContainer>
       </Container>
-
-
 
       <Footer>
         <div className="ft">

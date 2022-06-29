@@ -22,6 +22,10 @@ export const Header = styled.div`
 const InputContainer = styled.div`
   background: #354b37;
   padding: 20px 0;
+
+  img {
+    height: 550px;
+  }
 `;
 
 const Title1 = styled.div`
@@ -218,6 +222,8 @@ const SpeakerClaim = () => {
             toAddress: walletAddress,
             speakerId: id,
           };
+
+          console.log("post_data: ", post_data);
           // if (id == 1) {
           //   var post_data = {
           //     creatorTypeId: 12,
@@ -227,6 +233,7 @@ const SpeakerClaim = () => {
           // }
 
           const { data } = await axios.post(url, post_data, options);
+          console.log(data);
 
           if (data?.response?.minted) setSuccess(true);
 
@@ -272,7 +279,7 @@ const SpeakerClaim = () => {
             <Org>{speakerData?.org}</Org>
 
           </ImageContainer> */}
-            <img src={S}></img>
+            <img src={speakerData?.image}></img>
           </InputContainer>
 
           <TicketInput>

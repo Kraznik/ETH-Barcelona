@@ -538,20 +538,20 @@ const ScavengerHuntDetails = () => {
       </Accordion>
 
       <Footer>
-          <div className="ft">
-            <img src={DoinGud} className="dg"></img>
-            <a href="https://www.instagram.com/ethbarcelona/">
-              {" "}
-              <img src={Instagram} className="social"></img>
-            </a>
+        <div className="ft">
+          <img src={DoinGud} className="dg"></img>
+          <a href="https://www.instagram.com/ethbarcelona/">
+            {" "}
+            <img src={Instagram} className="social"></img>
+          </a>
 
-            <a href="https://twitter.com/eth_barcelona">
-              {" "}
-              <img src={Twitter} className="social"></img>
-            </a>
-          </div>
-          <p className="rights"> © DoinGud. All Right Reserved. </p>
-        </Footer>
+          <a href="https://twitter.com/eth_barcelona">
+            {" "}
+            <img src={Twitter} className="social"></img>
+          </a>
+        </div>
+        <p className="rights"> © DoinGud. All Right Reserved. </p>
+      </Footer>
     </>
   );
 };
