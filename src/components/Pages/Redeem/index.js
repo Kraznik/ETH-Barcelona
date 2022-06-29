@@ -8,6 +8,7 @@ import axios from "axios";
 import ErrorPage from "../../ErrorPage";
 import web3 from "../../../ethereum/web3";
 import { useWeb3React } from "@web3-react/core";
+import useCalculatedGasFee from "../../../hooks/useCalculateGasFee";
 
 const Box = styled.div`
   background: #f5c34b;
@@ -204,6 +205,7 @@ export const Redeem = styled.button`
 
 const RedeemNFT = ({ account }) => {
   const { library } = useWeb3React();
+  const { calculateGasFee } = useCalculatedGasFee();
 
   const setWeb3Provider = async () => {
     // console.log("setting provider: ", library?._provider);
@@ -239,6 +241,7 @@ const RedeemNFT = ({ account }) => {
     e.preventDefault();
     setLoading({ ...loading, isUpdating: true });
     await saveData();
+    var gasFees = await calculateGasFee();
     try {
       // console.log("Burning the ticket");
       const burnWalletAddress = "0x000000000000000000000000000000000000dEaD";
@@ -254,8 +257,8 @@ const RedeemNFT = ({ account }) => {
         // .burn(account, tokenId, 1)
         .send({
           from: account,
-          // gasPrice: 2000000000,
-          // gasLimit: "10000000",
+          maxPriorityFeePerGas: gasFees.maxPriorityFeePerGas,
+          maxFeePerGas: gasFees.maxFeePerGas,
         });
 
       // console.log(result);
