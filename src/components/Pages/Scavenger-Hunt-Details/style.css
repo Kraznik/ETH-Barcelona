@@ -58,7 +58,7 @@
 
 .box{
     background-color: #2b2b2b;
-    height: 480px;
+    height: 540px;
     width: 380px;
     padding: 20px 10px;
     position: absolute;
@@ -76,7 +76,7 @@
     font-family: "GT";
     font-style: normal;
     font-weight: 500;
-    margin: 11px 19px 0 19px;
+    margin: 18px 19px 0 19px;
     text-align: center;
     font-size: 36px;
     line-height: 100%;
@@ -86,9 +86,10 @@ margin: 0 0 40px 0;
 }
 
 .des{
-    font-family: "GT";
+    font-family: "GTD";
     font-style: normal;
     font-weight: 500;
+    padding: 0 32px;
     margin: 11px 19px 0 19px;
     text-align: center;
     font-size: 18px;
