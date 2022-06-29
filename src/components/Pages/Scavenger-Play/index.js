@@ -8,7 +8,11 @@ import { useNavigate } from "react-router-dom";
 import DoinGud from "../../../assets/FooterDG.svg";
 import Twitter from "../../../assets/Twitter.svg";
 import Instagram from "../../../assets/Insta.svg";
-import { RewardContainer, RewardDescription, RewardImage } from "../Scavenger-Hunt-Details";
+import {
+  RewardContainer,
+  RewardDescription,
+  RewardImage,
+} from "../Scavenger-Hunt-Details";
 import R1 from "../../../assets/R1.svg";
 import R2 from "../../../assets/R2.svg";
 import R3 from "../../../assets/R3.svg";
@@ -172,45 +176,45 @@ const ScavengerPlay = () => {
             </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="2" className="">
-          <Accordion.Header className="">
-            <Question>Rewards </Question>
-          </Accordion.Header>
-          <Accordion.Body className="reward">
-            <div className="r">
-              Come and claim your rewards at the DoinGud’s Booth!
-            </div>
+            <Accordion.Header className="">
+              <Question>Rewards </Question>
+            </Accordion.Header>
+            <Accordion.Body className="reward">
+              <div className="r">
+                Come and claim your rewards at the DoinGud’s Booth!
+              </div>
 
-            <RewardContainer>
-              <RewardImage>
-                <img src={R1}></img>
-              </RewardImage>
-              <RewardDescription>
-                3 NFTs claimed + follow @DoinGudHQ on Social Media to win:
-                Stickers Pack **Only 400**
-              </RewardDescription>
-            </RewardContainer>
+              <RewardContainer>
+                <RewardImage>
+                  <img src={R1}></img>
+                </RewardImage>
+                <RewardDescription>
+                  3 NFTs claimed + follow @DoinGudHQ on Social Media to win:
+                  Stickers Pack **Only 400**
+                </RewardDescription>
+              </RewardContainer>
 
-            <RewardContainer>
-              <RewardImage>
-                <img src={R2}></img>
-              </RewardImage>
-              <RewardDescription>
-                5 NFTs claimed + Join our DoinGud Discord to win: DoinGud
-                T-shirt **Only 150**
-              </RewardDescription>
-            </RewardContainer>
+              <RewardContainer>
+                <RewardImage>
+                  <img src={R2}></img>
+                </RewardImage>
+                <RewardDescription>
+                  5 NFTs claimed + Join our DoinGud Discord to win: DoinGud
+                  T-shirt **Only 150**
+                </RewardDescription>
+              </RewardContainer>
 
-            <RewardContainer>
-              <RewardImage>
-                <img src={R3}></img>
-              </RewardImage>
-              <RewardDescription>
-                8 NFTs claimed + Answering a question in our booth to win: Swag
-                kit and experiences! **Only 9**
-              </RewardDescription>
-            </RewardContainer>
-          </Accordion.Body>
-        </Accordion.Item>
+              <RewardContainer>
+                <RewardImage>
+                  <img src={R3}></img>
+                </RewardImage>
+                <RewardDescription>
+                  8 NFTs claimed + Answering a question in our booth to win:
+                  Swag kit and experiences! **Only 9**
+                </RewardDescription>
+              </RewardContainer>
+            </Accordion.Body>
+          </Accordion.Item>
         </Accordion>
 
         <InputContainer>
@@ -243,8 +247,15 @@ const ScavengerPlay = () => {
         <Footer>
           <div className="ft">
             <img src={DoinGud} className="dg"></img>
-            <img src={Instagram} className="social"></img>
-            <img src={Twitter} className="social"></img>
+            <a href="https://www.instagram.com/ethbarcelona/">
+              {" "}
+              <img src={Instagram} className="social"></img>
+            </a>
+
+            <a href="https://twitter.com/eth_barcelona">
+              {" "}
+              <img src={Twitter} className="social"></img>
+            </a>
           </div>
           <p className="rights"> © DoinGud. All Right Reserved. </p>
         </Footer>
