@@ -152,21 +152,24 @@ const SpeakersClaimed = () => {
         <Title>Speaker Cards</Title>
         <Title>Collected!</Title>
         <Title className="number"> {numOfSpeakersCollected} /100</Title>
-        <Claimed>
-          {listSpeakers}
-          {/* <img src={S} className="claimed"></img>
-          <img src={S} className="claimed"></img>
-          <img src={S} className="claimed"></img> */}
-        </Claimed>
+        <Claimed>{listSpeakers}</Claimed>
       </SpeakerContainer>
 
       <Footer>
         <div className="ft">
           <img src={DoinGud} className="dg"></img>
-          <img src={Instagram} className="social"></img>
-          <img src={Twitter} className="social"></img>
+          <a href="https://www.instagram.com/ethbarcelona/" target={"_blank"}>
+            <img src={Instagram} className="social"></img>
+          </a>
+          <a href="https://twitter.com/eth_barcelona" target={"_blank"}>
+            <img src={Twitter} className="social"></img>
+          </a>
         </div>
       </Footer>
+      {/* 
+
+      <div>Speakers Claimed for ticket id ${ticketId}</div>
+      {listSpeakers} */}
     </>
   );
 };

@@ -196,10 +196,8 @@ const SpeakerHomePage = () => {
           <br />
         </Input>
 
-        <CircleOut>
-          <CircleIn onClick={() => navigate(`/speakers/${ticketId}`)}>
-            Check
-          </CircleIn>
+        <CircleOut onClick={() => navigate(`/speakers/${ticketId}`)}>
+          <CircleIn>Your Collection</CircleIn>
         </CircleOut>
       </InputContainer>
 
@@ -219,8 +217,12 @@ const SpeakerHomePage = () => {
       <Footer>
         <div className="ft">
           <img src={DoinGud} className="dg"></img>
-          <img src={Instagram} className="social"></img>
-          <img src={Twitter} className="social"></img>
+          <a href="https://www.instagram.com/ethbarcelona/">
+            <img src={Instagram} className="social"></img>
+          </a>
+          <a href="https://twitter.com/eth_barcelona">
+            <img src={Twitter} className="social"></img>
+          </a>
         </div>
       </Footer>
     </>

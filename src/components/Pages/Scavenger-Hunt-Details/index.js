@@ -34,7 +34,7 @@ const Heart = styled.div`
 
 const PopupContainer = styled.div`
   background: #2b2b2b;
-  height: 320px;
+  height: 380px;
   width: 350px;
   border-radius: 10px;
 `;
@@ -319,8 +319,9 @@ const ScavengerHuntDetails = () => {
                 <PopupContainer className="popup">
                   <Title>Clue #1</Title>
                   <Clue>
-                    “You need food to keep your body running. Go to the place
-                    where you go to get it!" <br />
+                    “It’s a beautiful, mysterious element that connects all
+                    countries and all people across the globe. If you go to the
+                    highest point of the venue you will find it! " <br />
                     <br />
                     NFTs Editions: 1111
                   </Clue>
@@ -344,8 +345,9 @@ const ScavengerHuntDetails = () => {
                 <PopupContainer className="popup">
                   <Title>Clue #2</Title>
                   <Clue>
-                    “You need food to keep your body running. Go to the place
-                    where you go to get it!" <br />
+                    “We depend on it for our survival, from the air we breathe
+                    to the wood we use. Find a place to check what this
+                    wonderful brings us! " <br />
                     <br />
                     NFTs Editions: 1111
                   </Clue>
@@ -360,8 +362,10 @@ const ScavengerHuntDetails = () => {
                 <PopupContainer className="popup">
                   <Title>Clue #3</Title>
                   <Clue>
-                    “You need food to keep your body running. Go to the place
-                    where you go to get it!" <br />
+                    “The largest canvas, painted with bright colors. During the
+                    day we catch a glimpse of abstract shapes on it; at night,
+                    we see flashes of lights. Find the place where art and
+                    canvas meet! " <br />
                     <br />
                     NFTs Editions: 1111
                   </Clue>
@@ -378,8 +382,9 @@ const ScavengerHuntDetails = () => {
                 <PopupContainer className="popup">
                   <Title>Clue #4</Title>
                   <Clue>
-                    “You need food to keep your body running. Go to the place
-                    where you go to get it!" <br />
+                    “The only way you can truly experience happiness, peace and
+                    joy is to live it. Find the place where the present becomes
+                    a memory! " <br />
                     <br />
                     NFTs Editions: 1111
                   </Clue>
@@ -394,8 +399,9 @@ const ScavengerHuntDetails = () => {
                 <PopupContainer className="popup">
                   <Title>Clue #5</Title>
                   <Clue>
-                    “You need food to keep your body running. Go to the place
-                    where you go to get it!" <br />
+                    “Promotes creativity, encourages the search for new
+                    information and perspectives, and leads to breakthrough
+                    innovations. Find the place where diversity meets!!" <br />
                     <br />
                     NFTs Editions: 1111
                   </Clue>
@@ -410,10 +416,11 @@ const ScavengerHuntDetails = () => {
                 <PopupContainer className="popup">
                   <Title>Clue #6</Title>
                   <Clue>
-                    “You need food to keep your body running. Go to the place
-                    where you go to get it!" <br />
+                    “It makes everyone different in the world because they
+                    create the stage on which all of us perform. Find the place
+                    where big things happen! " <br />
                     <br />
-                    NFTs Editions: 1111
+                    NFTs Editions: 333
                   </Clue>
                   {/* <Close>Close</Close> */}
                 </PopupContainer>
@@ -428,10 +435,11 @@ const ScavengerHuntDetails = () => {
                 <PopupContainer className="popup">
                   <Title>Clue #7</Title>
                   <Clue>
-                    “You need food to keep your body running. Go to the place
-                    where you go to get it!" <br />
+                    “It enables us to come up with new ideas and solve problems
+                    in innovative ways. You will find it where technology and
+                    design meet! " <br />
                     <br />
-                    NFTs Editions: 1111
+                    NFTs Editions: 333
                   </Clue>
                   {/* <Close>Close</Close> */}
                 </PopupContainer>
@@ -444,10 +452,11 @@ const ScavengerHuntDetails = () => {
                 <PopupContainer className="popup">
                   <Title>Clue #8</Title>
                   <Clue>
-                    “You need food to keep your body running. Go to the place
-                    where you go to get it!" <br />
+                    “It’s what others see when they look at you. Sometimes it is
+                    still; other times, it may be in motion. Find the place
+                    where you can feel it!" <br />
                     <br />
-                    NFTs Editions: 1111
+                    NFTs Editions: 333
                   </Clue>
                   {/* <Close>Close</Close> */}
                 </PopupContainer>

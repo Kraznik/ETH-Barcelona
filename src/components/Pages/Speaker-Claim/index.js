@@ -9,6 +9,7 @@ import DoinGud from "../../../assets/ETH-BCN.svg";
 import Twitter from "../../../assets/ETH-Twitter.svg";
 import Instagram from "../../../assets/ETH-Insta.svg";
 import S from "../../../assets/S.png";
+import Star from ".././../../assets/SS.png";
 import { speakers } from "./speaker-map";
 
 const Container = styled.div``;
@@ -49,6 +50,7 @@ const Title2 = styled.div`
   line-height: 56px;
   text-align: center;
   color: #f5c34b;
+  margin-bottom: 30px;
 `;
 
 const ImageContainer = styled.div`
@@ -91,6 +93,7 @@ export const TicketInput = styled.div`
   position: absolute;
   width: 100%;
   height: 285px;
+  padding: 30px 0 0 0;
   background: #f5c34b;
 `;
 
@@ -110,6 +113,7 @@ export const Input = styled.div``;
 export const Footer = styled.div`
   padding: 30px 17px;
   height: 108px;
+  margin: 50px 0 0 0;
   background: #354b37;
 `;
 
@@ -118,7 +122,7 @@ export const CircleOut = styled.div`
   box-sizing: border-box;
   border: 0.8px solid #354b37;
   transform: rotate(-6.41deg);
-  width: 112px;
+  width: 152px;
   height: 50px;
   border-radius: 50%;
   margin: 10px auto;
@@ -131,22 +135,49 @@ export const CircleOut = styled.div`
 
 export const CircleIn = styled.div`
   background: #354b37;
-  width: 112px;
+  width: 152px;
   transform: rotate(+6.41deg);
   height: 50px;
-  padding: 5% 18% 5% 5%;
+  padding: 3% 18% 5% 20%;
   color: white;
   margin: 0 auto;
   justify-content: center;
   align-items: center;
   test-align: center;
   border-radius: 50%;
+  font-family: "Dahlia";
+  font-style: normal;
+  text-align: center;
 
   &:hover {
     background: none;
     transform: rotate(-6.41deg);
     color: #354b37;
   }
+`;
+
+export const Title4 = styled.div`
+  font-family: "Dahlia-R";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 56px;
+  /* identical to box height, or 187% */
+  text-align: center;
+  color: #ffd731;
+`;
+
+export const Title5 = styled.div`
+  font-family: "Dahlia";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 46px;
+  line-height: 56px;
+  /* identical to box height, or 122% */
+  text-align: center;
+  color: #ffd731;
+  margin-top: -10px;
+  margin-bottom: -10px;
 `;
 
 const options = {
@@ -269,8 +300,12 @@ const SpeakerClaim = () => {
           <Header></Header>
 
           <InputContainer>
-            <Title1>SPEAKERS NFT {id}</Title1>
-            <Title2>ETHBarcelona</Title2>
+            <Title4>Speakers</Title4>
+            <Title5> {id}</Title5>
+            <Title4>NFTicket ID</Title4>
+            <img src={Star} className="st"></img>
+            <Title2>My Card!</Title2>
+
             {/* <ImageContainer>
             <Image>
               <img src={SpeakerImage}></img>
@@ -301,14 +336,14 @@ const SpeakerClaim = () => {
                 disabled={loading ? true : false}
               >
                 {loading ? (
-                  <span>Minting...</span>
+                  <span className="minting">Minting...</span>
                 ) : (
                   <span className="mint">Mint NFT</span>
                 )}
               </CircleIn>
             </CircleOut>
 
-            <div>
+            <div className="message">
               {message ? <Name>{message}</Name> : null}
 
               {success ? (
@@ -340,8 +375,12 @@ const SpeakerClaim = () => {
             <Footer>
               <div className="ft">
                 <img src={DoinGud} className="dg"></img>
-                <img src={Instagram} className="social"></img>
-                <img src={Twitter} className="social"></img>
+                <a href="https://www.instagram.com/ethbarcelona/">
+                  <img src={Instagram} className="social"></img>
+                </a>
+                <a href="https://twitter.com/eth_barcelona">
+                  <img src={Twitter} className="social"></img>
+                </a>
               </div>
             </Footer>
           </TicketInput>
