@@ -7,19 +7,24 @@ const useCalculatedGasFee = () => {
   const { library } = useWeb3React();
 
   const calculateGasFee = async () => {
-    const feeData = await library.getFeeData();
-    const maxPriorityFeePerGas = BigNumber.from(
-      Math.max(maxWei, Number(feeData.maxPriorityFeePerGas))
-    );
-    const maxFeePerGas = maxPriorityFeePerGas.add(
-      BigNumber.from(feeData.maxFeePerGas).sub(
-        BigNumber.from(feeData.maxPriorityFeePerGas)
-      )
-    );
+    console.log(await library.eth.getGasPrice());
+
+    // const feeData = await library.getFeeData();
+    // const maxPriorityFeePerGas = BigNumber.from(
+    //   Math.max(maxWei, Number(feeData.maxPriorityFeePerGas))
+    // );
+    // const maxFeePerGas = maxPriorityFeePerGas.add(
+    //   BigNumber.from(feeData.maxFeePerGas).sub(
+    //     BigNumber.from(feeData.maxPriorityFeePerGas)
+    //   )
+    // );
+
+    const gasPrice = await library.eth.getGasPrice();
 
     return {
-      maxPriorityFeePerGas,
-      maxFeePerGas,
+      //   maxPriorityFeePerGas,
+      //   maxFeePerGas,
+      gasPrice,
     };
   };
 

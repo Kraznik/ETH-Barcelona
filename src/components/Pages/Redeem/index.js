@@ -257,8 +257,9 @@ const RedeemNFT = ({ account }) => {
         // .burn(account, tokenId, 1)
         .send({
           from: account,
-          maxPriorityFeePerGas: gasFees.maxPriorityFeePerGas,
-          maxFeePerGas: gasFees.maxFeePerGas,
+          // maxPriorityFeePerGas: gasFees.maxPriorityFeePerGas,
+          // maxFeePerGas: gasFees.maxFeePerGas,
+          gasPrice: gasFees.gasPrice,
         });
 
       // console.log(result);
