@@ -7,7 +7,7 @@ const useCalculatedGasFee = () => {
   const { library } = useWeb3React();
 
   const calculateGasFee = async () => {
-    console.log(await library.eth.getGasPrice());
+    // console.log(await library.eth.getGasPrice());
 
     // const feeData = await library.getFeeData();
     // const maxPriorityFeePerGas = BigNumber.from(
