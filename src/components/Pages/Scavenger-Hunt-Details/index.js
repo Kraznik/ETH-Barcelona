@@ -266,7 +266,7 @@ const ScavengerHuntDetails = () => {
           true,
           ticketId,
           data?.data[ownIndex]?.data || 0,
-          ""
+          "Not started yet"
         );
         listOfCards.push(OwnCard);
       }

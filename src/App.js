@@ -209,13 +209,21 @@ const App = () => {
         <Routes>
           <Route exact path="/" element={<Landing isMobile={isMobile} />} />
           <Route exact path="/speakers" element={<SpeakerPage></SpeakerPage>} />
-          <Route exact path="/speakerHomePage" element={<SpeakerHomePage></SpeakerHomePage>} />
+          <Route
+            exact
+            path="/speakerHomePage"
+            element={<SpeakerHomePage></SpeakerHomePage>}
+          />
           <Route
             exact
             path="/speakers/:ticketId"
             element={<SpeakersClaimed />}
           />
-          <Route exact path="/speakerCard/:id" element={<SpeakerClaim />} />
+          <Route
+            exact
+            path="/speakerCard/:id/:speakerMap"
+            element={<SpeakerClaim />}
+          />
           {/* //done */}
           <Route exact path="/scavenger" element={<ScavengerPlay />} />
           <Route
