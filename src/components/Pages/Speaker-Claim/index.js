@@ -212,25 +212,18 @@ const SpeakerClaim = () => {
           // const url = `https://eth-barcelona.kraznikunderverse.com/mintSpeakersNft/${ticketId}`;
           const url = `https://eth-barcelona.kraznikunderverse.com/mintSpeakerNft/${ticketId}`;
 
-          if (id == 1) {
-            var post_data = {
-              creatorTypeId: 12,
-              toAddress: walletAddress,
-              speakerId: id,
-            };
-          } else if (id == 2) {
-            var post_data = {
-              creatorTypeId: 13,
-              toAddress: walletAddress,
-              speakerId: id,
-            };
-          } else if (id == 3) {
-            var post_data = {
-              creatorTypeId: 14, // speakerData.creatorTypeId
-              toAddress: walletAddress,
-              speakerId: id, // speakerData.name
-            };
-          }
+          var post_data = {
+            creatorTypeId: id - 1,
+            toAddress: walletAddress,
+            speakerId: id,
+          };
+          // if (id == 1) {
+          //   var post_data = {
+          //     creatorTypeId: 12,
+          //     toAddress: walletAddress,
+          //     speakerId: id,
+          //   };
+          // }
 
           const { data } = await axios.post(url, post_data, options);
 
