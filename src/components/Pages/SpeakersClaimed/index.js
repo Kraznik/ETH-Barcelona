@@ -81,7 +81,7 @@ const SpeakersClaimed = () => {
     try {
       const url = `https://eth-barcelona.kraznikunderverse.com/speakersPage/${speakerId}`;
       const { data } = await axios.get(url, options);
-      console.log(data);
+      // console.log(data);
       // setSpeakerData(data);
       return data;
     } catch (err) {
@@ -98,9 +98,9 @@ const SpeakersClaimed = () => {
       setNumOfSpeakersCollected(speakers.length);
 
       // let listCards = [];
-      const promises = speakers.map((speakerId) => {
+      const promises = speakers.map((speakerId, index) => {
         return fetchSpeakerDetails(speakerId).then((speakerData) => {
-          const card = renderCard(speakerId, speakerData);
+          const card = renderCard(index, speakerId, speakerData);
           // return listCards.push(card);
           return card;
         });
@@ -121,11 +121,12 @@ const SpeakersClaimed = () => {
     }
   };
 
-  const renderCard = (speakerId, speakerData) => {
+  const renderCard = (index, speakerId, speakerData) => {
     return (
       <>
         {/* <h1>{speakerId}</h1> */}
         <a
+          key={index}
           href={`https://main.doingud.work/creation/${speakerData.nftTypeId}`}
           target={"_blank"}
         >

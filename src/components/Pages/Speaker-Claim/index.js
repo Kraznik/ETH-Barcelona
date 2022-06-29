@@ -201,7 +201,7 @@ const SpeakerClaim = () => {
     try {
       const url = `https://eth-barcelona.kraznikunderverse.com/speakersPage/${id}`;
       const { data } = await axios.get(url, options);
-      console.log(data);
+      // console.log(data);
       setSpeakerData(data);
     } catch (err) {
       console.error(err);
