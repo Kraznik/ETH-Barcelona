@@ -8,6 +8,11 @@
   src: url(../../../Fonts/dahlia-mediumcondensed.otf);
 }
 
+@font-face {
+  font-family: Dahlia-R;
+  src: url(../../../Fonts/dahlia-regular.woff);
+}
+
 .ticketid {
   margin-bottom: 2%;
   width: 318px;
@@ -26,6 +31,18 @@
   line-height: 20px;
   /* or 100% */
   color: #f2f2f2;
+  margin: 8px 0 0 10px;
+  display: flex;
+  align-items: flex-end;
+  text-align: center;
+}
+
+.minting {
+  font-family: "Dahlia";
+  font-size: 20px;
+  line-height: 20px;
+  /* or 100% */
+
   margin: 8px 0 0 10px;
   display: flex;
   align-items: flex-end;
@@ -65,4 +82,13 @@
 
 .bs{
   margin: 40px auto 0 auto;
+}
+
+.message{
+  background: #f5c34b;
+
+}
+
+.st{
+  margin: 14px 0 26px 0;
 }
