@@ -6,13 +6,19 @@ import { Title1 } from "../Scavenger-Play";
 import DoinGud from "../../../assets/FooterDG.svg";
 import Twitter from "../../../assets/Twitter.svg";
 import Instagram from "../../../assets/Insta.svg";
+import PostIt from "../../../assets/Post.svg";
 import "bootstrap/dist/css/bootstrap.css";
+import "./style.css";
 import Accordion from "react-bootstrap/Accordion";
 
 export const Banner = styled.div`
   background-image: url(${HeaderImage});
   width: 120%;
   height: 111px;
+`;
+
+const Test = styled.div`
+  gap: 10px;
 `;
 
 const Title2 = styled.div`
@@ -28,6 +34,48 @@ const Title2 = styled.div`
 
 const Container = styled.div`
   padding: 0 22px;
+  margin: 0 0 30px 0;
+`;
+
+const Post = styled.div`
+  background-image: url(${PostIt});
+  width: 108px;
+  margin: 5px 3px;
+  display: inline-block;
+  height: 106px;
+`;
+
+const Submit = styled.button`
+  background: #2b2b2b;
+  border-radius: 100px;
+  margin: 62px auto;
+  border: none;
+  width: 250px;
+  height: 48px;
+  font-family: "GT";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  /* identical to box height */
+
+  text-align: center;
+
+  /* Grey 3 */
+
+  color: #f6f7fb;
+`;
+
+const Task = styled.div`
+  font-family: "GT";
+  font-style: normal;
+  padding: 20px 11px;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 14px;
+  /* or 108% */
+
+  color: #ffffff;
 `;
 
 const DgMoments = () => {
@@ -54,7 +102,7 @@ const DgMoments = () => {
           <Accordion.Header className="">
             <Question>How to play?</Question>
           </Accordion.Header>
-          <Accordion.Body className="reward">
+          <Accordion.Body className="instructions">
             1. Go to landing page url here. <br />
             2. Choose any DoGud challenge and complete it.
             <br />
@@ -69,9 +117,59 @@ const DgMoments = () => {
           <Accordion.Header className="">
             <Question>DoGud Challenges</Question>
           </Accordion.Header>
-          <Accordion.Body className="reward"></Accordion.Body>
+          <Accordion.Body className="post">
+            <Post>
+              <Task>Pick up trash today</Task>
+            </Post>
+            <Post>
+              <Task>Smile at everyone you see today</Task>
+            </Post>
+
+            <Post>
+              <Task>Pay for a strangers meal</Task>
+            </Post>
+            <Post>
+              <Task>Do something kind for a stranger</Task>
+            </Post>
+            <Post>
+              <Task>Compliment 5 people today</Task>
+            </Post>
+            <Post>
+              <Task>Let someone go ahead of you in line</Task>
+            </Post>
+            <Post>
+              <Task>Offer help to someone in need</Task>
+            </Post>
+            <Post>
+              <Task>Get to know someone new</Task>
+            </Post>
+            <Post>
+              <Task>Hold the door for 7 people today</Task>
+            </Post>
+            <Post>
+              <Task>Give 3 strangers a hug</Task>
+            </Post>
+            <Post>
+              <Task>Follow an Impact Organization on Social Media</Task>
+            </Post>
+            <Post>
+              <Task>Carry someones bag</Task>
+            </Post>
+            <Post>
+              <Task>Donate to a local charity</Task>
+            </Post>
+            <Post>
+              <Task>Educate a local merchant on accepting crypto</Task>
+            </Post>
+            <Post>
+              <Task>Tell someone you love them</Task>
+            </Post>
+          </Accordion.Body>
         </Accordion.Item>
       </Accordion>
+      <a href="/dgmint">
+        <Submit>Submit your challenges</Submit>
+      </a>
 
       <Footer>
         <div className="ft">

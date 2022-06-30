@@ -1,4 +1,18 @@
 @font-face {
-    font-family: GTB;
-    src: url(../../../Fonts/GT-Flexa-Expanded-Black.otf);
+  font-family: GTB;
+  src: url(../../../Fonts/GT-Flexa-Expanded-Black.otf);
 }
+
+.instructions {
+
+  font-family: "GTD";
+  font-style: normal;
+  font-weight: 300;
+  text-align: left;
+  font-size: 18px;
+  line-height: 26px;
+  /* or 144% */
+
+  color: #667079;
+}
+

@@ -24,6 +24,7 @@ import ScavengerHuntDetails from "./components/Pages/Scavenger-Hunt-Details";
 import SpeakersClaimed from "./components/Pages/SpeakersClaimed";
 import SpeakerHomePage from "./components/Pages/SpeakerHomePage";
 import DgMoments from "./components/Pages/DG-Moments";
+import Mint from "./components/Pages/DG-Moments/Mint";
 
 const providerOptions = {
   walletconnect: {
@@ -211,6 +212,7 @@ const App = () => {
           <Route exact path="/" element={<Landing isMobile={isMobile} />} />
           <Route exact path="/speakers" element={<SpeakerPage></SpeakerPage>} />
           <Route exact path="/dgmoments" element={<DgMoments></DgMoments>}></Route>
+          <Route exact path="/dgmint" element={<Mint />} /> 
           <Route
             exact
             path="/speakerHomePage"

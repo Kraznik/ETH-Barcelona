@@ -93,6 +93,7 @@ const withouSidebarRoutes3 = ["/details"];
 const withouSidebarRoutes4 = ["/speakers"];
 const withouSidebarRoutes5 = ["/speakerHomePage"];
 const withouSidebarRoutes6 = ["/dgmoments"];
+const withouSidebarRoutes7 = ["/dgmint"];
 
 
 
@@ -111,6 +112,7 @@ const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
   if (withouSidebarRoutes4.some((item) => pathname.includes(item))) return null;
   if (withouSidebarRoutes5.some((item) => pathname.includes(item))) return null;
   if (withouSidebarRoutes6.some((item) => pathname.includes(item))) return null;
+  if (withouSidebarRoutes7.some((item) => pathname.includes(item))) return null;
 
 
   
