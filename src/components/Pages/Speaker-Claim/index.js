@@ -303,7 +303,6 @@ const SpeakerClaim = () => {
             <Title4>Speakers</Title4>
             <Title5> {id}</Title5>
             <Title4>NFTicket ID</Title4>
-            <img src={Star} className="st"></img>
             <Title2>My Card!</Title2>
 
             {/* <ImageContainer>
