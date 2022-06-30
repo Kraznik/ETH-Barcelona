@@ -115,6 +115,28 @@ export const Name = styled.div`
   }
 `;
 
+export const Name1 = styled.div`
+  font-family: "Dahlia";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+  position: relative;
+  /* identical to box height, or 100% */
+  color: #354b37;
+  margin-top: -50px;
+  margin-left:-60px;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  @media (min-width: 800px) {
+    display:none;
+  }
+`;
+
 export const Org = styled.div`
   font-family: "Montserrat";
   font-style: normal;
@@ -145,7 +167,7 @@ export const Footer = styled.div`
   background: #f4f4f5;
 
   @media (max-width: 700px) {
-    margin: 0;
+    padding: 0;
     justify-content: center;
   }
 `;
@@ -277,9 +299,13 @@ const Speakers = () => {
           </a>
         </Box>
       </Container>
+
       <Footer>
         <Name><a href="/speaker" className="speaker">Full Speaker List <span> &#8594; </span></a></Name>
+        <Name1><a href="/speaker" className="speakers"> Full Speaker List <span> &#8594; </span></a></Name1>
+
       </Footer>
+    
     </>
   );
 };
