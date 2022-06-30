@@ -249,7 +249,7 @@ const QrCodeScvengerHunt = () => {
                 <br />
                 <input
                   type="number"
-                  placeholder="TicketID"
+                  placeholder="NFTicketID"
                   className="ticketidinput"
                   value={ticketId}
                   onChange={(e) => setTicketId(e.target.value)}
@@ -302,7 +302,8 @@ const QrCodeScvengerHunt = () => {
           ) : null}
         <Footer>
           <div className="ft">
-            <img src={DoinGud} className="dg"></img>
+            <a href="/scavenger">
+            <img src={DoinGud} className="dg"></img></a>
             <a href="https://www.instagram.com/ethbarcelona/">
               {" "}
               <img src={Instagram} className="social"></img>

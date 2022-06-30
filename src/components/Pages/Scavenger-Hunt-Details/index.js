@@ -539,16 +539,38 @@ const ScavengerHuntDetails = () => {
             <Question>How to play? </Question>
           </Accordion.Header>
           <Accordion.Body className="reward">
-            1. Enter your Ticket ID. <br></br>2. Tap each heart piece to get a
-            clue. <br></br>3. Find the QR Code around the venue.<br></br> 4.
-            Scan the QR anc claim your NFT.<br></br> 5. Collect and get rewards.
+          1. Enter your NFTicket-ID located in your ETHBarcelona ticket.
+              <br />
+              <br />
+              2. There are QR codes hidden around the venue. Tap a heart to
+              collect the NFT and piece reveal the next clue.
+              <br />
+              <br />
+              3. Ponder on the clue and explore around to discover the next
+              hidden heart with the QR code.
+              <br />
+              <br />
+              3. Collect 3 NFTs and head to the DoinGud booth to receive your
+              first batch of rewards!
+              <br />
+              <br />
+              4. Collect 5 NFTs and head to the DoinGud booth to receive your
+              next batch of rewards!
+              <br /><br />
+
+              5. Collect all the NFTs and head to the DoinGud booth to receive
+              your final grand prize! <br />
+              <br />* Only the first 9 participants to complete the scavenger
+              hunt will receive the final grand prize!
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
 
       <Footer>
         <div className="ft">
-          <img src={DoinGud} className="dg"></img>
+        <a href="/scavenger">
+                <img src={DoinGud} className="dg"></img>
+              </a>
           <a href="https://www.instagram.com/ethbarcelona/">
             {" "}
             <img src={Instagram} className="social"></img>

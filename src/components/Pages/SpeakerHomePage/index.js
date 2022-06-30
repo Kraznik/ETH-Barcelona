@@ -182,12 +182,12 @@ const SpeakerHomePage = () => {
       </Infos>
 
       <InputContainer>
-        <Title3>NFT Ticket ID</Title3>
+        <Title3>NFTicket ID</Title3>
         <Input>
           <br />
           <input
             type="number"
-            placeholder="Ticket ID"
+            placeholder="NFTicket ID"
             className="ticketid"
             min={1}
             value={ticketId}
@@ -216,7 +216,8 @@ const SpeakerHomePage = () => {
 
       <Footer>
         <div className="ft">
-          <img src={DoinGud} className="dg"></img>
+          <a href="/speakerHomePage">
+          <img src={DoinGud} className="dg"></img></a>
           <a href="https://www.instagram.com/ethbarcelona/">
             <img src={Instagram} className="social"></img>
           </a>

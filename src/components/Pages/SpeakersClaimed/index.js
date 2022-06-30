@@ -145,7 +145,7 @@ const SpeakersClaimed = () => {
       <Header></Header>
       <TicketContainer>
         <TicketId>{ticketId}</TicketId>
-        <NFT>NFT Ticket Id</NFT>
+        <NFT>NFTicket Id</NFT>
         <img src={Star} className="star"></img>
       </TicketContainer>
 
@@ -158,7 +158,8 @@ const SpeakersClaimed = () => {
 
       <Footer>
         <div className="ft">
-          <img src={DoinGud} className="dg"></img>
+        <a href="/speakerHomePage">
+          <img src={DoinGud} className="dg"></img></a>
           <a href="https://www.instagram.com/ethbarcelona/" target={"_blank"}>
             <img src={Instagram} className="social"></img>
           </a>

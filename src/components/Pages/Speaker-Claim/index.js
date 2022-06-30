@@ -374,7 +374,9 @@ const SpeakerClaim = () => {
             </div>
             <Footer>
               <div className="ft">
-                <img src={DoinGud} className="dg"></img>
+                <a href="/speakerHomePage">
+                  <img src={DoinGud} className="dg"></img>
+                </a>
                 <a href="https://www.instagram.com/ethbarcelona/">
                   <img src={Instagram} className="social"></img>
                 </a>
