@@ -83,6 +83,7 @@ export function useUploadArtwork() {
           description: "Testing",
         },
         AccessToken,
+        library,
       });
       console.log("editFormRes: ", editRes.data);
 
@@ -166,6 +167,7 @@ const submitEditForm = async ({
   nftTypeId,
   valuesForm,
   AccessToken,
+  library,
   isPublished = true,
   includeSale = true,
 }) => {
@@ -182,7 +184,11 @@ const submitEditForm = async ({
 
   const creatorTypeId = parseInt(nftTypeId.slice(-12), 16);
 
-  const saleSetting = await getSalesSettings(valuesForm, creatorTypeId);
+  const saleSetting = await getSalesSettings(
+    valuesForm,
+    creatorTypeId,
+    library
+  );
   console.log("sale setting: ", saleSetting);
 
   const model = {
@@ -190,7 +196,7 @@ const submitEditForm = async ({
     title,
     description,
     // collection,
-    sioId: "2402b5bd-a955-495b-8f27-7ab614171ef5", // sio.id | // Hope for Justice Sio ig
+    sioId: "05dd4c3b-6635-4694-a4f4-11740b82df65", // "2402b5bd-a955-495b-8f27-7ab614171ef5", // sio.id | // Hope for Justice Sio ig
     // collaborators: collaborators.map((collaborator) => ({
     //   address: collaborator.address,
     //   name: collaborator.username,
@@ -273,8 +279,8 @@ const getSalesSettings = async (valuesForm, creatorTypeId, library) => {
     secondarySioProfits,
     sioProfits,
     signedAt,
-    metadataCID: "bafybeidqo7kkxr6vqawwdym37zx76qycbsbzhwl7b4urqhgvdov6lcc4fy",
-    expirationTime: 0,
+    metadataCID: "bafybeier5ddletuco4b7tdv5dl336j6vvw27agivuablaibgjuvtqnir4a",
+    expirationTime: Math.floor(+Date.UTC(2099, 0, 1) / 1000),
   };
 
   const signature = await getLazyMintSignature(values, creatorTypeId, library);
@@ -344,47 +350,45 @@ const getLazyMintSignature = async (values, creatorTypeId, library) => {
     //   params: [hash],
     // });
 
-    // const sign = async (message) =>
-    //   await library
+    // library.eth.sign(arrayify(hash))
+
+    // ########
+    // TypeError: string.charCodeAt is not a function
+    // with
+    // await library.eth
+    //     .sign(arrayify(message))
+    //     .then((signature) => fixSignatureV(signature));
+    // #########
+
+    // not getting getSigner as using web3.js insted of ethers.js
+
+    // await library
     //     .getSigner()
     //     .signMessage(arrayify(message))
     //     .then((signature) => fixSignatureV(signature));
 
-    // signature = await sign(hash);
+    const sign = async (message) =>
+      await library
+        .getSigner()
+        .signMessage(arrayify(message))
+        .then((signature) => fixSignatureV(signature));
 
-    console.log("arrayify : ", arrayify(hash));
+    signature = await sign(hash);
 
-    signature = await web3.eth.sign(
-      // arrayify(hash).toString(),
-      hash,
-      "0x70c1EA05E2A54DfFE1088D4A54CB1a6C25c9077c"
-    );
-    signature = fixSignatureV(signature);
+    // console.log("arrayify hash : ", arrayify(hash));
+
+    // signature = await web3.eth.sign(
+    //   // web3.utils.sha3(arrayify(hash)),
+    //   arrayify(hash),
+    //   // hash,
+    //   "0x70c1EA05E2A54DfFE1088D4A54CB1a6C25c9077c"
+    // );
+    // signature = fixSignatureV(signature);
     console.log("signature: ", signature);
   } catch (err) {
     console.error(err);
+    throw err;
   }
-
-  // if (!hash) {
-  //   return;
-  // }
-
-  // const signature = await sign(hash); // sign message with creator wallet // use ethers js lib
-  // if (!signature) {
-  //   return;
-  // }
-
-  // // Now that we have new signature, revoke previous hash if exist
-  // if (initialValues && initialValues.signature) {
-  //   const initialLazyMintParams = getLazyMintParams({
-  //     // artwork,
-  //     valuesForm: initialValues,
-  //   });
-  //   if (!(await revokeSignature(initialLazyMintParams))) {
-  //     return;
-  //   }
-  // }
-
   return signature;
 };
 
@@ -424,7 +428,7 @@ const getLazyMintParams = ({
       creatorTypeId, // artwork.creatorArtworkNumber, // number
       collabs: [], // [] // array of eth addresses of the collaborators // other than the creator
       collabPortions: [], // [] // array of profits of collabs
-      sioId: 107, // sio.decentralizedId, // 107 // For Hope of Justice
+      sioId: 111, // 107, // sio.decentralizedId, // 107 // For Hope of Justice
       maxEditions: editionCount,
       maxMintsPerAddress: editionCount,
       mintPortionSio: Math.floor(sioProfits * 100),
@@ -433,10 +437,10 @@ const getLazyMintParams = ({
       ipfsCid: CID.parse(metadataCID).toV1().bytes, //"QmfS9KJXxkKLNy8k8aEbJzZQn64WN1CjPphdsp3dPUT2gM", // ,
     },
     buyer: ZERO_ADDRESS,
-    gallery: ZERO_ADDRESS,
+    gallery: ZERO_ADDRESS, // "0xAEde54862c0BE447Fcac57c6cAb0EDfaa6f6697e", //
     numOffered: editionCount,
     price, // parseUnits(getPriceWithDGFee(price), 6),
-    expirationTime,
+    expirationTime: Math.floor(+Date.UTC(2099, 0, 1) / 1000),
     nonce: signedAt.getTime(), // "1000000000000",
   };
 };
@@ -456,7 +460,7 @@ const fixSignatureV = (signature) => {
 };
 
 export const Claim = async () => {
-  const nftTypeId = "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000028";
+  const nftTypeId = "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000041"; // "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c00000000002c";
 
   const values = {
     // sio: "2402b5bd-a955-495b-8f27-7ab614171ef5",
@@ -474,8 +478,8 @@ export const Claim = async () => {
     secondarySioProfits: 3.5,
     sioProfits: 5,
     signedAt: new Date(),
-    metadataCID: "bafybeidqo7kkxr6vqawwdym37zx76qycbsbzhwl7b4urqhgvdov6lcc4fy",
-    expirationTime: 0,
+    metadataCID: "bafybeier5ddletuco4b7tdv5dl336j6vvw27agivuablaibgjuvtqnir4a",
+    expirationTime: Math.floor(+Date.UTC(2099, 0, 1) / 1000),
   };
   let creatorSignature = "";
 
@@ -499,6 +503,7 @@ export const Claim = async () => {
   );
 
   console.log("BYTES_ZERO: ", BYTES_ZERO);
+  console.log("fetched sig: ", creatorSignature);
   const donation = 0,
     amount = 1, // number of editions to be minted
     dummyPaymentPermit = {

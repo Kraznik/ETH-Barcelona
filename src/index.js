@@ -8,8 +8,13 @@ const container = document.getElementById("root");
 const root = createRoot(container);
 import Web3 from "web3";
 
+import { Web3Provider } from "@ethersproject/providers";
+
 function getLibrary(provider) {
-  return new Web3(provider);
+  // return new Web3(provider);
+  const library = new Web3Provider(provider, "any");
+  library.pollingInterval = 15000;
+  return library;
 }
 
 root.render(
