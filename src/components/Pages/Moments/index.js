@@ -166,7 +166,9 @@ const Moments = () => {
             </RedeemOut>
 
             <RedeemOut>
-              <Redeem onClick={() => Claim(account)}>Mint a Moment</Redeem>
+              <Redeem onClick={() => Claim(library, account)}>
+                Mint a Moment
+              </Redeem>
             </RedeemOut>
           </Forum>
         </InputContainer>

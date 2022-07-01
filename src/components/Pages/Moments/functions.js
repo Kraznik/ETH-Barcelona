@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import { ethers } from "ethers";
+import { ethers, BigNumber } from "ethers";
 
 import { CID } from "multiformats/cid";
 import { arrayify } from "ethers/lib/utils";
@@ -506,10 +506,32 @@ const fixSignatureV = (signature) => {
   return signature;
 };
 
-export const Claim = async (account) => {
+const maxWei = 30000000000;
+
+const calculateGasFee = async (library) => {
+  const feeData = await library.getFeeData();
+  const maxPriorityFeePerGas = BigNumber.from(
+    Math.max(maxWei, Number(feeData.maxPriorityFeePerGas))
+  );
+  const maxFeePerGas = maxPriorityFeePerGas.add(
+    BigNumber.from(feeData.maxFeePerGas).sub(
+      BigNumber.from(feeData.maxPriorityFeePerGas)
+    )
+  );
+
+  return {
+    maxPriorityFeePerGas,
+    maxFeePerGas,
+  };
+};
+
+export const Claim = async (library, account) => {
   const nftTypeId = "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000060"; // "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c00000000002c";
   console.log("nft type id: ", nftTypeId);
   console.log("account: ", account);
+
+  const gasFees = await calculateGasFee(library);
+  console.log("gas fees: ", gasFees);
 
   let values = {
     // sio: "2402b5bd-a955-495b-8f27-7ab614171ef5",
@@ -539,6 +561,7 @@ export const Claim = async (account) => {
     const { data } = await axios.get(url);
     creatorSignature = data.saleSetting.signature;
     values.metadataCID = data.metadataCID;
+    values.signedAt = new Date(data.saleSetting.signedAt);
   } catch (err) {
     console.error(err);
   }
@@ -583,7 +606,7 @@ export const Claim = async (account) => {
         creatorSignature, // signature that's passed to sale settings
         dummyPaymentPermit // paymentPermit // Optional EIP-2612 permit
       )
-      .send({ from: account });
+      .send({ from: account, ...gasFees });
   } catch (err) {
     console.error(err);
   }
