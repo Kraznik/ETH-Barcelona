@@ -12,7 +12,7 @@ const Container = styled.div`
 `;
 
 const Title = styled.div`
-  font-family: "Dahlia";
+  font-family: "Dahliadd";
   font-style: normal;
   font-weight: 700;
   font-size: 96px;
