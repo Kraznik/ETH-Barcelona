@@ -506,8 +506,10 @@ const fixSignatureV = (signature) => {
   return signature;
 };
 
-export const Claim = async (library) => {
+export const Claim = async (account) => {
   const nftTypeId = "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000060"; // "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c00000000002c";
+  console.log("nft type id: ", nftTypeId);
+  console.log("account: ", account);
 
   let values = {
     // sio: "2402b5bd-a955-495b-8f27-7ab614171ef5",
@@ -581,7 +583,7 @@ export const Claim = async (library) => {
         creatorSignature, // signature that's passed to sale settings
         dummyPaymentPermit // paymentPermit // Optional EIP-2612 permit
       )
-      .send({ from: "0x66Dc3BFCD29E24fDDeE7f405c705220E6142e4cD" });
+      .send({ from: account });
   } catch (err) {
     console.error(err);
   }

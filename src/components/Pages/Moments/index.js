@@ -47,7 +47,7 @@ const Flex = styled.div`
 `;
 
 const Moments = () => {
-  const { library } = useWeb3React();
+  const { library, account } = useWeb3React();
   const [AccessToken, setAccessToken] = useState();
   const [file, setFile] = useState();
 
@@ -166,7 +166,7 @@ const Moments = () => {
             </RedeemOut>
 
             <RedeemOut>
-              <Redeem onClick={() => Claim(library)}>Mint a Moment</Redeem>
+              <Redeem onClick={() => Claim(account)}>Mint a Moment</Redeem>
             </RedeemOut>
           </Forum>
         </InputContainer>
