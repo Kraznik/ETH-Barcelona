@@ -25,6 +25,7 @@ import SpeakersClaimed from "./components/Pages/SpeakersClaimed";
 import SpeakerHomePage from "./components/Pages/SpeakerHomePage";
 import DgMoments from "./components/Pages/DG-Moments";
 import Mint from "./components/Pages/DG-Moments/Mint";
+import LiveStream from "./components/Pages/LiveStream";
 
 const providerOptions = {
   walletconnect: {
@@ -213,6 +214,7 @@ const App = () => {
           <Route exact path="/speakers" element={<SpeakerPage></SpeakerPage>} />
           <Route exact path="/dgmoments" element={<DgMoments></DgMoments>}></Route>
           <Route exact path="/dgmint" element={<Mint />} /> 
+          <Route exact path="/livestream" element={<LiveStream />} /> 
           <Route
             exact
             path="/speakerHomePage"

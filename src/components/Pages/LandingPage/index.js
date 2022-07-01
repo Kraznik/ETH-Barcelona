@@ -13,7 +13,9 @@ const Landing = ({ isMobile }) => {
   return (
     <>
       {/* <Navbars></Navbars> */}
+      
       <Intro isMobile={isMobile}></Intro>
+      
       <Circle></Circle>
       <Apply />
       <Hero isMobile={isMobile}></Hero>

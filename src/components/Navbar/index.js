@@ -15,6 +15,8 @@ import styled from "styled-components";
 import Logo from "../../assets/logo.svg";
 import { NavLink } from "react-router-dom";
 import {useLocation } from "react-router-dom";
+import Star from "../../assets/LiveStreamStar.svg";
+import Smile from "../../assets/Smile.svg";
 
 
 const Heading = styled(NavLink)`
@@ -94,6 +96,7 @@ const withouSidebarRoutes4 = ["/speakers"];
 const withouSidebarRoutes5 = ["/speakerHomePage"];
 const withouSidebarRoutes6 = ["/dgmoments"];
 const withouSidebarRoutes7 = ["/dgmint"];
+const withouSidebarRoutes8 = ["/livestream"];
 
 
 
@@ -113,13 +116,40 @@ const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
   if (withouSidebarRoutes5.some((item) => pathname.includes(item))) return null;
   if (withouSidebarRoutes6.some((item) => pathname.includes(item))) return null;
   if (withouSidebarRoutes7.some((item) => pathname.includes(item))) return null;
-
+  if (withouSidebarRoutes8.some((item) => pathname.includes(item))) return null;
 
   
 
   // const userAddress = `${account.slice(0, 4)}....${account.slice(-4)}`;
   return (
     <div>
+      <a href="/livestream">
+      <div className="mover">
+      <marquee className="move">
+        <img src={Star} className="stream"></img>
+        <div className="watch">WATCH NOW</div>
+        <img src={Smile} className="stream"></img>
+        <div className="watch" >LIVE STREAMING</div>
+        <img src={Star} className="stream"></img>
+        <div className="watch">WATCH NOW</div>
+        <img src={Smile} className="stream"></img>
+        <div className="watch" >LIVE STREAMING</div>
+        <img src={Star} className="stream"></img>
+        <div className="watch">WATCH NOW</div>
+        <img src={Smile} className="stream"></img>
+        <div className="watch" >LIVE STREAMING</div>
+        <img src={Star} className="stream"></img>
+        <div className="watch">WATCH NOW</div>
+        <img src={Smile} className="stream"></img>
+        <div className="watch" >LIVE STREAMING</div>
+        <img src={Star} className="stream"></img>
+        <div className="watch">WATCH NOW</div>
+        <img src={Smile} className="stream"></img>
+        <div className="watch" >LIVE STREAMING</div>
+      </marquee>
+      </div>
+      </a>
+      
       <Navbar collapseOnSelect expand="lg" className="bar">
         <Container className="bar">
           <Nav.Link>

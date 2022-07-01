@@ -136,3 +136,41 @@ color: #354B37;
 
 
 }
+
+.mover{
+    background: #424242;
+    height: 56px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.move{
+    overflow: hidden;
+    white-space: nowrap;
+    animation: swap 15s linear infinite;
+
+}
+
+.watch{
+    font-family: 'Dahlia';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 16px;
+/* identical to box height, or 100% */
+
+display: flex;
+align-items: center;
+
+color: #D7D866;
+display: inline-block;
+margin-right: 24px;
+}
+
+.mover{
+    padding: 15px 0;
+}
+
+.stream{
+    margin-right: 24px;
+}
