@@ -1,0 +1,45 @@
+@font-face {
+  font-family: Dahliadd;
+  src: url(../../../Fonts/dahlia-regular.otf);
+}
+
+.youTubeContainer {
+  width: 100%;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#over {
+  font-size: 5em;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 2;
+  position: absolute;
+  width: 80px;
+  height: 34px;
+  left: 37px;
+  top: 26px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+  /* identical to box height, or 150% */
+  padding: 2px 17px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #ffffff;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+
+  background: #ff4b1d;
+}

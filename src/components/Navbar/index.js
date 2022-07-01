@@ -125,8 +125,11 @@ const Navbars = ({
     <div>
       <Navbar collapseOnSelect expand="lg" className="bar">
         <Container className="bar">
-          <Nav.Link href="#speaker" className="speaker">
-            <Text>Speakers </Text>
+          <Nav.Link
+            href="https://guidebook.com/g/#/guides/ethbcnapp/schedule/sessions?scheduleDayPosition=2022-07-06&scheduleIndexInDayPosition=0r"
+            className="speaker"
+          >
+            <Text>Agenda </Text>
           </Nav.Link>
           <Nav.Link
             href="https://ethbarcelona.notion.site/ETHBarcelona-Side-Events-1df2e6e28f90462d81059261a7dc9231"
@@ -201,6 +204,13 @@ const Navbars = ({
                   </NavLink>
                 </Nav.Link>
               ) : null} */}
+              <Nav.Link
+                href="https://guidebook.com/g/#/guides/ethbcnapp/schedule/sessions?scheduleDayPosition=2022-07-06&scheduleIndexInDayPosition=0"
+                className="speaker2"
+              >
+                <Text>Agenda </Text>
+              </Nav.Link>
+
               <Nav.Link href="#faq" className="speaker2">
                 <Text>FAQ</Text>
               </Nav.Link>
@@ -210,6 +220,7 @@ const Navbars = ({
               >
                 <Text className="speaker3">Eventbrite </Text>
               </Nav.Link> */}
+
               <Nav.Link href="#speaker" className="speaker2">
                 <Text>Speakers </Text>
               </Nav.Link>

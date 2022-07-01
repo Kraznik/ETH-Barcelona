@@ -402,8 +402,8 @@ const Sponsers = () => {
                 </a>{" "}
               </SilverSponserLogo>
               <SilverSponserLogo>
-                <a href="https://skillwallet.id">
-                  <img src={SkillWallet}></img>
+                <a href="https://status.im/">
+                  <img src={Status}></img>
                 </a>{" "}
               </SilverSponserLogo>
               <SilverSponserLogo>
@@ -433,11 +433,7 @@ const Sponsers = () => {
                   <img src={Bit} ></img>
                 </a>{" "}
               </SilverSponserLogo>
-              <SilverSponserLogo>
-                <a href="https://status.im/">
-                  <img src={Status}></img>
-                </a>{" "}
-              </SilverSponserLogo>
+
             </SilverSponserLogoContainer>
           </Desktop>
 
@@ -591,7 +587,7 @@ const Sponsers = () => {
                 </a>
               </BronzeSponserLogo>
               <BronzeSponserLogo>
-                <a href="">
+                <a href="https://opolis.co/">
                   <img src={Opolis}></img>
                 </a>
               </BronzeSponserLogo>
@@ -718,7 +714,7 @@ const Sponsers = () => {
                 </a>
               </BronzeSponserLogo>
               <BronzeSponserLogo>
-                <a href="">
+                <a href="https://opolis.co/">
                   <img src={M17} width="150px" height="118px"></img>
                 </a>
               </BronzeSponserLogo>
