@@ -402,8 +402,8 @@ const Sponsers = () => {
                 </a>{" "}
               </SilverSponserLogo>
               <SilverSponserLogo>
-                <a href="https://status.im/">
-                  <img src={Status}></img>
+                <a href="https://skillwallet.id">
+                  <img src={SkillWallet}></img>
                 </a>{" "}
               </SilverSponserLogo>
               <SilverSponserLogo>
@@ -433,7 +433,11 @@ const Sponsers = () => {
                   <img src={Bit} ></img>
                 </a>{" "}
               </SilverSponserLogo>
-
+              <SilverSponserLogo>
+                <a href="https://status.im/">
+                  <img src={Status}></img>
+                </a>{" "}
+              </SilverSponserLogo>
             </SilverSponserLogoContainer>
           </Desktop>
 
@@ -475,8 +479,8 @@ const Sponsers = () => {
                 </a>{" "}
               </SilverSponserLogoM>
               <SilverSponserLogoM>
-                <a href="https://status.im/">
-                  <img src={SM31} width="150px" height="118px"></img>
+                <a href="https://skillwallet.id/">
+                  <img src={Skill} width="150px" height="118px"></img>
                 </a>{" "}
               </SilverSponserLogoM>
               <SilverSponserLogoM>
@@ -504,7 +508,11 @@ const Sponsers = () => {
                   <img src={SM33} width="150px" height="118px"></img>
                 </a>{" "}
               </SilverSponserLogoM>
-
+              <SilverSponserLogoM>
+                <a href="https://status.im/">
+                  <img src={SM31} width="150px" height="118px"></img>
+                </a>{" "}
+              </SilverSponserLogoM>
             </SilverSponserLogoContainer>
           </Mobile>
         </SilverSponserContainer>
