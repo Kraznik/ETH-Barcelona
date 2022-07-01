@@ -10,6 +10,7 @@ import PostIt from "../../../assets/Post.svg";
 import "bootstrap/dist/css/bootstrap.css";
 import "./style.css";
 import Accordion from "react-bootstrap/Accordion";
+import Dropdown from 'react-bootstrap/Dropdown';
 
 export const Banner = styled.div`
   background-image: url(${HeaderImage});
@@ -76,6 +77,20 @@ const Task = styled.div`
   /* or 108% */
 
   color: #ffffff;
+`;
+
+export const Title3 = styled.div`
+  font-family: "GTD";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 10px;
+  line-height: 18px;
+  text-transform: uppercase;
+  color: #667079;
+  text-align:left;
+  margin-left:20px;
+  margin-top:18px;
+
 `;
 
 const DgMoments = () => {
@@ -167,6 +182,9 @@ const DgMoments = () => {
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
+
+  
+
       <a href="/dgmint">
         <Submit>Submit your challenges</Submit>
       </a>

@@ -4,7 +4,6 @@
 }
 
 .instructions {
-
   font-family: "GTD";
   font-style: normal;
   font-weight: 300;
@@ -16,3 +15,48 @@
   color: #667079;
 }
 
+.drop {
+  /* White */
+
+  background: #ffffff;
+  /* Grey 1 */
+  margin-left: 38px;
+  border: 1px solid #c8ccd0;
+  border-radius: 4px;
+  height: 45px;
+  width: 332px;
+  color: #2b2b2b;
+  padding-left:16px;
+
+  margin-left: -20px;
+}
+
+.dropdown {
+  height: 45px;
+  width: 332px;
+  font-family: "GTD";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 18px;
+  color: #2b2b2b;
+}
+
+.des {
+  width: 332px;
+  height: 124.79px;
+
+
+  background: #ffffff;
+  /* Grey 1 */
+  border: none;
+  border: 1px solid #c8ccd0;
+  border-radius: 4px;
+  color: #2b2b2b;
+  text-align: left;
+  line-height:124px;
+  margin-left: -20px;
+  margin-bottom: -0px;
+
+
+}
