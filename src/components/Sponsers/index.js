@@ -101,6 +101,10 @@ import Bit from "../../assets/Bit.svg";
 import SM33 from "../../assets/SM33.svg";
 import Status from "../../assets/Status.svg";
 import SM31 from "../../assets/SM31.svg"
+import SuperFluid from "../../assets/SF.svg"
+import SuperFluidM from "../../assets/MSF.svg"
+import P1 from "../../assets/P1.svg"
+import P2 from "../../assets/P2.svg"
 
 const Container = styled.div`
   background: #f4f4f5;
@@ -638,6 +642,11 @@ const Sponsers = () => {
                   <img src={EthicHub}></img>
                 </a>
               </BronzeSponserLogo>
+              <BronzeSponserLogo>
+                <a href="">
+                  <img src={SuperFluid}></img>
+                </a>
+              </BronzeSponserLogo>
             </SilverSponserLogoContainer>
           </Desktop>
 
@@ -758,6 +767,11 @@ const Sponsers = () => {
                   <img src={SM30} width="150px" height="118px"></img>
                 </a>
               </BronzeSponserLogo>
+              <BronzeSponserLogo>
+                <a href="">
+                  <img src={SuperFluidM} width="150px" height="118px"></img>
+                </a>
+              </BronzeSponserLogo>
             </Mobile>
           </SilverSponserLogoContainer>
         </BronzeSponserContainer>
@@ -816,6 +830,16 @@ const Sponsers = () => {
             <OrganizerLogo>
               <a href="">
                 <img src={WC} width="270px" height=" 200px"></img>
+              </a>
+            </OrganizerLogo>
+            <OrganizerLogo>
+              <a href="">
+                <img src={P1} width="270px" height=" 200px"></img>
+              </a>
+            </OrganizerLogo>
+            <OrganizerLogo>
+              <a href="">
+                <img src={P2} width="270px" height=" 200px"></img>
               </a>
             </OrganizerLogo>
           </SilverSponserLogoContainer>
