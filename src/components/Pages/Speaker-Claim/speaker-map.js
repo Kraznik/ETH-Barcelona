@@ -105,4 +105,7 @@ export const speakers = {
   104: "save",
   105: "role",
   106: "ride",
+  107: "manu",
+  108: "bilal",
+  109: "sammy",
 };
