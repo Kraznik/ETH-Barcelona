@@ -181,11 +181,11 @@ const App = () => {
     }
   }, [account, chainId]);
 
-  useEffect(() => {
-    // if(isMobile && (navigator.brave && await navigator.brave.isBrave() || false)) onConnectWalletConnect(activate)
-    if (window?.ethereum) onConnectMetamask(activate);
-    else if (isMobile) onConnectWalletConnect(activate);
-  }, []);
+  // useEffect(() => {
+  //   // if(isMobile && (navigator.brave && await navigator.brave.isBrave() || false)) onConnectWalletConnect(activate)
+  //   if (window?.ethereum) onConnectMetamask(activate);
+  //   else if (isMobile) onConnectWalletConnect(activate);
+  // }, []);
 
   return (
     <div className="App">
