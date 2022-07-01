@@ -21,7 +21,7 @@ const Test = styled.div`
   gap: 10px;
 `;
 
-const Title2 = styled.div`
+export const Title2 = styled.div`
   font-family: "GT";
   font-style: normal;
   font-weight: 800;
@@ -32,7 +32,7 @@ const Title2 = styled.div`
   color: #2b2b2b;
 `;
 
-const Container = styled.div`
+export const Container = styled.div`
   padding: 0 22px;
   margin: 0 0 30px 0;
 `;
@@ -45,7 +45,7 @@ const Post = styled.div`
   height: 106px;
 `;
 
-const Submit = styled.button`
+export const Submit = styled.button`
   background: #2b2b2b;
   border-radius: 100px;
   margin: 62px auto;
