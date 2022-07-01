@@ -73,6 +73,34 @@ import S60 from "../../../assets/Speaker/60.svg";
 import S61 from "../../../assets/Speaker/61.svg";
 import S62 from "../../../assets/Speaker/62.svg";
 import S63 from "../../../assets/Speaker/63.svg";
+import S64 from "../../../assets/Speaker/64.svg";
+import S65 from "../../../assets/Speaker/65.svg";
+import S66 from "../../../assets/Speaker/66.svg";
+import S67 from "../../../assets/Speaker/67.svg";
+import S68 from "../../../assets/Speaker/68.svg";
+import S69 from "../../../assets/Speaker/69.svg";
+import S70 from "../../../assets/Speaker/70.svg";
+import S71 from "../../../assets/Speaker/71.svg";
+import S72 from "../../../assets/Speaker/72.svg";
+import S73 from "../../../assets/Speaker/73.svg";
+import S74 from "../../../assets/Speaker/74.svg";
+import S75 from "../../../assets/Speaker/75.svg";
+import S76 from "../../../assets/Speaker/76.svg";
+import S77 from "../../../assets/Speaker/77.svg";
+import S78 from "../../../assets/Speaker/78.svg";
+import S79 from "../../../assets/Speaker/79.svg";
+import S80 from "../../../assets/Speaker/80.svg";
+import S81 from "../../../assets/Speaker/81.svg";
+import S82 from "../../../assets/Speaker/82.svg";
+import S83 from "../../../assets/Speaker/83.svg";
+import S84 from "../../../assets/Speaker/84.svg";
+import S85 from "../../../assets/Speaker/85.svg";
+import S86 from "../../../assets/Speaker/86.svg";
+import S87 from "../../../assets/Speaker/87.svg";
+import S88 from "../../../assets/Speaker/88.svg";
+import S89 from "../../../assets/Speaker/89.svg";
+import S90 from "../../../assets/Speaker/90.svg";
+
 
 const SpeakerPage = () => {
   return (
@@ -709,6 +737,283 @@ const SpeakerPage = () => {
               <Org>ShapeShift & Giveth</Org>
             </SpeakerContainer>
           </a>
+
+          <a href="https://twitter.com/Jeff_Crypto2012">
+            <SpeakerContainer>
+              <SpeakerImage>
+                <img src={S64}></img>
+              </SpeakerImage>
+              <Name>Jeff Anonymous</Name>
+              <Org>CULT DAO</Org>
+            </SpeakerContainer>
+          </a>
+
+          <a href="https://twitter.com/Ulydev">
+            <SpeakerContainer>
+              <SpeakerImage>
+                <img src={S65}></img>
+              </SpeakerImage>
+              <Name>Ulysse Ramage</Name>
+              <Org>ApeWine</Org>
+            </SpeakerContainer>
+          </a>
+
+          <a href="https://twitter.com/marcvsam">
+            <SpeakerContainer>
+              <SpeakerImage>
+                <img src={S66}></img>
+              </SpeakerImage>
+              <Name>Marcus AM</Name>
+              <Org>Cohere & Lamina POP</Org>
+            </SpeakerContainer>
+          </a>
+
+          <a href="https://twitter.com/bneiluj">
+            <SpeakerContainer>
+              <SpeakerImage>
+                <img src={S67}></img>
+              </SpeakerImage>
+              <Name>Julien Bouteloup</Name>
+              <Org>Sttake DAO</Org>
+            </SpeakerContainer>
+          </a>
+
+          <a href="">
+            <SpeakerContainer>
+              <SpeakerImage>
+                <img src={S68}></img>
+              </SpeakerImage>
+              <Name>Alberto Viera</Name>
+              <Org>Moonbeam</Org>
+            </SpeakerContainer>
+          </a>
+
+          <a href="https://twitter.com/david_tomu">
+            <SpeakerContainer>
+              <SpeakerImage>
+                <img src={S69}></img>
+              </SpeakerImage>
+              <Name>David Tomu</Name>
+              <Org>MintGate and Rungie</Org>
+            </SpeakerContainer>
+          </a>
+
+          <a href="https://twitter.com/MarinaMarkezic">
+            <SpeakerContainer>
+              <SpeakerImage>
+                <img src={S70}></img>
+              </SpeakerImage>
+              <Name>Marina Markezic</Name>
+              <Org>EU Crypto Initiative</Org>
+            </SpeakerContainer>
+          </a>
+
+          <a href="">
+            <SpeakerContainer>
+              <SpeakerImage>
+                <img src={S71}></img>
+              </SpeakerImage>
+              <Name>Aaron Soskin</Name>
+              <Org>Govrn</Org>
+            </SpeakerContainer>
+          </a>
+
+          <a href="">
+            <SpeakerContainer>
+              <SpeakerImage>
+                <img src={S72}></img>
+              </SpeakerImage>
+              <Name>Josef Jelacia</Name>
+              <Org>PWN, EF</Org>
+            </SpeakerContainer>
+          </a>
+
+          <a href="https://twitter.com/niarbnotna">
+            <SpeakerContainer>
+              <SpeakerImage>
+                <img src={S73}></img>
+              </SpeakerImage>
+              <Name>Anton Mozgovoy</Name>
+              <Org>Mover DAO</Org>
+            </SpeakerContainer>
+          </a>
+
+          <a href="https://twitter.com/levity">
+            <SpeakerContainer>
+              <SpeakerImage>
+                <img src={S74}></img>
+              </SpeakerImage>
+              <Name>Lawrence Yang</Name>
+              <Org>Coordinape</Org>
+            </SpeakerContainer>
+          </a>
+
+          <a href="https://twitter.com/BogdanHabic">
+            <SpeakerContainer>
+              <SpeakerImage>
+                <img src={S75}></img>
+              </SpeakerImage>
+              <Name>Bogdan Habic</Name>
+              <Org>Tenderly</Org>
+            </SpeakerContainer>
+          </a>
+
+          <a href="https://twitter.com/protein">
+            <SpeakerContainer>
+              <SpeakerImage>
+                <img src={S76}></img>
+              </SpeakerImage>
+              <Name>William Rowe</Name>
+              <Org>Protein</Org>
+            </SpeakerContainer>
+          </a>
+
+          <a href="https://twitter.com/alcercu3">
+            <SpeakerContainer>
+              <SpeakerImage>
+                <img src={S77}></img>
+              </SpeakerImage>
+              <Name>Aleix Cerda Cuco</Name>
+              <Org>Kleros</Org>
+            </SpeakerContainer>
+          </a>
+
+          <a href="https://twitter.com/IvanOnTech">
+            <SpeakerContainer>
+              <SpeakerImage>
+                <img src={S78}></img>
+              </SpeakerImage>
+              <Name>Ivan Lijeqvist</Name>
+              <Org>Moralis</Org>
+            </SpeakerContainer>
+          </a>
+
+          <a href="">
+            <SpeakerContainer>
+              <SpeakerImage>
+                <img src={S79}></img>
+              </SpeakerImage>
+              <Name>Sebastian Serrano</Name>
+              <Org>Ripio</Org>
+            </SpeakerContainer>
+          </a>
+
+          <a href="https://twitter.com/reisingerandres">
+            <SpeakerContainer>
+              <SpeakerImage>
+                <img src={S80}></img>
+              </SpeakerImage>
+              <Name>Andres Reisinger</Name>
+              <Org>Reisinger Studio</Org>
+            </SpeakerContainer>
+          </a>
+
+          <a href="https://twitter.com/ArturWdowiarski">
+            <SpeakerContainer>
+              <SpeakerImage>
+                <img src={S81}></img>
+              </SpeakerImage>
+              <Name>Artur Wdowiarski</Name>
+              <Org>3Box Labs</Org>
+            </SpeakerContainer>
+          </a>
+
+          <a href="https://twitter.com/ZeughFromCanu">
+            <SpeakerContainer>
+              <SpeakerImage>
+                <img src={S82}></img>
+              </SpeakerImage>
+              <Name>Jon Jose de Souza Neto</Name>
+              <Org>JuiceBox DAO</Org>
+            </SpeakerContainer>
+          </a>
+
+          <a href="https://twitter.com/sarah___wood">
+            <SpeakerContainer>
+              <SpeakerImage>
+                <img src={S83}></img>
+              </SpeakerImage>
+              <Name>Sarah Wood</Name>
+              <Org>Upstream</Org>
+            </SpeakerContainer>
+          </a>
+
+          <a href="https://twitter.com/akrtws">
+            <SpeakerContainer>
+              <SpeakerImage>
+                <img src={S84}></img>
+              </SpeakerImage>
+              <Name>Angela Kreitenweis</Name>
+              <Org>TE Academy</Org>
+            </SpeakerContainer>
+          </a>
+
+          <a href="https://twitter.com/zmanian">
+            <SpeakerContainer>
+              <SpeakerImage>
+                <img src={S85}></img>
+              </SpeakerImage>
+              <Name>Zaki Manian</Name>
+              <Org>Sommelier Finance</Org>
+            </SpeakerContainer>
+          </a>
+
+          <a href="https://twitter.com/StaniKulechov">
+            <SpeakerContainer>
+              <SpeakerImage>
+                <img src={S86}></img>
+              </SpeakerImage>
+              <Name>Stani Kulechov</Name>
+              <Org>Aave & Lens</Org>
+            </SpeakerContainer>
+          </a>
+
+          <a href="https://twitter.com/AndreVanyiRobin">
+            <SpeakerContainer>
+              <SpeakerImage>
+                <img src={S87}></img>
+              </SpeakerImage>
+              <Name>Andre Vanyi-Robin</Name>
+              <Org>Celo</Org>
+            </SpeakerContainer>
+          </a>
+
+          <a href="https://twitter.com/chrispurifoy">
+            <SpeakerContainer>
+              <SpeakerImage>
+                <img src={S88}></img>
+              </SpeakerImage>
+              <Name>Chris Purifoy</Name>
+              <Org>Learning Economy Foundation</Org>
+            </SpeakerContainer>
+          </a>
+
+
+          <a href="https://twitter.com/duartedao">
+            <SpeakerContainer>
+              <SpeakerImage>
+                <img src={S89}></img>
+              </SpeakerImage>
+              <Name>Elco</Name>
+              <Org>The Daoist</Org>
+            </SpeakerContainer>
+          </a>
+
+
+          <a href="https://twitter.com/arnaucube">
+            <SpeakerContainer>
+              <SpeakerImage>
+                <img src={S90}></img>
+              </SpeakerImage>
+              <Name>Arnau Cube</Name>
+              <Org>Aragon</Org>
+            </SpeakerContainer>
+          </a>
+
+          
+
+          
+
         </Box>
       </Container>
     </>

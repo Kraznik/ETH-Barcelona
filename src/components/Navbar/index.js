@@ -128,8 +128,12 @@ const Navbars = ({
           <Nav.Link href="#speaker" className="speaker">
             <Text>Speakers </Text>
           </Nav.Link>
-          <Nav.Link href="#faq" className="speaker">
-            <Text>FAQ </Text>
+          <Nav.Link
+            href="https://ethbarcelona.notion.site/ETHBarcelona-Side-Events-1df2e6e28f90462d81059261a7dc9231"
+            target={"_blank"}
+            className="speaker"
+          >
+            <Text>Side Events </Text>
           </Nav.Link>
           <Nav.Link
             href="https://www.eventbrite.com/e/ethbarcelona-tickets-344163862377?aff=ebdssbdestsearch"
