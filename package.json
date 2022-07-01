@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@doingud/contracts": "file:src/packages/contracts-1.1.2-npm.tgz",
+    "@doingud/contracts": "file:src/packages/contracts-1.1.4-npm.tgz",
     "@ethersproject/providers": "^5.1.2",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",

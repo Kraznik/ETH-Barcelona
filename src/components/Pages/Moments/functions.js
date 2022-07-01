@@ -23,83 +23,83 @@ export function useUploadArtwork() {
     console.log("library: ", library);
     // hasUploadSumitted(true);
     console.log("uploading...");
+    // try {
+    const fileExtension = file.name.split(".").pop();
+    const fileType = getTypeOfMedia(file);
+
+    const dimensions =
+      fileType === "image" ? await imageDimensions(file) : undefined;
     try {
-      // const fileExtension = file.name.split(".").pop();
-      // const fileType = getTypeOfMedia(file);
+      const uploadLink = await axios({
+        url: `${baseUrl}/creation/storage/upload-link`,
+        data: {
+          mimetype: file.type,
+          fileExtension,
+        },
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${AccessToken}`,
+        },
+      });
 
-      // const dimensions =
-      //   fileType === "image" ? await imageDimensions(file) : undefined;
-      // try {
-      //   const uploadLink = await axios({
-      //     url: `${baseUrl}/creation/storage/upload-link`,
-      //     data: {
-      //       mimetype: file.type,
-      //       fileExtension,
-      //     },
-      //     method: "POST",
-      //     headers: {
-      //       Authorization: `Bearer ${AccessToken}`,
-      //     },
-      //   });
+      console.log("upload link: ", uploadLink.data);
 
-      //   console.log("upload link: ", uploadLink.data);
+      const formData = new FormData();
+      if (file.type) {
+        formData.append("Content-Type", file.type);
+      }
+      Object.entries(uploadLink.data.fields).forEach(([k, v]) => {
+        formData.append(k, v);
+      });
+      formData.append("file", file);
 
-      //   const formData = new FormData();
-      //   if (file.type) {
-      //     formData.append("Content-Type", file.type);
-      //   }
-      //   Object.entries(uploadLink.data.fields).forEach(([k, v]) => {
-      //     formData.append(k, v);
-      //   });
-      //   formData.append("file", file);
+      const res = await axios({
+        url: uploadLink.data.url,
+        method: "POST",
+        data: formData,
+        // ...requestConfig,
+      });
 
-      //   const res = await axios({
-      //     url: uploadLink.data.url,
-      //     method: "POST",
-      //     data: formData,
-      //     // ...requestConfig,
-      //   });
+      console.log("upload result: ", res);
 
-      //   console.log("upload result: ", res);
+      const createArtworkRes = await createArtwork(
+        {
+          type: file.type,
+          fileExtension: fileExtension,
+          fileKey: uploadLink.data.fields["key"],
+          dimensions: dimensions || undefined,
+        },
+        AccessToken
+      );
 
-      //   const createArtworkRes = await createArtwork(
-      //     {
-      //       type: file.type,
-      //       fileExtension: fileExtension,
-      //       fileKey: uploadLink.data.fields["key"],
-      //       dimensions: dimensions || undefined,
-      //     },
-      //     AccessToken
-      //   );
+      console.log("createArtworkRes: ", createArtworkRes.data);
 
-      //   console.log("createArtworkRes: ", createArtworkRes.data);
+      const nftTypeId = createArtworkRes.data.nftTypeId;
 
-      //   const nftTypeId = createArtworkRes.data.nftTypeId;
-
-      //   const editRes = await submitEditForm({
-      //     nftTypeId,
-      //     valuesForm: {
-      //       title: "Moments Test",
-      //       description: "Testing",
-      //     },
-      //     AccessToken,
-      //     library,
-      //   });
-      //   console.log("editFormRes: ", editRes.data);
-
-      const nftTypeId =
-        "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000045";
-
-      const saleRes = await submitSaleSettingsForm({
+      const editRes = await submitEditForm({
         nftTypeId,
         valuesForm: {
-          //   title: "Moments Test",
-          //   description: "Testing",
+          title: "Moments Test",
+          description: "Testing",
         },
         AccessToken,
         library,
       });
-      console.log("saleFormRes: ", saleRes);
+      console.log("editFormRes: ", editRes.data);
+
+      // const nftTypeId =
+      //   "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000045";
+
+      // const saleRes = await submitSaleSettingsForm({
+      //   nftTypeId,
+      //   valuesForm: {
+      //     //   title: "Moments Test",
+      //     //   description: "Testing",
+      //   },
+      //   AccessToken,
+      //   library,
+      // });
+      // console.log("saleFormRes: ", saleRes);
 
       return;
     } catch (error) {
@@ -339,6 +339,28 @@ const getLazyMintSignature = async (values, creatorTypeId, library) => {
   console.log("Lazy mint params: ", params);
   // console.log(Diamond);
 
+  let egParams = {
+    buyer: "0x0000000000000000000000000000000000000000",
+    expirationTime: 4070908800,
+    gallery: "0x0000000000000000000000000000000000000000",
+    nftTypeDefinition: {
+      collabPortions: [],
+      collabs: [],
+      creator: "0x70c1EA05E2A54DfFE1088D4A54CB1a6C25c9077c",
+      creatorTypeId: 70,
+      ipfsCid: `<Uint8Array(36) type>`,
+      maxEditions: 10,
+      // maxMintsPerAddress: 10,
+      mintPortionSio: 500,
+      resalePortionCreator: 1000,
+      resalePortionSio: 350,
+      sioId: 111,
+    },
+    nonce: 1656672289155,
+    numOffered: 10,
+    price: 1,
+  };
+
   let signature = "";
 
   try {
@@ -430,7 +452,7 @@ const getLazyMintParams = ({
       collabPortions: [], // [] // array of profits of collabs
       sioId: 111, // 111, // sio.decentralizedId, // 107 // For Hope of Justice
       maxEditions: editionCount,
-      maxMintsPerAddress: editionCount,
+      // maxMintsPerAddress: editionCount,
       mintPortionSio: Math.floor(sioProfits * 100),
       resalePortionSio: Math.floor(secondarySioProfits * 100),
       resalePortionCreator: Math.floor(secondaryCreatorProfits * 100),
@@ -460,7 +482,7 @@ const fixSignatureV = (signature) => {
 };
 
 export const Claim = async (library) => {
-  const nftTypeId = "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000042"; // "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c00000000002c";
+  const nftTypeId = "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000049"; // "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c00000000002c";
 
   let values = {
     // sio: "2402b5bd-a955-495b-8f27-7ab614171ef5",
@@ -473,12 +495,12 @@ export const Claim = async (library) => {
       },
     ],
     editionCount: 10,
-    price: 0,
+    price: 1,
     secondaryCreatorProfits: 10,
     secondarySioProfits: 3.5,
     sioProfits: 5,
     signedAt: new Date(),
-    metadataCID: "bafybeier5ddletuco4b7tdv5dl336j6vvw27agivuablaibgjuvtqnir4a",
+    metadataCID: "bafybeielx2qejlowcum6erddsngafml2xbtrpxtwd4xilf2f5cesmr5giu",
     expirationTime: Math.floor(+Date.UTC(2099, 0, 1) / 1000),
   };
   let creatorSignature = "";
@@ -495,9 +517,9 @@ export const Claim = async (library) => {
   }
 
   // compare signature
-  const signtr = getLazyMintSignature(values, creatorTypeId, library);
+  // const signtr = getLazyMintSignature(values, creatorTypeId, library);
 
-  console.log("created sig aftre: ", signtr);
+  // console.log("created sig aftre: ", signtr);
 
   const params = getLazyMintParams({
     // artwork,
