@@ -75,11 +75,12 @@ export function useUploadArtwork() {
       console.log("createArtworkRes: ", createArtworkRes.data);
 
       const nftTypeId = createArtworkRes.data.nftTypeId;
+      console.log("nftTypeId: ", nftTypeId);
 
       const editRes = await submitEditForm({
         nftTypeId,
         valuesForm: {
-          title: "Moments Test",
+          title: "Moments Test 2",
           description: "Testing",
         },
         AccessToken,
@@ -88,18 +89,18 @@ export function useUploadArtwork() {
       console.log("editFormRes: ", editRes.data);
 
       // const nftTypeId =
-      //   "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000045";
+      //   "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c00000000004a";
 
-      // const saleRes = await submitSaleSettingsForm({
-      //   nftTypeId,
-      //   valuesForm: {
-      //     //   title: "Moments Test",
-      //     //   description: "Testing",
-      //   },
-      //   AccessToken,
-      //   library,
-      // });
-      // console.log("saleFormRes: ", saleRes);
+      const saleRes = await submitSaleSettingsForm({
+        nftTypeId,
+        valuesForm: {
+          //   title: "Moments Test",
+          //   description: "Testing",
+        },
+        AccessToken,
+        library,
+      });
+      console.log("saleFormRes: ", saleRes);
 
       return;
     } catch (error) {
@@ -184,8 +185,13 @@ const submitEditForm = async ({
 
   const creatorTypeId = parseInt(nftTypeId.slice(-12), 16);
 
+  // var saleSetting = {};
+  // if (includeSale) {
+  // }
+
   const saleSetting = await getSalesSettings(
     valuesForm,
+    nftTypeId,
     creatorTypeId,
     library
   );
@@ -222,6 +228,7 @@ const submitSaleSettingsForm = async ({
   const creatorTypeId = parseInt(nftTypeId.slice(-12), 16);
   const saleSetting = await getSalesSettings(
     valuesForm,
+    nftTypeId,
     creatorTypeId,
     library
   );
@@ -245,8 +252,13 @@ const submitSaleSettingsForm = async ({
 //   secondaryMarket: { creatorsRoyalties: 10, socialCauseRoyalties: 3.5 },
 // };
 
-const getSalesSettings = async (valuesForm, creatorTypeId, library) => {
-  const price = 1,
+const getSalesSettings = async (
+  valuesForm,
+  nftTypeId,
+  creatorTypeId,
+  library
+) => {
+  const price = 0,
     editionCount = 10,
     sellOnProfile = true,
     creatorProfits = 95,
@@ -263,7 +275,9 @@ const getSalesSettings = async (valuesForm, creatorTypeId, library) => {
     secondaryCreatorProfits = 10,
     signedAt = new Date();
 
-  const values = {
+  // let nftTypeId = "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c00000000004a";
+
+  let values = {
     // sio: "2402b5bd-a955-495b-8f27-7ab614171ef5",
     creatorShares: [
       {
@@ -274,7 +288,7 @@ const getSalesSettings = async (valuesForm, creatorTypeId, library) => {
       },
     ],
     editionCount: 10,
-    price: 1,
+    price: 0,
     secondaryCreatorProfits,
     secondarySioProfits,
     sioProfits,
@@ -282,6 +296,17 @@ const getSalesSettings = async (valuesForm, creatorTypeId, library) => {
     metadataCID: "bafybeier5ddletuco4b7tdv5dl336j6vvw27agivuablaibgjuvtqnir4a",
     expirationTime: Math.floor(+Date.UTC(2099, 0, 1) / 1000),
   };
+
+  try {
+    const url = `https://api-main.doingud.work/creation/artwork/${nftTypeId}`;
+    const { data } = await axios.get(url);
+    // creatorSignature = data.saleSetting.signature;
+    if (data) {
+      values.metadataCID = data?.metadataCID;
+    }
+  } catch (err) {
+    console.error(err);
+  }
 
   const signature = await getLazyMintSignature(values, creatorTypeId, library);
 
@@ -339,27 +364,27 @@ const getLazyMintSignature = async (values, creatorTypeId, library) => {
   console.log("Lazy mint params: ", params);
   // console.log(Diamond);
 
-  let egParams = {
-    buyer: "0x0000000000000000000000000000000000000000",
-    expirationTime: 4070908800,
-    gallery: "0x0000000000000000000000000000000000000000",
-    nftTypeDefinition: {
-      collabPortions: [],
-      collabs: [],
-      creator: "0x70c1EA05E2A54DfFE1088D4A54CB1a6C25c9077c",
-      creatorTypeId: 70,
-      ipfsCid: `<Uint8Array(36) type>`,
-      maxEditions: 10,
-      // maxMintsPerAddress: 10,
-      mintPortionSio: 500,
-      resalePortionCreator: 1000,
-      resalePortionSio: 350,
-      sioId: 111,
-    },
-    nonce: 1656672289155,
-    numOffered: 10,
-    price: 1,
-  };
+  // let egParams = {
+  //   buyer: "0x0000000000000000000000000000000000000000",
+  //   expirationTime: 4070908800,
+  //   gallery: "0x0000000000000000000000000000000000000000",
+  //   nftTypeDefinition: {
+  //     collabPortions: [],
+  //     collabs: [],
+  //     creator: "0x70c1EA05E2A54DfFE1088D4A54CB1a6C25c9077c",
+  //     creatorTypeId: 70,
+  //     ipfsCid: `<Uint8Array(36) type>`,
+  //     maxEditions: 10,
+  //     // maxMintsPerAddress: 10,
+  //     mintPortionSio: 500,
+  //     resalePortionCreator: 1000,
+  //     resalePortionSio: 350,
+  //     sioId: 111,
+  //   },
+  //   nonce: 1656672289155,
+  //   numOffered: 10,
+  //   price: 1,
+  // };
 
   let signature = "";
 
@@ -482,7 +507,7 @@ const fixSignatureV = (signature) => {
 };
 
 export const Claim = async (library) => {
-  const nftTypeId = "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000049"; // "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c00000000002c";
+  const nftTypeId = "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000060"; // "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c00000000002c";
 
   let values = {
     // sio: "2402b5bd-a955-495b-8f27-7ab614171ef5",
@@ -495,12 +520,12 @@ export const Claim = async (library) => {
       },
     ],
     editionCount: 10,
-    price: 1,
+    price: 0,
     secondaryCreatorProfits: 10,
     secondarySioProfits: 3.5,
     sioProfits: 5,
     signedAt: new Date(),
-    metadataCID: "bafybeielx2qejlowcum6erddsngafml2xbtrpxtwd4xilf2f5cesmr5giu",
+    metadataCID: "",
     expirationTime: Math.floor(+Date.UTC(2099, 0, 1) / 1000),
   };
   let creatorSignature = "";
@@ -515,6 +540,8 @@ export const Claim = async (library) => {
   } catch (err) {
     console.error(err);
   }
+
+  console.log("params values in claim: ", values);
 
   // compare signature
   // const signtr = getLazyMintSignature(values, creatorTypeId, library);
