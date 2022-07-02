@@ -323,7 +323,8 @@ const getLazyMintSignature = async (values, creatorTypeId, library) => {
     console.log("sig hash: ", hash);
 
     try {
-      const url = "http://localhost:3456/getLazyMintSignature";
+      const url =
+        "https://eth-barcelona.kraznikunderverse.com/getLazyMintSignature";
       const post_data = {
         hash,
       };
@@ -462,17 +463,18 @@ export const Claim = async (nftTypeId) => {
   console.log(params);
 
   try {
-    const url = "http://localhost:3456/mintMoments";
+    const url = "https://eth-barcelona.kraznikunderverse.com/mintMoments";
     const post_data = {
       ticketIds: [1, 2],
       nftTypeId,
       params,
     };
-    await axios.post(url, post_data, {
+    const { data } = await axios.post(url, post_data, {
       headers: {
         validate: "alpha romeo tango",
       },
     });
+    console.log(data);
   } catch (err) {
     console.error(err);
   }

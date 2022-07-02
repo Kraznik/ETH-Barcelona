@@ -55,6 +55,9 @@ const Moments = () => {
     description: "",
     ticketIds: [],
   });
+  const [minting, setMinting] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [Error, setError] = useState(false);
 
   const getAccessToken = async () => {
     const config = {
@@ -112,6 +115,7 @@ const Moments = () => {
   };
 
   const mintAMoment = async () => {
+    setMinting(true);
     try {
       if (file && AccessToken) {
         await uploadFile(
@@ -121,8 +125,14 @@ const Moments = () => {
           momentsData.title,
           momentsData.description
         );
+        setMinting(false);
       }
-    } catch {}
+      setSuccess(true);
+    } catch (err) {
+      setMinting(false);
+      setError(true);
+      console.error(err);
+    }
   };
 
   return (
@@ -182,8 +192,13 @@ const Moments = () => {
             </Flex>
 
             <RedeemOut>
-              <Redeem onClick={mintAMoment}>Mint a Moment</Redeem>
+              <Redeem onClick={mintAMoment}>
+                {minting ? <span>Minting...</span> : <span>Mint a Moment</span>}
+              </Redeem>
             </RedeemOut>
+
+            {success ? <Description>Successfully minted!!</Description> : null}
+            {Error ? <Description>Got some Error!!</Description> : null}
           </Forum>
         </InputContainer>
       </Container>
