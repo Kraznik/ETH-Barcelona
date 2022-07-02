@@ -6,6 +6,8 @@ import Twitter from "../../../assets/Twitter.svg";
 import Instagram from "../../../assets/Insta.svg";
 import { Title1 } from "../Scavenger-Play";
 import Dropdown from "react-bootstrap/Dropdown";
+import Upload from "../../../assets/Upload.svg";
+import { type } from "os-browserify";
 
 const Mint = () => {
   return (
@@ -78,6 +80,10 @@ const Mint = () => {
 
       <Title3>TICKET ID</Title3>
       <input type="number" placeholder="NFTicket ID" className="drop"></input>
+
+
+        <img src={Upload}></img>
+
 
       <Submit>Mint Challenge</Submit>
 

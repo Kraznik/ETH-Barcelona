@@ -42,6 +42,7 @@ const Post = styled.div`
   background-image: url(${PostIt});
   width: 108px;
   margin: 5px 3px;
+  padding: 1px 2px;
   display: inline-block;
   height: 106px;
 `;
@@ -59,11 +60,7 @@ export const Submit = styled.button`
   font-size: 18px;
   line-height: 22px;
   /* identical to box height */
-
   text-align: center;
-
-  /* Grey 3 */
-
   color: #f6f7fb;
 `;
 
@@ -93,8 +90,15 @@ export const Title3 = styled.div`
 
 `;
 
-const DgMoments = () => {
+
+const DgMoments = () =>
+
+{
+
+ 
   return (
+
+    
     <>
       <Banner />
 
