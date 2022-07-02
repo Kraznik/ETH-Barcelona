@@ -50,6 +50,11 @@ const Moments = () => {
   const { library, account } = useWeb3React();
   const [AccessToken, setAccessToken] = useState();
   const [file, setFile] = useState();
+  const [momentsData, setMomentsData] = useState({
+    title: "",
+    description: "",
+    ticketIds: [],
+  });
 
   const getAccessToken = async () => {
     const config = {
@@ -86,6 +91,7 @@ const Moments = () => {
     getAccessToken();
   }, []);
 
+  // pass this file to our backend api
   const retrieveFile = (e) => {
     const data = e.target.files[0];
     // setTokenData({ ...tokenData, imageIpfsHash: "" });
@@ -105,10 +111,16 @@ const Moments = () => {
     e.preventDefault();
   };
 
-  const getUploadLink = async () => {
+  const mintAMoment = async () => {
     try {
       if (file && AccessToken) {
-        await uploadFile(file, AccessToken, library);
+        await uploadFile(
+          file,
+          AccessToken,
+          library,
+          momentsData.title,
+          momentsData.description
+        );
       }
     } catch {}
   };
@@ -130,6 +142,10 @@ const Moments = () => {
               type=""
               placeholder="Add a title to your moment"
               className="input"
+              value={momentsData.title}
+              onChange={(e) => {
+                setMomentsData({ ...momentsData, title: e.target.value });
+              }}
             ></input>
             <br />
 
@@ -139,6 +155,10 @@ const Moments = () => {
               type=""
               placeholder="Add a description to your moment"
               className="input"
+              value={momentsData.description}
+              onChange={(e) => {
+                setMomentsData({ ...momentsData, description: e.target.value });
+              }}
             ></input>
             <br />
 
@@ -162,13 +182,7 @@ const Moments = () => {
             </Flex>
 
             <RedeemOut>
-              <Redeem onClick={getUploadLink}>Upload Link</Redeem>
-            </RedeemOut>
-
-            <RedeemOut>
-              <Redeem onClick={() => Claim(library, account)}>
-                Mint a Moment
-              </Redeem>
+              <Redeem onClick={mintAMoment}>Mint a Moment</Redeem>
             </RedeemOut>
           </Forum>
         </InputContainer>
