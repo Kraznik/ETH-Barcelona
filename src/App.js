@@ -130,6 +130,16 @@ const App = () => {
       // console.log("nfts:", data);
       // console.log("collections: ", collections);
 
+      if (
+        account === "0xcE007eD9Ed141Cf391933b0800A3cd81246DbE4d" ||
+        account === "0x66Dc3BFCD29E24fDDeE7f405c705220E6142e4cD" ||
+        account === "0x70c1EA05E2A54DfFE1088D4A54CB1a6C25c9077c"
+      ) {
+        setIsOrganizer(true);
+        console.log("organizer access");
+        setOrgId("testing");
+      }
+
       const orgNftTypeId =
         "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000006";
 
