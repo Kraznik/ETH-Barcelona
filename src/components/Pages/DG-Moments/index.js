@@ -43,6 +43,7 @@ const Post = styled.div`
   width: 108px;
   margin: 5px 3px;
   padding: 1px 2px;
+
   display: inline-block;
   height: 106px;
 `;
@@ -67,11 +68,14 @@ export const Submit = styled.button`
 const Task = styled.div`
   font-family: "GT";
   font-style: normal;
-  padding: 20px 11px;
-  font-weight: 500;
+  position: absolute;
+  padding: 20.4px 11.11px 21.73px 11.56px;
   font-size: 13px;
   line-height: 14px;
   /* or 108% */
+  height:63.87px;
+  width:85.33px;
+  text-align:left;
 
   color: #ffffff;
 `;
