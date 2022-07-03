@@ -1,6 +1,7 @@
-body, html {
+body,
+html {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Dahlia';
+  font-family: -apple-system, BlinkMacSystemFont, "Dahlia";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: auto !important;
@@ -8,11 +9,10 @@ body, html {
   overflow-x: hidden;
   touch-action: pan-x pan-y;
   scroll-behavior: smooth;
+  background-color: #F5C34B !important;
+  /* height: 100vh ; */
 }
 
-
-
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Dahlia',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Dahlia", monospace;
 }

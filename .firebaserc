@@ -1,7 +1,7 @@
 {
   "projects": {
     "default": "eth-barcelona",
-    "scav-hunt": "ethbcn-scavhunt"
+    "staging": "dev-eth-barcelona"
   },
   "targets": {}
 }

@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 
-import Web3Modal from "web3modal";
+import { useWeb3React } from "@web3-react/core";
+
 import web3 from "./ethereum/web3";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 
@@ -14,55 +20,57 @@ import SpeakerClaim from "./components/Pages/Speaker-Claim";
 import SpeakersClaimed from "./components/Pages/SpeakersClaimed";
 import SpeakerHomePage from "./components/Pages/SpeakerHomePage";
 
+import axios from "axios";
+import BuyTickets from "./components/Pages/BuyTicket";
+import ShowQRcode from "./components/Pages/ShowQRcode/index.js";
+import Poap from "./components/Pages/Poap";
+import ShowTickets from "./components/Pages/HaveTicket";
+import RedeemNFT from "./components/Pages/Redeem";
+import Landing from "./components/Pages/LandingPage";
+import Navbars from "./components/Navbar";
+import Organizer from "./components/Pages/Organizer";
+import {
+  onDisconnect,
+  onConnectMetamask,
+  onConnectWalletConnect,
+  onConnectCoinbase,
+} from "./components/ConnectWalletButton/functions";
+import ProtectedRoute from "./utils/ProtectedRoute";
+import Moments from "./components/Pages/Moments";
 
-const providerOptions = {
-  walletconnect: {
-    package: WalletConnectProvider, // required
-    // options: {
-    //   infuraId: infuraId, // required
-    // },
-    rpc: {
-      80001:
-        "https://polygon-mumbai.g.alchemy.com/v2/T95ylN-bR7zmaXiaZkP0R1sOObutgv-M",
-    },
-  },
+const changeNetwork = async () => {
+  try {
+    if (!window.ethereum) throw new Error("No crypto wallet found");
+    // console.log("switch network:", { chainId: "0x1" });
+    await window.ethereum.request({
+      // method: "wallet_addEthereumChain",
+      method: "wallet_switchEthereumChain",
+      params: [
+        {
+          chainId: `0x${Number(80001).toString(16)}`, // mumbai = 80001 // polygon = 137
+        },
+      ],
+    });
+  } catch (err) {
+    if (err) console.log(err.message);
+  }
 };
-
-const web3Modal = new Web3Modal({
-  // network: "mainnet", // optional
-  cacheProvider: true, // optional
-  providerOptions, // required
-});
-
-let provider;
-
-// const changeNetwork = async () => {
-//   try {
-//     if (!window.ethereum) throw new Error("No crypto wallet found");
-//     // console.log("switch network:", { chainId: "0x1" });
-//     await window.ethereum.request({
-//       // method: "wallet_addEthereumChain",
-//       method: "wallet_switchEthereumChain",
-//       params: [
-//         {
-//           chainId: `0x${Number(80001).toString(16)}`, // mumbai = 80001 // polygon = 137
-//         },
-//       ],
-//     });
-//   } catch (err) {
-//     if (err) console.log(err.message);
-//   }
-// };
 
 const App = () => {
   const [windowDimension, setWindowDimension] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
 
-  const [account, setaccount] = useState("");
+  const [accounts, setaccount] = useState("");
   const [chainId, setChainId] = useState();
   const [haveTokens, setHaveTokens] = useState(false);
 
+  const [isOrganizer, setIsOrganizer] = useState(false);
+  const [orgId, setOrgId] = useState();
+
   const IsMobile = windowDimension <= 800;
+
+  const { active, account, library, connector, activate, deactivate } =
+    useWeb3React();
 
   useEffect(() => {
     setWindowDimension(window.innerWidth);
@@ -78,125 +86,127 @@ const App = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, [IsMobile]);
 
-  // const networkChanged = (chainId) => {
-  //   console.log({ chainId });
-  //   setChainId(chainId);
-  // };
+  const networkChanged = (chainId) => {
+    console.log({ chainId });
+    setChainId(chainId);
+  };
 
-  // useEffect(() => {
-  //   try {
-  //     window.ethereum.on("chainChanged", networkChanged);
-  //   } catch (err) {
-  //     if (err) console.log(err);
-  //   }
-
-  //   return () => {
-  //     window.ethereum.removeListener("chainChanged", networkChanged);
-  //   };
-  // }, []);
-
-  // useEffect(() => {
-  //   changeNetwork();
-  // }, [chainId]);
-
-  const onConnectWallet = async () => {
-    console.log("connecting wallet...");
-    console.log("cached provider", web3Modal.cachedProvider);
+  useEffect(() => {
     try {
-      provider = await web3Modal.connect();
+      window.ethereum.on("chainChanged", networkChanged);
     } catch (err) {
-      console.log("Could not get a wallet connection", err);
-      return;
-    }
-    web3.setProvider(provider);
-    const accounts = await web3.eth.getAccounts();
-    setaccount(accounts[0]);
-  };
-
-  const onDisconnect = async (e) => {
-    e.preventDefault();
-
-    console.log(
-      "cached provider before provider.close(): ",
-      web3Modal.cachedProvider
-    );
-    console.log("Killing the session", web3.currentProvider);
-    console.log("web3.givenProvider", web3.givenProvider);
-
-    if (web3 && web3.currentProvider && web3.currentProvider.close) {
-      await web3.currentProvider.close();
+      if (err) console.log(err);
     }
 
-    console.log(
-      "cached provider after provider.close(): ",
-      web3Modal.cachedProvider
-    );
-    web3Modal.clearCachedProvider();
-    console.log("cached provider after clear: ", web3Modal.cachedProvider);
-    provider = null;
-    setaccount("");
-    setHaveTokens(false);
-    window.location.reload();
-  };
+    return () => {
+      window.ethereum.removeListener("chainChanged", networkChanged);
+    };
+  }, []);
 
-  const run = async () => {
+  useEffect(() => {
+    changeNetwork();
+  }, [chainId]);
+
+  const checkForUnredeemedTickets = async () => {
     try {
-      const userAddress = account;
-      console.log("user address: ", userAddress);
+      const url = `https://api-main.doingud.work/creation/nft?owner=${account}`;
+      const { data } = await axios.get(url);
 
-      for (let i = 1; i <= 9; i++) {
-        const tid =
-          "104720862290310633069935564924680411115238648150918267058652479318130688";
-        const tokenId = tid + i;
-        console.log("tid", tokenId);
-        const balance = await TicketToken.methods
-          .balanceOf(userAddress.toString(), tokenId)
-          .call();
+      // if (data.items.length > 0) setHaveTokens(true);
 
-        console.log("Ticket token balance: ", balance);
+      const ethBcnNftTypeId1 =
+        "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000004";
 
-        if (balance > 0) setHaveTokens(true);
-      }
+      const ethBcnNftTypeId2 =
+        "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000005";
+
+      const orgNftTypeId =
+        "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000006";
+
+      let ticketFound,
+        orgFound = false;
+
+      data.items.map((token) => {
+        if (ticketFound && orgFound) return;
+        if (
+          token.typeId === ethBcnNftTypeId1 ||
+          token.typeId === ethBcnNftTypeId2
+        ) {
+          // console.log("type id matched");
+          setHaveTokens(true);
+          ticketFound = true;
+          // return;
+        }
+
+        if (token.typeId === orgNftTypeId) {
+          setIsOrganizer(true);
+          orgFound = true;
+          let edition = parseInt(token.id.slice(-8), 16);
+          setOrgId(edition);
+        }
+      });
     } catch (err) {
       console.log(err);
     }
   };
 
-  // useEffect(() => {
-  //   run();
-  // }, [account, chainId]);
+  const checkForRedeemedTickets = async () => {
+    try {
+      const url = `https://eth-barcelona.kraznikunderverse.com/qrcode/wallet/${account}`;
+      const { data } = await axios.get(url, {
+        headers: {
+          validate: process.env.REACT_APP_VALIDATE_TOKEN,
+        },
+      });
+      // console.log(data?.data);
+      if (data?.data?.length > 0) setHaveTokens(true);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
-  // useEffect(() => {
-  //   async function listenMMAccount() {
-  //     try {
-  //       window.ethereum.on("accountsChanged", async function () {
-  //         // Time to reload your interface with accounts[0]!
-  //         const accounts = await web3.eth.getAccounts();
-  //         setaccount(accounts[0]);
-  //         console.log(accounts);
-  //         window.location.reload();
-  //       });
-  //     } catch (err) {
-  //       console.log("Browser wallet not installed!");
-  //     }
-  //   }
-
-  //   listenMMAccount();
-  // }, []);
-
-  // useEffect(() => {
-  //   onConnectWallet();
-  // }, []);
+  useEffect(() => {
+    if (account) {
+      checkForRedeemedTickets();
+      // checkForTickets();
+      checkForUnredeemedTickets();
+    }
+  }, [account, chainId]);
 
   return (
     <div className="App">
       <Router>
+      <Navbars
+          account={account}
+          onConnectWalletConnect={() => onConnectWalletConnect(activate)}
+          onConnectCoinbase={() => onConnectCoinbase(activate)}
+          onConnectMetamask={() => onConnectMetamask(activate)}
+          onDisconnect={() => {
+            onDisconnect(deactivate);
+            setIsOrganizer(false);
+          }}
+          haveTokens={haveTokens}
+          isOrganizer={isOrganizer}
+        />
         <Routes>
           <Route exact path="/" element= {<SpeakerHomePage></SpeakerHomePage>}/>
           <Route
             exact
             path="/speakersCollection"
             element={<SpeakerHomePage></SpeakerHomePage>}
+
+        <Routes>
+          <Route exact path="/" element={<Landing isMobile={isMobile} />} />
+          <Route exact path="/moments" element={<Moments />} />
+          {/* <Route
+            exact
+            path="/section"
+            element={<Landing isMobile={isMobile} />}
+          /> */}
+          <Route
+            exact
+            path="/tickets/buy"
+            element={<BuyTickets account={account} />}
           />
           <Route
             exact
@@ -210,6 +220,27 @@ const App = () => {
           />
 
 
+          <Route
+            exact
+            path="/tickets/:id/qrcode"
+            element={<ShowQRcode account={account} />}
+          />
+          <Route
+            exact
+            path="/tickets/:id/poap"
+            element={<Poap account={account} />}
+          />
+          <Route
+            exact
+            path="/organizer"
+            element={
+              <ProtectedRoute permit={isOrganizer}>
+                <Organizer account={account} orgId={orgId} />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Router>
     </div>

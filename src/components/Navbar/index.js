@@ -1,0 +1,228 @@
+import React, { useState } from "react";
+import {
+  Navbar,
+  Container,
+  Brand,
+  Toggle,
+  collapse,
+  NavDropdown,
+  Item,
+  Divider,
+  Nav,
+} from "react-bootstrap";
+import "./style.css";
+import styled from "styled-components";
+import Logo from "../../assets/logo.svg";
+import { NavLink } from "react-router-dom";
+import {useLocation } from "react-router-dom";
+import Wallet from "../../assets/wallet.svg";
+import ConnectWalletButton from "../ConnectWalletButton";
+import "./style.css";
+import Popup from "reactjs-popup";
+import Organizer from "../Pages/Organizer";
+import WalletPopUp from "../Pages/WalletPopUp";
+const Heading = styled(NavLink)`
+  color: red;
+`;
+
+const TicketBox1 = styled.div`
+  display: flex;
+`;
+
+const CircleOut = styled.div`
+  color: #354b37;
+  box-sizing: border-box;
+  border: 0.8px solid #354b37;
+  transform: rotate(-6.41deg);
+  width: 112px;
+  height: 50px;
+  border-radius: 50%;
+  transition: all 0.2s ease-in;
+
+  &:hover {
+    transform: rotate(6.7deg);
+  }
+`;
+
+const CircleIn = styled.div`
+  background: #354b37;
+  width: 112px;
+  transform: rotate(+6.41deg);
+  height: 50px;
+  padding: 5% 18% 5% 5%;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  /* text-align: center; */
+  border-radius: 50%;
+  transition: all 0.2s ease-in;
+
+  &:hover {
+    background: none;
+    transform: rotate(-6.41deg);
+    color: #354b37;
+  }
+`;
+
+const Text = styled.div`
+  font-family: "Dahlia";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 32px;
+  /* identical to box height, or 160% */
+  text-align: right;
+  letter-spacing: 1px;
+  color: #354b37;
+  padding-top: 10px;
+`;
+
+const Ticket = styled.div`
+  @media screen and (min-width: 900px) {
+    display: none;
+  }
+
+  @media screen and (max-width: 900px) {
+    margin-left: 80px;
+  }
+`;
+
+const Desktop = styled.div`
+  @media screen and (max-width: 900px) {
+    display: none;
+  }
+`;
+
+const withouSidebarRoutes9 = ["/moments"];
+
+
+const Navbars = ({
+  account,
+  onConnectMetamask,
+  onConnectWalletConnect,
+  onConnectCoinbase,
+  onDisconnect,
+  haveTokens,
+  isOrganizer,
+}) => {
+  const [open, setOpen] = useState(false);
+  const closeModal = () => setOpen(false);
+
+  
+
+  const { pathname } = useLocation();
+  if (withouSidebarRoutes9.some((item) => pathname.includes(item))) return null;
+
+  const userAddress = `${account?.slice(0, 4)}....${account?.slice(-4)}`;
+  return (
+    <div>
+      <Navbar collapseOnSelect expand="lg" className="bar">
+        <Container className="bar">
+          <Navbar.Brand href="/moments" className="text1">
+            Moments
+          </Navbar.Brand>
+          <Navbar.Brand href="/" className="logo">
+            <img alt="" src={Logo} className="d-inline-block align-top" />{" "}
+          </Navbar.Brand>
+
+          <Ticket>
+            <Nav.Link href="#faq" className="text">
+              <CircleOut>
+                {/* <a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a700000000001c"> */}
+                <CircleIn>
+                  <Heading
+                    style={{ color: "white" }}
+                    exact
+                    to={haveTokens ? "/tickets/show" : "/tickets/buy"}
+                  >
+                    Tickets
+                  </Heading>
+                </CircleIn>
+                {/* </a> */}
+              </CircleOut>
+            </Nav.Link>
+          </Ticket>
+
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto"></Nav>
+            <Nav>
+              {isOrganizer ? (
+                <Nav.Link className="text">
+                  <NavLink to="/organizer" className="text">
+                    <Text>Organizer</Text>
+                  </NavLink>
+                </Nav.Link>
+              ) : null}
+
+              <Nav.Link href="#faq" className="text">
+                <Text>FAQ</Text>
+              </Nav.Link>
+
+              <Desktop>
+                <Nav.Link className="text">
+                  <CircleOut>
+                    {/* <a href="https://doingud.com/creation/0xe570d586fbeb0dc23c46bfcf047ec3e46e88e5a700000000001c"> */}
+                    <CircleIn>
+                      <Heading
+                        style={{ color: "white" }}
+                        exact
+                        to={haveTokens ? "/tickets/show" : "/tickets/buy"}
+                      >
+                        Tickets
+                      </Heading>
+                    </CircleIn>
+                    {/* </a> */}
+                  </CircleOut>
+                </Nav.Link>
+              </Desktop>
+
+              {account === "" || typeof account === "undefined" ? (
+                // <button href="" className="button" onClick={onConnectWallet}>
+                //   <Popup
+                //     trigger={
+                //       <button className="button"> Connect Wallet </button>
+                //     }
+                //     modal
+                //     // nested
+                //   >
+                //     <WalletPopUp></WalletPopUp>
+                //   </Popup>
+                // </button>
+                <>
+                  <button
+                    type="button"
+                    className="button"
+                    onClick={() => setOpen((o) => !o)}
+                  >
+                    Connect Wallet
+                  </button>
+
+                  <Popup open={open} closeOnDocumentClick onClose={closeModal}>
+                    <WalletPopUp
+                      onConnectWalletConnect={onConnectWalletConnect}
+                      onConnectCoinbase={onConnectCoinbase}
+                      onConnectMetamask={onConnectMetamask}
+                      closeModal={closeModal}
+                    />
+                  </Popup>
+                </>
+              ) : (
+                <button onClick={onDisconnect} className="button">
+                  <h3>
+                    <img src={Wallet}></img>
+
+                    <span className="address">{userAddress}</span>
+                  </h3>
+                </button>
+              )}
+            </Nav>
+          </Navbar.Collapse>
+          {/* <ConnectWalletButton /> */}
+        </Container>
+      </Navbar>
+    </div>
+  );
+};
+
+export default Navbars;

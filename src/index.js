@@ -1,17 +1,28 @@
 import React from "react";
-import { createRoot } from "react-dom/client"
+import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
-const container = document.getElementById("root")
-const root = createRoot(container)
+import { Web3ReactProvider } from "@web3-react/core";
+const container = document.getElementById("root");
+const root = createRoot(container);
+import Web3 from "web3";
+
+import { Web3Provider } from "@ethersproject/providers";
+
+function getLibrary(provider) {
+  // return new Web3(provider);
+  const library = new Web3Provider(provider, "any");
+  library.pollingInterval = 15000;
+  return library;
+}
 
 root.render(
-  <React.StrictMode>
-
+  <Web3ReactProvider getLibrary={getLibrary}>
+    <React.StrictMode>
       <App />
-
-  </React.StrictMode>,
+    </React.StrictMode>
+  </Web3ReactProvider>,
   document.getElementById("root")
 );
 
