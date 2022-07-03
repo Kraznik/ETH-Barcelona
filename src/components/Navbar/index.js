@@ -89,12 +89,12 @@ const Desktop = styled.div`
   }
 `;
 
-const withouSidebarRoutes1 = ["/scavenger"];
+const withouSidebarRoutes1 = ["/scavengerhunt"];
 const withouSidebarRoutes2 = ["/speakerCard"];
 const withouSidebarRoutes3 = ["/details"];
 const withouSidebarRoutes4 = ["/speakers"];
 const withouSidebarRoutes5 = ["/speakerHomePage"];
-const withouSidebarRoutes6 = ["/dgmoments"];
+const withouSidebarRoutes6 = ["/momentos"];
 const withouSidebarRoutes7 = ["/dgmint"];
 const withouSidebarRoutes8 = ["/livestream"];
 
@@ -165,12 +165,12 @@ const Navbars = ({ account, onConnectWallet, onDisconnect, haveTokens }) => {
           </Nav.Link>
 
           <Nav.Link>
-            <NavLink exact to="/scavenger" className="speaker">
+            <NavLink exact to="/scavengerhunt" className="speaker">
               <Text>Scavenger </Text>
             </NavLink>
           </Nav.Link>
           <Nav.Link>
-            <NavLink exact to="/dgmoments" className="speaker">
+            <NavLink exact to="/momentos" className="speaker">
               <Text>DG Moments </Text>
             </NavLink>
           </Nav.Link>

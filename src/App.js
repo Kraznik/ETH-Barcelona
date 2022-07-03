@@ -16,16 +16,11 @@ import ShowTickets from "./components/Pages/HaveTicket";
 import RedeemNFT from "./components/Pages/Redeem";
 import Landing from "./components/Pages/LandingPage";
 import Navbars from "./components/Navbar";
-import SpeakerPage from "./components/Pages/Speaker";
 import ScavengerPlay from "./components/Pages/Scavenger-Play";
-import SpeakerClaim from "./components/Pages/Speaker-Claim";
 import QrCodeScvengerHunt from "./components/Pages/Scavenger-Hunt-QrCode";
 import ScavengerHuntDetails from "./components/Pages/Scavenger-Hunt-Details";
-import SpeakersClaimed from "./components/Pages/SpeakersClaimed";
-import SpeakerHomePage from "./components/Pages/SpeakerHomePage";
 import DgMoments from "./components/Pages/DG-Moments";
 import Mint from "./components/Pages/DG-Moments/Mint";
-import LiveStream from "./components/Pages/LiveStream";
 
 const providerOptions = {
   walletconnect: {
@@ -203,35 +198,16 @@ const App = () => {
   return (
     <div className="App">
       <Router>
-        <Navbars
-        // account={account}
-        // onConnectWallet={onConnectWallet}
-        // onDisconnect={onDisconnect}
-        // haveTokens={haveTokens}
-        />
+
         <Routes>
-          <Route exact path="/" element={<Landing isMobile={isMobile} />} />
-          <Route exact path="/speakers" element={<SpeakerPage></SpeakerPage>} />
-          <Route exact path="/dgmoments" element={<DgMoments></DgMoments>}></Route>
+          <Route exact path="/" element={<ScavengerPlay />} />
+
+          <Route exact path="/momentos" element={<DgMoments></DgMoments>}></Route>
           <Route exact path="/dgmint" element={<Mint />} /> 
-          <Route exact path="/livestream" element={<LiveStream />} /> 
-          <Route
-            exact
-            path="/speakerHomePage"
-            element={<SpeakerHomePage></SpeakerHomePage>}
-          />
-          <Route
-            exact
-            path="/speakers/:ticketId"
-            element={<SpeakersClaimed />}
-          />
-          <Route
-            exact
-            path="/speakerCard/:id/:speakerMap"
-            element={<SpeakerClaim />}
-          />
+ 
+          
           {/* //done */}
-          <Route exact path="/scavenger" element={<ScavengerPlay />} />
+          <Route exact path="/scavengerhunt" element={<ScavengerPlay />} />
           <Route
             exact
             path="/scavengerhuntqrcode/:id/:hunt"
