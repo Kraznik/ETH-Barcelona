@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Title1, Title2, Footer, Question, Banner } from "../Scavenger-Play";
+import DGHunt from "../../../assets/DGHunt.png";
 import Accordion from "react-bootstrap/Accordion";
 import "bootstrap/dist/css/bootstrap.css";
 import H1 from "../../../assets/Hunt1.png";
@@ -25,6 +26,7 @@ import R2 from "../../../assets/R2.svg";
 import R3 from "../../../assets/R3.svg";
 import ClipLoader from "react-spinners/ClipLoader";
 import SyncLoader from "react-spinners/SyncLoader";
+import DgMoments from "../DG-Moments";
 
 const Heart = styled.div`
   /* display: grid; */
@@ -303,7 +305,7 @@ const ScavengerHuntDetails = () => {
 
   return (
     <>
-      <Banner></Banner>
+      <img src={DGHunt} width="100%"></img>
       <Title1>DoGood</Title1>
       <Title2>SCAVENGER HUNT</Title2>
 

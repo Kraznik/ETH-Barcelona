@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import Accordion from "react-bootstrap/Accordion";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
+import DGHunt from "../../../assets/DGHunt.png";
 import DoinGud from "../../../assets/FooterDG.svg";
 import Twitter from "../../../assets/Twitter.svg";
 import Instagram from "../../../assets/Insta.svg";
@@ -154,7 +155,7 @@ const ScavengerPlay = () => {
   return (
     <>
       <Container>
-        <Banner></Banner>
+        <img src={DGHunt} width="100%"></img>
         <Title1>DoGood</Title1>
         <Title2>SCAVENGER HUNT</Title2>
         <Description>
