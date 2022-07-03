@@ -24,9 +24,8 @@ import axios from "axios";
 import R1 from "../../../assets/R1.svg";
 import R2 from "../../../assets/R2.svg";
 import R3 from "../../../assets/R3.svg";
-import ClipLoader from "react-spinners/ClipLoader";
 import SyncLoader from "react-spinners/SyncLoader";
-import DgMoments from "../DG-Moments";
+
 
 const Heart = styled.div`
   /* display: grid; */

@@ -9,23 +9,11 @@ import WalletConnectProvider from "@walletconnect/web3-provider";
 
 import TicketToken from "./ethereum/TicketToken";
 
-import BuyTickets from "./components/Pages/BuyTicket";
-import ShowQRcode from "./components/Pages/ShowQRcode/index.js";
-import Poap from "./components/Pages/Poap";
-import ShowTickets from "./components/Pages/HaveTicket";
-import RedeemNFT from "./components/Pages/Redeem";
-import Landing from "./components/Pages/LandingPage";
-import Navbars from "./components/Navbar";
-import SpeakerPage from "./components/Pages/Speaker";
-import ScavengerPlay from "./components/Pages/Scavenger-Play";
+
 import SpeakerClaim from "./components/Pages/Speaker-Claim";
-import QrCodeScvengerHunt from "./components/Pages/Scavenger-Hunt-QrCode";
-import ScavengerHuntDetails from "./components/Pages/Scavenger-Hunt-Details";
 import SpeakersClaimed from "./components/Pages/SpeakersClaimed";
 import SpeakerHomePage from "./components/Pages/SpeakerHomePage";
-import DgMoments from "./components/Pages/DG-Moments";
-import Mint from "./components/Pages/DG-Moments/Mint";
-import LiveStream from "./components/Pages/LiveStream";
+
 
 const providerOptions = {
   walletconnect: {
@@ -203,21 +191,11 @@ const App = () => {
   return (
     <div className="App">
       <Router>
-        <Navbars
-        // account={account}
-        // onConnectWallet={onConnectWallet}
-        // onDisconnect={onDisconnect}
-        // haveTokens={haveTokens}
-        />
         <Routes>
-          <Route exact path="/" element={<Landing isMobile={isMobile} />} />
-          <Route exact path="/speakers" element={<SpeakerPage></SpeakerPage>} />
-          <Route exact path="/dgmoments" element={<DgMoments></DgMoments>}></Route>
-          <Route exact path="/dgmint" element={<Mint />} /> 
-          <Route exact path="/livestream" element={<LiveStream />} /> 
+          <Route exact path="/" element= {<SpeakerHomePage></SpeakerHomePage>}/>
           <Route
             exact
-            path="/speakerHomePage"
+            path="/speakersCollection"
             element={<SpeakerHomePage></SpeakerHomePage>}
           />
           <Route
@@ -230,48 +208,8 @@ const App = () => {
             path="/speakerCard/:id/:speakerMap"
             element={<SpeakerClaim />}
           />
-          {/* //done */}
-          <Route exact path="/scavenger" element={<ScavengerPlay />} />
-          <Route
-            exact
-            path="/scavengerhuntqrcode/:id/:hunt"
-            element={<QrCodeScvengerHunt />}
-          />
-          <Route
-            exact
-            path="/details/:ticketId"
-            element={<ScavengerHuntDetails />}
-          />
-          {/* <Route
-            exact
-            path="/section"
-            element={<Landing isMobile={isMobile} />}
-          /> */}
-          {/* <Route
-            exact
-            path="/tickets/buy"
-            element={<BuyTickets account={account} />}
-          />
-          <Route
-            exact
-            path="/tickets/show"
-            element={<ShowTickets account={account} />}
-          />
-          <Route
-            exact
-            path="/tickets/:id/redeem"
-            element={<RedeemNFT account={account} />}
-          />
-          <Route
-            exact
-            path="/tickets/:id/qrcode"
-            element={<ShowQRcode account={account} />}
-          />
-          <Route
-            exact
-            path="/tickets/:id/poap"
-            element={<Poap account={account} />}
-          /> */}
+
+
         </Routes>
       </Router>
     </div>
