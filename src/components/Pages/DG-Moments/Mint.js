@@ -6,13 +6,32 @@ import Twitter from "../../../assets/Twitter.svg";
 import Instagram from "../../../assets/Insta.svg";
 import { Title1 } from "../Scavenger-Play";
 import Dropdown from "react-bootstrap/Dropdown";
+import styled from "styled-components";
 import Upload from "../../../assets/Upload.svg";
 import { type } from "os-browserify";
+import DGBanner from "../../../assets/DG-Moments-Banner.png";
+
+const ImgContainer = styled.div`
+  display: grid;
+  justify-items: center;
+  img {
+    @media screen and (max-width: 900px) {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 700px) {
+  }
+`;
 
 const Mint = () => {
   return (
     <>
-      <Banner />
+
+      <ImgContainer>
+          <img src={DGBanner} width="100%" height="111px"></img>
+        </ImgContainer>
+
       <Title1>DoGud</Title1>
       <Title2>Momentos</Title2>
       <Container>

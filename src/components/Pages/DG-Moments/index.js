@@ -5,6 +5,7 @@ import { Footer, Description2, Question } from "../Scavenger-Play";
 import { Title1 } from "../Scavenger-Play";
 import DoinGud from "../../../assets/FooterDG.svg";
 import Twitter from "../../../assets/Twitter.svg";
+import DGBanner from "../../../assets/DG-Moments-Banner.png";
 import Instagram from "../../../assets/Insta.svg";
 import PostIt from "../../../assets/Post.svg";
 import "bootstrap/dist/css/bootstrap.css";
@@ -94,6 +95,18 @@ export const Title3 = styled.div`
 
 `;
 
+const ImgContainer = styled.div`
+  display: grid;
+  justify-items: center;
+  img {
+    @media screen and (max-width: 900px) {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 700px) {
+  }
+`;
 
 const DgMoments = () =>
 
@@ -104,7 +117,9 @@ const DgMoments = () =>
 
     
     <>
-      <Banner />
+      <ImgContainer>
+          <img src={DGBanner} width="100%" height="111px"></img>
+        </ImgContainer>
 
       <Title1>DoGud</Title1>
       <Title2>Momentos</Title2>
