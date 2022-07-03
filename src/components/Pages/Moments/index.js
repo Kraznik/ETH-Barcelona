@@ -302,7 +302,7 @@ const Moments = () => {
             <textarea
               type=""
               placeholder="Add a description to your moment"
-              className="input-ethbcn"
+              className="input-description"
               value={momentsData.description}
               onChange={(e) => {
                 setMomentsData({ ...momentsData, description: e.target.value });
@@ -310,24 +310,27 @@ const Moments = () => {
             ></textarea>
             <br />
 
-            <label className="text-moments">NFT ID's</label>
+            <label className="text-moments">NFTicket ID's</label>
             <br />
             <input
               multiple
               type="number"
-              placeholder="Add NFTickets IDs separated by a comma to the moment to receive a copy"
+              placeholder="Tag Yourself and your friends"
               className="input"
             ></input>
+            <p className="taggingInfo">Ex. 456 , 78 , 1 , 1265</p>
+     
 
             <Flex>
-              <img src={Upload} name="data" onClick={retrieveFile}></img>
-{/* 
+              {/* <img src={Upload} name="data" onClick={retrieveFile}></img> */}
+
               <input
                 type="file"
-                className=""
+                className="file-upload"
                 name="data"
                 onChange={retrieveFile}
-              ></input> */}
+
+              ></input>
             </Flex>
 
             <RedeemOut>

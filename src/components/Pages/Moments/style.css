@@ -24,6 +24,17 @@
   border-radius: 4px;
 }
 
+.input-description {
+
+    width: 308px;
+    height: 117px;
+    text-align: left;
+    text-align: center;
+    border: none;
+    background: #ffffff;
+    border-radius: 4px;
+  }
+
 @media screen and (max-width: 800px) {
   .input {
     width: 295px;
@@ -71,4 +82,22 @@
 .top-10{
     margin: 20px 0 0 0;
     text-align: left;
+}
+
+
+.taggingInfo{
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 300;
+font-size: 12px;
+line-height: 20px;
+/* identical to box height, or 167% */
+
+display: flex;
+align-items: left;
+margin: 10px 0 0 0;
+padding: 0 50px;
+
+color: #354B37;
+
 }
