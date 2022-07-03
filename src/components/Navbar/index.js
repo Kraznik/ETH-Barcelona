@@ -14,6 +14,7 @@ import "./style.css";
 import styled from "styled-components";
 import Logo from "../../assets/logo.svg";
 import { NavLink } from "react-router-dom";
+import {useLocation } from "react-router-dom";
 import Wallet from "../../assets/wallet.svg";
 import ConnectWalletButton from "../ConnectWalletButton";
 import "./style.css";
@@ -92,6 +93,9 @@ const Desktop = styled.div`
   }
 `;
 
+const withouSidebarRoutes9 = ["/moments"];
+
+
 const Navbars = ({
   account,
   onConnectMetamask,
@@ -103,6 +107,11 @@ const Navbars = ({
 }) => {
   const [open, setOpen] = useState(false);
   const closeModal = () => setOpen(false);
+
+  
+
+  const { pathname } = useLocation();
+  if (withouSidebarRoutes9.some((item) => pathname.includes(item))) return null;
 
   const userAddress = `${account?.slice(0, 4)}....${account?.slice(-4)}`;
   return (

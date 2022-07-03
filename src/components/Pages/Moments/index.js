@@ -3,47 +3,173 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { RedeemOut, Redeem, Title, Description } from "../Redeem";
 import "./style.css";
+import Header from "../../../assets/circle.png";
+import DoinGud from "../../../assets/ETH-BCN.svg";
+import Twitter from "../../../assets/ETH-Twitter.svg";
+import Instagram from "../../../assets/ETH-Insta.svg";
+import Logo from "../../../assets/ETH-BCN-Moments.svg";
+import Upload from "../../../assets/Upload.svg";
 
 import { useWeb3React } from "@web3-react/core";
 
 import { useUploadArtwork, Claim } from "./functions";
 const { uploadFile } = useUploadArtwork();
 
-const Container = styled.div`
-  background: #f5c34b;
-  padding: 5% 30% 10% 30%;
+export const Activity = styled.div`
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 20px;
+  /* identical to box height, or 167% */
 
-  @media (max-width: 800px) {
-    padding: 10% 10px 100% 10px;
-    margin: 0px 0 0 0;
+  display: flex;
+  align-items: center;
+
+  color: #2b2b2b;
+  display: inline-block;
+  line-height: 17px;
+  /* identical to box height, or 140% */
+  /* Grey 1 */
+`;
+
+export const LeaderboardBox = styled.div`
+  background: #ffffff;
+  border: 1px solid #c8ccd0;
+  border-radius: 4px;
+  height: 40px;
+  margin: 10px 0 0 0;
+`;
+export const Info = styled.div`
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 20px;
+  /* identical to box height, or 167% */
+
+  display: flex;
+  align-items: center;
+
+  color: #2b2b2b;
+  margin: 10px 8% 0 2%;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 18px;
+  /* identical to box height, or 129% */
+  justify-content: space-between;
+  display: inline-block;
+  /* Black */
+  color: black;
+`;
+
+export const LeaderboardContainer = styled.div`
+margin: 25px 0 0 0;
+padding: 0 20px;
+`;
+
+const Container = styled.div`
+  background: #354b37;
+`;
+const ImgContainer = styled.div`
+  justify-items: center;
+  img {
+    @media screen and (max-width: 900px) {
+      width: 100%;
+    }
+  }
+  @media (max-width: 700px) {
   }
 `;
 
-const InputContainer = styled.div`
-  background: white;
-  border: 1px solid black;
-  padding: 2% 0;
-  @media (max-width: 800px) {
-    padding: 0;
-    margin: 0px 0 0 0;
-  }
+export const Footer = styled.div`
+  height: 119.3px;
+
+  width: 100%;
+  padding: 30px 24px 30px 22px;
+  margin: 10px 0 0 0;
+  background: #354b37;
 `;
 
 const Forum = styled.div`
-  padding: 0 0 5% 0;
-
   @media (max-width: 800px) {
-    padding: 0 0 30px 0;
-    margin: 0px 0 0 0;
   }
 `;
 
 const Flex = styled.div`
-  margin: 2% 0 4% 25%;
   @media (max-width: 800px) {
     padding: 0;
     margin: 10% 0 5% 25%;
   }
+`;
+
+const Hero = styled.div``;
+
+const Title2 = styled.div`
+  font-family: "Dahlia";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 56px;
+  /* identical to box height, or 100% */
+
+  text-align: center;
+
+  color: #ffd731;
+`;
+
+const Title3 = styled.div`
+  font-family: "Dahlia";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 47px;
+  line-height: 56px;
+  /* identical to box height, or 119% */
+
+  text-align: center;
+
+  color: #ffd731;
+`;
+
+const Description2 = styled.div`
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  /* or 115% */
+  padding: 0 47px;
+  margin: 31px 0 43px 0;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #ffd731;
+`;
+
+const InputContainer = styled.div`
+  width: 100%;
+  height: 765px;
+  background: #ffd731;
+`;
+
+export const Titles = styled.div`
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 20px;
+  /* identical to box height, or 167% */
+
+  display: flex;
+  align-items: center;
+
+  color: #989898;
+
+  display: inline-block;
+  text-transform: uppercase;
+  color: #989898;
+  margin: 0 9% 0 0;
 `;
 
 const Moments = () => {
@@ -138,15 +264,27 @@ const Moments = () => {
   return (
     <>
       <Container>
-        <InputContainer>
-          <Title> Create a Moment </Title>
-          <Description>
-            Take a selfie or a normal photo and upload it onchain to remember
-            this moment onchain.
-          </Description>
+        <ImgContainer>
+          <img src={Header} width="100%"></img>
+        </ImgContainer>
 
+        <Hero>
+          <img
+            src={Logo}
+            width="21.35px"
+            height="29.06px"
+            className="eth-bcn-moments"
+          ></img>
+          <Title2>Moments</Title2>
+          <Title3>ETHBarcelona</Title3>
+          <Description2>
+            Let your experience live on the blockchain by sharing your best
+            moments at ETHBarcelona.
+          </Description2>
+        </Hero>
+        <InputContainer>
           <Forum>
-            <label className="text">Title</label>
+            <label className="text-moments">Title</label>
             <br />
             <input
               type=""
@@ -159,20 +297,20 @@ const Moments = () => {
             ></input>
             <br />
 
-            <label className="text">Description</label>
+            <label className="text-moments">Description</label>
             <br />
-            <input
+            <textarea
               type=""
               placeholder="Add a description to your moment"
-              className="input"
+              className="input-ethbcn"
               value={momentsData.description}
               onChange={(e) => {
                 setMomentsData({ ...momentsData, description: e.target.value });
               }}
-            ></input>
+            ></textarea>
             <br />
 
-            <label className="text">NFT ID's</label>
+            <label className="text-moments">NFT ID's</label>
             <br />
             <input
               multiple
@@ -182,13 +320,14 @@ const Moments = () => {
             ></input>
 
             <Flex>
+              <img src={Upload} name="data" onClick={retrieveFile}></img>
+{/* 
               <input
                 type="file"
                 className=""
                 name="data"
-                placeholder="NFT"
                 onChange={retrieveFile}
-              ></input>
+              ></input> */}
             </Flex>
 
             <RedeemOut>
@@ -201,6 +340,46 @@ const Moments = () => {
             {Error ? <Description>Got some Error!!</Description> : null}
           </Forum>
         </InputContainer>
+
+        <Title3 className="top-10">Top 10</Title3>
+        <LeaderboardContainer>
+          <Titles>RANK </Titles>
+          <Titles>Speaker </Titles>
+          <Titles>NFTS </Titles>
+          <Titles>LAST Activity</Titles>
+          <LeaderboardBox>
+            <Info>1 </Info>
+            <Info>Scott More</Info>
+            <Info>55</Info>
+            <Activity>one minute ago</Activity>
+          </LeaderboardBox>
+          <LeaderboardBox>
+            <Info>44 </Info>
+            <Info>Scott More</Info>
+            <Info>3</Info>
+            <Activity>one minute ago</Activity>
+          </LeaderboardBox>
+          <LeaderboardBox>
+            <Info>33 </Info>
+            <Info>Scott More</Info>
+            <Info>55</Info>
+            <Activity>three minute ago</Activity>
+          </LeaderboardBox>
+        </LeaderboardContainer>
+
+        <Footer>
+          <div className="ft">
+            <a href="/speakerHomePage">
+              <img src={DoinGud} className="dg"></img>
+            </a>
+            <a href="https://www.instagram.com/ethbarcelona/">
+              <img src={Instagram} className="social"></img>
+            </a>
+            <a href="https://twitter.com/eth_barcelona">
+              <img src={Twitter} className="social"></img>
+            </a>
+          </div>
+        </Footer>
       </Container>
     </>
   );

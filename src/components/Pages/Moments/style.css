@@ -1,32 +1,74 @@
-.text{
-    margin-bottom:1%;
-   }
-   
-   .input{
-       margin-bottom: 2%;
-       width: 418px;
-   height: 36px;
-   left: 0px;
-   top: 24px;
-   padding:10px;
-   text-align: center;
+.text-moments {
+  font-family: "Dahlia";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 56px;
+  color: #354b37;
+  text-align: left;
+  margin-top: 30px;
+  height: 60px;
+}
 
-   background: #FFFFFF;
-   border: 1px solid #F2F2F2;
-   box-sizing: border-box;
-   border-radius: 4px;   
-   }
-   
-   @media screen and (max-width:800px) {
-   
-       .input{
-           width: 295px;
-   height: 36px;
-   margin: 4px 0 0 0 ;
-       }
-   
-       .text{
-           margin-top: 16px;
-       }
-       
-   }
+.input {
+  margin-bottom: 2%;
+  width: 418px;
+  height: 42px;
+  left: 0px;
+  top: 24px;
+  padding: 10px;
+  text-align: center;
+
+  background: #ffffff;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+@media screen and (max-width: 800px) {
+  .input {
+    width: 295px;
+    height: 36px;
+    margin: 4px 0 0 0;
+  }
+
+  .text {
+    margin-top: 16px;
+  }
+}
+
+.eth-bcn-moments {
+  margin: 40px 0 19px 0;
+}
+
+.dg {
+  justify-content: left;
+  float: left;
+}
+
+.social {
+  justify-content: center;
+  margin-right: 18px;
+  float: right;
+  align-items: center;
+  margin: 17px 15px;
+}
+
+.ft {
+  height: 23.3px;
+}
+
+.input-ethbcn {
+  width: 308px;
+  height: 117px;
+  border: none;
+  box-sizing: border-box;
+  text-decoration: none;
+
+  background: #f4f4f5;
+}
+
+
+.top-10{
+    margin: 20px 0 0 0;
+    text-align: left;
+}

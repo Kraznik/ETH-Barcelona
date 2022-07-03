@@ -1,5 +1,5 @@
 import web3 from "./web3";
-import abi from "./build/Diamond_ABI.json";
+// import abi from "./build/Diamond_ABI.json";
 
 import ABI from "@doingud/contracts/abi/DoinGudDiamondFull.json";
 import { DOINGUD_DIAMOND_ADDRESS } from "@doingud/contracts/dist/adresses";
