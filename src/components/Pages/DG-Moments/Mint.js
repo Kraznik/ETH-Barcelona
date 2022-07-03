@@ -100,8 +100,9 @@ const Mint = () => {
       <Title3>TICKET ID</Title3>
       <input type="number" placeholder="NFTicket ID" className="drop"></input>
 
-      <img src={Upload}></img>
-      <input type="file" ></input>
+      <img src={Upload} className="dgupload"></img>
+
+      {/* <input type="file" className=""></input> */}
 
       <Submit>Mint Challenge</Submit>
 
