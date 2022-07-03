@@ -72,18 +72,17 @@ const Mint = () => {
       </select>
 
       <Title3>DESCRIPTION</Title3>
-      <input
+      <textarea
         type="text"
         placeholder="Add your full name"
         className="des"
-      ></input>
+      ></textarea>
 
       <Title3>TICKET ID</Title3>
       <input type="number" placeholder="NFTicket ID" className="drop"></input>
 
-
-        <img src={Upload}></img>
-
+      <img src={Upload}></img>
+      <input type="file" ></input>
 
       <Submit>Mint Challenge</Submit>
 
