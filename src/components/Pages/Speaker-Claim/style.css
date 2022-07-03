@@ -13,6 +13,11 @@
   src: url(../../../Fonts/dahlia-regular.woff);
 }
 
+@font-face {
+  font-family:Dahlia ;
+  src: url(../../../Fonts/dahlia-medium.woff);
+}
+
 .ticketid {
   margin-bottom: 2%;
   width: 318px;
