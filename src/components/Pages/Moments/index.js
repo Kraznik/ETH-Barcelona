@@ -149,7 +149,7 @@ const Description2 = styled.div`
 
 const InputContainer = styled.div`
   width: 100%;
-  height: 765px;
+  height: 785px;
   background: #ffd731;
 `;
 
@@ -318,19 +318,19 @@ const Moments = () => {
               placeholder="Tag Yourself and your friends"
               className="input"
             ></input>
-            <p className="taggingInfo">Ex. 456 , 78 , 1 , 1265</p>
+            <p className="taggingInfo">Ex. 456 , 78 , 1 , 1265 (seprated by comma)</p>
      
 
             <Flex>
-              {/* <img src={Upload} name="data" onClick={retrieveFile}></img> */}
-
+              <img src={Upload} name="data" onClick={retrieveFile}className="ethbcnupload"></img>
+{/* 
               <input
                 type="file"
                 className="file-upload"
                 name="data"
                 onChange={retrieveFile}
 
-              ></input>
+              ></input> */}
             </Flex>
 
             <RedeemOut>
