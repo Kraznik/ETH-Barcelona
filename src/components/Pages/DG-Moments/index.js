@@ -69,7 +69,7 @@ const Task = styled.div`
   font-family: "GT";
   font-style: normal;
   position: absolute;
-  padding: 20.4px 11.11px 21.73px 11.56px;
+  padding: 20.4px 0px 21.73px 11.56px;
   font-size: 13px;
   line-height: 14px;
   /* or 108% */
