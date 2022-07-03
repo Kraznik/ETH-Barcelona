@@ -24,7 +24,7 @@ import axios from "axios";
 import R1 from "../../../assets/R1.svg";
 import R2 from "../../../assets/R2.svg";
 import R3 from "../../../assets/R3.svg";
-import SyncLoader from "react-spinners/SyncLoader";
+
 
 
 const Heart = styled.div`

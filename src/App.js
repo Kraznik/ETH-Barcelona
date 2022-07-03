@@ -188,12 +188,7 @@ const App = () => {
           haveTokens={haveTokens}
           isOrganizer={isOrganizer}
         />
-        <Routes>
-          <Route exact path="/" element= {<SpeakerHomePage></SpeakerHomePage>}/>
-          <Route
-            exact
-            path="/speakersCollection"
-            element={<SpeakerHomePage></SpeakerHomePage>}
+
 
         <Routes>
           <Route exact path="/" element={<Landing isMobile={isMobile} />} />
