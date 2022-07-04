@@ -193,7 +193,9 @@ const Moments = () => {
   const [validTicketIds, setValidTicketIds] = useState([]);
   const [invalidTicketIds, setInvalidTicketIds] = useState([]);
 
+  const [popup, setPopup] = useState(false);
   const [minting, setMinting] = useState(false);
+
   const [success, setSuccess] = useState(false);
   const [Error, setError] = useState(false);
 
@@ -253,6 +255,8 @@ const Moments = () => {
   };
 
   const mintAMoment = async () => {
+    setError(false);
+    console.log("minting..");
     setMinting(true);
     try {
       if (file && AccessToken) {
@@ -292,26 +296,32 @@ const Moments = () => {
         const { data } = await axios.get(url, options);
         console.log("ticket validation: ", data);
         if (data.message === "Valid") {
-          validOnes.push(ticketIdList[i]);
+          const card = renderValidTicketIds(ticketIdList[i]);
+          validOnes.push(card);
         } else {
-          invalidOnes.push(ticketIdList[i]);
+          const card = renderInvalidTicketIds(ticketIdList[i]);
+          invalidOnes.push(card);
         }
       }
 
       setValidTicketIds(validOnes);
       setInvalidTicketIds(invalidOnes);
 
-      console.log("valid: ", validOnes);
-      console.log("invalid: ", invalidOnes);
-      // ticketIdList.map(async (id) => {
-      //   const url = `${config.apiBaseUrl}/verifyTicket/${id}`;
-      //   const { data } = await axios.get(url, options);
-      //   console.log("ticket validation: ", data);
-      // });
+      // console.log("valid: ", validOnes);
+      // console.log("invalid: ", invalidOnes);
+
       setMomentsData({ ...momentsData, ticketIds: ticketIdList });
     } catch (err) {
       console.error(err);
     }
+  };
+
+  const renderValidTicketIds = (ticketId) => {
+    return <div className="correct">{ticketId}</div>;
+  };
+
+  const renderInvalidTicketIds = (ticketId) => {
+    return <div className="incorrect">{ticketId}</div>;
   };
 
   return (
@@ -397,63 +407,96 @@ const Moments = () => {
             </Flex>
 
             <RedeemOut
-              onClick={mintAMoment}
-              style={{ disable: minting ? true : false }}
+              // onClick={mintAMoment}
+              onClick={() => {
+                setPopup(true);
+                setError(false);
+                setSuccess(false);
+              }}
+              style={{
+                // disable: minting ? true : false
+                pointerEvents: popup ? "none" : null,
+              }}
             >
               <Redeem>
-                {minting ? <span>Minting...</span> : <span>Mint a Moment</span>}
+                {/* {minting ? <span>Minting...</span> : <span>Mint a Moment</span>} */}
+                <span>Mint a Moment</span>
               </Redeem>
             </RedeemOut>
-
-            {minting ? (
-              <Description>Please have patience...it's minting...</Description>
-            ) : null}
-
-            {success ? (
-              <>
-                <Description>Successfully minted!!</Description>
-                {nftTypeId ? (
-                  <Description>
-                    <a
-                      href={`https://main.doingud.work/creation/${nftTypeId}`}
-                      target={"_blank"}
-                    >
-                      View your moment here -
-                    </a>
-                  </Description>
-                ) : null}
-              </>
-            ) : null}
-
-            {Error ? <Description>Got some Error!!</Description> : null}
           </Forum>
         </InputContainer>
 
         {/* PopUp to conifrm the NFTID's */}
-        <div>
-          {" "}
-          <div className="box-third">
-            <div className="title">
-              Please Confirm the NFTicket ID Before Minting
-            </div>
-            <div className="correct">453</div>
-            <div className="correct">1</div>
-            <div className="correct">53</div>
-            <div className="correct">5223</div>
-            <div className="correct">53</div>
-            <div className="invalid">
-              Invalid NFTikcet ID (Please input again)
-            </div>
-            <div className="yy">
-              {" "}
-              <div className="incorrect">1766</div>
-              <div className="incorrect">1766</div>
-              <div className="incorrect">1766</div>
-            </div>
 
-            <button className="mintmoment">Mint My Moment</button>
+        {popup ? (
+          <div>
+            <div className="box-third">
+              <div onClick={() => setPopup(false)}>Close</div>
+
+              <div className="title">
+                Please Confirm the NFTicket ID Before Minting
+              </div>
+
+              {validTicketIds}
+
+              {invalidTicketIds.length > 0 ? (
+                <>
+                  <div className="invalid">
+                    Invalid NFTicket ID (Please input again)
+                  </div>
+                  <div className="yy">{invalidTicketIds}</div>
+                </>
+              ) : null}
+
+              <button
+                className="mintmoment"
+                disabled={
+                  invalidTicketIds.length > 0 || minting || success
+                    ? true
+                    : false
+                }
+                onClick={mintAMoment}
+              >
+                {minting ? (
+                  <span>Minting...</span>
+                ) : (
+                  <span>Mint My Moment</span>
+                )}
+              </button>
+
+              {minting ? (
+                <Description style={{ color: "white" }}>
+                  Please have patience...it's minting...
+                </Description>
+              ) : null}
+
+              {success ? (
+                <>
+                  <Description style={{ color: "white" }}>
+                    Successfully minted!!
+                  </Description>
+                  {nftTypeId ? (
+                    <Description>
+                      <a
+                        href={`https://main.doingud.work/creation/${nftTypeId}`}
+                        target={"_blank"}
+                        style={{ color: "white" }}
+                      >
+                        View your moment here ->
+                      </a>
+                    </Description>
+                  ) : null}
+                </>
+              ) : null}
+
+              {Error ? (
+                <Description style={{ color: "white" }}>
+                  Got some Error!!
+                </Description>
+              ) : null}
+            </div>
           </div>
-        </div>
+        ) : null}
 
         <Footer>
           <div className="ft">
