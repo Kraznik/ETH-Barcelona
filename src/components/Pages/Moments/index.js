@@ -344,31 +344,7 @@ const Moments = () => {
           </Forum>
         </InputContainer>
 
-        <Title3 className="top-10">Top 10</Title3>
-        <LeaderboardContainer>
-          <Titles>RANK </Titles>
-          <Titles>Speaker </Titles>
-          <Titles>NFTS </Titles>
-          <Titles>LAST Activity</Titles>
-          <LeaderboardBox>
-            <Info>1 </Info>
-            <Info>Scott More</Info>
-            <Info>55</Info>
-            <Activity>one minute ago</Activity>
-          </LeaderboardBox>
-          <LeaderboardBox>
-            <Info>44 </Info>
-            <Info>Scott More</Info>
-            <Info>3</Info>
-            <Activity>one minute ago</Activity>
-          </LeaderboardBox>
-          <LeaderboardBox>
-            <Info>33 </Info>
-            <Info>Scott More</Info>
-            <Info>55</Info>
-            <Activity>three minute ago</Activity>
-          </LeaderboardBox>
-        </LeaderboardContainer>
+       
 
         <Footer>
           <div className="ft">
