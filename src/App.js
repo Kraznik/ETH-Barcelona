@@ -198,14 +198,16 @@ const App = () => {
   return (
     <div className="App">
       <Router>
-
         <Routes>
           <Route exact path="/" element={<ScavengerPlay />} />
 
-          <Route exact path="/momentos" element={<DgMoments></DgMoments>}></Route>
-          <Route exact path="/dgmint" element={<Mint />} /> 
- 
-          
+          <Route
+            exact
+            path="/momentos"
+            element={<DgMoments></DgMoments>}
+          ></Route>
+          <Route exact path="/dgmint" element={<Mint />} />
+
           {/* //done */}
           <Route exact path="/scavengerhunt" element={<ScavengerPlay />} />
           <Route

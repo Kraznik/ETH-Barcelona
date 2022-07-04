@@ -11,7 +11,7 @@ import PostIt from "../../../assets/Post.svg";
 import "bootstrap/dist/css/bootstrap.css";
 import "./style.css";
 import Accordion from "react-bootstrap/Accordion";
-import Dropdown from 'react-bootstrap/Dropdown';
+import Dropdown from "react-bootstrap/Dropdown";
 
 export const Banner = styled.div`
   background-image: url(${HeaderImage});
@@ -74,9 +74,9 @@ const Task = styled.div`
   font-size: 13px;
   line-height: 14px;
   /* or 108% */
-  height:63.87px;
-  width:85.33px;
-  text-align:left;
+  height: 63.87px;
+  width: 85.33px;
+  text-align: left;
 
   color: #ffffff;
 `;
@@ -89,10 +89,9 @@ export const Title3 = styled.div`
   line-height: 18px;
   text-transform: uppercase;
   color: #667079;
-  text-align:left;
-  margin-left:20px;
-  margin-top:18px;
-
+  text-align: left;
+  margin-left: 20px;
+  margin-top: 18px;
 `;
 
 const ImgContainer = styled.div`
@@ -108,18 +107,12 @@ const ImgContainer = styled.div`
   }
 `;
 
-const DgMoments = () =>
-
-{
-
- 
+const DgMoments = () => {
   return (
-
-    
     <>
       <ImgContainer>
-          <img src={DGBanner} width="100%" height="111px"></img>
-        </ImgContainer>
+        <img src={DGBanner} width="100%" height="111px"></img>
+      </ImgContainer>
 
       <Title1>DoGud</Title1>
       <Title2>Momentos</Title2>
@@ -205,8 +198,6 @@ const DgMoments = () =>
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
-
-  
 
       <a href="/dgmint">
         <Submit>Submit your challenges</Submit>

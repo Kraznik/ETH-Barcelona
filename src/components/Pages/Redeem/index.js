@@ -5,6 +5,7 @@ import "./style.css";
 import TicketToken from "../../../ethereum/TicketToken";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import { config } from "../../../config/config";
 
 const Container = styled.div`
   margin: auto;
@@ -126,7 +127,8 @@ const RedeemNFT = ({ account }) => {
   };
 
   const saveData = async () => {
-    const url = "https://eth-barcelona.kraznikunderverse.com/users";
+    config;
+    const url = `${config.apiBaseUrl}/users`;
     const data = {
       name: user.fullName,
       optionalName: user.displayName,

@@ -25,7 +25,8 @@ import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import axios from "axios";
 import { Titles } from "../Scavenger-Hunt-Details";
-import { scavhunt } from "./config";
+import { scavhunt, creatorTypeId } from "./config";
+import { config } from "../../../config/config";
 
 const ImageContainer = styled.div`
   width: 343px;
@@ -94,7 +95,7 @@ const QrCodeScvengerHunt = () => {
 
   const fetchWalletAddress = async () => {
     try {
-      const url = `https://eth-barcelona.kraznikunderverse.com/getusersfromticket/${ticketId}`;
+      const url = `${config.apiBaseUrl}/getusersfromticket/${ticketId}`;
       const { data } = await axios.get(url, options);
       console.log(data);
       if (data?.message === "Ticket id not found") return "Not found";
@@ -125,53 +126,53 @@ const QrCodeScvengerHunt = () => {
 
       if (walletAddress) {
         try {
-          const url = `https://eth-barcelona.kraznikunderverse.com/mintHuntToken/${ticketId}`;
+          const url = `${config.apiBaseUrl}/mintHuntToken/${ticketId}`;
 
           if (id == 1) {
             var post_data = {
-              creatorTypeId: 11,
+              creatorTypeId: creatorTypeId.part1,
               toAddress: walletAddress,
               part1: true,
             };
           } else if (id == 2) {
             var post_data = {
-              creatorTypeId: 12,
+              creatorTypeId: creatorTypeId.part2,
               toAddress: walletAddress,
               part2: true,
             };
           } else if (id == 3) {
             var post_data = {
-              creatorTypeId: 13,
+              creatorTypeId: creatorTypeId.part3,
               toAddress: walletAddress,
               part3: true,
             };
           } else if (id == 4) {
             var post_data = {
-              creatorTypeId: 14,
+              creatorTypeId: creatorTypeId.part4,
               toAddress: walletAddress,
               part4: true,
             };
           } else if (id == 5) {
             var post_data = {
-              creatorTypeId: 15,
+              creatorTypeId: creatorTypeId.part5,
               toAddress: walletAddress,
               part5: true,
             };
           } else if (id == 6) {
             var post_data = {
-              creatorTypeId: 16,
+              creatorTypeId: creatorTypeId.part6,
               toAddress: walletAddress,
               part6: true,
             };
           } else if (id == 7) {
             var post_data = {
-              creatorTypeId: 17,
+              creatorTypeId: creatorTypeId.part7,
               toAddress: walletAddress,
               part7: true,
             };
           } else if (id == 8) {
             var post_data = {
-              creatorTypeId: 18,
+              creatorTypeId: creatorTypeId.part8,
               toAddress: walletAddress,
               part8: true,
             };
@@ -210,7 +211,7 @@ const QrCodeScvengerHunt = () => {
 
   const fetchScavDetails = async () => {
     try {
-      const url = `https://eth-barcelona.kraznikunderverse.com/scavengerPage/${id}`;
+      const url = `${config.apiBaseUrl}/scavengerPage/${id}`;
       const { data } = await axios.get(url, options);
       setScavData(data);
     } catch (err) {
@@ -226,7 +227,7 @@ const QrCodeScvengerHunt = () => {
     return (
       <>
         <Container>
-        <img src={DGHunt} width="100%"></img>
+          <img src={DGHunt} width="100%"></img>
 
           <Title1>DoGood</Title1>
           <Title2>SCAVENGER HUNT</Title2>
@@ -262,7 +263,6 @@ const QrCodeScvengerHunt = () => {
               </Submit>
             </TikcetContainer>
           </InputContainer>
-          
 
           {message ? <Name>{message}</Name> : null}
 
@@ -301,22 +301,23 @@ const QrCodeScvengerHunt = () => {
               </div>
             </div>
           ) : null}
-        <Footer>
-          <div className="ft">
-            <a href="/scavenger">
-            <img src={DoinGud} className="dg"></img></a>
-            <a href="https://www.instagram.com/ethbarcelona/">
-              {" "}
-              <img src={Instagram} className="social"></img>
-            </a>
+          <Footer>
+            <div className="ft">
+              <a href="/scavenger">
+                <img src={DoinGud} className="dg"></img>
+              </a>
+              <a href="https://www.instagram.com/ethbarcelona/">
+                {" "}
+                <img src={Instagram} className="social"></img>
+              </a>
 
-            <a href="https://twitter.com/eth_barcelona">
-              {" "}
-              <img src={Twitter} className="social"></img>
-            </a>
-          </div>
-          <p className="rights"> © DoinGud. All Right Reserved. </p>
-        </Footer>
+              <a href="https://twitter.com/eth_barcelona">
+                {" "}
+                <img src={Twitter} className="social"></img>
+              </a>
+            </div>
+            <p className="rights"> © DoinGud. All Right Reserved. </p>
+          </Footer>
         </Container>
       </>
     );
