@@ -141,7 +141,7 @@ const App = () => {
       }
 
       const orgNftTypeId =
-        "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000006";
+        "0x459f81227df217c6996ba03e11b973d319e7c6c2000000000000";
 
       let ticketFound,
         orgFound = false;
