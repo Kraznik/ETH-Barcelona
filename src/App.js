@@ -167,7 +167,6 @@ const App = () => {
       <Router>
 
         <Routes>
-
           <Route exact path="/moments" element={<Moments />} />
           <Route exact path="/speakerHomePage" element={<SpeakerHomePage />} />
           <Route
