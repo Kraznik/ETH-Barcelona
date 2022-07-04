@@ -4,6 +4,36 @@ const {
   DefenderRelayProvider,
 } = require("defender-relay-client/lib/ethers");
 const axios = require("axios");
+const Web3 = require("web3");
+const web3 = new Web3();
+
+const inputs = [
+  {
+    name: "_operator",
+    type: "address",
+    indexed: true,
+  },
+  {
+    name: "_from",
+    type: "address",
+    indexed: true,
+  },
+  {
+    name: "_to",
+    type: "address",
+    indexed: true,
+  },
+  {
+    name: "_id",
+    type: "uint256",
+    indexed: false,
+  },
+  {
+    name: "_amount",
+    type: "uint256",
+    indexed: false,
+  },
+];
 
 // Main function, exported separately for testing
 exports.main = async function (signer, recipient, payload) {
@@ -18,44 +48,48 @@ exports.main = async function (signer, recipient, payload) {
   for (let i = 0; i < events.length; i++) {
     let evt = events[i];
     console.log("transaction: ");
-    console.log(evt.transaction.logs[1]);
+    console.log("Number of logs: ", evt.transaction.logs.length);
+    console.log(evt.transaction.logs);
+
+    const hexString = evt.transaction.logs[0].data;
+    const retTopics = evt.transaction.logs[0].topics;
+
+    let topics = [];
+
+    retTopics.map((topic, index) => {
+      if (index > 0) topics.push(topic);
+    });
+
+    const decodedLog = web3.eth.abi.decodeLog(inputs, hexString, topics);
+    console.log(decodedLog);
+
+    let token_id = decodedLog._id;
+
     const to = evt.transaction.from;
 
     const burn_hash = evt.transaction.transactionHash;
 
-    const block_number = parseInt(evt.transaction.blockNumber, 16);
-
-    const url_get = `https://api.covalenthq.com/v1/137/events/address/0xE3A161EdD679fC5ce2dB2316a4B6f7ab33a8eD6A/?starting-block=${block_number}&ending-block=${
-      block_number + 1
-    }&key=ckey_9f2ed5152bcb4eb1a8dbc4cf854`;
-
-    console.log("covalent url: ", url_get);
-
-    const { data } = await axios.get(url_get);
-    const items = data.data.items;
-    let token_id;
-    console.log(items);
-    await items.map((item) => {
-      if (item.decoded) {
-        console.log(item.decoded.params);
-        token_id = item.decoded.params[3].value;
-      }
-    });
-
     console.log("token id: ", token_id);
 
-    const url = "https://prod.ethbarcelona.kraznikunderverse.com/qrcode";
-    var tkt_data = {
-      walletAddress: to,
-      tokenID: token_id,
-      hash: burn_hash,
-    };
-    await axios.post(url, tkt_data, {
-      headers: {
-        "Content-Type": "application/json",
-        validate: "alpha romeo tango",
-      },
-    });
+    try {
+      const url = "https://prod.ethbarcelona.kraznikunderverse.com/qrcode";
+      var tkt_data = {
+        walletAddress: to,
+        tokenID: token_id,
+        hash: burn_hash,
+      };
+      await axios.post(url, tkt_data, {
+        headers: {
+          "Content-Type": "application/json",
+          validate: "alpha romeo tango",
+        },
+      });
+    } catch (err) {
+      if (typeof token_id === "undefined") {
+        throw err;
+      }
+      console.error(err);
+    }
   }
 
   return tkt_data;
