@@ -12,10 +12,7 @@ import { useWeb3React } from "@web3-react/core";
 
 import web3 from "./ethereum/web3";
 import WalletConnectProvider from "@walletconnect/web3-provider";
-
 import TicketToken from "./ethereum/TicketToken";
-
-
 import SpeakerClaim from "./components/Pages/Speaker-Claim";
 import SpeakersClaimed from "./components/Pages/SpeakersClaimed";
 import SpeakerHomePage from "./components/Pages/SpeakerHomePage";
