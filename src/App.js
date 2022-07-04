@@ -21,14 +21,6 @@ import SpeakersClaimed from "./components/Pages/SpeakersClaimed";
 import SpeakerHomePage from "./components/Pages/SpeakerHomePage";
 
 import axios from "axios";
-import BuyTickets from "./components/Pages/BuyTicket";
-import ShowQRcode from "./components/Pages/ShowQRcode/index.js";
-import Poap from "./components/Pages/Poap";
-import ShowTickets from "./components/Pages/HaveTicket";
-import RedeemNFT from "./components/Pages/Redeem";
-import Landing from "./components/Pages/LandingPage";
-import Navbars from "./components/Navbar";
-import Organizer from "./components/Pages/Organizer";
 import {
   onDisconnect,
   onConnectMetamask,
@@ -176,33 +168,11 @@ const App = () => {
   return (
     <div className="App">
       <Router>
-      <Navbars
-          account={account}
-          onConnectWalletConnect={() => onConnectWalletConnect(activate)}
-          onConnectCoinbase={() => onConnectCoinbase(activate)}
-          onConnectMetamask={() => onConnectMetamask(activate)}
-          onDisconnect={() => {
-            onDisconnect(deactivate);
-            setIsOrganizer(false);
-          }}
-          haveTokens={haveTokens}
-          isOrganizer={isOrganizer}
-        />
-
 
         <Routes>
-          <Route exact path="/" element={<Landing isMobile={isMobile} />} />
+
           <Route exact path="/moments" element={<Moments />} />
-          {/* <Route
-            exact
-            path="/section"
-            element={<Landing isMobile={isMobile} />}
-          /> */}
-          <Route
-            exact
-            path="/tickets/buy"
-            element={<BuyTickets account={account} />}
-          />
+          <Route exact path="/speakerHomePage" element={<SpeakerHomePage />} />
           <Route
             exact
             path="/speakers/:ticketId"
@@ -213,28 +183,6 @@ const App = () => {
             path="/speakerCard/:id/:speakerMap"
             element={<SpeakerClaim />}
           />
-
-
-          <Route
-            exact
-            path="/tickets/:id/qrcode"
-            element={<ShowQRcode account={account} />}
-          />
-          <Route
-            exact
-            path="/tickets/:id/poap"
-            element={<Poap account={account} />}
-          />
-          <Route
-            exact
-            path="/organizer"
-            element={
-              <ProtectedRoute permit={isOrganizer}>
-                <Organizer account={account} orgId={orgId} />
-              </ProtectedRoute>
-            }
-          />
-
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Router>
