@@ -6,6 +6,7 @@ import {
   Route,
   Routes,
   Navigate,
+  NavLink,
 } from "react-router-dom";
 
 import { useWeb3React } from "@web3-react/core";
@@ -166,6 +167,20 @@ const App = () => {
     <div className="App">
       <Router>
         <Routes>
+          <Route
+            exact
+            path="/"
+            element={
+              <div style={{ color: "white" }}>
+                <div>
+                  <NavLink to="/moments">Moments</NavLink>
+                </div>
+                <div>
+                  <NavLink to="/speakerHomePage">Speakers NFT</NavLink>
+                </div>
+              </div>
+            }
+          />
           <Route exact path="/moments" element={<Moments />} />
           <Route exact path="/speakerHomePage" element={<SpeakerHomePage />} />
           <Route

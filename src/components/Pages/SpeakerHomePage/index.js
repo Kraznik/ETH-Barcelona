@@ -22,6 +22,7 @@ import {
 } from "../Scavenger-Hunt-Details";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { config } from "../../../config/config";
 
 export const Infos = styled.div`
   background: #354b37;
@@ -108,13 +109,14 @@ const options = {
 const SpeakerHomePage = () => {
   const [ticketId, setTicketId] = useState();
   const [leaderboard, setLeaderboard] = useState([]);
+  const [topSpeakers, setTopSpeakers] = useState([]);
   const navigate = useNavigate();
 
   const fetchSpeakerLeaderboard = async () => {
     const url =
       "https://eth-barcelona.kraznikunderverse.com/speakers-leaderboard";
     const { data } = await axios.get(url, options);
-    // console.log(data);
+    console.log(data);
 
     const top10 = data.filter((details, index) => index < 10);
     console.log(top10);
@@ -156,16 +158,114 @@ const SpeakerHomePage = () => {
   const renderLeaderboardRow = (index, ticketId, count, lastActivity) => {
     return (
       <LeaderboardBox key={index}>
-        <Info>{index + 1} </Info>
-        <Info>{ticketId}</Info>
-        <Info>{count}/130</Info>
-        <Activity>{lastActivity}</Activity>
+        <Info style={{ width: "5vw" }}>{index + 1} </Info>
+        <Info style={{ width: "5vw" }}>{ticketId}</Info>
+        <Info style={{ width: "10vw" }}>{count}/130</Info>
+        <Activity style={{ width: "20vw" }}>{lastActivity}</Activity>
       </LeaderboardBox>
     );
   };
 
   useEffect(() => {
     fetchSpeakerLeaderboard();
+  }, []);
+
+  const fetchTopSpeakers = async () => {
+    const url = `${config.apiBaseUrl}/topSpeakers`;
+    const { data } = await axios.get(url, options);
+    // console.log(data);
+    let listOfCards = [];
+
+    if (data.count.length) {
+      // we have all the counts
+      // console.log(data.count);
+      var topLen = 0;
+      var k = 0;
+      for (let i = 0; i < data.count.length && topLen < 5; i++) {
+        //&& k < 5
+        k += data.count[i];
+        // console.log("rank: ", data.count[i]);
+
+        for (
+          let j = 0;
+          j < data.data[data.count[i]].length && topLen < 5;
+          j++
+        ) {
+          topLen++;
+          const speakerId = data.data[data.count[i]][j];
+          const rank = data.count[i];
+          console.log("speaker id: ", speakerId);
+          const res = await axios.get(
+            `${config.apiBaseUrl}/speakersPage/${speakerId}`,
+            options
+          );
+          const speakerName = res.data.name;
+          console.log(speakerName);
+          const card = renderTopSpeakerRow(i, speakerName, rank);
+          listOfCards.push(card);
+
+          // print row here;
+          // data is as follows
+          // data.data[data.count[i]][j] is the speaker id
+          // data.count[i] is the rank
+        }
+      }
+    } else {
+      return;
+      // case for when leaderboard is empty
+    }
+
+    // const top10 = data.filter((details, index) => index < 10);
+    // console.log(top10);
+
+    // let listOfCards = [];
+    // data.map((row, index) => {
+    //   const currentDate = new Date();
+    //   const lastActivity = new Date(row.updatedAt);
+    //   const getSeconds = Math.floor((currentDate - lastActivity) / 1000);
+    //   const getMinutes = Math.floor(getSeconds / 60);
+    //   const getHours = Math.floor(getMinutes / 60);
+    //   const getDays = Math.floor(getHours / 24);
+
+    //   if (getDays > 0) {
+    //     var lastActivityTime = getDays + " days ago";
+    //   } else if (getHours > 0) {
+    //     var lastActivityTime = getHours + " hours ago";
+    //   } else if (getMinutes > 0) {
+    //     var lastActivityTime = getMinutes + " minutes ago";
+    //   } else {
+    //     var lastActivityTime = getSeconds + " seconds ago";
+    //   }
+
+    // if (index < 10 && row.count > 0) {
+    //   const card = renderTopSpeakerRow(
+    //     index,
+    //     row.ticketId,
+    //     row.count,
+    //     lastActivityTime
+    //   );
+    //   listOfCards.push(card);
+    // } else {
+    //   return;
+    // }
+    // });
+    setTopSpeakers(listOfCards);
+    // setLeaderboard(listOfCards);
+  };
+
+  const renderTopSpeakerRow = (index, speakerName, count) => {
+    return (
+      <LeaderboardBox key={speakerName}>
+        {/* <Info style={{ width: "30px" }}>{index + 1} </Info> */}
+        <Info style={{ width: "50vw" }}>{speakerName}</Info>
+        <Info style={{ width: "30px" }}>{count}</Info>
+        {/* <Activity>{lastActivity}</Activity> */}
+      </LeaderboardBox>
+    );
+  };
+
+  useEffect(() => {
+    fetchTopSpeakers();
   }, []);
 
   return (
@@ -201,41 +301,24 @@ const SpeakerHomePage = () => {
         </CircleOut>
       </InputContainer>
 
-      <Title3 className="top-10">Top 10</Title3>
-        <LeaderboardContainer>
-          <Titles>RANK </Titles>
-          <Titles>NFT ID </Titles>
-          <Titles>NFTS </Titles>
-          <Titles>LAST Activity</Titles>
-          <LeaderboardBox>
-            <Info>1 </Info>
-            <Info>Scott More</Info>
-            <Info>55</Info>
-            <Activity>one minute ago</Activity>
-          </LeaderboardBox>
-          <LeaderboardBox>
-            <Info>44 </Info>
-            <Info>Scott More</Info>
-            <Info>3</Info>
-            <Activity>one minute ago</Activity>
-          </LeaderboardBox>
-          <LeaderboardBox>
-            <Info>33 </Info>
-            <Info>Scott More</Info>
-            <Info>55</Info>
-            <Activity>three minute ago</Activity>
-          </LeaderboardBox>
-        </LeaderboardContainer>
+      <Title3 className="top-10">Top 5 Speakers</Title3>
+      <LeaderboardContainer>
+        {/* <Titles>RANK</Titles> */}
+        <Titles style={{ width: "50vw" }}>Speaker Name</Titles>
+        <Titles>Followers</Titles>
+        {/* <Titles>LAST Activity</Titles> */}
+        {topSpeakers}
+      </LeaderboardContainer>
 
       <Container>
         <img src={BS} className="bs"></img>
         <Title3>Top 10 Collectors</Title3>
 
         <LeaderboardContainer>
-          <Titles>RANK </Titles>
-          <Titles>TicketID </Titles>
-          <Titles>NFTS </Titles>
-          <Titles>LAST Activity</Titles>
+          <Titles style={{ width: "5vw" }}>RANK </Titles>
+          <Titles style={{ width: "10vw" }}>TicketID </Titles>
+          <Titles style={{ width: "20vw" }}>NFTS </Titles>
+          <Titles style={{ width: "10vw" }}>LAST Activity</Titles>
           {leaderboard}
         </LeaderboardContainer>
       </Container>
@@ -243,7 +326,8 @@ const SpeakerHomePage = () => {
       <Footer>
         <div className="ft">
           <a href="/speakerHomePage">
-          <img src={DoinGud} className="dg"></img></a>
+            <img src={DoinGud} className="dg"></img>
+          </a>
           <a href="https://www.instagram.com/ethbarcelona/">
             <img src={Instagram} className="social"></img>
           </a>
