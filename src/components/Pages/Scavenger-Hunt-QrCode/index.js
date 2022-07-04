@@ -302,7 +302,7 @@ const QrCodeScvengerHunt = () => {
             </div>
           ) : null}
           {/* Popup for the Three NFT's Claimed */}
-          <div>
+          {/* <div>
             {" "}
             <div className="box-third">
               <div className="title">Stage 1 Completed </div>
@@ -318,7 +318,7 @@ const QrCodeScvengerHunt = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Popup for 5 NFT Claimed */}
 
@@ -339,6 +339,31 @@ const QrCodeScvengerHunt = () => {
               </div>
             </div>
           </div> */}
+          {/* 
+          PopUp for 8nFT when all 9 are claimed */}
+
+          <div>
+            {" "}
+            <div className="box-third">
+              <div className="title">You were close</div>
+              <div className="third">
+                You are so close yet so far as all the 9th NFT are claimed.
+                Cheer Up come to DoinGud Booth and we might have a surprise for
+                you.
+                <div className="third-gif">
+                  <iframe
+                    src="https://giphy.com/embed/Jq824R93JsLwZCaiSL"
+                    width="100%"
+                    height="100%"
+                    frameBorder="0"
+                    class="giphy-embed"
+                    allowFullScreen
+                  ></iframe>
+
+                </div>
+              </div>
+            </div>
+          </div>
 
           <Footer>
             <div className="ft">
