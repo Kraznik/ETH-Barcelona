@@ -13,6 +13,7 @@ import Upload from "../../../assets/Upload.svg";
 import { useWeb3React } from "@web3-react/core";
 
 import { useUploadArtwork, Claim } from "./functions";
+import { config } from "../../../config/config";
 const { uploadFile } = useUploadArtwork();
 
 export const Activity = styled.div`
@@ -64,8 +65,8 @@ export const Info = styled.div`
 `;
 
 export const LeaderboardContainer = styled.div`
-margin: 25px 0 0 0;
-padding: 0 20px;
+  margin: 25px 0 0 0;
+  padding: 0 20px;
 `;
 
 const Container = styled.div`
@@ -172,6 +173,12 @@ export const Titles = styled.div`
   margin: 0 9% 0 0;
 `;
 
+const options = {
+  headers: {
+    validate: process.env.REACT_APP_VALIDATE_TOKEN,
+  },
+};
+
 const Moments = () => {
   const { library, account } = useWeb3React();
   const [AccessToken, setAccessToken] = useState();
@@ -181,12 +188,14 @@ const Moments = () => {
     description: "",
     ticketIds: [],
   });
+  const [ticketIds, setTicketIds] = useState();
+  const [nftTypeId, setNftTypeId] = useState();
   const [minting, setMinting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [Error, setError] = useState(false);
 
   const getAccessToken = async () => {
-    const config = {
+    const configOptions = {
       headers: {
         "Content-Type": "application/json",
       },
@@ -209,8 +218,8 @@ const Moments = () => {
       },
     };
     try {
-      const url = `https://api-main.doingud.work/authentication/authentication`;
-      const res = await axios.post(url, data, config);
+      const url = `${config.dgApiBaseUrl}/authentication/authentication`;
+      const res = await axios.post(url, data, configOptions);
       console.log(res.data);
       setAccessToken(res.data.accessToken);
     } catch (err) {}
@@ -244,19 +253,40 @@ const Moments = () => {
     setMinting(true);
     try {
       if (file && AccessToken) {
-        await uploadFile(
+        var nftTypeId = await uploadFile(
           file,
           AccessToken,
           library,
-          momentsData.title,
-          momentsData.description
+          momentsData
         );
         setMinting(false);
       }
       setSuccess(true);
+      setNftTypeId(nftTypeId);
     } catch (err) {
       setMinting(false);
       setError(true);
+      console.error(err);
+    }
+  };
+
+  const getListOfTicketIds = async (ticketIds) => {
+    try {
+      console.log(ticketIds);
+      let ticketIdList = ticketIds.split(",").map((id) => {
+        if (id === "" || id === " ") return null;
+        return parseInt(id);
+      }); // split(/,|, /);
+
+      ticketIdList = ticketIdList.filter((id) => id !== null);
+      console.log("ticket ids: ", ticketIdList);
+      ticketIdList.map(async (id) => {
+        const url = `${config.apiBaseUrl}/verifyTicket/${id}`;
+        const { data } = await axios.get(url, options);
+        console.log("ticket validation: ", data);
+      });
+      setMomentsData({ ...momentsData, ticketIds: ticketIdList });
+    } catch (err) {
       console.error(err);
     }
   };
@@ -287,7 +317,7 @@ const Moments = () => {
             <label className="text-moments">Title</label>
             <br />
             <input
-              type=""
+              type="text"
               placeholder="Add a title to your moment"
               className="input"
               value={momentsData.title}
@@ -300,7 +330,7 @@ const Moments = () => {
             <label className="text-moments">Description</label>
             <br />
             <textarea
-              type=""
+              type="text"
               placeholder="Add a description to your moment"
               className="input-description"
               value={momentsData.description}
@@ -314,37 +344,67 @@ const Moments = () => {
             <br />
             <input
               multiple
-              type="number"
+              type="text"
               placeholder="Tag Yourself and your friends"
               className="input"
+              value={ticketIds}
+              onChange={(e) => {
+                getListOfTicketIds(e.target.value);
+                setTicketIds(e.target.value);
+              }}
             ></input>
-            <p className="taggingInfo">Ex. 456 , 78 , 1 , 1265 (seprated by comma)</p>
-     
+            <p className="taggingInfo">
+              Ex. 456 , 78 , 1 , 1265 (seprated by comma)
+            </p>
 
             <Flex>
-              <img src={Upload} name="data" onClick={retrieveFile}className="ethbcnupload"></img>
-{/* 
+              {/* <img
+                src={Upload}
+                name="data"
+                onClick={retrieveFile}
+                className="ethbcnupload"
+              ></img> */}
+
               <input
                 type="file"
                 className="file-upload"
                 name="data"
                 onChange={retrieveFile}
-
-              ></input> */}
+              ></input>
             </Flex>
 
-            <RedeemOut>
-              <Redeem onClick={mintAMoment}>
+            <RedeemOut
+              onClick={mintAMoment}
+              style={{ disable: minting ? true : false }}
+            >
+              <Redeem>
                 {minting ? <span>Minting...</span> : <span>Mint a Moment</span>}
               </Redeem>
             </RedeemOut>
 
-            {success ? <Description>Successfully minted!!</Description> : null}
+            {minting ? (
+              <Description>Please have patience...it's minting...</Description>
+            ) : null}
+
+            {success ? (
+              <>
+                <Description>Successfully minted!!</Description>
+                {nftTypeId ? (
+                  <Description>
+                    <a
+                      href={`https://main.doingud.work/creation/${nftTypeId}`}
+                      target={"_blank"}
+                    >
+                      View your moment here ->
+                    </a>
+                  </Description>
+                ) : null}
+              </>
+            ) : null}
+
             {Error ? <Description>Got some Error!!</Description> : null}
           </Forum>
         </InputContainer>
-
-       
 
         <Footer>
           <div className="ft">

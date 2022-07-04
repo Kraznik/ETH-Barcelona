@@ -5,11 +5,21 @@ import imageDimensions from "./utils/getImageDimensions";
 import { getTypeOfMedia } from "./utils/upload";
 import { buildFormData } from "./utils/buildFormData";
 import Diamond from "../../../ethereum/Diamond";
+import { config } from "../../../config/config";
 
 const baseUrl = `https://api-main.doingud.work`;
 
+var numberOfEditions;
+
 export function useUploadArtwork() {
-  const uploadFile = async (file, AccessToken, library, title, description) => {
+  const uploadFile = async (file, AccessToken, library, momentsData) => {
+    const { title, description, ticketIds } = momentsData;
+    numberOfEditions = ticketIds.length + 1;
+
+    console.log("Title: ", title);
+    console.log("Description: ", description);
+    console.log("ticket ids: ", ticketIds);
+
     console.log("uploading...");
     // try {
     const fileExtension = file.name.split(".").pop();
@@ -87,9 +97,11 @@ export function useUploadArtwork() {
       });
       console.log("saleFormRes: ", saleRes);
 
-      await Claim(nftTypeId);
+      await Claim(nftTypeId, ticketIds);
 
-      return;
+      console.log("nft type id: ", nftTypeId);
+
+      return nftTypeId;
     } catch (error) {
       console.log("error while uploading artwork", error);
       throw error;
@@ -230,7 +242,7 @@ const getSalesSettings = async (
   library
 ) => {
   const price = 0,
-    editionCount = 10,
+    editionCount = numberOfEditions, // 10,
     sellOnProfile = true,
     creatorProfits = 95,
     sioProfits = 5,
@@ -248,7 +260,7 @@ const getSalesSettings = async (
         isLocked: true,
       },
     ],
-    editionCount: 10,
+    editionCount: numberOfEditions, // 10,
     price: 0,
     secondaryCreatorProfits,
     secondarySioProfits,
@@ -323,8 +335,7 @@ const getLazyMintSignature = async (values, creatorTypeId, library) => {
     console.log("sig hash: ", hash);
 
     try {
-      const url =
-        "https://eth-barcelona.kraznikunderverse.com/getLazyMintSignature";
+      const url = `${config.apiBaseUrl}/getLazyMintSignature/ethbcn`;
       const post_data = {
         hash,
       };
@@ -416,7 +427,7 @@ const fixSignatureV = (signature) => {
   return signature;
 };
 
-export const Claim = async (nftTypeId) => {
+export const Claim = async (nftTypeId, ticketIds) => {
   console.log("nft type id: ", nftTypeId);
 
   let values = {
@@ -429,7 +440,7 @@ export const Claim = async (nftTypeId) => {
         isLocked: true,
       },
     ],
-    editionCount: 10,
+    editionCount: numberOfEditions, // 10,
     price: 0,
     secondaryCreatorProfits: 10,
     secondarySioProfits: 3.5,
@@ -463,9 +474,9 @@ export const Claim = async (nftTypeId) => {
   console.log(params);
 
   try {
-    const url = "https://eth-barcelona.kraznikunderverse.com/mintMoments";
+    const url = `${config.apiBaseUrl}/mintMoments/ethbcn`;
     const post_data = {
-      ticketIds: [1, 2],
+      ticketIds,
       nftTypeId,
       params,
     };
