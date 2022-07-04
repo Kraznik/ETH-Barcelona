@@ -190,6 +190,9 @@ const Moments = () => {
   });
   const [ticketIds, setTicketIds] = useState();
   const [nftTypeId, setNftTypeId] = useState();
+  const [validTicketIds, setValidTicketIds] = useState([]);
+  const [invalidTicketIds, setInvalidTicketIds] = useState([]);
+
   const [minting, setMinting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [Error, setError] = useState(false);
@@ -280,11 +283,31 @@ const Moments = () => {
 
       ticketIdList = ticketIdList.filter((id) => id !== null);
       console.log("ticket ids: ", ticketIdList);
-      ticketIdList.map(async (id) => {
-        const url = `${config.apiBaseUrl}/verifyTicket/${id}`;
+
+      let validOnes = [],
+        invalidOnes = [];
+
+      for (let i = 0; i < ticketIdList.length; i++) {
+        const url = `${config.apiBaseUrl}/verifyTicket/${ticketIdList[i]}`;
         const { data } = await axios.get(url, options);
         console.log("ticket validation: ", data);
-      });
+        if (data.message === "Valid") {
+          validOnes.push(ticketIdList[i]);
+        } else {
+          invalidOnes.push(ticketIdList[i]);
+        }
+      }
+
+      setValidTicketIds(validOnes);
+      setInvalidTicketIds(invalidOnes);
+
+      console.log("valid: ", validOnes);
+      console.log("invalid: ", invalidOnes);
+      // ticketIdList.map(async (id) => {
+      //   const url = `${config.apiBaseUrl}/verifyTicket/${id}`;
+      //   const { data } = await axios.get(url, options);
+      //   console.log("ticket validation: ", data);
+      // });
       setMomentsData({ ...momentsData, ticketIds: ticketIdList });
     } catch (err) {
       console.error(err);

@@ -1,7 +1,8 @@
 {
   "projects": {
     "default": "eth-barcelona",
-    "staging": "dev-eth-barcelona"
+    "staging": "dev-eth-barcelona",
+    "moments": "ethbcn-moments"
   },
   "targets": {}
 }
