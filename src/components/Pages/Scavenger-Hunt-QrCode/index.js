@@ -301,6 +301,45 @@ const QrCodeScvengerHunt = () => {
               </div>
             </div>
           ) : null}
+          {/* Popup for the Three NFT's Claimed */}
+          <div>
+            {" "}
+            <div className="box-third">
+              <div className="title">Stage 1 Completed </div>
+              <div className="third">
+                Now all you have to do is Follow @DoinGud and come to the
+                DoinGud Booth to Claim your prize.
+                <div className="third-gif">
+                  <iframe
+                    src="https://giphy.com/embed/26u4cqiYI30juCOGY"
+                    width="100%"
+                    height="100%"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Popup for 5 NFT Claimed */}
+
+          {/* <div>
+            {" "}
+            <div className="box-third">
+              <div className="title">Stage 2 Completed </div>
+              <div className="third">
+                Now all you have to do is say hi on @DoinGud Discord and come to
+                the DoinGud Booth to Claim your Limited Edition DoinGud T-Shirt.
+                <div className="third-gif">
+                  <iframe
+                    src="https://giphy.com/embed/l41lYCDgxP6OFBruE"
+                    width="100%"
+                    height="100%"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </div> */}
+
           <Footer>
             <div className="ft">
               <a href="/scavenger">
