@@ -421,10 +421,10 @@ const Moments = () => {
         // style={{ backgroundColor: you ? "yellow" : "white" }}
         key={index}
       >
-        <Info>{index + 1} </Info>
-        <Info>{ticketId}</Info>
-        <Info>{count}</Info>
-        <Activity>{lastActivity}</Activity>
+        <Info style={{ width: "10vw" }}>{index + 1} </Info>
+        <Info style={{ width: "10vw" }}>{ticketId}</Info>
+        <Info style={{ width: "10vw" }}>{count}</Info>
+        <Activity style={{ width: "20vw" }}>{lastActivity}</Activity>
       </LeaderboardBox>
     );
   };
@@ -536,10 +536,10 @@ const Moments = () => {
         </InputContainer>
 
         <LeaderboardContainer>
-          <Titles>RANK</Titles>
-          <Titles>TicketID</Titles>
-          <Titles>Moments</Titles>
-          <Titles>LAST Activity</Titles>
+          <Titles style={{ width: "10vw" }}>RANK</Titles>
+          <Titles style={{ width: "10vw" }}>TicketID</Titles>
+          <Titles style={{ width: "15vw" }}>Moments</Titles>
+          <Titles style={{ width: "20vw" }}>LAST Activity</Titles>
 
           {leaderboard}
         </LeaderboardContainer>
