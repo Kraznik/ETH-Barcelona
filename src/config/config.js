@@ -7,4 +7,4 @@ const configMainnet = {
 };
 
 export const config =
-  process.env.REACT_APP_NETWORK === "testnet" ? configTestnet : configMainnet;
+  process.env.REACT_APP_NETWORK === "mainnet" ? configMainnet : configTestnet;

@@ -32,6 +32,6 @@ const creatorTypeIdTest = {
 };
 
 export const creatorTypeId =
-  process.env.REACT_APP_NETWORK === "testnet"
-    ? creatorTypeIdTest
-    : creatorTypeIdMainnet;
+  process.env.REACT_APP_NETWORK === "mainnet"
+    ? creatorTypeIdMainnet
+    : creatorTypeIdTest;
