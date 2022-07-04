@@ -93,7 +93,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    changeNetwork();
+    // changeNetwork();
   }, [chainId]);
 
   const checkForUnredeemedTickets = async () => {

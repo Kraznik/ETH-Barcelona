@@ -199,6 +199,8 @@ const Moments = () => {
   const [success, setSuccess] = useState(false);
   const [Error, setError] = useState(false);
 
+  const [leaderboard, setLeaderboard] = useState([]);
+
   const getAccessToken = async () => {
     const configOptions = {
       headers: {
@@ -254,6 +256,18 @@ const Moments = () => {
     e.preventDefault();
   };
 
+  const addMomentsData = async (ticketIds) => {
+    try {
+      const url = `${config.apiBaseUrl}/ethMoments`;
+      const patch_data = {
+        data: ticketIds,
+      };
+      await axios.patch(url, patch_data, options);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   const mintAMoment = async () => {
     setError(false);
     console.log("minting..");
@@ -266,6 +280,7 @@ const Moments = () => {
           library,
           momentsData
         );
+        await addMomentsData(momentsData.ticketIds);
         setMinting(false);
       }
       setSuccess(true);
@@ -296,10 +311,10 @@ const Moments = () => {
         const { data } = await axios.get(url, options);
         console.log("ticket validation: ", data);
         if (data.message === "Valid") {
-          const card = renderValidTicketIds(ticketIdList[i]);
+          const card = renderValidTicketIds(ticketIdList[i], i);
           validOnes.push(card);
         } else {
-          const card = renderInvalidTicketIds(ticketIdList[i]);
+          const card = renderInvalidTicketIds(ticketIdList[i], i);
           invalidOnes.push(card);
         }
       }
@@ -316,13 +331,107 @@ const Moments = () => {
     }
   };
 
-  const renderValidTicketIds = (ticketId) => {
-    return <div className="correct">{ticketId}</div>;
+  const renderValidTicketIds = (ticketId, i) => {
+    return (
+      <div className="correct" key={i}>
+        {ticketId}
+      </div>
+    );
   };
 
-  const renderInvalidTicketIds = (ticketId) => {
-    return <div className="incorrect">{ticketId}</div>;
+  const renderInvalidTicketIds = (ticketId, i) => {
+    return (
+      <div className="incorrect" key={i}>
+        {ticketId}
+      </div>
+    );
   };
+
+  const getLeaderboardDetails = async () => {
+    try {
+      const url = `${config.apiBaseUrl}/ethMomentsLeaderboard`;
+      const { data } = await axios.get(url, options);
+      // console.log(data);
+      let listOfCards = [];
+      // var putAtLast = true;
+      // var ownIndex = data.rank[ticketId];
+      // if (data.rank[ticketId] < 9) {
+      //   putAtLast = false;
+      // }
+      data.map((row, index) => {
+        const currentDate = new Date();
+        const lastActivity = new Date(row.updatedAt);
+        const getSeconds = Math.floor((currentDate - lastActivity) / 1000);
+        const getMinutes = Math.floor(getSeconds / 60);
+        const getHours = Math.floor(getMinutes / 60);
+        const getDays = Math.floor(getHours / 24);
+
+        if (getDays > 0) {
+          var lastActivityTime = getDays + " days ago";
+        } else if (getHours > 0) {
+          var lastActivityTime = getHours + " hours ago";
+        } else if (getMinutes > 0) {
+          var lastActivityTime = getMinutes + " minutes ago";
+        } else {
+          var lastActivityTime = getSeconds + " seconds ago";
+        }
+
+        // console.log("currentDate: ", currentDate);
+        // console.log("lastActivity: ", lastActivity);
+        // console.log("timeAgo: ", getMinutes);
+
+        if (index < 9 && row.count > 0) {
+          const card = renderLeaderboardRow(
+            index,
+            // index === ownIndex,
+            row.ticketId,
+            row.count,
+            lastActivityTime
+          );
+          listOfCards.push(card);
+        } else {
+          return;
+        }
+      });
+      // if (putAtLast) {
+      //   const OwnCard = renderLeaderboardRow(
+      //     ownIndex,
+      //     true,
+      //     ticketId,
+      //     data?.data[ownIndex]?.data || 0,
+      //     "Not started yet"
+      //   );
+      //   listOfCards.push(OwnCard);
+      // }
+      setLeaderboard(listOfCards);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const renderLeaderboardRow = (
+    index,
+    // you,
+    ticketId,
+    count,
+    lastActivity
+  ) => {
+    return (
+      <LeaderboardBox
+        // style={{ backgroundColor: you ? "yellow" : "white" }}
+        key={index}
+      >
+        <Info>{index + 1} </Info>
+        <Info>{ticketId}</Info>
+        <Info>{count}</Info>
+        <Activity>{lastActivity}</Activity>
+      </LeaderboardBox>
+    );
+  };
+
+  useEffect(() => {
+    getLeaderboardDetails();
+  }, []);
 
   return (
     <>
@@ -425,6 +534,15 @@ const Moments = () => {
             </RedeemOut>
           </Forum>
         </InputContainer>
+
+        <LeaderboardContainer>
+          <Titles>RANK</Titles>
+          <Titles>TicketID</Titles>
+          <Titles>Moments</Titles>
+          <Titles>LAST Activity</Titles>
+
+          {leaderboard}
+        </LeaderboardContainer>
 
         {/* PopUp to conifrm the NFTID's */}
 
