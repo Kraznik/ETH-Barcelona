@@ -395,7 +395,7 @@ const Moments = () => {
                       href={`https://main.doingud.work/creation/${nftTypeId}`}
                       target={"_blank"}
                     >
-                      View your moment here ->
+                      View your moment here -
                     </a>
                   </Description>
                 ) : null}
@@ -405,6 +405,32 @@ const Moments = () => {
             {Error ? <Description>Got some Error!!</Description> : null}
           </Forum>
         </InputContainer>
+
+        {/* PopUp to conifrm the NFTID's */}
+        <div>
+          {" "}
+          <div className="box-third">
+            <div className="title">
+              Please Confirm the NFTicket ID Before Minting
+            </div>
+            <div className="correct">453</div>
+            <div className="correct">1</div>
+            <div className="correct">53</div>
+            <div className="correct">5223</div>
+            <div className="correct">53</div>
+            <div className="invalid">
+              Invalid NFTikcet ID (Please input again)
+            </div>
+            <div className="yy">
+              {" "}
+              <div className="incorrect">1766</div>
+              <div className="incorrect">1766</div>
+              <div className="incorrect">1766</div>
+            </div>
+
+            <button className="mintmoment">Mint My Moment</button>
+          </div>
+        </div>
 
         <Footer>
           <div className="ft">
