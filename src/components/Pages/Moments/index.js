@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { RedeemOut, Redeem, Title, Description } from "../Redeem";
+import { RedeemOut, Redeem, Title, Description } from "../Redeem2";
 import "./style.css";
 import Header from "../../../assets/circle.png";
 import DoinGud from "../../../assets/ETH-BCN.svg";
