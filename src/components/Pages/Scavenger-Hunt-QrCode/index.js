@@ -181,6 +181,8 @@ const QrCodeScvengerHunt = () => {
 
           const { data } = await axios.post(url, post_data, options);
 
+          console.log("data points returned: ", data?.response?.count);
+
           setDataPointsReturned(data?.response?.count);
 
           if (data?.response?.minted) setSuccess(true);
@@ -300,7 +302,7 @@ const QrCodeScvengerHunt = () => {
 
           {/*  Popup for the Three NFT's Claimed */}
 
-          {dataPointsReturned === "3" ? (
+          {dataPointsReturned == 3 ? (
             <div>
               {" "}
               <div className="box-third">
@@ -321,7 +323,7 @@ const QrCodeScvengerHunt = () => {
           ) : null}
           {/* Popup for 5 NFT Claimed */}
 
-          {dataPointsReturned == "5" ? (
+          {dataPointsReturned == 5 ? (
             <div>
               {" "}
               <div className="box-third">
@@ -344,7 +346,7 @@ const QrCodeScvengerHunt = () => {
 
           {/* 
           PopUp for 8nFT when all 9 are claimed */}
-          {dataPointsReturned == "8" ? (
+          {dataPointsReturned == 8 ? (
             <div>
               {" "}
               <div className="box-third">
