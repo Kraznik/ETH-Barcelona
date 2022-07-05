@@ -123,11 +123,6 @@ const TikcetLot = styled.div`
   padding: 2px;
 `;
 
-const ethBcnNftTypeId1 =
-  "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000004";
-const ethBcnNftTypeId2 =
-  "0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000005";
-
 const ShowTickets = ({ account }) => {
   const [listCards, setListCards] = useState([]);
   const [listRedeemedTickets, setListRedeemedTickets] = useState([]);

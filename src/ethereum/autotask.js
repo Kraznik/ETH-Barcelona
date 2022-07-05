@@ -51,25 +51,33 @@ exports.main = async function (signer, recipient, payload) {
     console.log("Number of logs: ", evt.transaction.logs.length);
     console.log(evt.transaction.logs);
 
-    const hexString = evt.transaction.logs[0].data;
-    const retTopics = evt.transaction.logs[0].topics;
+    for (let j = 0; j < evt.transaction.logs.length; j++) {
+      const log = evt.transaction.logs[j];
+      if (
+        log.topics.length > 0 &&
+        log.topics[0] ===
+          "0xc3d58168c5ae7397731d063d5bbf3d657854427343f4c083240f7aacaa2d0f62"
+      ) {
+        const hexString = evt.transaction.logs[0].data;
+        const retTopics = evt.transaction.logs[0].topics;
 
-    let topics = [];
+        let topics = [];
 
-    retTopics.map((topic, index) => {
-      if (index > 0) topics.push(topic);
-    });
+        retTopics.map((topic, index) => {
+          if (index > 0) topics.push(topic);
+        });
 
-    const decodedLog = web3.eth.abi.decodeLog(inputs, hexString, topics);
-    console.log(decodedLog);
+        const decodedLog = web3.eth.abi.decodeLog(inputs, hexString, topics);
+        console.log(decodedLog);
 
-    let token_id = decodedLog._id;
+        var token_id = decodedLog._id;
+
+        console.log("token id: ", token_id);
+      }
+    }
 
     const to = evt.transaction.from;
-
     const burn_hash = evt.transaction.transactionHash;
-
-    console.log("token id: ", token_id);
 
     try {
       const url = "https://prod.ethbarcelona.kraznikunderverse.com/qrcode";
