@@ -125,7 +125,7 @@ export const Name1 = styled.div`
   /* identical to box height, or 100% */
   color: #354b37;
   margin-top: -50px;
-  margin-left:-60px;
+  margin-left: -60px;
 
   &:hover {
     cursor: pointer;
@@ -133,7 +133,7 @@ export const Name1 = styled.div`
   }
 
   @media (min-width: 800px) {
-    display:none;
+    display: none;
   }
 `;
 
@@ -301,11 +301,18 @@ const Speakers = () => {
       </Container>
 
       <Footer>
-        <Name><a href="/speaker" className="speaker">Full Speaker List <span> &#8594; </span></a></Name>
-        <Name1><a href="/speaker" className="speakers"> Full Speaker List <span> &#8594; </span></a></Name1>
-
+        <Name>
+          <a href="/speaker" className="speaker">
+            Full Speaker List <span> &#8594; </span>
+          </a>
+        </Name>
+        <Name1>
+          <a href="/speaker" className="speakers">
+            {" "}
+            Full Speaker List <span> &#8594; </span>
+          </a>
+        </Name1>
       </Footer>
-    
     </>
   );
 };

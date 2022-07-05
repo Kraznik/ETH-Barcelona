@@ -100,7 +100,7 @@ import S87 from "../../../assets/Speaker/87.svg";
 import S88 from "../../../assets/Speaker/88.svg";
 import S89 from "../../../assets/Speaker/89.svg";
 import S90 from "../../../assets/Speaker/90.svg";
-
+import S91 from "../../../assets/Speaker/91.jpg";
 
 const SpeakerPage = () => {
   return (
@@ -988,7 +988,6 @@ const SpeakerPage = () => {
             </SpeakerContainer>
           </a>
 
-
           <a href="https://twitter.com/duartedao">
             <SpeakerContainer>
               <SpeakerImage>
@@ -998,7 +997,6 @@ const SpeakerPage = () => {
               <Org>The Daoist</Org>
             </SpeakerContainer>
           </a>
-
 
           <a href="https://twitter.com/arnaucube">
             <SpeakerContainer>
@@ -1010,10 +1008,15 @@ const SpeakerPage = () => {
             </SpeakerContainer>
           </a>
 
-          
-
-          
-
+          <a href="">
+            <SpeakerContainer>
+              <SpeakerImage>
+                <img src={S91} style={{ width: "241px", height: "auto" }}></img>
+              </SpeakerImage>
+              <Name>Queenie Wu</Name>
+              <Org>Partner at IOSG Ventures</Org>
+            </SpeakerContainer>
+          </a>
         </Box>
       </Container>
     </>
