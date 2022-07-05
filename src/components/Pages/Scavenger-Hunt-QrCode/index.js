@@ -231,10 +231,8 @@ const QrCodeScvengerHunt = () => {
       <>
         <Container>
           <img src={DGHunt} width="100%"></img>
-
           <Title1>DoGood</Title1>
           <Title2>SCAVENGER HUNT</Title2>
-
           <ImageContainer>
             {/* <img src={NFT}></img> */}
             {/* <img src="https://firebasestorage.googleapis.com/v0/b/dev-eth-barcelona.appspot.com/o/ScavHunt%2F2.png?alt=media&token=26468ca2-57f4-4ea2-bd99-164004494164" />
@@ -246,7 +244,6 @@ const QrCodeScvengerHunt = () => {
             <Name>@creatorname</Name>
             </Creator> */}
           </ImageContainer>
-
           <InputContainer>
             <Title1>NFT {id} of 9</Title1>
             <TikcetContainer>
@@ -266,9 +263,7 @@ const QrCodeScvengerHunt = () => {
               </Submit>
             </TikcetContainer>
           </InputContainer>
-
           {message ? <Name>{message}</Name> : null}
-
           {success ? (
             <>
               <Name2 className="claimed">Successfully Claimed ;)</Name2>
@@ -284,13 +279,11 @@ const QrCodeScvengerHunt = () => {
               </NavLink>
             </>
           ) : null}
-
           {error ? (
             <Name style={{ color: "red" }}>
               Got Error!! Please try again...
             </Name>
           ) : null}
-
           {minted9thNft ? (
             <div>
               {" "}
@@ -304,69 +297,76 @@ const QrCodeScvengerHunt = () => {
               </div>
             </div>
           ) : null}
-          {/* Popup for the Three NFT's Claimed */}
-          {/* <div>
-            {" "}
-            <div className="box-third">
-              <div className="title">Stage 1 Completed </div>
-              <div className="third">
-                Now all you have to do is Follow @DoinGud and come to the
-                DoinGud Booth to Claim your prize.
-                <div className="third-gif">
-                  <iframe
-                    src="https://giphy.com/embed/26u4cqiYI30juCOGY"
-                    width="100%"
-                    height="100%"
-                  ></iframe>
+
+          {/*  Popup for the Three NFT's Claimed */}
+
+          {dataPointsReturned === "3" ? (
+            <div>
+              {" "}
+              <div className="box-third">
+                <div className="title">Stage 1 Completed </div>
+                <div className="third">
+                  Now all you have to do is Follow @DoinGud and come to the
+                  DoinGud Booth to Claim your prize.
+                  <div className="third-gif">
+                    <iframe
+                      src="https://giphy.com/embed/26u4cqiYI30juCOGY"
+                      width="100%"
+                      height="100%"
+                    ></iframe>
+                  </div>
                 </div>
               </div>
             </div>
-          </div> */}
-
+          ) : null}
           {/* Popup for 5 NFT Claimed */}
 
-          {/* <div>
-            {" "}
-            <div className="box-third">
-              <div className="title">Stage 2 Completed </div>
-              <div className="third">
-                Now all you have to do is say hi on @DoinGud Discord and come to
-                the DoinGud Booth to Claim your Limited Edition DoinGud T-Shirt.
-                <div className="third-gif">
-                  <iframe
-                    src="https://giphy.com/embed/l41lYCDgxP6OFBruE"
-                    width="100%"
-                    height="100%"
-                  ></iframe>
+          {dataPointsReturned == "5" ? (
+            <div>
+              {" "}
+              <div className="box-third">
+                <div className="title">Stage 2 Completed </div>
+                <div className="third">
+                  Now all you have to do is say hi on @DoinGud Discord and come
+                  to the DoinGud Booth to Claim your Limited Edition DoinGud
+                  T-Shirt.
+                  <div className="third-gif">
+                    <iframe
+                      src="https://giphy.com/embed/l41lYCDgxP6OFBruE"
+                      width="100%"
+                      height="100%"
+                    ></iframe>
+                  </div>
                 </div>
               </div>
             </div>
-          </div> */}
+          ) : null}
+
           {/* 
           PopUp for 8nFT when all 9 are claimed */}
-
-          <div>
-            {" "}
-            <div className="box-third">
-              <div className="title">You were close</div>
-              <div className="third">
-                You are so close yet so far as all the 9th NFT are claimed.
-                Cheer Up come to DoinGud Booth and we might have a surprise for
-                you.
-                <div className="third-gif">
-                  <iframe
-                    src="https://giphy.com/embed/Jq824R93JsLwZCaiSL"
-                    width="100%"
-                    height="100%"
-                    frameBorder="0"
-                    class="giphy-embed"
-                    allowFullScreen
-                  ></iframe>
-
+          {dataPointsReturned == "8" ? (
+            <div>
+              {" "}
+              <div className="box-third">
+                <div className="title">You were close</div>
+                <div className="third">
+                  You are so close yet so far as all the 9th NFT are claimed.
+                  Cheer Up come to DoinGud Booth and we might have a surprise
+                  for you.
+                  <div className="third-gif">
+                    <iframe
+                      src="https://giphy.com/embed/Jq824R93JsLwZCaiSL"
+                      width="100%"
+                      height="100%"
+                      frameBorder="0"
+                      class="giphy-embed"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          ) : null}
 
           <Footer>
             <div className="ft">
