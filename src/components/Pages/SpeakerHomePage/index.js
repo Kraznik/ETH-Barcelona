@@ -30,6 +30,12 @@ export const Infos = styled.div`
   padding: 30px 0 0 0;
 `;
 
+export const SpeakerContainer = styled.div`
+background: #354B37;
+height: 350px;
+
+`
+
 export const Title = styled.div`
   font-family: "Dahlia";
   font-style: normal;
@@ -300,14 +306,16 @@ const SpeakerHomePage = () => {
         </CircleOut>
       </InputContainer>
 
-      <Title3 className="top-10">Top 5 Speakers</Title3>
-      <LeaderboardContainer>
-        {/* <Titles>RANK</Titles> */}
-        <Titles style={{ width: "50vw" }}>Speaker Name</Titles>
-        <Titles>Followers</Titles>
-        {/* <Titles>LAST Activity</Titles> */}
-        {topSpeakers}
-      </LeaderboardContainer>
+      <SpeakerContainer>
+        <div className="top-10">Top 5 Popular Speakers</div>
+        <LeaderboardContainer>
+          {/* <Titles>RANK</Titles> */}
+          <Titles style={{ width: "50vw" }}>Speaker Name</Titles>
+          <Titles>Followers</Titles>
+          {/* <Titles>LAST Activity</Titles> */}
+          {topSpeakers}
+        </LeaderboardContainer>
+      </SpeakerContainer>
 
       <Container>
         <img src={BS} className="bs"></img>
