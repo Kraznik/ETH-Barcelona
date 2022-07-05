@@ -179,7 +179,9 @@ const index = ({ account }) => {
 
   const onDownload = async () => {
     try {
-      const url = `https://prod.ethbarcelona.kraznikunderverse.com/createDownload?encrypted=${encryptedHash}`;
+      const url = `https://prod.ethbarcelona.kraznikunderverse.com/createDownload?encrypted=${encodeURIComponent(
+        encryptedHash
+      )}`;
       var { data } = await axios.get(url, options);
       // console.log(data);
 
