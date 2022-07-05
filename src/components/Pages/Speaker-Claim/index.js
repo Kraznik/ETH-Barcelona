@@ -11,6 +11,7 @@ import Instagram from "../../../assets/ETH-Insta.svg";
 import S from "../../../assets/S.png";
 import Star from ".././../../assets/SS.png";
 import { speakers } from "./speaker-map";
+import { config } from "../../../config/config";
 
 const Container = styled.div``;
 
@@ -199,7 +200,7 @@ const SpeakerClaim = () => {
 
   const fetchSpeakerDetails = async () => {
     try {
-      const url = `https://eth-barcelona.kraznikunderverse.com/speakersPage/${id}`;
+      const url = `${config.apiBaseUrl}/speakersPage/${id}`;
       const { data } = await axios.get(url, options);
       // console.log(data);
       setSpeakerData(data);
@@ -214,7 +215,7 @@ const SpeakerClaim = () => {
 
   const fetchWalletAddress = async () => {
     try {
-      const url = `https://eth-barcelona.kraznikunderverse.com/getusersfromticket/${ticketId}`;
+      const url = `${config.apiBaseUrl}/getusersfromticket/${ticketId}`;
       const { data } = await axios.get(url, options);
       console.log(data);
       if (data?.message === "Ticket id not found") return "Not found";
@@ -245,8 +246,8 @@ const SpeakerClaim = () => {
 
       if (walletAddress) {
         try {
-          // const url = `https://eth-barcelona.kraznikunderverse.com/mintSpeakersNft/${ticketId}`;
-          const url = `https://eth-barcelona.kraznikunderverse.com/mintSpeakerNft/${ticketId}`;
+          // const url = `${config.apiBaseUrl}/mintSpeakersNft/${ticketId}`;
+          const url = `${config.apiBaseUrl}/mintSpeakerNft/${ticketId}`;
 
           var post_data = {
             creatorTypeId: id - 1,
@@ -303,7 +304,7 @@ const SpeakerClaim = () => {
             <Title4>Speakers</Title4>
             <Title5> {id}</Title5>
             <Title4>NFTicket ID</Title4>
-  
+
             <Title2>My Card!</Title2>
 
             {/* <ImageContainer>

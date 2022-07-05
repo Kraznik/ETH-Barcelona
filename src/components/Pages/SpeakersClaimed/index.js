@@ -10,6 +10,7 @@ import Twitter from "../../../assets/ETH-Twitter.svg";
 import Instagram from "../../../assets/ETH-Insta.svg";
 import { Footer } from "../Speaker-Claim";
 import Star from ".././../../assets/SS.png";
+import { config } from "../../../config/config";
 
 export const TicketContainer = styled.div`
   background: #354b37;
@@ -79,7 +80,7 @@ const SpeakersClaimed = () => {
 
   const fetchSpeakerDetails = async (speakerId) => {
     try {
-      const url = `https://eth-barcelona.kraznikunderverse.com/speakersPage/${speakerId}`;
+      const url = `${config.apiBaseUrl}/speakersPage/${speakerId}`;
       const { data } = await axios.get(url, options);
       // console.log(data);
       // setSpeakerData(data);
@@ -91,7 +92,7 @@ const SpeakersClaimed = () => {
 
   const fetchUserSpeakerDetails = async () => {
     try {
-      const url = `https://eth-barcelona.kraznikunderverse.com/speakers/${ticketId}`;
+      const url = `${config.apiBaseUrl}/speakers/${ticketId}`;
       const { data } = await axios.get(url, options);
       const speakers = data.data;
       console.log("speakers: ", speakers);
@@ -158,8 +159,9 @@ const SpeakersClaimed = () => {
 
       <Footer>
         <div className="ft">
-        <a href="/speakerHomePage">
-          <img src={DoinGud} className="dg"></img></a>
+          <a href="/speakerHomePage">
+            <img src={DoinGud} className="dg"></img>
+          </a>
           <a href="https://www.instagram.com/ethbarcelona/" target={"_blank"}>
             <img src={Instagram} className="social"></img>
           </a>

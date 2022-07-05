@@ -113,8 +113,7 @@ const SpeakerHomePage = () => {
   const navigate = useNavigate();
 
   const fetchSpeakerLeaderboard = async () => {
-    const url =
-      "https://eth-barcelona.kraznikunderverse.com/speakers-leaderboard";
+    const url = `${config.apiBaseUrl}/speakers-leaderboard`;
     const { data } = await axios.get(url, options);
     console.log(data);
 
