@@ -549,7 +549,7 @@ const Moments = () => {
         {popup ? (
           <div>
             <div className="box-third">
-              <div onClick={() => setPopup(false)}>Close</div>
+              <div onClick={() => setPopup(false)} className="close">Close</div>
 
               <div className="title">
                 Please Confirm the NFTicket ID Before Minting
@@ -600,7 +600,7 @@ const Moments = () => {
                         target={"_blank"}
                         style={{ color: "white" }}
                       >
-                        View your moment here ->
+                        View your moment here -
                       </a>
                     </Description>
                   ) : null}
