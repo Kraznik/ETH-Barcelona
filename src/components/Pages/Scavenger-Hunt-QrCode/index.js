@@ -304,6 +304,70 @@ const QrCodeScvengerHunt = () => {
               </div>
             </div>
           ) : null}
+          {/* Popup for the Three NFT's Claimed */}
+          {/* <div>
+            {" "}
+            <div className="box-third">
+              <div className="title">Stage 1 Completed </div>
+              <div className="third">
+                Now all you have to do is Follow @DoinGud and come to the
+                DoinGud Booth to Claim your prize.
+                <div className="third-gif">
+                  <iframe
+                    src="https://giphy.com/embed/26u4cqiYI30juCOGY"
+                    width="100%"
+                    height="100%"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </div> */}
+
+          {/* Popup for 5 NFT Claimed */}
+
+          {/* <div>
+            {" "}
+            <div className="box-third">
+              <div className="title">Stage 2 Completed </div>
+              <div className="third">
+                Now all you have to do is say hi on @DoinGud Discord and come to
+                the DoinGud Booth to Claim your Limited Edition DoinGud T-Shirt.
+                <div className="third-gif">
+                  <iframe
+                    src="https://giphy.com/embed/l41lYCDgxP6OFBruE"
+                    width="100%"
+                    height="100%"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </div> */}
+          {/* 
+          PopUp for 8nFT when all 9 are claimed */}
+
+          <div>
+            {" "}
+            <div className="box-third">
+              <div className="title">You were close</div>
+              <div className="third">
+                You are so close yet so far as all the 9th NFT are claimed.
+                Cheer Up come to DoinGud Booth and we might have a surprise for
+                you.
+                <div className="third-gif">
+                  <iframe
+                    src="https://giphy.com/embed/Jq824R93JsLwZCaiSL"
+                    width="100%"
+                    height="100%"
+                    frameBorder="0"
+                    class="giphy-embed"
+                    allowFullScreen
+                  ></iframe>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
           <Footer>
             <div className="ft">
               <a href="/scavenger">

@@ -105,6 +105,23 @@ const Mint = () => {
       {/* <input type="file" className=""></input> */}
 
       <Submit>Mint Challenge</Submit>
+      <div>
+            {" "}
+            <div className="box-third">
+              <div className="title">Please Confirm the NFTicket ID Before Minting</div>
+              <div className="correct">453</div>
+              <div className="correct">1</div>
+              <div className="correct">53</div>
+              <div className="correct">5223</div>
+              <div className="correct">53</div>
+              <div className="invalid">Invalid NFTikcet ID (Please input again)</div>
+              <div className="yy">              <div className="incorrect">1766</div>
+              <div className="incorrect">1766</div>
+              <div className="incorrect">1766</div></div>
+
+              <button className="mintmoment">Mint My Moment</button> 
+            </div>
+          </div>
 
       <Footer>
         <div className="ft">
