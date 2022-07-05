@@ -150,7 +150,7 @@ const Description2 = styled.div`
 
 const InputContainer = styled.div`
   width: 100%;
-  height: 785px;
+  height: 705px;
   background: #ffd731;
 `;
 
@@ -158,7 +158,7 @@ export const Titles = styled.div`
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 300;
-  font-size: 12px;
+  font-size: 8px;
   line-height: 20px;
   /* identical to box height, or 167% */
 
@@ -534,6 +534,8 @@ const Moments = () => {
             </RedeemOut>
           </Forum>
         </InputContainer>
+
+        <Title2>Top 10</Title2>
 
         <LeaderboardContainer>
           <Titles style={{ width: "10vw" }}>RANK</Titles>
