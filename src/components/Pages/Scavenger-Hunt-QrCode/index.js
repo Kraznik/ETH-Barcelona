@@ -90,6 +90,7 @@ const QrCodeScvengerHunt = () => {
   const [message, setMessage] = useState();
   const [scavData, setScavData] = useState();
   const [minted9thNft, setMinted9thNft] = useState(false);
+  const [dataPointsReturned, setDataPointsReturned] = useState();
 
   const navigate = useNavigate();
 
@@ -179,6 +180,8 @@ const QrCodeScvengerHunt = () => {
           }
 
           const { data } = await axios.post(url, post_data, options);
+
+          setDataPointsReturned(data?.response?.count);
 
           if (data?.response?.minted) setSuccess(true);
 
