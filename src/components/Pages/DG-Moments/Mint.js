@@ -172,21 +172,18 @@ const Mint = () => {
     };
 
     const data = {
-      userId:
-        "did:3:kjzl6cwe1jw147s91dkr97820ds79es6vrbewrf1fx2a2hipoipceigloxw69u6",
+      userId: process.env.REACT_APP_DG_USER_ID,
       proof: {
-        payload:
-          "eyJkaWQiOiJkaWQ6MzpranpsNmN3ZTFqdzE0N3M5MWRrcjk3ODIwZHM3OWVzNnZyYmV3cmYxZngyYTJoaXBvaXBjZWlnbG94dzY5dTYifQ",
+        payload: process.env.REACT_APP_DG_PAYLOAD,
         signatures: [
           {
-            protected:
-              "eyJraWQiOiJkaWQ6MzpranpsNmN3ZTFqdzE0N3M5MWRrcjk3ODIwZHM3OWVzNnZyYmV3cmYxZngyYTJoaXBvaXBjZWlnbG94dzY5dTY_dmVyc2lvbi1pZD0wI3NVTnJXMkFwTm1rNGRiOSIsImFsZyI6IkVTMjU2SyJ9",
-            signature:
-              "N6x7XrqyUeBEWjWuFCJpdAKsbJv7KTWpKbfMKCYrq4i8yn6kbNTby0GsZMaoziJQTl1zyd8xqVYLnYwAQpUazQ",
+            protected: process.env.REACT_APP_DG_PROTECTED,
+            signature: process.env.REACT_APP_DG_SIGNATURE,
           },
         ],
       },
     };
+
     try {
       const url = `${config.dgApiBaseUrl}/authentication/authentication`;
       const res = await axios.post(url, data, configOptions);

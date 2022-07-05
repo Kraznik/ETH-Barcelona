@@ -191,7 +191,7 @@ const submitEditForm = async ({
     title,
     description,
     // collection,
-    sioId: "05dd4c3b-6635-4694-a4f4-11740b82df65", // "2402b5bd-a955-495b-8f27-7ab614171ef5", // sio.id | // Hope for Justice Sio ig
+    sioId: config.sio.id, // "2402b5bd-a955-495b-8f27-7ab614171ef5", // sio.id | // Hope for Justice Sio ig
     // collaborators: collaborators.map((collaborator) => ({
     //   address: collaborator.address,
     //   name: collaborator.username,
@@ -235,16 +235,15 @@ const getSalesSettings = async (valuesForm, nftTypeId, creatorTypeId) => {
     sellOnProfile = true,
     creatorProfits = 95,
     sioProfits = 5,
-    secondarySioProfits = 3.5,
-    secondaryCreatorProfits = 10,
+    secondarySioProfits = 2.5,
+    secondaryCreatorProfits = 20,
     signedAt = new Date();
 
   let values = {
     // sio: "2402b5bd-a955-495b-8f27-7ab614171ef5",
     creatorShares: [
       {
-        id: "0x70c1EA05E2A54DfFE1088D4A54CB1a6C25c9077c",
-        username: "banatisanchit",
+        id: config.dgMomentsCreatorAddress,
         profit: 10000,
         isLocked: true,
       },
@@ -278,6 +277,11 @@ const getSalesSettings = async (valuesForm, nftTypeId, creatorTypeId) => {
 
   //   console.log("distribution: ", distribution);
 
+  let distribution = {};
+  distribution[config.dgMomentsCreatorAddress] = 10000;
+
+  console.log("distribution: ", distribution);
+
   return {
     ...(sellOnProfile && {
       price,
@@ -289,9 +293,7 @@ const getSalesSettings = async (valuesForm, nftTypeId, creatorTypeId) => {
     primaryMarket: {
       creatorsProfit: creatorProfits,
       socialCauseProfit: sioProfits,
-      distribution: {
-        "0x70c1EA05E2A54DfFE1088D4A54CB1a6C25c9077c": 10000, // 100%
-      },
+      distribution,
     },
     secondaryMarket: {
       creatorsRoyalties: secondaryCreatorProfits,
@@ -381,11 +383,11 @@ const getLazyMintParams = ({
 
   return {
     nftTypeDefinition: {
-      creator: "0x70c1EA05E2A54DfFE1088D4A54CB1a6C25c9077c", // creator.id, // id of CreatorProfitForm // that was probably eth address
+      creator: config.dgMomentsCreatorAddress, // creator.id, // id of CreatorProfitForm // that was probably eth address
       creatorTypeId, // artwork.creatorArtworkNumber, // number
       collabs: [], // [] // array of eth addresses of the collaborators // other than the creator
       collabPortions: [], // [] // array of profits of collabs
-      sioId: 111, // 111, // sio.decentralizedId, // 107 // For Hope of Justice
+      sioId: config.sio.decentralizedId, // 111, // sio.decentralizedId, // 107 // For Hope of Justice
       maxEditions: editionCount,
       // maxMintsPerAddress: editionCount,
       mintPortionSio: Math.floor(sioProfits * 100),
@@ -423,16 +425,15 @@ export const Claim = async (nftTypeId, ticketIds) => {
     // sio: "2402b5bd-a955-495b-8f27-7ab614171ef5",
     creatorShares: [
       {
-        id: "0x70c1EA05E2A54DfFE1088D4A54CB1a6C25c9077c",
-        username: "banatisanchit",
+        id: config.dgMomentsCreatorAddress,
         profit: 10000,
         isLocked: true,
       },
     ],
     editionCount: numberOfEditions, // 10,
     price: 0,
-    secondaryCreatorProfits: 10,
-    secondarySioProfits: 3.5,
+    secondaryCreatorProfits: 20,
+    secondarySioProfits: 2.5,
     sioProfits: 5,
     signedAt: new Date(),
     metadataCID: "",
