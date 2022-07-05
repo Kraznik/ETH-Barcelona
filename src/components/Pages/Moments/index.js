@@ -596,7 +596,7 @@ const Moments = () => {
                   {nftTypeId ? (
                     <Description>
                       <a
-                        href={`https://main.doingud.work/creation/${nftTypeId}`}
+                        href={`${config.dgAppBaseUrl}/creation/${nftTypeId}`}
                         target={"_blank"}
                         style={{ color: "white" }}
                       >

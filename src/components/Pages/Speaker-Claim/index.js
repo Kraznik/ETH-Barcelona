@@ -249,8 +249,15 @@ const SpeakerClaim = () => {
           // const url = `${config.apiBaseUrl}/mintSpeakersNft/${ticketId}`;
           const url = `${config.apiBaseUrl}/mintSpeakerNft/${ticketId}`;
 
+          const res = await axios.get(
+            `${config.apiBaseUrl}/speakersPage/${id}`,
+            options
+          );
+          const creatorTypeId = res?.data?.creatorTypeId;
+          console.log("creator type id: ", creatorTypeId);
+
           var post_data = {
-            creatorTypeId: id - 1,
+            creatorTypeId, // testnet
             toAddress: walletAddress,
             speakerId: id,
           };
@@ -334,6 +341,9 @@ const SpeakerClaim = () => {
             <CircleOut>
               <CircleIn
                 onClick={mintSpeakerNft}
+                style={{
+                  pointerEvents: loading ? "none" : null,
+                }}
                 disabled={loading ? true : false}
               >
                 {loading ? (

@@ -7,7 +7,7 @@ import { buildFormData } from "./utils/buildFormData";
 import Diamond from "../../../ethereum/Diamond";
 import { config } from "../../../config/config";
 
-const baseUrl = `https://api-main.doingud.work`;
+const baseUrl = `${config.dgApiBaseUrl}`;
 
 var numberOfEditions;
 
@@ -271,7 +271,7 @@ const getSalesSettings = async (
   };
 
   try {
-    const url = `https://api-main.doingud.work/creation/artwork/${nftTypeId}`;
+    const url = `${baseUrl}/creation/artwork/${nftTypeId}`;
     const { data } = await axios.get(url);
     // creatorSignature = data.saleSetting.signature;
     if (data) {
@@ -454,7 +454,7 @@ export const Claim = async (nftTypeId, ticketIds) => {
   const creatorTypeId = parseInt(nftTypeId.slice(-12), 16);
 
   try {
-    const url = `https://api-main.doingud.work/creation/artwork/${nftTypeId}`;
+    const url = `${baseUrl}/creation/artwork/${nftTypeId}`;
     const { data } = await axios.get(url);
     creatorSignature = data.saleSetting.signature;
     values.metadataCID = data.metadataCID;

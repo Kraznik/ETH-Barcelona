@@ -128,7 +128,7 @@ const SpeakersClaimed = () => {
         {/* <h1>{speakerId}</h1> */}
         <a
           key={index}
-          href={`https://main.doingud.work/creation/${speakerData.nftTypeId}`}
+          href={`${config.dgAppBaseUrl}/creation/${speakerData.nftTypeId}`}
           target={"_blank"}
         >
           <img src={speakerData.image} className="claimed"></img>
