@@ -289,7 +289,7 @@ const getSalesSettings = async (
   //   console.log("distribution: ", distribution);
 
   let distribution = {};
-  distribution[config.dgMomentsCreatorAddress] = 10000;
+  distribution[config.ethBcnMomentsCreatorAddress] = 10000;
 
   console.log("distribution: ", distribution);
 
