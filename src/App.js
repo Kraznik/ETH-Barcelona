@@ -31,6 +31,9 @@ import ProtectedRoute from "./utils/ProtectedRoute";
 import SpeakerPage from "./components/Pages/Speaker";
 import Terms from "./components/Pages/Terms";
 import Privacy from "./components/Pages/Privacy/privacy";
+import SpeakerHomePage from "./components/Pages/SpeakerHomePage";
+import SpeakersClaimed from "./components/Pages/SpeakersClaimed";
+import SpeakerClaim from "./components/Pages/Speaker-Claim";
 
 const changeNetwork = async () => {
   try {
@@ -191,11 +194,11 @@ const App = () => {
     }
   }, [account, chainId]);
 
-  // useEffect(() => {
-  //   // if(isMobile && (navigator.brave && await navigator.brave.isBrave() || false)) onConnectWalletConnect(activate)
-  //   if (window?.ethereum) onConnectMetamask(activate);
-  //   else if (isMobile) onConnectWalletConnect(activate);
-  // }, []);
+  useEffect(() => {
+    // if(isMobile && (navigator.brave && await navigator.brave.isBrave() || false)) onConnectWalletConnect(activate)
+    if (window?.ethereum) onConnectMetamask(activate);
+    else if (isMobile) onConnectWalletConnect(activate);
+  }, []);
 
   return (
     <div className="App">
@@ -257,6 +260,23 @@ const App = () => {
                 <Organizer account={account} orgId={orgId} />
               </ProtectedRoute>
             }
+          />
+          {/* <Route exact path="/moments" element={<Moments />} /> */}
+          <Route
+            exact
+            path="/moments"
+            element={<Navigate to="/speakerHomePage" replace />}
+          />
+          <Route exact path="/speakerHomePage" element={<SpeakerHomePage />} />
+          <Route
+            exact
+            path="/speakers/:ticketId"
+            element={<SpeakersClaimed />}
+          />
+          <Route
+            exact
+            path="/speakerCard/:id/:speakerMap"
+            element={<SpeakerClaim />}
           />
 
           <Route path="*" element={<Navigate to="/" replace />} />

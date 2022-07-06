@@ -17,6 +17,7 @@ import NFT from "../../../assets/NFT.svg";
 import Logo from "../../../assets/NftLogo.svg";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import DoinGud from "../../../assets/FooterDG.svg";
+import DGHunt from "../../../assets/DGHunt.png";
 import Twitter from "../../../assets/Twitter.svg";
 import Instagram from "../../../assets/Insta.svg";
 import H9 from "../../../assets/H9.png";
@@ -225,7 +226,7 @@ const QrCodeScvengerHunt = () => {
     return (
       <>
         <Container>
-          <Banner></Banner>
+          <img src={DGHunt} width="100%"></img>
 
           <Title1>DoGood</Title1>
           <Title2>SCAVENGER HUNT</Title2>
