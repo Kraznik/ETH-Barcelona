@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 
 import Web3Modal from "web3modal";
 import web3 from "./ethereum/web3";
@@ -200,14 +205,17 @@ const App = () => {
       <Router>
         <Routes>
           <Route exact path="/" element={<ScavengerPlay />} />
-
-          <Route
+          {/* <Route
             exact
             path="/momentos"
             element={<DgMoments></DgMoments>}
+          ></Route> */}
+          <Route
+            exact
+            path="/momentos"
+            element={<Navigate to="/" replace />}
           ></Route>
           <Route exact path="/dgmint" element={<Mint />} />
-
           {/* //done */}
           <Route exact path="/scavengerhunt" element={<ScavengerPlay />} />
           <Route
@@ -220,36 +228,7 @@ const App = () => {
             path="/details/:ticketId"
             element={<ScavengerHuntDetails />}
           />
-          {/* <Route
-            exact
-            path="/section"
-            element={<Landing isMobile={isMobile} />}
-          /> */}
-          {/* <Route
-            exact
-            path="/tickets/buy"
-            element={<BuyTickets account={account} />}
-          />
-          <Route
-            exact
-            path="/tickets/show"
-            element={<ShowTickets account={account} />}
-          />
-          <Route
-            exact
-            path="/tickets/:id/redeem"
-            element={<RedeemNFT account={account} />}
-          />
-          <Route
-            exact
-            path="/tickets/:id/qrcode"
-            element={<ShowQRcode account={account} />}
-          />
-          <Route
-            exact
-            path="/tickets/:id/poap"
-            element={<Poap account={account} />}
-          /> */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Router>
     </div>
