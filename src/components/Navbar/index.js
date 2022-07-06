@@ -21,6 +21,8 @@ import "./style.css";
 import Popup from "reactjs-popup";
 import Organizer from "../Pages/Organizer";
 import WalletPopUp from "../Pages/WalletPopUp";
+import Smile from "../../assets/Smile.png";
+import Star from "../../assets/Stars.png";
 const Heading = styled(NavLink)`
   color: red;
 
@@ -114,6 +116,7 @@ const withouSidebarRoutes1 = [
   "/speakerCard",
   "/moments",
   "/speakers",
+  "/livestream",
 ];
 
 const Navbars = ({
@@ -134,6 +137,26 @@ const Navbars = ({
   const userAddress = `${account?.slice(0, 4)}....${account?.slice(-4)}`;
   return (
     <div>
+      <div>
+        <a href="/livestream">
+          <div className="mover">
+            <marquee className="move">
+              <img src={Star} className="stream"></img>
+              <div className="watch">WATCH NOW</div>
+              <img src={Smile} className="stream"></img>
+              <div className="watch">LIVE STREAMING</div>
+              <img src={Star} className="stream"></img>
+              <div className="watch">WATCH NOW</div>
+              <img src={Smile} className="stream"></img>
+              <div className="watch">LIVE STREAMING</div>
+              <img src={Star} className="stream"></img>
+              <div className="watch">WATCH NOW</div>
+              <img src={Smile} className="stream"></img>
+              <div className="watch">LIVE STREAMING</div>
+            </marquee>
+          </div>
+        </a>
+      </div>
       <Navbar collapseOnSelect expand="lg" className="bar">
         <Container className="bar">
           <Nav.Link

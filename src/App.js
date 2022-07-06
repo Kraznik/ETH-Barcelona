@@ -34,6 +34,7 @@ import Privacy from "./components/Pages/Privacy/privacy";
 import SpeakerHomePage from "./components/Pages/SpeakerHomePage";
 import SpeakersClaimed from "./components/Pages/SpeakersClaimed";
 import SpeakerClaim from "./components/Pages/Speaker-Claim";
+import LiveStream from "./components/Pages/LiveStream";
 
 const changeNetwork = async () => {
   try {
@@ -221,6 +222,7 @@ const App = () => {
           <Route exact path="/speaker" element={<SpeakerPage></SpeakerPage>} />
           <Route exact path="/terms-and-conditions" element={<Terms />} />
           <Route exact path="/privacy-policy" element={<Privacy />} />
+          <Route exact path="/livestream" element={<LiveStream />} />
 
           {/* <Route
             exact
