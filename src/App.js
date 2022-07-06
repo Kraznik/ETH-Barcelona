@@ -209,13 +209,15 @@ const App = () => {
             exact
             path="/momentos"
             element={<DgMoments></DgMoments>}
-          ></Route> */}
+          ></Route>
+          <Route exact path="/dgmint" element={<Mint />} /> */}
           <Route
             exact
             path="/momentos"
             element={<Navigate to="/" replace />}
           ></Route>
-          <Route exact path="/dgmint" element={<Mint />} />
+          <Route exact path="/dgmint" element={<Navigate to="/" replace />} />
+
           {/* //done */}
           <Route exact path="/scavengerhunt" element={<ScavengerPlay />} />
           <Route
