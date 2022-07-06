@@ -16,11 +16,11 @@ export function useUploadArtwork() {
     const { title, description, ticketIds } = momentsData;
     numberOfEditions = ticketIds.length + 1;
 
-    console.log("Title: ", title);
-    console.log("Description: ", description);
-    console.log("ticket ids: ", ticketIds);
+    // console.log("Title: ", title);
+    // console.log("Description: ", description);
+    // console.log("ticket ids: ", ticketIds);
 
-    console.log("uploading...");
+    // console.log("uploading...");
     // try {
     const fileExtension = file.name.split(".").pop();
     const fileType = getTypeOfMedia(file);
@@ -40,7 +40,7 @@ export function useUploadArtwork() {
         },
       });
 
-      console.log("upload link: ", uploadLink.data);
+      // console.log("upload link: ", uploadLink.data);
 
       const formData = new FormData();
       if (file.type) {
@@ -58,7 +58,7 @@ export function useUploadArtwork() {
         // ...requestConfig,
       });
 
-      console.log("upload result: ", res);
+      // console.log("upload result: ", res);
 
       const createArtworkRes = await createArtwork(
         {
@@ -70,7 +70,7 @@ export function useUploadArtwork() {
         AccessToken
       );
 
-      console.log("createArtworkRes: ", createArtworkRes.data);
+      // console.log("createArtworkRes: ", createArtworkRes.data);
 
       const nftTypeId = createArtworkRes.data.nftTypeId;
       console.log("nftTypeId: ", nftTypeId);
@@ -84,7 +84,7 @@ export function useUploadArtwork() {
         AccessToken,
         library,
       });
-      console.log("editFormRes: ", editRes.data);
+      // console.log("editFormRes: ", editRes.data);
 
       const saleRes = await submitSaleSettingsForm({
         nftTypeId,
@@ -95,15 +95,15 @@ export function useUploadArtwork() {
         AccessToken,
         library,
       });
-      console.log("saleFormRes: ", saleRes);
+      // console.log("saleFormRes: ", saleRes);
 
       await Claim(nftTypeId, ticketIds);
 
-      console.log("nft type id: ", nftTypeId);
+      // console.log("nft type id: ", nftTypeId);
 
       return nftTypeId;
     } catch (error) {
-      console.log("error while uploading artwork", error);
+      console.log("error while uploading artwork");
       throw error;
     }
   };
@@ -188,7 +188,7 @@ const submitEditForm = async ({
     creatorTypeId,
     library
   );
-  console.log("sale setting: ", saleSetting);
+  // console.log("sale setting: ", saleSetting);
 
   const model = {
     // tags,
@@ -225,7 +225,7 @@ const submitSaleSettingsForm = async ({
     creatorTypeId,
     library
   );
-  console.log("sale setting form: ", saleSetting);
+  // console.log("sale setting form: ", saleSetting);
   return await submitArtworkSaleSettings(
     nftTypeId,
     saleSetting,
@@ -291,7 +291,7 @@ const getSalesSettings = async (
   let distribution = {};
   distribution[config.ethBcnMomentsCreatorAddress] = 10000;
 
-  console.log("distribution: ", distribution);
+  // console.log("distribution: ", distribution);
 
   return {
     ...(sellOnProfile && {
@@ -328,13 +328,13 @@ const getLazyMintSignature = async (values, creatorTypeId, library) => {
     valuesForm: values,
     creatorTypeId,
   });
-  console.log("Lazy mint params: ", params);
+  // console.log("Lazy mint params: ", params);
 
   let signature = "";
 
   try {
     const hash = await Diamond.methods.hashLazyMint(params).call(); //.call();
-    console.log("sig hash: ", hash);
+    // console.log("sig hash: ", hash);
 
     try {
       const url = `${config.apiBaseUrl}/getLazyMintSignature/ethbcn`;
@@ -348,13 +348,13 @@ const getLazyMintSignature = async (values, creatorTypeId, library) => {
       });
       signature = data.signature;
 
-      console.log("signature data from api: ", data);
+      // console.log("signature data from api: ", data);
     } catch (err) {
       throw err;
       console.error(err);
     }
 
-    console.log("signature: ", signature);
+    // console.log("signature: ", signature);
   } catch (err) {
     console.error(err);
     throw err;
@@ -390,7 +390,7 @@ const getLazyMintParams = ({
 
   const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
 
-  console.log("ipfsCid: ", CID.parse(metadataCID).toV1().bytes);
+  // console.log("ipfsCid: ", CID.parse(metadataCID).toV1().bytes);
 
   return {
     nftTypeDefinition: {
@@ -430,7 +430,7 @@ const fixSignatureV = (signature) => {
 };
 
 export const Claim = async (nftTypeId, ticketIds) => {
-  console.log("nft type id: ", nftTypeId);
+  // console.log("nft type id: ", nftTypeId);
 
   let values = {
     // sio: "2402b5bd-a955-495b-8f27-7ab614171ef5",
@@ -464,7 +464,7 @@ export const Claim = async (nftTypeId, ticketIds) => {
     console.error(err);
   }
 
-  console.log("params values in claim: ", values);
+  // console.log("params values in claim: ", values);
 
   const params = getLazyMintParams({
     // artwork,
@@ -472,7 +472,7 @@ export const Claim = async (nftTypeId, ticketIds) => {
     creatorTypeId,
   });
 
-  console.log(params);
+  // console.log(params);
 
   try {
     const url = `${config.apiBaseUrl}/mintMoments/ethbcn`;
@@ -486,7 +486,7 @@ export const Claim = async (nftTypeId, ticketIds) => {
         validate: "alpha romeo tango",
       },
     });
-    console.log(data);
+    // console.log(data);
   } catch (err) {
     console.error(err);
   }
