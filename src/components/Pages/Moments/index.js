@@ -223,7 +223,7 @@ const Moments = () => {
     try {
       const url = `${config.dgApiBaseUrl}/authentication/authentication`;
       const res = await axios.post(url, data, configOptions);
-      console.log(res.data);
+      // console.log(res.data);
       setAccessToken(res.data.accessToken);
     } catch (err) {}
   };
@@ -236,7 +236,7 @@ const Moments = () => {
   const retrieveFile = (e) => {
     const data = e.target.files[0];
     // setTokenData({ ...tokenData, imageIpfsHash: "" });
-    console.log("file data: ", data);
+    // console.log("file data: ", data);
     setFile(data);
     // setFileName(data.name);
 
@@ -290,14 +290,14 @@ const Moments = () => {
 
   const getListOfTicketIds = async (ticketIds) => {
     try {
-      console.log(ticketIds);
+      // console.log(ticketIds);
       let ticketIdList = ticketIds.split(",").map((id) => {
         if (id === "" || id === " ") return null;
         return parseInt(id);
       }); // split(/,|, /);
 
       ticketIdList = ticketIdList.filter((id) => id !== null);
-      console.log("ticket ids: ", ticketIdList);
+      // console.log("ticket ids: ", ticketIdList);
 
       let validOnes = [],
         invalidOnes = [];
@@ -305,7 +305,7 @@ const Moments = () => {
       for (let i = 0; i < ticketIdList.length; i++) {
         const url = `${config.apiBaseUrl}/verifyTicket/${ticketIdList[i]}`;
         const { data } = await axios.get(url, options);
-        console.log("ticket validation: ", data);
+        // console.log("ticket validation: ", data);
         if (data.message === "Valid") {
           const card = renderValidTicketIds(ticketIdList[i], i);
           validOnes.push(card);
