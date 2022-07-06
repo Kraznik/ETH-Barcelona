@@ -3,6 +3,7 @@ import PoapImage from "../../../assets/Poap.png";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { config } from "../../../config/config";
 
 const Container = styled.div`
   display: flex;
@@ -103,12 +104,8 @@ const Poap = ({ account }) => {
           you an NFT to your wallet. You can check it in your DoinGud profile.
         </Description>
         <Image></Image>
-
         <Check>
-          <a
-            href={`https://main.doingud.work/creation/0x70c1ea05e2a54dffe1088d4a54cb1a6c25c9077c000000000008?edition=`}
-            target={"_blank"}
-          >
+          <a href={`${config.dgAppBaseUrl}/${account}`} target={"_blank"}>
             Check it within your DoinGud Profile
           </a>
         </Check>
