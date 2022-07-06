@@ -59,6 +59,7 @@ export function useUploadArtwork() {
       });
 
       console.log("upload result: ", res);
+      // console.log("upload result: ", res1);
 
       const createArtworkRes = await createArtwork(
         {

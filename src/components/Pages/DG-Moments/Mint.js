@@ -5,10 +5,7 @@ import DoinGud from "../../../assets/FooterDG.svg";
 import Twitter from "../../../assets/Twitter.svg";
 import Instagram from "../../../assets/Insta.svg";
 import { Title1 } from "../Scavenger-Play";
-import Dropdown from "react-bootstrap/Dropdown";
 import styled from "styled-components";
-import Upload from "../../../assets/Upload.svg";
-import { type } from "os-browserify";
 import DGBanner from "../../../assets/DG-Moments-Banner.png";
 import { useUploadArtwork } from "./functions";
 const { uploadFile } = useUploadArtwork();
@@ -183,6 +180,8 @@ const Mint = () => {
         ],
       },
     };
+
+    console.log("getting acces token");
 
     try {
       const url = `${config.dgApiBaseUrl}/authentication/authentication`;
