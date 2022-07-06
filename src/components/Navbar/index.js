@@ -10,10 +10,11 @@ import {
   Divider,
   Nav,
 } from "react-bootstrap";
+
 import "./style.css";
 import styled from "styled-components";
 import Logo from "../../assets/logo.svg";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import Wallet from "../../assets/wallet.svg";
 import ConnectWalletButton from "../ConnectWalletButton";
 import "./style.css";
@@ -108,6 +109,13 @@ const Desktop = styled.div`
   }
 `;
 
+const withouSidebarRoutes1 = [
+  "/speakersCollection",
+  "/speakerCard",
+  "/moments",
+  "/speakers",
+];
+
 const Navbars = ({
   account,
   onConnectMetamask,
@@ -117,6 +125,9 @@ const Navbars = ({
   haveTokens,
   isOrganizer,
 }) => {
+  const { pathname } = useLocation();
+  if (withouSidebarRoutes1.some((item) => pathname.includes(item))) return null;
+
   const [open, setOpen] = useState(false);
   const closeModal = () => setOpen(false);
 

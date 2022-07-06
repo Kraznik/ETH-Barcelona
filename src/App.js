@@ -267,7 +267,11 @@ const App = () => {
             path="/moments"
             element={<Navigate to="/speakerHomePage" replace />}
           /> */}
-          <Route exact path="/speakerHomePage" element={<SpeakerHomePage />} />
+          <Route
+            exact
+            path="/speakersCollection"
+            element={<SpeakerHomePage />}
+          />
           <Route
             exact
             path="/speakers/:ticketId"

@@ -159,7 +159,7 @@ const SpeakersClaimed = () => {
 
       <Footer>
         <div className="ft">
-          <a href="/speakerHomePage">
+          <a href="/speakersCollection">
             <img src={DoinGud} className="dg"></img>
           </a>
           <a href="https://www.instagram.com/ethbarcelona/" target={"_blank"}>
