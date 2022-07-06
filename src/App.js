@@ -27,7 +27,7 @@ import {
   onConnectCoinbase,
 } from "./components/ConnectWalletButton/functions";
 import ProtectedRoute from "./utils/ProtectedRoute";
-// import Moments from "./components/Pages/Moments";
+import Moments from "./components/Pages/Moments";
 import SpeakerPage from "./components/Pages/Speaker";
 import Terms from "./components/Pages/Terms";
 import Privacy from "./components/Pages/Privacy/privacy";
@@ -261,12 +261,12 @@ const App = () => {
               </ProtectedRoute>
             }
           />
-          {/* <Route exact path="/moments" element={<Moments />} /> */}
-          <Route
+          <Route exact path="/moments" element={<Moments />} />
+          {/* <Route
             exact
             path="/moments"
             element={<Navigate to="/speakerHomePage" replace />}
-          />
+          /> */}
           <Route exact path="/speakerHomePage" element={<SpeakerHomePage />} />
           <Route
             exact
