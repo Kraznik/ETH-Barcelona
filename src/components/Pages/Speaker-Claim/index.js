@@ -188,7 +188,12 @@ const options = {
 };
 
 const SpeakerClaim = () => {
-  const { id, speakerMap } = useParams();
+  var { id, speakerMap } = useParams();
+
+  if (id === "106" && speakerMap === "manu") id = 107;
+  else if (id === "106" && speakerMap === "bilal") id = 108;
+  else if (id === "106" && speakerMap === "sammy") id = 109;
+
   const [speakerData, setSpeakerData] = useState();
   const [ticketId, setTicketId] = useState();
 
@@ -198,8 +203,18 @@ const SpeakerClaim = () => {
   const [error, setError] = useState(false);
   const [message, setMessage] = useState();
 
+  useEffect(() => {
+    if (id === "106" && speakerMap === "manu") id = 107;
+    else if (id === "106" && speakerMap === "bilal") id = 108;
+    else if (id === "106" && speakerMap === "sammy") id = 109;
+  }, [speakerMap]);
+
   const fetchSpeakerDetails = async () => {
     try {
+      if (id === "106" && speakerMap === "manu") id = 107;
+      else if (id === "106" && speakerMap === "bilal") id = 108;
+      else if (id === "106" && speakerMap === "sammy") id = 109;
+
       const url = `${config.apiBaseUrl}/speakersPage/${id}`;
       const { data } = await axios.get(url, options);
       // console.log(data);
@@ -246,8 +261,11 @@ const SpeakerClaim = () => {
 
       if (walletAddress) {
         try {
-          // const url = `${config.apiBaseUrl}/mintSpeakersNft/${ticketId}`;
           const url = `${config.apiBaseUrl}/mintSpeakerNft/${ticketId}`;
+
+          if (id === "106" && speakerMap === "manu") id = 107;
+          else if (id === "106" && speakerMap === "bilal") id = 108;
+          else if (id === "106" && speakerMap === "sammy") id = 109;
 
           const res = await axios.get(
             `${config.apiBaseUrl}/speakersPage/${id}`,
@@ -263,13 +281,6 @@ const SpeakerClaim = () => {
           };
 
           console.log("post_data: ", post_data);
-          // if (id == 1) {
-          //   var post_data = {
-          //     creatorTypeId: 12,
-          //     toAddress: walletAddress,
-          //     speakerId: id,
-          //   };
-          // }
 
           const { data } = await axios.post(url, post_data, options);
           console.log(data);
