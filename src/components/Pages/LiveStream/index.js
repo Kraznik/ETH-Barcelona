@@ -57,7 +57,7 @@ const LiveStream = () => {
           <iframe
             width="100%"
             height="100%"
-            src="https://www.youtube.com/embed/a5mmLHWLPic"
+            src="https://www.youtube.com/embed/l7wmz46PAuo"
             title="ETH Bcn Forest Stage Live Stream"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
