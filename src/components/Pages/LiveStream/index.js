@@ -57,7 +57,7 @@ const LiveStream = () => {
           <iframe
             width="100%"
             height="100%"
-            src="https://www.youtube.com/embed/l7wmz46PAuo"
+            src="https://www.youtube.com/embed/yoWn-hDG7-Y"
             title="ETH Bcn Forest Stage Live Stream"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -70,7 +70,7 @@ const LiveStream = () => {
           <iframe
             width="100%"
             height="100%"
-            src="https://www.youtube.com/embed/eyAcJb7O7K8"
+            src="https://www.youtube.com/embed/h_fxdJrpwy0"
             title="Eth Bcn Sky stage Live Stream"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
