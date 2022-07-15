@@ -23,7 +23,7 @@ const configMainnet = {
   ethMainnetUrl: `https://eth-mainnet.g.alchemy.com/v2/QR5C5zzZSEnBkW8aQKWBkoblpPjENnwd`,
   contractAddress: "0xE3A161EdD679fC5ce2dB2316a4B6f7ab33a8eD6A",
   ethBcnMomentsCreatorAddress: "0xDb036eE95eA5B621559d44f6A720D8fDBCD9c43C",
-  ethCcMomentsCreatorAddress: "0x99354ac00459C0D601760fd9c00329444D60F614",
+  ethCcMomentsCreatorAddress: "0x53aa9ACda320e8A88aB42dd30f446927e92f5D15",
   sio: {
     id: "707eabb4-bd4f-4c71-a154-ecf614ae56ee", // ETH BCN Donations
     decentralizedId: 43,

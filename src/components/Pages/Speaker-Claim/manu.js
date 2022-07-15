@@ -334,7 +334,7 @@ const ManuSpeakerCard = () => {
                 <Name>Successfully Claimed ;)</Name>
                 <div className="vi">
                   <a
-                    href={`https://doingud.com/${walletAddress}`}
+                    href={`${config.dgAppBaseUrl}/${walletAddress}`}
                     target={"_blank"}
                     className="view"
                     style={{ textDecoration: "underline" }}
