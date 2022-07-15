@@ -14,6 +14,8 @@ import { useWeb3React } from "@web3-react/core";
 
 import { useUploadArtwork, Claim } from "./functions";
 import { config } from "../../../config/config";
+import { toChecksumAddress } from "ethereum-checksum-address";
+import Web3 from "web3";
 const { uploadFile } = useUploadArtwork();
 
 export const Activity = styled.div`
@@ -179,16 +181,16 @@ const options = {
   },
 };
 
-const Moments = () => {
+const EthCcMoments = () => {
   const { library, account } = useWeb3React();
   const [AccessToken, setAccessToken] = useState();
   const [file, setFile] = useState();
   const [momentsData, setMomentsData] = useState({
     title: "",
     description: "",
-    ticketIds: [],
+    walletAddresses: [],
   });
-  const [ticketIds, setTicketIds] = useState();
+  const [walletAddresses, setWalletAddresses] = useState();
   const [nftTypeId, setNftTypeId] = useState();
   const [validTicketIds, setValidTicketIds] = useState([]);
   const [invalidTicketIds, setInvalidTicketIds] = useState([]);
@@ -199,8 +201,6 @@ const Moments = () => {
   const [success, setSuccess] = useState(false);
   const [Error, setError] = useState(false);
 
-  const [leaderboard, setLeaderboard] = useState([]);
-
   const getAccessToken = async () => {
     const configOptions = {
       headers: {
@@ -209,13 +209,13 @@ const Moments = () => {
     };
 
     const data = {
-      userId: process.env.REACT_APP_DG_USER_ID,
+      userId: process.env.REACT_APP_ETHCC_USER_ID,
       proof: {
-        payload: process.env.REACT_APP_DG_PAYLOAD,
+        payload: process.env.REACT_APP_ETHCC_PAYLOAD,
         signatures: [
           {
-            protected: process.env.REACT_APP_DG_PROTECTED,
-            signature: process.env.REACT_APP_DG_SIGNATURE,
+            protected: process.env.REACT_APP_ETHCC_PROTECTED,
+            signature: process.env.REACT_APP_ETHCC_SIGNATURE,
           },
         ],
       },
@@ -235,33 +235,9 @@ const Moments = () => {
   // pass this file to our backend api
   const retrieveFile = (e) => {
     const data = e.target.files[0];
-    // setTokenData({ ...tokenData, imageIpfsHash: "" });
-    // console.log("file data: ", data);
     setFile(data);
-    // setFileName(data.name);
-
-    // const reader = new window.FileReader();
-    // reader.readAsArrayBuffer(data);
-    // reader.onloadend = () => {
-    //   setFile(Buffer(reader.result));
-    //   console.log("file: ", Buffer(reader.result));
-    // };
-
-    // console.log("file: ", Buffer(reader.result));
 
     e.preventDefault();
-  };
-
-  const addMomentsData = async (ticketIds) => {
-    try {
-      const url = `${config.apiBaseUrl}/ethMoments`;
-      const patch_data = {
-        data: ticketIds,
-      };
-      await axios.patch(url, patch_data, options);
-    } catch (err) {
-      console.error(err);
-    }
   };
 
   const mintAMoment = async () => {
@@ -276,7 +252,6 @@ const Moments = () => {
           library,
           momentsData
         );
-        await addMomentsData(momentsData.ticketIds);
         setMinting(false);
       }
       setSuccess(true);
@@ -288,29 +263,53 @@ const Moments = () => {
     }
   };
 
-  const getListOfTicketIds = async (ticketIds) => {
+  const getListOfWalletAddresses = async (walletAddresses) => {
     try {
-      // console.log(ticketIds);
-      let ticketIdList = ticketIds.split(",").map((id) => {
-        if (id === "" || id === " ") return null;
-        return parseInt(id);
+      console.log(walletAddresses);
+      let walletAddressList = walletAddresses.split(",").map((address) => {
+        if (address === "" || address === " ") return null;
+        return address.trim();
       }); // split(/,|, /);
 
-      ticketIdList = ticketIdList.filter((id) => id !== null);
-      // console.log("ticket ids: ", ticketIdList);
+      walletAddressList = walletAddressList.filter(
+        (address) => address !== null
+      );
+      console.log("wallet addresses: ", walletAddressList);
 
       let validOnes = [],
         invalidOnes = [];
 
-      for (let i = 0; i < ticketIdList.length; i++) {
-        const url = `${config.apiBaseUrl}/verifyTicket/${ticketIdList[i]}`;
-        const { data } = await axios.get(url, options);
-        // console.log("ticket validation: ", data);
-        if (data.message === "Valid") {
-          const card = renderValidTicketIds(ticketIdList[i], i);
+      for (let i = 0; i < walletAddressList.length; i++) {
+        var walletAddress = "";
+        let address = walletAddressList[i].trim();
+        try {
+          if (address.trim().length !== 42 && address.slice(-3) === "eth") {
+            var provider = new Web3.providers.HttpProvider(
+              config.ethMainnetUrl
+            );
+            const web3 = new Web3(provider);
+            walletAddress = await web3.eth.ens.getAddress(address.trim());
+            console.log("wallet address: ", walletAddress);
+          }
+        } catch (err) {
+          console.log("error resolving ens name");
+          console.error(err);
+        }
+
+        console.log(i, " ", walletAddress, address);
+        // && walletAddressList[i - 1] !== walletAddress
+        if (walletAddress) {
+          walletAddressList[i] = walletAddress;
+          address = walletAddress;
+        }
+
+        if (address.length == 42) address = toChecksumAddress(address);
+
+        if (address.length == 42 && toChecksumAddress(address)) {
+          const card = renderValidTicketIds(address, i);
           validOnes.push(card);
         } else {
-          const card = renderInvalidTicketIds(ticketIdList[i], i);
+          const card = renderInvalidTicketIds(address, i);
           invalidOnes.push(card);
         }
       }
@@ -321,113 +320,43 @@ const Moments = () => {
       // console.log("valid: ", validOnes);
       // console.log("invalid: ", invalidOnes);
 
-      setMomentsData({ ...momentsData, ticketIds: ticketIdList });
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  const renderValidTicketIds = (ticketId, i) => {
-    return (
-      <div className="correct" key={i}>
-        {ticketId}
-      </div>
-    );
-  };
-
-  const renderInvalidTicketIds = (ticketId, i) => {
-    return (
-      <div className="incorrect" key={i}>
-        {ticketId}
-      </div>
-    );
-  };
-
-  const getLeaderboardDetails = async () => {
-    try {
-      const url = `${config.apiBaseUrl}/ethMomentsLeaderboard`;
-      const { data } = await axios.get(url, options);
-      // console.log(data);
-      let listOfCards = [];
-      // var putAtLast = true;
-      // var ownIndex = data.rank[ticketId];
-      // if (data.rank[ticketId] < 9) {
-      //   putAtLast = false;
-      // }
-      data.map((row, index) => {
-        const currentDate = new Date();
-        const lastActivity = new Date(row.updatedAt);
-        const getSeconds = Math.floor((currentDate - lastActivity) / 1000);
-        const getMinutes = Math.floor(getSeconds / 60);
-        const getHours = Math.floor(getMinutes / 60);
-        const getDays = Math.floor(getHours / 24);
-
-        if (getDays > 0) {
-          var lastActivityTime = getDays + " days ago";
-        } else if (getHours > 0) {
-          var lastActivityTime = getHours + " hours ago";
-        } else if (getMinutes > 0) {
-          var lastActivityTime = getMinutes + " minutes ago";
-        } else {
-          var lastActivityTime = getSeconds + " seconds ago";
+      walletAddressList = walletAddressList.map((address) => {
+        if (address.length === 42) {
+          console.log("checksum: ", toChecksumAddress(address));
+          return toChecksumAddress(address);
         }
-
-        // console.log("currentDate: ", currentDate);
-        // console.log("lastActivity: ", lastActivity);
-        // console.log("timeAgo: ", getMinutes);
-
-        if (index < 10 && row.count > 0) {
-          const card = renderLeaderboardRow(
-            index,
-            // index === ownIndex,
-            row.ticketId,
-            row.count,
-            lastActivityTime
-          );
-          listOfCards.push(card);
-        } else {
-          return;
-        }
+        return address;
       });
-      // if (putAtLast) {
-      //   const OwnCard = renderLeaderboardRow(
-      //     ownIndex,
-      //     true,
-      //     ticketId,
-      //     data?.data[ownIndex]?.data || 0,
-      //     "Not started yet"
-      //   );
-      //   listOfCards.push(OwnCard);
-      // }
-      setLeaderboard(listOfCards);
+
+      console.log("final: ", walletAddressList);
+
+      setMomentsData({ ...momentsData, walletAddresses: walletAddressList });
     } catch (err) {
       console.error(err);
     }
   };
 
-  const renderLeaderboardRow = (
-    index,
-    // you,
-    ticketId,
-    count,
-    lastActivity
-  ) => {
+  const renderValidTicketIds = (walletAddress, i) => {
     return (
-      <LeaderboardBox
-        // style={{ backgroundColor: you ? "yellow" : "white" }}
-        key={index}
-      >
-        <Info style={{ width: "10vw" }}>{index + 1} </Info>
-        <Info style={{ width: "10vw" }}>{ticketId}</Info>
-        <Info style={{ width: "10vw" }}>{count}</Info>
-        <Activity style={{ width: "20vw" }}>{lastActivity}</Activity>
-      </LeaderboardBox>
+      <>
+        <div className="correct" key={i}>
+          {walletAddress.slice(0, 4)}....{walletAddress.slice(-4)}
+        </div>
+        <br />
+      </>
     );
   };
 
-  useEffect(() => {
-    getLeaderboardDetails();
-  }, []);
+  const renderInvalidTicketIds = (walletAddress, i) => {
+    return (
+      <>
+        <div className="incorrect" key={i}>
+          {walletAddress.slice(0, 4)}....{walletAddress.slice(-4)}
+        </div>
+        <br />
+      </>
+    );
+  };
 
   return (
     <>
@@ -444,10 +373,10 @@ const Moments = () => {
             className="eth-bcn-moments"
           ></img>
           <Title2>Moments</Title2>
-          <Title3>ETHBarcelona</Title3>
+          <Title3>ETHCC</Title3>
           <Description2>
             Let your experience live on the blockchain by sharing your best
-            moments at ETHBarcelona.
+            moments at ETHCC, Paris.
           </Description2>
         </Hero>
         <InputContainer>
@@ -485,14 +414,15 @@ const Moments = () => {
               type="text"
               placeholder="Tag Yourself and your friends"
               className="input"
-              value={ticketIds}
+              value={walletAddresses}
               onChange={(e) => {
-                getListOfTicketIds(e.target.value);
-                setTicketIds(e.target.value);
+                getListOfWalletAddresses(e.target.value);
+                setWalletAddresses(e.target.value);
               }}
             ></input>
             <p className="taggingInfo">
-              Ex. 456 , 78 , 1 , 1265 (seprated by comma)
+              Ex. test.eth, 0x5c0085E600398247a37de389931CCea8EdD3ba67, etc.
+              (seprated by comma)
             </p>
 
             <Flex>
@@ -530,15 +460,6 @@ const Moments = () => {
             </RedeemOut>
           </Forum>
         </InputContainer>
-
-        <LeaderboardContainer>
-          <Titles style={{ width: "10vw" }}>RANK</Titles>
-          <Titles style={{ width: "10vw" }}>TicketID</Titles>
-          <Titles style={{ width: "15vw" }}>Moments</Titles>
-          <Titles style={{ width: "20vw" }}>LAST Activity</Titles>
-
-          {leaderboard}
-        </LeaderboardContainer>
 
         {/* PopUp to conifrm the NFTID's */}
 
@@ -630,4 +551,4 @@ const Moments = () => {
   );
 };
 
-export default Moments;
+export default EthCcMoments;

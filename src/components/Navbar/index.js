@@ -115,6 +115,7 @@ const withouSidebarRoutes1 = [
   "/speakersCollection",
   "/speakerCard",
   "/moments",
+  "/ethccmoments",
   "/speakers",
   "/livestream",
 ];

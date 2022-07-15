@@ -28,6 +28,7 @@ import {
 } from "./components/ConnectWalletButton/functions";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import Moments from "./components/Pages/Moments";
+import EthCcMoments from "./components/Pages/EthCcMoments";
 import SpeakerPage from "./components/Pages/Speaker";
 import Terms from "./components/Pages/Terms";
 import Privacy from "./components/Pages/Privacy/privacy";
@@ -35,6 +36,8 @@ import SpeakerHomePage from "./components/Pages/SpeakerHomePage";
 import SpeakersClaimed from "./components/Pages/SpeakersClaimed";
 import SpeakerClaim from "./components/Pages/Speaker-Claim";
 import LiveStream from "./components/Pages/LiveStream";
+import { config } from "./config/config";
+import ManuSpeakerCard from "./components/Pages/Speaker-Claim/manu";
 
 const changeNetwork = async () => {
   try {
@@ -45,7 +48,7 @@ const changeNetwork = async () => {
       method: "wallet_switchEthereumChain",
       params: [
         {
-          chainId: `0x${Number(137).toString(16)}`, // mumbai = 80001 // polygon = 137
+          chainId: `0x${Number(config.chainId).toString(16)}`, // mumbai = 80001 // polygon = 137
         },
       ],
     });
@@ -264,6 +267,7 @@ const App = () => {
             }
           />
           <Route exact path="/moments" element={<Moments />} />
+          <Route exact path="/ethccmoments" element={<EthCcMoments />} />
           {/* <Route
             exact
             path="/moments"
@@ -278,6 +282,12 @@ const App = () => {
             exact
             path="/speakers/:ticketId"
             element={<SpeakersClaimed />}
+          />
+
+          <Route
+            exact
+            path="/speakerCard/106/manu"
+            element={<ManuSpeakerCard />}
           />
           <Route
             exact
