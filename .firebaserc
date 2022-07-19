@@ -2,7 +2,8 @@
   "projects": {
     "default": "eth-barcelona",
     "staging": "dev-eth-barcelona",
-    "mainnet-test": "main-eth-bcn"
+    "mainnet-test": "main-eth-bcn",
+    "ethcc": "ethcc-moments"
   },
   "targets": {}
 }

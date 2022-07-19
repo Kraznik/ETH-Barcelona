@@ -281,8 +281,8 @@ const ManuSpeakerCard = () => {
 
         <InputContainer>
           <Title4>Speakers</Title4>
-          <Title5>{id}</Title5>
-          <Title4>NFTicket ID</Title4>
+          {/* <Title5>{id}</Title5> */}
+          {/* <Title4>NFTicket ID</Title4> */}
 
           <Title2>My Card!</Title2>
 

@@ -407,7 +407,7 @@ const EthCcMoments = () => {
             ></textarea>
             <br />
 
-            <label className="text-moments">NFTicket ID's</label>
+            <label className="text-moments">ETH Address</label>
             <br />
             <input
               multiple
@@ -469,7 +469,7 @@ const EthCcMoments = () => {
               <div onClick={() => setPopup(false)}>Close</div>
 
               <div className="title">
-                Please Confirm the NFTicket ID Before Minting
+                Please Confirm the ETH Address Before Minting
               </div>
 
               {validTicketIds}
@@ -477,7 +477,7 @@ const EthCcMoments = () => {
               {invalidTicketIds.length > 0 ? (
                 <>
                   <div className="invalid">
-                    Invalid NFTicket ID (Please input again)
+                    Invalid ETH Address (Please input again)
                   </div>
                   <div className="yy">{invalidTicketIds}</div>
                 </>
