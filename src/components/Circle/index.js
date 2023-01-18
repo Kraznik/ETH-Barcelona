@@ -7,7 +7,7 @@ import "./style.css";
 import { Link } from "react-router-dom";
 
 const Container = styled.div`
-  background: #354b37;
+  background: #f5c34b;
 `;
 
 const ImgContainer = styled.div`
@@ -45,7 +45,7 @@ const Title = styled.div`
   font-size: 96px;
   line-height: 100px;
   text-align: center;
-  color: #f5c34b;
+  color: #354b37;
 
   @media (max-width: 700px) {
     font-family: "Dahlia-normal";
@@ -55,7 +55,7 @@ const Title = styled.div`
     line-height: 56px;
     padding: 0;
     text-align: center;
-    color: #f5c34b;
+    color: #354b37;
   }
 `;
 
@@ -67,7 +67,7 @@ const Bold = styled.div`
 
   display: inline-block;
   text-align: center;
-  color: #f5c34b;
+  color: #354b37;
 
   @media (max-width: 700px) {
     font-family: "Dahlia-bold";
@@ -77,7 +77,7 @@ const Bold = styled.div`
     display:inline;
 
     text-align: center;
-    color: #f5c34b;
+    color: #354b37;
   }
 `;
 

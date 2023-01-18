@@ -38,6 +38,7 @@ import SpeakerClaim from "./components/Pages/Speaker-Claim";
 import LiveStream from "./components/Pages/LiveStream";
 import { config } from "./config/config";
 import ManuSpeakerCard from "./components/Pages/Speaker-Claim/manu";
+import LatestVersion from "./components/Pages/2023Version/index";
 
 const changeNetwork = async () => {
   try {
@@ -220,7 +221,12 @@ const App = () => {
           isOrganizer={isOrganizer}
         />
         <Routes>
-          <Route exact path="/" element={<Landing isMobile={isMobile} />} />
+          <Route
+            exact
+            path="/"
+            element={<LatestVersion isMobile={isMobile} />}
+          />
+          <Route exact path="/2022" element={<Landing isMobile={isMobile} />} />
           {/* <Route exact path="/moments" element={<Moments />} /> */}
           <Route exact path="/speaker" element={<SpeakerPage></SpeakerPage>} />
           <Route exact path="/terms-and-conditions" element={<Terms />} />

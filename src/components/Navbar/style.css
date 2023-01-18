@@ -9,7 +9,9 @@
 }
 
 .bar {
-  background: #f5c34b;
+  background: #354b37;
+  align-items: center;
+  padding: 0 auto;
 }
 
 .text {
@@ -54,7 +56,8 @@
 }
 .logo {
   align-items: center;
-  margin-left: 15%;
+  width: 50px;
+  margin: 0 auto;
 }
 
 @media screen and (max-width: 800px) {
@@ -202,3 +205,4 @@
 .address{
     font-size: 16px;
 }
+

@@ -1,0 +1,148 @@
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import NFT from "../../assets/NFT.png";
+import "./style.css";
+
+const Container = styled.div`
+  background: #354b37;
+  min-width: 700px;
+  padding: 50px 0;
+
+  @media screen and (max-width: 800px) {
+    min-width: 375px;
+  }
+`;
+
+const Title = styled.div`
+  font-family: "Dahlia-normal";
+  font-style: normal;
+
+  font-size: 150px;
+  line-height: 160px;
+
+  /* font-size: 5vw;
+  line-height: 2vh; */
+  position: relative;
+  text-align: center;
+  color: white;
+  text-align: center;
+  letter-spacing: -0.01em;
+  color: #f5c34b;
+
+  @media screen and (max-width: 1200px) {
+    font-size: 120px;
+    line-height: 130px;
+  }
+
+  @media screen and (max-width: 950px) {
+    font-size: 100px;
+    line-height: 110px;
+  }
+
+  @media screen and (max-width: 800px) {
+    font-size: 64px;
+    line-height: 64px;
+    width: 346px;
+    margin-left:-20px;
+
+  }
+`;
+const Title1 = styled.div`
+  font-family: "Dahlia-normal";
+  font-style: normal;
+  font-size: 150px;
+  line-height: 160px;
+  /* font-size: 5vw;
+  line-height: 2vh; */
+  text-align: center;
+  color: white;
+  text-align: center;
+  letter-spacing: -0.01em;
+  color: #f5c34b;
+
+  @media screen and (max-width: 1200px) {
+    font-size: 120px;
+    line-height: 130px;
+  }
+  @media screen and (max-width: 950px) {
+    font-size: 100px;
+    line-height: 110px;
+  }
+
+  @media screen and (max-width: 800px) {
+    font-size: 64px;
+    line-height: 64px;
+    display:inline-block;
+    margin:0;
+  }
+`;
+const Image = styled.div`
+  background-image: url(${NFT});
+  height: 374.5px;
+  display: inline-block;
+  margin: 0 0 0 -160px;
+  width: 301px;
+  position: absolute;
+
+  @media screen and (max-width: 800px) {
+    zoom: 85%;
+    margin: auto;
+    position: static;
+  }
+`;
+const TextContainer = styled.div`
+  padding: 78px 191px 200px 190px;;
+
+  @media screen and (max-width: 800px) {
+    padding:10%;
+  }
+
+`;
+
+const Dates = styled.div`
+  font-family: "Dahlia";
+  font-style: normal;
+  font-weight: 1000;
+  font-size: 25px;
+  margin-top: 2.5%;
+  line-height: 30px;
+  /* identical to box height, or 120% */
+  align-items: center;
+  color: #f5c34b;
+
+  @media screen and (max-width: 950px) {
+    margin-top: 50px;
+  }
+`;
+
+const Intro = ({ isMobile }) => {
+  return (
+    <>
+      <Container>
+        {/* <Navbar></Navbar> */}
+
+        <TextContainer>
+          {!isMobile ? (
+            <>
+              <Image></Image>
+              <Title>What happens in</Title>
+              <Title1>Barcelona stays</Title1>
+              <Title>on the Blockchain</Title>
+              <Dates>July 5-7</Dates>
+            </>
+          ) : (
+            <>
+              <Dates>July 6-7</Dates>
+              <Title>What happens in Barcelona stays on the Blockchain</Title>
+              {/* <Title1>Barcelona stays</Title1>
+              <Title>on the Blockchain</Title> */}
+              <Image style={{ marginTop: "-50px" }}></Image>
+            </>
+          )}
+        </TextContainer>
+      </Container>
+    </>
+  );
+};
+
+export default Intro;
