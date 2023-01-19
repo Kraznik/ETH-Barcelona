@@ -140,19 +140,19 @@ const Apply = () => {
         <Heading3> JOIN THE PARTY</Heading3>
         <ApplyContainer>
           <Heading4>
-            <a href="bit.ly/ETHbcnSpeakers">Apply as a Speaker</a>
+            <a href="https://form.typeform.com/to/Ivc5Yhnw">Apply as a Speaker</a>
           </Heading4>
           <Heading4>
-            <a href="bit.ly/ethbcnMedia">Apply as a Media Partner</a>
+            <a href="https://form.typeform.com/to/W9ZJTLHR">Apply as a Media Partner</a>
           </Heading4>
           <Heading4>
-            <a href="bit.ly/ETHbcnSpeakers">Apply as a Volunteer</a>
+            <a href="https://form.typeform.com/to/ZV1XCNdh">Apply as a Volunteer</a>
           </Heading4>
           <Heading4>
-            <a href="bit.ly/ethbcnSponsors">Apply as a Sponsor</a>
+            <a href="https://form.typeform.com/to/JPmR5t3l">Apply as a Sponsor</a>
           </Heading4>
           <Heading4>
-            <a href="bit.ly/ethbcnStudents">
+            <a href="https://form.typeform.com/to/Ms67e4Cl">
               Student Ticket Application
             </a>
           </Heading4>
