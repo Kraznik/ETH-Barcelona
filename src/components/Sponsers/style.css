@@ -2,7 +2,14 @@
     height:100px;
     width: 140px;
     margin: 10px; 
-
-    
-   
 }
+
+@media screen and (max-width: 800px) {
+    .ethbcn23 {
+        height: 100px;
+        width: 125px;
+        margin: 5px;
+
+     
+    }
+  }
