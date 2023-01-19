@@ -3,7 +3,7 @@ import Circle from "../../Circle";
 import FAQ from "../../FAQ";
 import Footer from "../../Footer/index2";
 import Speakers from "../../Speakers";
-import Sponsers from "../../Sponsers";
+import Sponsers from "../../Sponsers/index2";
 import Intro from "../../Intro/index2";
 import Hero from "../../Dual/index2";
 import Navbars from "../../Navbar";
@@ -17,7 +17,9 @@ const index = ({ isMobile }) => {
       <Circle></Circle>
       <Apply />
       <Hero isMobile={isMobile}></Hero>
+      <Sponsers />
       <FAQ></FAQ>
+      
       <Footer></Footer>
     </>
   );

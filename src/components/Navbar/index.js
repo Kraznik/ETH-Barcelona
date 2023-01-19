@@ -90,7 +90,7 @@ const Text = styled.div`
   /* identical to box height, or 160% */
   text-align: right;
   letter-spacing: 1px;
-  color: #354b37;
+  color: #f5c34b;
   padding-top: 10px;
 `;
 
@@ -159,14 +159,14 @@ const Navbars = ({
         </a>
       </div> */}
       <Navbar collapseOnSelect expand="lg" className="bar">
-        {/* <Container className="bar"> */}
-          {/* <Nav.Link
-            href="https://guidebook.com/g/#/guides/ethbcnapp/schedule/sessions?scheduleDayPosition=2022-07-06&scheduleIndexInDayPosition=0r"
+        <Container className="bar">
+          <Nav.Link
+            href="https://www.youtube.com/@ethbarcelona"
             className="speaker"
           >
-            <Text>Agenda </Text>
+            <Text>Past Talks </Text>
           </Nav.Link>
-          <Nav.Link
+          {/* <Nav.Link
             href="https://ethbarcelona.notion.site/ETHBarcelona-Side-Events-1df2e6e28f90462d81059261a7dc9231"
             target={"_blank"}
             className="speaker"
@@ -327,7 +327,7 @@ const Navbars = ({
             {/* </Nav> */}
           {/* </Navbar.Collapse> */}
           {/* <ConnectWalletButton /> */}
-        {/* </Container> */}
+        </Container>
       </Navbar>
     </div>
   );

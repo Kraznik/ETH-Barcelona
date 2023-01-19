@@ -57,7 +57,7 @@
 .logo {
   align-items: center;
   width: 50px;
-  margin: 0 auto;
+  margin: 0 auto 0 40%;
 }
 
 @media screen and (max-width: 800px) {
