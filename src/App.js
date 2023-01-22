@@ -107,11 +107,11 @@ const App = () => {
     };
   }, []);
 
-  useEffect(() => {
-    try {
-      changeNetwork();
-    } catch {}
-  }, [chainId]);
+  // useEffect(() => {
+  //   try {
+  //     changeNetwork();
+  //   } catch {}
+  // }, [chainId]);
 
   const getCollections = async () => {
     try {
